@@ -1,0 +1,27 @@
+import { chromium } from 'playwright-core';
+import { pathToFileURL } from 'node:url';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
+const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const b=await chromium.launch({executablePath:exe,headless:true});
+const p=await b.newPage({viewport:{width:1200,height:800},hasTouch:true});
+await p.goto(pathToFileURL('/Users/a.smirnov/p/portfolio-deepsick/index.html').href); await p.waitForTimeout(500);
+const out=await p.evaluate(async()=>{
+ const wait=()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+ window.scrollTo(0,0); await wait();
+ const target=document.querySelector('#drum');
+ const make=(x,y)=>new Touch({identifier:1,target,clientX:x,clientY:y,pageX:x,pageY:y,screenX:x,screenY:y,radiusX:1,radiusY:1,force:1});
+ const fire=(type,touch,touches)=>window.dispatchEvent(new TouchEvent(type,{bubbles:true,cancelable:true,touches, targetTouches:touches,changedTouches:[touch]}));
+ const t0=make(300,400); fire('touchstart',t0,[t0]); await wait();
+ const t1=make(280,402); fire('touchmove',t1,[t1]); await wait();
+ const t2=make(240,404); fire('touchmove',t2,[t2]); await wait();
+ const afterRecognition=scrollY;
+ const t3=make(180,406); fire('touchmove',t3,[t3]); await wait();
+ const moved=scrollY;
+ const t4=make(120,408); fire('touchmove',t4,[t4]); await wait();
+ const moved2=scrollY;
+ fire('touchend',t4,[]);
+ return {afterRecognition,moved,moved2,U:window.__orbits.getState().U,W:window.__orbits.getState().W};
+});
+console.log(JSON.stringify(out,null,2));
+await b.close();

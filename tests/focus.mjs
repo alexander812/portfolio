@@ -1,0 +1,24 @@
+import { chromium } from 'playwright-core';
+import { pathToFileURL } from 'node:url';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
+const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const b=await chromium.launch({executablePath:exe,headless:true});
+const p=await b.newPage({viewport:{width:1200,height:800}});
+await p.goto(pathToFileURL('/Users/a.smirnov/p/portfolio-deepsick/index.html').href); await p.waitForTimeout(400);
+const log=await p.evaluate(async()=>{
+ const wait=(ms)=>new Promise(r=>setTimeout(r,ms));
+ window.__orbits.jumpToT(14.21); await wait(100);
+ const before={active:document.activeElement.tagName+':'+(document.activeElement.id||document.activeElement.className), y:scrollY};
+ window.__orbits.openMenu(); await wait(100);
+ const open={active:document.activeElement.tagName+':'+(document.activeElement.id||document.activeElement.className), hidden:document.querySelector('#menuModal').hidden, cls:document.querySelector('#menuModal').className};
+ window.__orbits.closeMenu();
+ const immediately={active:document.activeElement.tagName+':'+(document.activeElement.id||document.activeElement.className), hidden:document.querySelector('#menuModal').hidden, cls:document.querySelector('#menuModal').className};
+ await wait(320);
+ const after320={active:document.activeElement.tagName+':'+(document.activeElement.id||document.activeElement.className), hidden:document.querySelector('#menuModal').hidden, cls:document.querySelector('#menuModal').className, y:scrollY};
+ await wait(300);
+ const after620={active:document.activeElement.tagName+':'+(document.activeElement.id||document.activeElement.className), hidden:document.querySelector('#menuModal').hidden, cls:document.querySelector('#menuModal').className, y:scrollY};
+ return {before,open,immediately,after320,after620};
+});
+console.log(JSON.stringify(log,null,2));
+await b.close();

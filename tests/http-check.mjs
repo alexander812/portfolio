@@ -1,0 +1,11 @@
+import { chromium } from 'playwright-core';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
+const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const b=await chromium.launch({executablePath:exe,headless:true});
+const p=await b.newPage({viewport:{width:1200,height:800}});
+const errors=[];p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+const res=await p.goto('http://127.0.0.1:4173/');
+await p.waitForTimeout(600);
+console.log(JSON.stringify({status:res.status(),title:await p.title(),state:await p.evaluate(()=>window.__orbits.getState().t),errors},null,2));
+await b.close();

@@ -1,0 +1,43 @@
+import { chromium } from 'playwright-core';
+import { pathToFileURL } from 'node:url';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
+const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const b=await chromium.launch({executablePath:exe,headless:true});
+const p=await b.newPage({viewport:{width:1200,height:800}});
+await p.goto(pathToFileURL('/Users/a.smirnov/p/portfolio-deepsick/index.html').href); await p.waitForTimeout(500);
+const out=await p.evaluate(async()=>{
+ const wait=()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+ const fire=(dx,dy,opts={})=>window.dispatchEvent(new WheelEvent('wheel',{deltaX:dx,deltaY:dy,deltaMode:0,bubbles:true,cancelable:true,...opts}));
+ window.scrollTo(0,0); await wait();
+ const start=scrollY;
+ fire(100,0); await wait(); const afterForward=scrollY;
+ fire(-60,0); await wait(); const afterBack=scrollY;
+ fire(100,200); await wait(); const afterVerticalDominant=scrollY;
+ fire(0,100,{ctrlKey:true}); await wait(); const afterCtrl=scrollY;
+ fire(3,0,{deltaMode:1}); await wait(); const afterLines=scrollY;
+ return {start,afterForward,afterBack,afterVerticalDominant,afterCtrl,afterLines,U:window.__orbits.getState().U};
+});
+console.log(JSON.stringify(out,null,2));
+// touch swipe synthetic
+const touch=await p.evaluate(async()=>{
+ const wait=()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+ window.scrollTo(0,0); await wait();
+ const target=document.querySelector('#drum');
+ const make=(x,y)=>new Touch({identifier:1,target,clientX:x,clientY:y,pageX:x,pageY:y,screenX:x,screenY:y,radiusX:1,radiusY:1,force:1});
+ const start=make(300,400);
+ const startEvent=new TouchEvent('touchstart',{bubbles:true,cancelable:true,touches:[start],targetTouches:[start],changedTouches:[start]});
+ window.dispatchEvent(startEvent);
+ await wait();
+ const move1=make(290,402);
+ window.dispatchEvent(new TouchEvent('touchmove',{bubbles:true,cancelable:true,touches:[move1],targetTouches:[move1],changedTouches:[move1]}));
+ await wait();
+ const move2=make(200,404);
+ window.dispatchEvent(new TouchEvent('touchmove',{bubbles:true,cancelable:true,touches:[move2],targetTouches:[move2],changedTouches:[move2]}));
+ await wait();
+ const moved=scrollY;
+ window.dispatchEvent(new TouchEvent('touchend',{bubbles:true,cancelable:true,touches:[],targetTouches:[],changedTouches:[move2]}));
+ return {moved,U:window.__orbits.getState().U,W:window.__orbits.getState().W};
+});
+console.log(JSON.stringify(touch,null,2));
+await b.close();

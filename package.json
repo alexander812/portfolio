@@ -1,0 +1,14 @@
+{
+  "name": "orbits-of-experience",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "python3 -m http.server 4173",
+    "test": "node tests/e2e.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.55.0"
+  }
+}

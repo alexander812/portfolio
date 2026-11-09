@@ -1,0 +1,14 @@
+import { chromium } from 'playwright-core';
+import { pathToFileURL } from 'node:url';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
+const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const b=await chromium.launch({executablePath:exe,headless:true});
+const c=await b.newContext({viewport:{width:390,height:844},hasTouch:true,isMobile:true});
+const p=await c.newPage();
+await p.goto(pathToFileURL('/Users/a.smirnov/p/portfolio-deepsick/index.html').href); await p.waitForTimeout(500);
+await p.evaluate(()=>window.__orbits.jumpToT(0.98)); await p.waitForTimeout(400);
+await p.evaluate(async()=>{for(let i=0;i<14;i++){window.scrollBy(0,90);await new Promise(r=>requestAnimationFrame(r));}});
+await p.screenshot({path:'tests/warp-mobile.png'});
+console.log(await p.evaluate(()=>({y:scrollY,t:window.__orbits.getState().t})));
+await b.close();

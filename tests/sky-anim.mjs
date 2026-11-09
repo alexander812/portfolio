@@ -1,0 +1,13 @@
+import { chromium } from 'playwright-core';
+import { pathToFileURL } from 'node:url';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
+const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const b=await chromium.launch({executablePath:exe,headless:true});
+const p=await b.newPage({viewport:{width:1200,height:800}});
+await p.goto(pathToFileURL('/Users/a.smirnov/p/portfolio-deepsick/index.html').href); await p.waitForTimeout(800);
+const a=await p.evaluate(()=>document.querySelector('#bg-canvas').toDataURL());
+await p.waitForTimeout(500);
+const c=await p.evaluate(()=>document.querySelector('#bg-canvas').toDataURL());
+console.log({same:a===c,lengthA:a.length,lengthB:c.length});
+await b.close();

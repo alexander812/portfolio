@@ -1,0 +1,21 @@
+import { chromium } from 'playwright-core';
+import { pathToFileURL } from 'node:url';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
+const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
+const b=await chromium.launch({executablePath:exe,headless:true});
+const p=await b.newPage({viewport:{width:1200,height:800}});
+await p.goto(pathToFileURL('/Users/a.smirnov/p/portfolio-deepsick/index.html').href); await p.waitForTimeout(500);
+const out=await p.evaluate(async()=>{
+ const wait=()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+ const ch=document.querySelector('.stop-chapter[data-chapter="2026"]');
+ const track=ch.querySelector('.episodes-track');
+ const rect=()=>{const r=ch.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height,cx:r.x+r.width/2,cy:r.y+r.height/2,op:getComputedStyle(ch).opacity,tr:ch.style.transform,hidden:ch.className, track:track.style.transform}};
+ window.scrollTo(0,0.98*window.__orbits.getState().U); await wait(); const center=rect();
+ window.scrollTo(0,0.98*window.__orbits.getState().U+40); await wait(); const after40=rect();
+ window.scrollTo(0,3.08*window.__orbits.getState().U); await wait(); const last=rect();
+ window.scrollTo(0,3.08*window.__orbits.getState().U+40); await wait(); const last40=rect();
+ return {center,after40,last,last40,state:window.__orbits.getState()};
+});
+console.log(JSON.stringify(out,null,2));
+await b.close();
