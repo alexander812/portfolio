@@ -11,7 +11,7 @@ const errors=[]; p.on('pageerror',e=>errors.push(e.message)); p.on('console',m=>
 await p.goto(pathToFileURL(join(root,'index.html')).href); await p.waitForTimeout(500);
 const checks=[]; const check=(ok,msg,detail='')=>checks.push({ok,msg,detail});
 // pause buttons count
-check(await p.evaluate(()=>document.querySelectorAll('.pause-btn').length===3),'3 кнопки паузы',String(await p.evaluate(()=>document.querySelectorAll('.pause-btn').length)));
+check(await p.evaluate(()=>document.querySelectorAll('.pause-btn').length===0),'нет кнопок паузы',String(await p.evaluate(()=>document.querySelectorAll('.pause-btn').length)));
 // cover pause: кнопка убрана вместе с подписями
 check(await p.evaluate(()=>!document.querySelector('.skills-card .pause-btn')),'у обложки нет кнопки паузы');
 const scrollDuringPause=await p.evaluate(()=>scrollY);
@@ -24,7 +24,7 @@ check(Math.abs(startT-0.98)<0.02,'кнопка «Начать путешеств
 // year nav 2006
 await p.click('[data-year="2006"]'); await p.waitForTimeout(250);
 const yearState=await p.evaluate(()=>{const s=window.__orbits.getState();return {t:s.t,c:s.counter,m:s.mode,y:s.activeYear}});
-check(Math.abs(yearState.t-44.03)<0.02 && yearState.c==='01 / 02' && yearState.y==='2006','навигация по годам ведёт к 2006 и /02',JSON.stringify(yearState));
+check(Math.abs(yearState.t-45.08)<0.02 && yearState.c==='01 / 02' && yearState.y==='2006','навигация по годам ведёт к 2006 и /02',JSON.stringify(yearState));
 // modifier arrows ignored
 const beforeMod=await p.evaluate(()=>window.__orbits.getState().t);
 await p.keyboard.down('Shift'); await p.keyboard.press('ArrowRight'); await p.keyboard.up('Shift'); await p.waitForTimeout(250);
@@ -66,7 +66,7 @@ const touch=await p.evaluate(async()=>{
 });
 check(touch.after>0,'горизонтальный touch-свайп продвигает маршрут',JSON.stringify(touch));
 // final home
-await p.evaluate(()=>window.__orbits.jumpToT(47.04)); await p.waitForTimeout(200);
+await p.evaluate(()=>window.__orbits.jumpToT(48.09)); await p.waitForTimeout(200);
 await p.click('#finalHomeBtn'); await p.waitForTimeout(200);
 const homeT=await p.evaluate(()=>window.__orbits.getState().t);
 check(homeT===0,'«К началу атласа» возвращает на обложку',String(homeT));

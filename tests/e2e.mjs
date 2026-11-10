@@ -54,31 +54,31 @@ async function makePage(options = {}) {
   });
 
   const expectedCenters = [
-    0, 0.98, 5.11, 6.09, 6.72, 7.7, 10.78, 11.76, 12.39, 13.02, 13.65, 14.28, 15.26, 16.24, 19.32, 20.3,
-    21.28, 22.26, 23.24, 25.27, 26.25, 27.23, 27.86, 28.49, 29.12, 30.1, 33.18, 34.16, 35.14, 37.17, 38.15,
-    39.13, 40.11, 41.09, 42.07, 43.05, 44.03, 46.06, 47.04,
+    0, 0.98, 5.11, 6.09, 6.72, 7.7, 11.83, 12.81, 13.44, 14.07, 14.7, 15.33, 16.31, 17.29, 20.37, 21.35,
+    22.33, 23.31, 24.29, 26.32, 27.3, 28.28, 28.91, 29.54, 30.17, 31.15, 34.23, 35.21, 36.19, 38.22, 39.2,
+    40.18, 41.16, 42.14, 43.12, 44.1, 45.08, 47.11, 48.09,
   ];
   check(data.entries.length === 39, '39 позиций маршрута', String(data.entries.length));
-  check(data.stops.length === 37, '37 смысловых остановок', String(data.stops.length));
+  check(data.stops.length === 38, '38 смысловых остановок', String(data.stops.length));
   check(data.entries.filter((entry) => entry.kind === 'chapter').length === 7, '7 глав');
   check(data.entries.filter((entry) => entry.kind === 'event').length === 16, '16 событий');
   check(data.entries.filter((entry) => entry.kind === 'year').length === 14, '14 промежуточных лет');
-  check(data.entries.find((entry) => entry.kind === 'finale').center === 47.04, 'финал в 47.04U');
+  check(data.entries.find((entry) => entry.kind === 'finale').center === 48.09, 'финал в 48.09U');
   const maxDelta = Math.max(...data.entries.map((entry, index) => Math.abs(entry.center - expectedCenters[index])));
   check(maxDelta < 1e-6, 'все центры маршрута совпадают с таблицей 2.4', String(maxDelta));
 
-  check(data.localCounts.length === 19, '19 эпизодов');
-  check(data.localCounts.filter((counter) => counter.endsWith('/ 04')).length === 4, '4 эпизода настоящего времени');
-  check(data.localCounts.filter((counter) => counter.endsWith('/ 03')).length === 9, '9 эпизодов в главах по три');
+  check(data.localCounts.length === 20, '20 эпизодов');
+  check(data.localCounts.filter((counter) => counter.endsWith('/ 04')).length === 8, '8 эпизодов в главах по четыре');
+  check(data.localCounts.filter((counter) => counter.endsWith('/ 03')).length === 6, '6 эпизодов в главах по три');
   check(data.localCounts.filter((counter) => counter.endsWith('/ 02')).length === 6, '6 эпизодов в главах по два');
-  check(data.periods.length === 19 && data.periods.every(Boolean), 'период повторён на каждом эпизоде');
+  check(data.periods.length === 20 && data.periods.every(Boolean), 'период повторён на каждом эпизоде');
   check(data.events.length === 16 && data.events.every(Boolean), '16 текстов событий');
   check(data.years.length === 14, '14 промежуточных лет в DOM');
   check(['2025', '2024', '2022', '2021', '2020', '2019', '2018', '2016', '2014', '2013', '2012', '2011', '2008', '2007'].every((year) => data.years.includes(year)), 'полный список промежуточных лет');
   const uniqueFigures = [...new Set(data.figureNumbers)].sort();
-  check(uniqueFigures.length === 16 && uniqueFigures[0] === '00' && uniqueFigures[15] === '18', 'видимые номера рисунков 00 и 04–18');
+  check(uniqueFigures.length === 13 && uniqueFigures[0] === '00' && uniqueFigures[12] === '18', 'видимые номера рисунков 00 и 07–18');
   check(data.state.U === 664, 'U = 664 при 1200×800', String(data.state.U));
-  check(data.state.maxScroll === 31235, 'максимальная прокрутка 31235', String(data.state.maxScroll));
+  check(data.state.maxScroll === 31932, 'максимальная прокрутка 31932', String(data.state.maxScroll));
 
   // Точная геометрия главы 2026.
   const geometry = await page.evaluate(async () => {
@@ -149,7 +149,7 @@ async function makePage(options = {}) {
   check(hudCover.prev === true && hudCover.next === false, 'на обложке стрелка назад недоступна');
 
   const hudFinale = await page.evaluate(() => {
-    window.scrollTo(0, 47.04 * window.__orbits.getState().U);
+    window.scrollTo(0, 48.09 * window.__orbits.getState().U);
     return new Promise((resolve) => requestAnimationFrame(() => resolve({
       mode: document.querySelector('#modeText').textContent,
       counter: document.querySelector('#counter').textContent,
@@ -162,7 +162,7 @@ async function makePage(options = {}) {
 
   // Меню.
   const menu = await page.evaluate(async () => {
-    window.__orbits.jumpToT(16.24);
+    window.__orbits.jumpToT(17.29);
     const before = window.scrollY;
     window.__orbits.openMenu();
     await new Promise((resolve) => setTimeout(resolve, 80));
@@ -200,7 +200,7 @@ async function makePage(options = {}) {
       firstEpisode: document.querySelector('.stop-chapter[data-chapter="2015"] .episode.is-active')?.dataset.episode,
     };
   });
-  check(near(selected.t, 23.24, 0.01) && selected.mode === 'horizontal' && selected.counter === '01 / 02', 'переход к 2015: первый эпизод и /02', JSON.stringify(selected));
+  check(near(selected.t, 24.29, 0.01) && selected.mode === 'horizontal' && selected.counter === '01 / 02', 'переход к 2015: первый эпизод и /02', JSON.stringify(selected));
   check(selected.activeYear === '2015' && selected.hidden && selected.firstEpisode === '0', 'переход к 2015 закрывает меню и отмечает год');
 
   // Стрелки.
@@ -217,7 +217,7 @@ async function makePage(options = {}) {
 
   // Resize.
   const resizeState = await page.evaluate(async () => {
-    window.scrollTo(0, 23.24 * window.__orbits.getState().U + 350);
+    window.scrollTo(0, 24.29 * window.__orbits.getState().U + 350);
     await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     return window.__orbits.getState().t;
   });
@@ -263,7 +263,33 @@ async function makePage(options = {}) {
   await page.waitForTimeout(700);
   const animAfter = await page.evaluate(() => window.__orbits.getAnimations().find((animation) => animation.id === 'fig19')?.time);
   check(animAfter > animBefore, 'сцена поддержки живёт на активном эпизоде', `${animBefore} / ${animAfter}`);
-  check(errors.length === 0, 'нет ошибок консоли в сценарии настоящего времени', errors.join(' | '));
+
+  await page.evaluate(() => window.__orbits.jumpToT(7.7));
+  await page.waitForTimeout(500);
+  const crypto = await page.evaluate(() => {
+    const chapter = document.querySelector('.stop-chapter[data-chapter="2023"]');
+    const episodes = [...chapter.querySelectorAll('.episode')];
+    return {
+      episodes: episodes.length,
+      bare: episodes.every((episode) => episode.classList.contains('episode--bare')),
+      titles: episodes.map((episode) => episode.querySelector('h2')?.textContent),
+      cards: chapter.querySelectorAll('.figure-card, .fig-head, .fig-caption').length,
+      controls: chapter.querySelectorAll('.pause-btn, .deck-next').length,
+      canvases: ['team', 'signals', 'mechanics', 'tournament'].map((name) => Boolean(chapter.querySelector(`canvas[data-${name}]`))),
+      figureBare: chapter.querySelectorAll('.figure-bare').length,
+    };
+  });
+  check(crypto.episodes === 4, 'в криптобирже четыре эпизода', String(crypto.episodes));
+  check(crypto.bare && crypto.figureBare === 4, 'все четыре иллюстрации криптобиржи без карточек');
+  check(crypto.cards === 0 && crypto.controls === 0, 'в криптобирже нет рамок, подписей и кнопок');
+  check(crypto.canvases.every(Boolean), 'нарисованы четыре новые сцены криптобиржи');
+  check(crypto.titles.join('|') === 'Команда|ИИ до тренда|В три раза больше|Турниры', 'новые названия эпизодов криптобиржи', crypto.titles.join(' | '));
+
+  const cryptoBefore = await page.evaluate(() => window.__orbits.getAnimations().find((animation) => animation.id === 'fig22')?.time);
+  await page.waitForTimeout(700);
+  const cryptoAfter = await page.evaluate(() => window.__orbits.getAnimations().find((animation) => animation.id === 'fig22')?.time);
+  check(cryptoAfter > cryptoBefore, 'сцена команды живёт на активном эпизоде', `${cryptoBefore} / ${cryptoAfter}`);
+  check(errors.length === 0, 'нет ошибок консоли в сценариях настоящего времени и криптобиржи', errors.join(' | '));
   await context.close();
 }
 
@@ -273,17 +299,16 @@ async function makePage(options = {}) {
 {
   const { context, page, errors } = await makePage({ viewport: { width: 1200, height: 800 }, reducedMotion: 'reduce' });
   const reduced = await page.evaluate(() => {
-    const pause = document.querySelector('.pause-btn');
     const state = window.__orbits.getState();
     return {
       class: document.documentElement.classList.contains('reduce-motion'),
-      pauseDisplay: getComputedStyle(pause).display,
+      pauseCount: document.querySelectorAll('.pause-btn').length,
       tilt: document.querySelector('.stop-chapter').style.transform,
       animationTime: window.__orbits.getAnimations().find((animation) => animation.id === 'fig01')?.time,
     };
   });
   check(reduced.class, 'reduce-motion класс включён');
-  check(reduced.pauseDisplay === 'none', 'кнопки паузы скрыты при уменьшенном движении');
+  check(reduced.pauseCount === 0, 'в обновлённых главах нет кнопок паузы', String(reduced.pauseCount));
   const canvasBefore = await page.evaluate(() => document.querySelector('#bg-canvas').toDataURL());
   await page.evaluate(() => window.__orbits.jumpToT(7.7));
   await page.waitForTimeout(400);

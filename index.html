@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Орбиты опыта — от jQuery до ИИ</title>
-  <meta name="description" content="Интерактивный атлас карьеры фронтенд-разработчика: от jQuery до ИИ, 2006–2026. Семь глав и 19 эпизодов.">
+  <meta name="description" content="Интерактивный атлас карьеры фронтенд-разработчика: от jQuery до ИИ, 2006–2026. Семь глав и 20 эпизодов.">
   <meta name="theme-color" content="#00030E">
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2300030E'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%23BCA4FF'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='9' fill='none' stroke='%23BCA4FF' stroke-opacity='.75' stroke-width='2' transform='rotate(-24 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='13' ry='22' fill='none' stroke='%236FE7F2' stroke-opacity='.55' stroke-width='1.6' transform='rotate(28 32 32)'/%3E%3C/svg%3E">
@@ -1234,6 +1234,7 @@ body::after {
   letter-spacing: 0.1em;
   line-height: 1;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .ep-figure {
@@ -3344,7 +3345,7 @@ html.reduce-motion .scroll-line::after {
           <span class="text-btn-icon" aria-hidden="true">↖</span>
           К началу
         </button>
-        <span class="dialog-note">2006 — 2026 · Семь глав · 19 эпизодов</span>
+        <span class="dialog-note">2006 — 2026 · Семь глав · 20 эпизодов</span>
       </footer>
     </section>
   </div>
@@ -3353,8 +3354,8 @@ html.reduce-motion .scroll-line::after {
     <main class="nojs-wrap">
       <p class="nojs-kicker">Интерактивный атлас карьеры</p>
       <h1>От jQuery до ИИ.</h1>
-      <p class="nojs-lead"><strong>Двадцать лет во фронтенде.</strong> Сегодня проще перечислить технологии, которых я ещё не касался. Прошёл путь от jQuery-модулей и спагетти-кода до модульной архитектуры с декораторами, инъекциями и слотами.</p>
-      <p class="nojs-meta">2006 — 2026 · Семь глав · 19 эпизодов</p>
+      <p class="nojs-lead">Я прошёл путь от jQuery-модулей и спагетти-кода до Feature-driven и Feature-Sliced Design. Переписывал приложения на десятки тысяч строк, когда менялась сама концепция разработки. И каждый следующий проект был сложнее и интереснее предыдущего. Теперь AI предлагает новый инструмент снимающий с разработчика рутинные процессы и дает раскрыться творческому потенциалу. Тем интереснее двигаться дальше.</p>
+      <p class="nojs-meta">2006 — 2026 · Семь глав · 20 эпизодов</p>
       <div class="nojs-chapters">
         <section>
           <h2>2026 · Самостоятельная разработка</h2>
@@ -3364,7 +3365,7 @@ html.reduce-motion .scroll-line::after {
         <section>
           <h2>2023 · Криптобиржа</h2>
           <p class="nojs-period">Декабрь 2023 — май 2026</p>
-          <p>Торговые графики и индикаторы, механики торговли, ввод и вывод средств, турниры и игровые механики.</p>
+          <p>Сильная команда, торговые агенты и сигналы на ИИ, эксперименты с механиками и турниры-хакатоны.</p>
         </section>
         <section>
           <h2>2017 · Онлайн-брокер</h2>
@@ -3509,24 +3510,35 @@ html.reduce-motion .scroll-line::after {
       episodes: [
         {
           number: '01',
-          title: 'График в движении',
-          text: 'Разрабатывал торговые графики, инструменты и индикаторы. Для визуализации котировок использовал библиотеки и рисовал графики на Canvas.',
-          skills: ['JavaScript', 'Canvas'],
-          figure: '04',
+          title: 'Команда',
+          text: 'Небольшая, но очень сплочённая команда. Самый профессиональный коллектив, в котором мне довелось работать. Моя позиция — Senior Developer.',
+          skills: ['Senior', 'Команда'],
+          figure: '22',
+          bare: true,
         },
         {
           number: '02',
-          title: 'От заявки до сделки',
-          text: 'Работал над торговыми механиками криптобиржи и интерфейсами ввода и вывода средств.',
-          skills: ['Торговые операции', 'Кошелёк'],
-          figure: '05',
+          title: 'ИИ до тренда',
+          text: 'Помимо стандартных инструментов торговли — ставка на искусственный интеллект. Развивали торговых агентов и сигналы ещё до того, как это стало трендом в индустрии.',
+          skills: ['AI-агенты', 'Сигналы'],
+          figure: '23',
+          bare: true,
         },
         {
           number: '03',
-          title: 'Турнирный режим',
-          text: 'Разрабатывал турниры и игровые механики. Внутренний фреймворк биржи позволял собирать отдельные наборы функций для веба, мобильных клиентов и Telegram.',
-          skills: ['WebView', 'Telegram'],
-          figure: '06',
+          title: 'В три раза больше',
+          text: 'Команда успевала делать в три раза больше, чем на моём предыдущем проекте. Постоянно экспериментировали с механиками: от профессиональных биржевых инструментов до игровых сценариев.',
+          skills: ['Торговые механики', 'Эксперименты'],
+          figure: '24',
+          bare: true,
+        },
+        {
+          number: '04',
+          title: 'Турниры',
+          text: 'Периодически устраивали турниры для пользователей — как правило, в формате хакатона. Действовать приходилось быстро и креативно. Здесь же AI в кодинге окончательно стал обыденной реальностью.',
+          skills: ['Турниры', 'Хакатоны', 'AI в коде'],
+          figure: '25',
+          bare: true,
         },
       ],
     },
@@ -3841,9 +3853,13 @@ html.reduce-motion .scroll-line::after {
     '19': { topic: 'Проекты на поддержке', kind: 'orbits' },
     '20': { topic: 'Медиаплатформа', kind: 'media' },
     '21': { topic: 'Изучение языков', kind: 'language' },
+    '22': { topic: 'Команда', kind: 'team' },
+    '23': { topic: 'Агенты и сигналы', kind: 'signals' },
+    '24': { topic: 'Три скорости', kind: 'mechanics' },
+    '25': { topic: 'Турниры', kind: 'tournament' },
   };
 
-  const ANIMATED_FIGURES = new Set(['01', '02', '03', '04', '05', '06', '19', '20', '21']);
+  const ANIMATED_FIGURES = new Set(['01', '02', '03', '04', '05', '06', '19', '20', '21', '22', '23', '24', '25']);
 
   const chapterById = new Map(CHAPTERS.map((chapter) => [chapter.id, chapter]));
   const eventById = new Map(EVENTS.map((event) => [event.id, event]));
@@ -4024,7 +4040,7 @@ html.reduce-motion .scroll-line::after {
             <div class="cover-copy">
               <p class="cover-eyebrow">Интерактивный атлас карьеры</p>
               <h1 class="cover-title"><span class="title-line">От jQuery</span><span class="title-line title-accent">до ИИ.</span></h1>
-              <p class="cover-lead">Я прошёл путь от jQuery-модулей и спагетти-кода до Feature-driven и Feature-Sliced Design. Переписывал приложения на десятки тысяч строк, когда менялась сама концепция разработки. И каждый следующий проект был сложнее и интереснее предыдущего. Теперь AI предлагает новый инструмент снимающий с разработчика рутинные процессы и дает раскрыться творческому потенциалу. Тем интереснее двигаться дальше.</p>
+              <p class="cover-lead"><strong>Двадцать лет во фронтенде.</strong> Сегодня проще перечислить технологии, которых я ещё не касался. Прошёл путь от jQuery-модулей и спагетти-кода до модульной архитектуры с декораторами, инъекциями и слотами. Переписывал приложения на десятки тысяч строк, когда менялась сама концепция разработки. И каждый следующий проект был сложнее и интереснее предыдущего.</p>
               <div class="cover-actions">
                 <button class="primary-btn" id="startBtn" type="button">
                   <span>Начать путешествие</span>
@@ -4127,7 +4143,7 @@ html.reduce-motion .scroll-line::after {
           <div class="finale-content">
             <div class="finale-eyebrow">Начало пути</div>
             <h2 class="finale-title">Полный оборот.</h2>
-            <div class="finale-meta"><span class="meta-strong">2006 — 2026</span> · Семь глав · 19 эпизодов</div>
+            <div class="finale-meta"><span class="meta-strong">2006 — 2026</span> · Семь глав · 20 эпизодов</div>
             <button class="primary-btn" id="finalHomeBtn" type="button">
               <span>К началу атласа</span>
               <span class="btn-orb" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h9M8.4 3.6 12.8 8l-4.4 4.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -4714,6 +4730,14 @@ html.reduce-motion .scroll-line::after {
         return mediaFigure();
       case '21':
         return languageFigure();
+      case '22':
+        return teamFigure();
+      case '23':
+        return signalsFigure();
+      case '24':
+        return mechanicsFigure();
+      case '25':
+        return tournamentFigure();
       default:
         return '';
     }
@@ -4737,6 +4761,34 @@ html.reduce-motion .scroll-line::after {
     return `
       <div class="fig-dom current-figure">
         <canvas class="fig-canvas current-canvas" data-language aria-hidden="true"></canvas>
+      </div>`;
+  }
+
+  function teamFigure() {
+    return `
+      <div class="fig-dom current-figure">
+        <canvas class="fig-canvas current-canvas" data-team aria-hidden="true"></canvas>
+      </div>`;
+  }
+
+  function signalsFigure() {
+    return `
+      <div class="fig-dom current-figure">
+        <canvas class="fig-canvas current-canvas" data-signals aria-hidden="true"></canvas>
+      </div>`;
+  }
+
+  function mechanicsFigure() {
+    return `
+      <div class="fig-dom current-figure">
+        <canvas class="fig-canvas current-canvas" data-mechanics aria-hidden="true"></canvas>
+      </div>`;
+  }
+
+  function tournamentFigure() {
+    return `
+      <div class="fig-dom current-figure">
+        <canvas class="fig-canvas current-canvas" data-tournament aria-hidden="true"></canvas>
       </div>`;
   }
 
@@ -6458,6 +6510,578 @@ html.reduce-motion .scroll-line::after {
     registerAnimation('fig21', host, draw, { staticTime: 1.6 });
   }
 
+  /* --- 22–25 · Криптобиржа ------------------------------------------------ */
+
+  function initTeamAnimation() {
+    const host = $('[data-figure-body="22"]');
+    if (!host) return;
+    const canvas = $('[data-team]', host);
+    if (!canvas) return;
+    const setup = setupCurrentCanvas(canvas);
+    if (!setup) return;
+    const { ctx, state, resize } = setup;
+
+    const random = mulberry32(0x7ea122);
+    const dust = Array.from({ length: 34 }, () => ({
+      x: random() * 2 - 1,
+      y: random() * 2 - 1,
+      size: 0.5 + random() * 1,
+      alpha: 0.06 + random() * 0.18,
+      phase: random() * TAU,
+    }));
+
+    const members = Array.from({ length: 7 }, (_, index) => ({
+      angle: (index / 7) * TAU + random() * 0.14,
+      distance: 0.76 + random() * 0.2,
+      size: 1.5 + random() * 1.1,
+      phase: random() * TAU,
+      accent: index === 2 || index === 5 ? FIG_CYAN : FIG_LAV,
+    }));
+
+    function draw(time) {
+      resize();
+      const width = state.width;
+      const height = state.height;
+      if (width < 2 || height < 2) return;
+
+      const cx = width * 0.52;
+      const cy = height * 0.5;
+      const cluster = Math.min(width * 0.3, height * 0.38);
+      const pulse = 0.5 + 0.5 * Math.sin(time * 0.55);
+      const rotation = time * 0.045;
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.globalCompositeOperation = 'lighter';
+
+      drawStarfield(ctx, width, height, dust, time, cluster * 1.9);
+
+      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, cluster * 1.05);
+      ambient.addColorStop(0, figRgba(FIG_LAV, 0.12 + pulse * 0.04));
+      ambient.addColorStop(0.55, figRgba(FIG_LAV, 0.03));
+      ambient.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = ambient;
+      ctx.beginPath();
+      ctx.arc(cx, cy, cluster * 1.05, 0, TAU);
+      ctx.fill();
+
+      ctx.strokeStyle = figRgba(FIG_LAV, 0.1);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(cx, cy, cluster * 1.15, 0, TAU);
+      ctx.stroke();
+
+      ctx.setLineDash([2, 8]);
+      ctx.strokeStyle = figRgba(FIG_CYAN, 0.08);
+      ctx.beginPath();
+      ctx.arc(cx, cy, cluster * 1.28, 0, TAU);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      const points = members.map((member) => {
+        const angle = member.angle + rotation;
+        return {
+          ...member,
+          x: cx + Math.cos(angle) * cluster * member.distance,
+          y: cy + Math.sin(angle) * cluster * member.distance * 0.82,
+        };
+      });
+
+      ctx.lineWidth = 1;
+      for (let index = 0; index < points.length; index += 1) {
+        const point = points[index];
+        const next = points[(index + 1) % points.length];
+        ctx.strokeStyle = figRgba(FIG_LAV, 0.12);
+        ctx.beginPath();
+        ctx.moveTo(point.x, point.y);
+        ctx.lineTo(next.x, next.y);
+        ctx.stroke();
+
+        ctx.strokeStyle = figRgba(FIG_LAV, 0.08);
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(point.x, point.y);
+        ctx.stroke();
+      }
+
+      for (const member of points) {
+        const progress = ((time * 0.2 + member.phase) % 1 + 1) % 1;
+        const head = {
+          x: cx + (member.x - cx) * progress,
+          y: cy + (member.y - cy) * progress,
+        };
+        const tailProgress = Math.max(0, progress - 0.16);
+        const tail = {
+          x: cx + (member.x - cx) * tailProgress,
+          y: cy + (member.y - cy) * tailProgress,
+        };
+        const gradient = ctx.createLinearGradient(tail.x, tail.y, head.x, head.y);
+        gradient.addColorStop(0, figRgba(member.accent, 0));
+        gradient.addColorStop(1, figRgba(member.accent, 0.7));
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        ctx.moveTo(tail.x, tail.y);
+        ctx.lineTo(head.x, head.y);
+        ctx.stroke();
+
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.7);
+        ctx.beginPath();
+        ctx.arc(head.x, head.y, 1.4, 0, TAU);
+        ctx.fill();
+      }
+
+      const centerHalo = ctx.createRadialGradient(cx, cy, 0, cx, cy, cluster * 0.34);
+      centerHalo.addColorStop(0, figRgba(FIG_WHITE, 0.16 + pulse * 0.06));
+      centerHalo.addColorStop(0.4, figRgba(FIG_LAV, 0.16 + pulse * 0.06));
+      centerHalo.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = centerHalo;
+      ctx.beginPath();
+      ctx.arc(cx, cy, cluster * 0.34, 0, TAU);
+      ctx.fill();
+
+      for (const member of points) {
+        const memberPulse = 0.5 + 0.5 * Math.sin(time * 0.8 + member.phase);
+        const halo = ctx.createRadialGradient(member.x, member.y, 0, member.x, member.y, member.size * 7);
+        halo.addColorStop(0, figRgba(member.accent, 0.28 + memberPulse * 0.1));
+        halo.addColorStop(1, figRgba(member.accent, 0));
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(member.x, member.y, member.size * 7, 0, TAU);
+        ctx.fill();
+
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.82);
+        ctx.beginPath();
+        ctx.arc(member.x, member.y, member.size * 0.75, 0, TAU);
+        ctx.fill();
+      }
+
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.92);
+      ctx.beginPath();
+      ctx.arc(cx, cy, 2.6 + pulse * 0.8, 0, TAU);
+      ctx.fill();
+
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    registerAnimation('fig22', host, draw, { staticTime: 1.8 });
+  }
+
+  function initSignalsAnimation() {
+    const host = $('[data-figure-body="23"]');
+    if (!host) return;
+    const canvas = $('[data-signals]', host);
+    if (!canvas) return;
+    const setup = setupCurrentCanvas(canvas);
+    if (!setup) return;
+    const { ctx, state, resize } = setup;
+
+    const random = mulberry32(0x51a9a1);
+    const dust = Array.from({ length: 30 }, () => ({
+      x: random() * 2 - 1,
+      y: random() * 2 - 1,
+      size: 0.5 + random() * 1,
+      alpha: 0.06 + random() * 0.18,
+      phase: random() * TAU,
+    }));
+
+    const blips = Array.from({ length: 12 }, (_, index) => ({
+      angle: (index / 12) * TAU + random() * 0.3,
+      distance: 0.3 + random() * 0.62,
+      size: 0.9 + random() * 1.5,
+      accent: index === 3 || index === 8 ? FIG_CYAN : FIG_LAV,
+      phase: random() * TAU,
+    }));
+
+    const agents = [
+      { angle: 0.5, size: 3.2, accent: FIG_CYAN },
+      { angle: 2.7, size: 2.7, accent: FIG_LAV },
+      { angle: 5.1, size: 3.6, accent: FIG_WHITE },
+    ];
+
+    function draw(time) {
+      resize();
+      const width = state.width;
+      const height = state.height;
+      if (width < 2 || height < 2) return;
+
+      const cx = width * 0.54;
+      const cy = height * 0.5;
+      const radius = Math.min(width * 0.39, height * 0.45);
+      const sweep = time * 0.55;
+      const pulse = 0.5 + 0.5 * Math.sin(time * 0.7);
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.globalCompositeOperation = 'lighter';
+
+      drawStarfield(ctx, width, height, dust, time, radius * 1.55);
+
+      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.9);
+      ambient.addColorStop(0, figRgba(FIG_LAV, 0.1 + pulse * 0.03));
+      ambient.addColorStop(0.6, figRgba(FIG_LAV, 0.025));
+      ambient.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = ambient;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius * 0.9, 0, TAU);
+      ctx.fill();
+
+      ctx.lineWidth = 1;
+      for (let ring = 1; ring <= 4; ring += 1) {
+        ctx.setLineDash(ring === 4 ? [2, 8] : []);
+        ctx.strokeStyle = figRgba(FIG_LAV, ring === 4 ? 0.09 : 0.11);
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius * ring * 0.24, 0, TAU);
+        ctx.stroke();
+      }
+      ctx.setLineDash([]);
+
+      for (let step = 0; step < 26; step += 1) {
+        const angle = sweep - step * 0.011;
+        const alpha = 0.18 * (1 - step / 26);
+        ctx.strokeStyle = figRgba(step === 0 ? FIG_WHITE : FIG_LAV, alpha);
+        ctx.lineWidth = step === 0 ? 1.4 : 1;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius);
+        ctx.stroke();
+      }
+
+      for (const blip of blips) {
+        const diff = ((sweep - blip.angle) % TAU + TAU) % TAU;
+        const glow = Math.max(0, 1 - diff / 1.5);
+        const x = cx + Math.cos(blip.angle) * radius * blip.distance;
+        const y = cy + Math.sin(blip.angle) * radius * blip.distance;
+        const size = blip.size * (0.7 + glow * 1.6);
+
+        const halo = ctx.createRadialGradient(x, y, 0, x, y, size * 7);
+        halo.addColorStop(0, figRgba(blip.accent, 0.12 + glow * 0.34));
+        halo.addColorStop(1, figRgba(blip.accent, 0));
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(x, y, size * 7, 0, TAU);
+        ctx.fill();
+
+        ctx.fillStyle = figRgba(blip.accent, 0.25 + glow * 0.65);
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, TAU);
+        ctx.fill();
+      }
+
+      for (const agent of agents) {
+        const x = cx + Math.cos(agent.angle) * radius * 0.96;
+        const y = cy + Math.sin(agent.angle) * radius * 0.96;
+        ctx.strokeStyle = figRgba(agent.accent, 0.12);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(cx, cy);
+        ctx.stroke();
+
+        const travel = ((time * 0.18 + agent.angle) % 1 + 1) % 1;
+        const head = {
+          x: x + (cx - x) * travel,
+          y: y + (cy - y) * travel,
+        };
+        const halo = ctx.createRadialGradient(head.x, head.y, 0, head.x, head.y, 10);
+        halo.addColorStop(0, figRgba(agent.accent, 0.45));
+        halo.addColorStop(1, figRgba(agent.accent, 0));
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(head.x, head.y, 10, 0, TAU);
+        ctx.fill();
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.7);
+        ctx.beginPath();
+        ctx.arc(head.x, head.y, 1.4, 0, TAU);
+        ctx.fill();
+
+        const agentHalo = ctx.createRadialGradient(x, y, 0, x, y, agent.size * 8);
+        agentHalo.addColorStop(0, figRgba(agent.accent, 0.32));
+        agentHalo.addColorStop(1, figRgba(agent.accent, 0));
+        ctx.fillStyle = agentHalo;
+        ctx.beginPath();
+        ctx.arc(x, y, agent.size * 8, 0, TAU);
+        ctx.fill();
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.86);
+        ctx.beginPath();
+        ctx.arc(x, y, agent.size * 0.68, 0, TAU);
+        ctx.fill();
+      }
+
+      const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.18);
+      core.addColorStop(0, figRgba(FIG_WHITE, 0.2 + pulse * 0.08));
+      core.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = core;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius * 0.18, 0, TAU);
+      ctx.fill();
+
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.9);
+      ctx.beginPath();
+      ctx.arc(cx, cy, 2.1 + pulse * 0.7, 0, TAU);
+      ctx.fill();
+
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    registerAnimation('fig23', host, draw, { staticTime: 2.1 });
+  }
+
+  function initMechanicsAnimation() {
+    const host = $('[data-figure-body="24"]');
+    if (!host) return;
+    const canvas = $('[data-mechanics]', host);
+    if (!canvas) return;
+    const setup = setupCurrentCanvas(canvas);
+    if (!setup) return;
+    const { ctx, state, resize } = setup;
+
+    const random = mulberry32(0x3ace24);
+    const dust = Array.from({ length: 32 }, () => ({
+      x: random() * 2 - 1,
+      y: random() * 2 - 1,
+      size: 0.5 + random() * 1,
+      alpha: 0.06 + random() * 0.18,
+      phase: random() * TAU,
+    }));
+
+    const rings = [
+      { rx: 0.8, ry: 0.26, tilt: -0.52, speed: 0.34, phase: 0.3, accent: FIG_LAV },
+      { rx: 0.8, ry: 0.26, tilt: 0.52, speed: -0.4, phase: 2.2, accent: FIG_CYAN },
+      { rx: 0.34, ry: 0.76, tilt: 0.08, speed: 0.46, phase: 4.1, accent: FIG_LAV },
+    ];
+
+    function draw(time) {
+      resize();
+      const width = state.width;
+      const height = state.height;
+      if (width < 2 || height < 2) return;
+
+      const cx = width * 0.5;
+      const cy = height * 0.5;
+      const radius = Math.min(width * 0.41, height * 0.46);
+      const pulse = 0.5 + 0.5 * Math.sin(time * 0.64);
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.globalCompositeOperation = 'lighter';
+
+      drawStarfield(ctx, width, height, dust, time, radius * 1.5);
+
+      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.9);
+      ambient.addColorStop(0, figRgba(FIG_LAV, 0.12 + pulse * 0.04));
+      ambient.addColorStop(0.55, figRgba(FIG_LAV, 0.03));
+      ambient.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = ambient;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius * 0.9, 0, TAU);
+      ctx.fill();
+
+      const pointAt = (ring, angle) => {
+        const ex = Math.cos(angle) * radius * ring.rx;
+        const ey = Math.sin(angle) * radius * ring.ry;
+        const cosTilt = Math.cos(ring.tilt);
+        const sinTilt = Math.sin(ring.tilt);
+        return {
+          x: cx + ex * cosTilt - ey * sinTilt,
+          y: cy + ex * sinTilt + ey * cosTilt,
+        };
+      };
+
+      for (const ring of rings) {
+        ctx.strokeStyle = figRgba(ring.accent, 0.16);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, radius * ring.rx, radius * ring.ry, ring.tilt, 0, TAU);
+        ctx.stroke();
+
+        for (let index = 0; index < 7; index += 1) {
+          const angle = time * ring.speed + ring.phase + (index / 7) * TAU;
+          const point = pointAt(ring, angle);
+          const tail = pointAt(ring, angle - Math.sign(ring.speed) * 0.07);
+          const gradient = ctx.createLinearGradient(tail.x, tail.y, point.x, point.y);
+          gradient.addColorStop(0, figRgba(ring.accent, 0));
+          gradient.addColorStop(1, figRgba(ring.accent, 0.62));
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = 1.6;
+          ctx.beginPath();
+          ctx.moveTo(tail.x, tail.y);
+          ctx.lineTo(point.x, point.y);
+          ctx.stroke();
+
+          const halo = ctx.createRadialGradient(point.x, point.y, 0, point.x, point.y, 9);
+          halo.addColorStop(0, figRgba(ring.accent, 0.34));
+          halo.addColorStop(1, figRgba(ring.accent, 0));
+          ctx.fillStyle = halo;
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, 9, 0, TAU);
+          ctx.fill();
+
+          ctx.fillStyle = figRgba(FIG_WHITE, 0.78);
+          ctx.beginPath();
+          ctx.arc(point.x, point.y, 1.25, 0, TAU);
+          ctx.fill();
+        }
+      }
+
+      const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.26);
+      core.addColorStop(0, figRgba(FIG_WHITE, 0.22 + pulse * 0.08));
+      core.addColorStop(0.38, figRgba(FIG_LAV, 0.16 + pulse * 0.05));
+      core.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = core;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius * 0.26, 0, TAU);
+      ctx.fill();
+
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.92);
+      ctx.beginPath();
+      ctx.arc(cx, cy, 2.3 + pulse * 0.8, 0, TAU);
+      ctx.fill();
+
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    registerAnimation('fig24', host, draw, { staticTime: 2.4 });
+  }
+
+  function initTournamentAnimation() {
+    const host = $('[data-figure-body="25"]');
+    if (!host) return;
+    const canvas = $('[data-tournament]', host);
+    if (!canvas) return;
+    const setup = setupCurrentCanvas(canvas);
+    if (!setup) return;
+    const { ctx, state, resize } = setup;
+
+    const random = mulberry32(0x70a325);
+    const dust = Array.from({ length: 36 }, () => ({
+      x: random() * 2 - 1,
+      y: random() * 2 - 1,
+      size: 0.5 + random() * 1,
+      alpha: 0.06 + random() * 0.18,
+      phase: random() * TAU,
+    }));
+
+    const sparks = Array.from({ length: 22 }, (_, index) => ({
+      angle: (index / 22) * TAU + random() * 0.16,
+      length: 0.18 + random() * 0.34,
+      width: index % 3 === 0 ? 1.6 : 1,
+      accent: index % 4 === 0 ? FIG_CYAN : index % 3 === 0 ? FIG_LAV : FIG_WHITE,
+    }));
+
+    function draw(time) {
+      resize();
+      const width = state.width;
+      const height = state.height;
+      if (width < 2 || height < 2) return;
+
+      const cx = width * 0.5;
+      const cy = height * 0.5;
+      const radius = Math.min(width * 0.38, height * 0.43);
+      const pulse = 0.5 + 0.5 * Math.sin(time * 0.7);
+      const cycle = 3.6;
+      const phase = (time % cycle) / cycle;
+      const burst = Math.pow(Math.max(0, Math.sin(phase * Math.PI)), 8);
+      const flash = Math.exp(-Math.pow((phase - 0.82) / 0.1, 2));
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.globalCompositeOperation = 'lighter';
+
+      drawStarfield(ctx, width, height, dust, time, radius * 1.55);
+
+      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.9);
+      ambient.addColorStop(0, figRgba(FIG_LAV, 0.1 + pulse * 0.03 + flash * 0.1));
+      ambient.addColorStop(0.55, figRgba(FIG_LAV, 0.025));
+      ambient.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = ambient;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius * 0.9, 0, TAU);
+      ctx.fill();
+
+      const streams = [
+        {
+          start: { x: cx - radius * 1.05, y: cy - radius * 0.5 },
+          control: { x: cx - radius * 0.52, y: cy - radius * 0.34 },
+          accent: FIG_LAV,
+        },
+        {
+          start: { x: cx + radius * 1.05, y: cy + radius * 0.5 },
+          control: { x: cx + radius * 0.52, y: cy + radius * 0.34 },
+          accent: FIG_CYAN,
+        },
+      ];
+
+      const pointAt = (stream, t) => {
+        const mt = 1 - t;
+        return {
+          x: mt * mt * stream.start.x + 2 * mt * t * stream.control.x + t * t * cx,
+          y: mt * mt * stream.start.y + 2 * mt * t * stream.control.y + t * t * cy,
+        };
+      };
+
+      for (const stream of streams) {
+        ctx.strokeStyle = figRgba(stream.accent, 0.1);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(stream.start.x, stream.start.y);
+        ctx.quadraticCurveTo(stream.control.x, stream.control.y, cx, cy);
+        ctx.stroke();
+
+        for (let index = 0; index < 13; index += 1) {
+          const t = ((time * 0.2 + index / 13) % 1 + 1) % 1;
+          const head = pointAt(stream, t);
+          const tail = pointAt(stream, Math.max(0, t - 0.12));
+          const gradient = ctx.createLinearGradient(tail.x, tail.y, head.x, head.y);
+          gradient.addColorStop(0, figRgba(stream.accent, 0));
+          gradient.addColorStop(1, figRgba(stream.accent, 0.55));
+          ctx.strokeStyle = gradient;
+          ctx.lineWidth = 1.7;
+          ctx.beginPath();
+          ctx.moveTo(tail.x, tail.y);
+          ctx.lineTo(head.x, head.y);
+          ctx.stroke();
+
+          ctx.fillStyle = figRgba(FIG_WHITE, 0.55 * t);
+          ctx.beginPath();
+          ctx.arc(head.x, head.y, 1.1, 0, TAU);
+          ctx.fill();
+        }
+      }
+
+      for (const spark of sparks) {
+        const inner = radius * (0.06 + burst * 0.06);
+        const outer = radius * (0.06 + spark.length * (0.35 + burst * 0.65));
+        ctx.strokeStyle = figRgba(spark.accent, 0.2 + burst * 0.55);
+        ctx.lineWidth = spark.width;
+        ctx.beginPath();
+        ctx.moveTo(cx + Math.cos(spark.angle) * inner, cy + Math.sin(spark.angle) * inner);
+        ctx.lineTo(cx + Math.cos(spark.angle) * outer, cy + Math.sin(spark.angle) * outer);
+        ctx.stroke();
+      }
+
+      const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.3);
+      core.addColorStop(0, figRgba(FIG_WHITE, 0.16 + pulse * 0.05 + flash * 0.3));
+      core.addColorStop(0.35, figRgba(FIG_LAV, 0.14 + flash * 0.2));
+      core.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = core;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius * 0.3, 0, TAU);
+      ctx.fill();
+
+      ctx.strokeStyle = figRgba(FIG_WHITE, 0.12 + flash * 0.45);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius * (0.13 + burst * 0.05), 0, TAU);
+      ctx.stroke();
+
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.7 + flash * 0.25);
+      ctx.beginPath();
+      ctx.arc(cx, cy, 1.8 + pulse * 0.5 + flash * 1.6, 0, TAU);
+      ctx.fill();
+
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    registerAnimation('fig25', host, draw, { staticTime: 2.9 });
+  }
+
   /* --- 02 · Конвейер заказов ---------------------------------------------- */
 
   function initConveyorAnimation() {
@@ -7200,6 +7824,10 @@ html.reduce-motion .scroll-line::after {
     initSupportAnimation();
     initMediaAnimation();
     initLanguageAnimation();
+    initTeamAnimation();
+    initSignalsAnimation();
+    initMechanicsAnimation();
+    initTournamentAnimation();
     bindPauseButtons();
   }
 
