@@ -1,14 +1,13 @@
 import { chromium } from 'playwright-core';
-import { pathToFileURL } from 'node:url';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
 
-const root = '/Users/a.smirnov/p/portfolio-deepsick';
 const executablePath = join(
   homedir(),
   'Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing'
 );
-const fileUrl = pathToFileURL(join(root, 'index.html')).href;
+const baseUrl = process.env.BASE_URL ?? 'http://localhost:4321';
+const baseOrigin = new URL(baseUrl).origin;
 const browser = await chromium.launch({ executablePath, headless: true });
 const failures = [];
 let checks = 0;
@@ -28,7 +27,7 @@ async function makePage(options = {}) {
   });
   page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
   page.on('request', (request) => requests.push(request.url()));
-  await page.goto(fileUrl);
+  await page.goto(baseUrl);
   await page.waitForTimeout(450);
   return { context, page, errors, requests };
 }
@@ -48,37 +47,38 @@ async function makePage(options = {}) {
     });
     const periods = [...document.querySelectorAll('.ep-period')].map((period) => period.textContent.trim());
     const events = [...document.querySelectorAll('.stop-event .event-text')].map((event) => event.textContent.trim());
-    const years = [...document.querySelectorAll('.stop-year .year-number')].map((year) => year.textContent.trim());
+    const years = [...document.querySelectorAll('.stop-year .event-year')].map((year) => year.textContent.trim());
     const figureNumbers = [...document.querySelectorAll('.fig-number')].map((item) => item.textContent.replace(/[^0-9]/g, ''));
     return { entries, stops, state, localCounts, periods, events, years, figureNumbers };
   });
 
   const expectedCenters = [
-    0, 0.98, 5.11, 6.09, 6.72, 7.7, 11.83, 12.81, 13.44, 14.07, 14.7, 15.33, 16.31, 17.29, 20.37, 21.35,
-    22.33, 23.31, 24.29, 26.32, 27.3, 28.28, 28.91, 29.54, 30.17, 31.15, 34.23, 35.21, 36.19, 38.22, 39.2,
-    40.18, 41.16, 42.14, 43.12, 44.1, 45.08, 47.11, 48.09,
+    0, 0.98, 5.11, 6.09, 6.72, 7.7, 12.88, 13.86, 14.49, 15.12, 15.75, 16.38, 17.36, 18.34, 21.42, 22.4,
+    23.38, 24.36, 25.34, 27.37, 28.35, 29.33, 29.96, 30.59, 31.22, 32.2, 35.28, 36.26, 37.24, 39.27, 40.25,
+    41.23, 42.21, 43.19, 44.17, 45.15, 46.13, 48.16, 49.14,
   ];
   check(data.entries.length === 39, '39 позиций маршрута', String(data.entries.length));
-  check(data.stops.length === 38, '38 смысловых остановок', String(data.stops.length));
+  check(data.stops.length === 39, '39 смысловых остановок', String(data.stops.length));
   check(data.entries.filter((entry) => entry.kind === 'chapter').length === 7, '7 глав');
   check(data.entries.filter((entry) => entry.kind === 'event').length === 16, '16 событий');
   check(data.entries.filter((entry) => entry.kind === 'year').length === 14, '14 промежуточных лет');
-  check(data.entries.find((entry) => entry.kind === 'finale').center === 48.09, 'финал в 48.09U');
+  check(data.entries.find((entry) => entry.kind === 'finale').center === 49.14, 'финал в 49.14U');
   const maxDelta = Math.max(...data.entries.map((entry, index) => Math.abs(entry.center - expectedCenters[index])));
   check(maxDelta < 1e-6, 'все центры маршрута совпадают с таблицей 2.4', String(maxDelta));
 
-  check(data.localCounts.length === 20, '20 эпизодов');
-  check(data.localCounts.filter((counter) => counter.endsWith('/ 04')).length === 8, '8 эпизодов в главах по четыре');
+  check(data.localCounts.length === 21, '21 эпизод');
+  check(data.localCounts.filter((counter) => counter.endsWith('/ 04')).length === 4, '4 эпизода в главах по четыре');
+  check(data.localCounts.filter((counter) => counter.endsWith('/ 05')).length === 5, '5 эпизодов в главе криптобиржи');
   check(data.localCounts.filter((counter) => counter.endsWith('/ 03')).length === 6, '6 эпизодов в главах по три');
   check(data.localCounts.filter((counter) => counter.endsWith('/ 02')).length === 6, '6 эпизодов в главах по два');
-  check(data.periods.length === 20 && data.periods.every(Boolean), 'период повторён на каждом эпизоде');
+  check(data.periods.length === 21 && data.periods.every(Boolean), 'период повторён на каждом эпизоде');
   check(data.events.length === 16 && data.events.every(Boolean), '16 текстов событий');
   check(data.years.length === 14, '14 промежуточных лет в DOM');
   check(['2025', '2024', '2022', '2021', '2020', '2019', '2018', '2016', '2014', '2013', '2012', '2011', '2008', '2007'].every((year) => data.years.includes(year)), 'полный список промежуточных лет');
   const uniqueFigures = [...new Set(data.figureNumbers)].sort();
-  check(uniqueFigures.length === 13 && uniqueFigures[0] === '00' && uniqueFigures[12] === '18', 'видимые номера рисунков 00 и 07–18');
+  check(uniqueFigures.length === 10 && uniqueFigures[0] === '00' && uniqueFigures[9] === '18', 'видимые номера рисунков 00 и 10–18');
   check(data.state.U === 664, 'U = 664 при 1200×800', String(data.state.U));
-  check(data.state.maxScroll === 31932, 'максимальная прокрутка 31932', String(data.state.maxScroll));
+  check(data.state.maxScroll === 32629, 'максимальная прокрутка 32629', String(data.state.maxScroll));
 
   // Точная геометрия главы 2026.
   const geometry = await page.evaluate(async () => {
@@ -149,7 +149,7 @@ async function makePage(options = {}) {
   check(hudCover.prev === true && hudCover.next === false, 'на обложке стрелка назад недоступна');
 
   const hudFinale = await page.evaluate(() => {
-    window.scrollTo(0, 48.09 * window.__orbits.getState().U);
+    window.scrollTo(0, 49.14 * window.__orbits.getState().U);
     return new Promise((resolve) => requestAnimationFrame(() => resolve({
       mode: document.querySelector('#modeText').textContent,
       counter: document.querySelector('#counter').textContent,
@@ -162,7 +162,7 @@ async function makePage(options = {}) {
 
   // Меню.
   const menu = await page.evaluate(async () => {
-    window.__orbits.jumpToT(17.29);
+    window.__orbits.jumpToT(18.34);
     const before = window.scrollY;
     window.__orbits.openMenu();
     await new Promise((resolve) => setTimeout(resolve, 80));
@@ -200,7 +200,7 @@ async function makePage(options = {}) {
       firstEpisode: document.querySelector('.stop-chapter[data-chapter="2015"] .episode.is-active')?.dataset.episode,
     };
   });
-  check(near(selected.t, 24.29, 0.01) && selected.mode === 'horizontal' && selected.counter === '01 / 02', 'переход к 2015: первый эпизод и /02', JSON.stringify(selected));
+  check(near(selected.t, 25.34, 0.01) && selected.mode === 'horizontal' && selected.counter === '01 / 02', 'переход к 2015: первый эпизод и /02', JSON.stringify(selected));
   check(selected.activeYear === '2015' && selected.hidden && selected.firstEpisode === '0', 'переход к 2015 закрывает меню и отмечает год');
 
   // Стрелки.
@@ -217,7 +217,7 @@ async function makePage(options = {}) {
 
   // Resize.
   const resizeState = await page.evaluate(async () => {
-    window.scrollTo(0, 24.29 * window.__orbits.getState().U + 350);
+    window.scrollTo(0, 25.34 * window.__orbits.getState().U + 350);
     await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     return window.__orbits.getState().t;
   });
@@ -228,7 +228,10 @@ async function makePage(options = {}) {
   check(resized.U === Math.min(1000, Math.max(340, 0.83 * 844)), 'resize пересчитывает U', String(resized.U));
 
   check(errors.length === 0, 'нет ошибок консоли', errors.join(' | '));
-  const remote = requests.filter((url) => !url.startsWith('file:') && !url.startsWith('data:'));
+  const remote = requests.filter((url) => {
+    if (url.startsWith('data:') || url.startsWith('blob:')) return false;
+    return new URL(url).origin !== baseOrigin;
+  });
   check(remote.length === 0, 'нет внешних загрузок', remote.join(' | '));
   await context.close();
 }
@@ -249,15 +252,17 @@ async function makePage(options = {}) {
       titles: episodes.map((episode) => episode.querySelector('h2')?.textContent),
       cards: chapter.querySelectorAll('.figure-card, .fig-head, .fig-caption').length,
       controls: chapter.querySelectorAll('.pause-btn, .deck-next').length,
-      canvases: ['support', 'media', 'language'].map((name) => Boolean(chapter.querySelector(`canvas[data-${name}]`))),
+      canvases: ['support', 'media'].map((name) => Boolean(chapter.querySelector(`canvas[data-${name}]`))),
+      deckCards: chapter.querySelectorAll('.episode[data-figure="21"] .word-card').length,
       figureBare: chapter.querySelectorAll('.figure-bare').length,
     };
   });
   check(present.episodes === 4, 'в настоящем времени четыре эпизода', String(present.episodes));
   check(present.bare && present.figureBare === 4, 'все четыре иллюстрации без карточек');
   check(present.cards === 0 && present.controls === 0, 'в настоящем времени нет рамок, подписей и кнопок');
-  check(present.canvases.every(Boolean), 'нарисованы три новые сцены настоящего времени');
-  check(present.titles.join('|') === 'Свободное время|На поддержке|Медиаплатформа|Слово за словом', 'новые названия эпизодов', present.titles.join(' | '));
+  check(present.canvases.every(Boolean), 'нарисованы две новые сцены настоящего времени');
+  check(present.deckCards === 6, 'сцена изучения языков собрана из карточек', String(present.deckCards));
+  check(present.titles.join('|') === 'Свободное время|Между делом|Медиаплатформа|Изучаем языки', 'новые названия эпизодов', present.titles.join(' | '));
 
   const animBefore = await page.evaluate(() => window.__orbits.getAnimations().find((animation) => animation.id === 'fig19')?.time);
   await page.waitForTimeout(700);
@@ -275,15 +280,15 @@ async function makePage(options = {}) {
       titles: episodes.map((episode) => episode.querySelector('h2')?.textContent),
       cards: chapter.querySelectorAll('.figure-card, .fig-head, .fig-caption').length,
       controls: chapter.querySelectorAll('.pause-btn, .deck-next').length,
-      canvases: ['team', 'signals', 'mechanics', 'tournament'].map((name) => Boolean(chapter.querySelector(`canvas[data-${name}]`))),
+      canvases: ['team', 'platforms', 'signals', 'mechanics', 'tournament'].map((name) => Boolean(chapter.querySelector(`canvas[data-${name}]`))),
       figureBare: chapter.querySelectorAll('.figure-bare').length,
     };
   });
-  check(crypto.episodes === 4, 'в криптобирже четыре эпизода', String(crypto.episodes));
-  check(crypto.bare && crypto.figureBare === 4, 'все четыре иллюстрации криптобиржи без карточек');
+  check(crypto.episodes === 5, 'в криптобирже пять эпизодов', String(crypto.episodes));
+  check(crypto.bare && crypto.figureBare === 5, 'все пять иллюстраций криптобиржи без карточек');
   check(crypto.cards === 0 && crypto.controls === 0, 'в криптобирже нет рамок, подписей и кнопок');
-  check(crypto.canvases.every(Boolean), 'нарисованы четыре новые сцены криптобиржи');
-  check(crypto.titles.join('|') === 'Команда|ИИ до тренда|В три раза больше|Турниры', 'новые названия эпизодов криптобиржи', crypto.titles.join(' | '));
+  check(crypto.canvases.every(Boolean), 'нарисованы пять новых сцен криптобиржи');
+  check(crypto.titles.join('|') === 'Команда|iOS, Android + телега|Ставка на ИИ|Скорость ракеты|Турниры', 'новые названия эпизодов криптобиржи', crypto.titles.join(' | '));
 
   const cryptoBefore = await page.evaluate(() => window.__orbits.getAnimations().find((animation) => animation.id === 'fig22')?.time);
   await page.waitForTimeout(700);
@@ -341,7 +346,7 @@ async function makePage(options = {}) {
 {
   const context = await browser.newContext({ viewport: { width: 1200, height: 800 }, javaScriptEnabled: false });
   const page = await context.newPage();
-  await page.goto(fileUrl);
+  await page.goto(baseUrl);
   const fallback = await page.evaluate(() => ({
     display: getComputedStyle(document.querySelector('.nojs-fallback')).display,
     text: document.querySelector('.nojs-fallback').innerText,
@@ -354,7 +359,7 @@ async function makePage(options = {}) {
   check(fallback.text.includes('Для управления барабаном включите JavaScript.'), 'финальная фраза без JS');
   check(fallback.text.includes('От jQuery до ИИ.'), 'без JS показан новый заголовок');
   check(!fallback.text.includes('Александр Смирнов'), 'без JS имя не повторяется');
-  for (const name of ['Самостоятельная разработка', 'Криптобиржа', 'Онлайн-брокер', 'Интерселект', 'Страйдер', 'Маш Русланд', 'Старсофт Лабс · T-Mobile']) {
+  for (const name of ['Самостоятельная разработка', 'Криптобиржа', 'Akma', 'Интерселект', 'Страйдер', 'Маш Русланд', 'Старсофт Лабс · T-Mobile']) {
     check(fallback.text.includes(name), `без JS перечислена глава «${name}»`);
   }
   await context.close();

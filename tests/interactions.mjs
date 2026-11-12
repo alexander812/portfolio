@@ -1,14 +1,13 @@
 import { chromium } from 'playwright-core';
-import { pathToFileURL } from 'node:url';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
-const root='/Users/a.smirnov/p/portfolio-deepsick';
+const baseUrl = process.env.BASE_URL ?? 'http://localhost:4321';
 const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
 const b=await chromium.launch({executablePath:exe,headless:true});
 const c=await b.newContext({viewport:{width:1200,height:800},hasTouch:true});
 const p=await c.newPage();
 const errors=[]; p.on('pageerror',e=>errors.push(e.message)); p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
-await p.goto(pathToFileURL(join(root,'index.html')).href); await p.waitForTimeout(500);
+await p.goto(baseUrl); await p.waitForTimeout(500);
 const checks=[]; const check=(ok,msg,detail='')=>checks.push({ok,msg,detail});
 // pause buttons count
 check(await p.evaluate(()=>document.querySelectorAll('.pause-btn').length===0),'нет кнопок паузы',String(await p.evaluate(()=>document.querySelectorAll('.pause-btn').length)));
@@ -24,7 +23,7 @@ check(Math.abs(startT-0.98)<0.02,'кнопка «Начать путешеств
 // year nav 2006
 await p.click('[data-year="2006"]'); await p.waitForTimeout(250);
 const yearState=await p.evaluate(()=>{const s=window.__orbits.getState();return {t:s.t,c:s.counter,m:s.mode,y:s.activeYear}});
-check(Math.abs(yearState.t-45.08)<0.02 && yearState.c==='01 / 02' && yearState.y==='2006','навигация по годам ведёт к 2006 и /02',JSON.stringify(yearState));
+check(Math.abs(yearState.t-46.13)<0.02 && yearState.c==='01 / 02' && yearState.y==='2006','навигация по годам ведёт к 2006 и /02',JSON.stringify(yearState));
 // modifier arrows ignored
 const beforeMod=await p.evaluate(()=>window.__orbits.getState().t);
 await p.keyboard.down('Shift'); await p.keyboard.press('ArrowRight'); await p.keyboard.up('Shift'); await p.waitForTimeout(250);
@@ -66,7 +65,7 @@ const touch=await p.evaluate(async()=>{
 });
 check(touch.after>0,'горизонтальный touch-свайп продвигает маршрут',JSON.stringify(touch));
 // final home
-await p.evaluate(()=>window.__orbits.jumpToT(48.09)); await p.waitForTimeout(200);
+await p.evaluate(()=>window.__orbits.jumpToT(49.14)); await p.waitForTimeout(200);
 await p.click('#finalHomeBtn'); await p.waitForTimeout(200);
 const homeT=await p.evaluate(()=>window.__orbits.getState().t);
 check(homeT===0,'«К началу атласа» возвращает на обложку',String(homeT));

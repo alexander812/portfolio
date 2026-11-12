@@ -4,6 +4,24 @@
    #00030E / #191B22 / #BCA4FF / #FFFFFF, Hanken Grotesk.
    ========================================================================== */
 
+@font-face {
+  font-family: "Hanken Grotesk";
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url("/fonts/hanken-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Onest";
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url("/fonts/onest-cyrillic.woff2") format("woff2");
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
 :root {
   --bg: #00030e;
   --bg-soft: #050813;
@@ -800,7 +818,7 @@ body::after {
   font-size: clamp(54px, 7.4vw, 116px);
   font-weight: 600;
   letter-spacing: -0.062em;
-  line-height: 0.86;
+  line-height: 0.95;
 }
 
 .cover-title .title-line {
@@ -1210,6 +1228,37 @@ body::after {
   white-space: nowrap;
 }
 
+.ep-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: clamp(16px, 2.4vh, 22px);
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(188, 164, 255, 0.26);
+  color: var(--lav-bright);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.ep-project-link svg {
+  width: 13px;
+  height: 13px;
+  transition: transform 0.2s ease;
+}
+
+.ep-project-link:hover {
+  border-color: var(--lav-bright);
+  color: var(--white);
+}
+
+.ep-project-link:hover svg {
+  transform: translate(2px, -2px);
+}
+
 .ep-figure {
   min-width: 0;
 }
@@ -1570,7 +1619,7 @@ body::after {
 .deck {
   position: relative;
   width: auto;
-  height: 92%;
+  height: 68%;
   aspect-ratio: 0.8;
   container-type: size;
   touch-action: pan-y pinch-zoom;
@@ -1881,6 +1930,13 @@ body::after {
   font-weight: 450;
   letter-spacing: -0.025em;
   line-height: 1.28;
+}
+
+.year-event-card .year-note {
+  max-width: 38ch;
+  font-size: clamp(14px, 1.45vw, 20px);
+  font-weight: 400;
+  line-height: 1.48;
 }
 
 .year-shell {
@@ -2630,7 +2686,7 @@ body.is-paused .mode-orb {
 
   .cover-title {
     font-size: clamp(50px, 15vw, 82px);
-    line-height: 0.9;
+    line-height: 0.95;
   }
 
   .cover-eyebrow {
@@ -2901,7 +2957,7 @@ body.is-paused .mode-orb {
 
   .cover-title {
     font-size: clamp(44px, 6.3vw, 80px);
-    line-height: 0.88;
+    line-height: 0.95;
   }
 
   .cover-id {

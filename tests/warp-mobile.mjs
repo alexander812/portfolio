@@ -6,7 +6,7 @@ const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-
 const b=await chromium.launch({executablePath:exe,headless:true});
 const c=await b.newContext({viewport:{width:390,height:844},hasTouch:true,isMobile:true});
 const p=await c.newPage();
-await p.goto(pathToFileURL('/Users/a.smirnov/p/portfolio-deepsick/index.html').href); await p.waitForTimeout(500);
+await p.goto((process.env.BASE_URL ?? 'http://localhost:4321')); await p.waitForTimeout(500);
 await p.evaluate(()=>window.__orbits.jumpToT(0.98)); await p.waitForTimeout(400);
 await p.evaluate(async()=>{for(let i=0;i<14;i++){window.scrollBy(0,90);await new Promise(r=>requestAnimationFrame(r));}});
 await p.screenshot({path:'tests/warp-mobile.png'});

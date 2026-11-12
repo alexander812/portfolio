@@ -22,7 +22,7 @@ page.on('console', (message) => {
   if (message.type() === 'error' || message.type() === 'warning') errors.push(`${message.type()}: ${message.text()}`);
 });
 page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
-await page.goto(pathToFileURL(join(root, 'index.html')).href);
+await page.goto((process.env.BASE_URL ?? 'http://localhost:4321'));
 await page.waitForTimeout(700);
 await page.evaluate((value) => {
   if (value > 0 && window.__orbits) window.__orbits.jumpToT(value);

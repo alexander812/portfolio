@@ -5,7 +5,7 @@ import { join } from 'node:path';
 const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing');
 const b=await chromium.launch({executablePath:exe,headless:true});
 const p=await b.newPage({viewport:{width:1200,height:800}});
-await p.goto(pathToFileURL('/Users/a.smirnov/p/portfolio-deepsick/index.html').href);
+await p.goto((process.env.BASE_URL ?? 'http://localhost:4321'));
 await p.waitForTimeout(500);
 await p.evaluate(()=>window.__orbits.jumpToT(0.98));
 await p.waitForTimeout(300);

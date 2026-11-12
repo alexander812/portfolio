@@ -6,7 +6,7 @@ const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-
 const b=await chromium.launch({executablePath:exe,headless:true});
 const c=await b.newContext({viewport:{width:1200,height:800},javaScriptEnabled:false});
 const p=await c.newPage();
-await p.goto(pathToFileURL('/Users/a.smirnov/p/portfolio-deepsick/index.html').href);
+await p.goto((process.env.BASE_URL ?? 'http://localhost:4321'));
 await p.waitForTimeout(300);
 const info=await p.evaluate(()=>({
   title:document.title,

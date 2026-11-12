@@ -6,7 +6,7 @@ const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-
 const b=await chromium.launch({executablePath:exe,headless:true});
 const c=await b.newContext({viewport:{width:1200,height:800},reducedMotion:'reduce'});
 const p=await c.newPage();
-await p.goto(pathToFileURL('/Users/a.smirnov/p/portfolio-deepsick/index.html').href); await p.waitForTimeout(500);
+await p.goto((process.env.BASE_URL ?? 'http://localhost:4321')); await p.waitForTimeout(500);
 const before=await p.evaluate(()=>({w:document.querySelector('canvas[data-chart]').width,h:document.querySelector('canvas[data-chart]').height}));
 await p.evaluate(()=>window.__orbits.jumpToT(6.65)); await p.waitForTimeout(400);
 const after=await p.evaluate(()=>{

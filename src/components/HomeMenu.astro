@@ -1,0 +1,23 @@
+<div class="modal" id="menuModal" hidden>
+  <div class="modal-backdrop" data-close-menu></div>
+  <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="menuTitle" aria-describedby="menuDesc">
+    <header class="dialog-head">
+      <div>
+        <span class="eyebrow">Навигация по атласу</span>
+        <h2 id="menuTitle">Главы атласа.</h2>
+        <p class="sr-only" id="menuDesc">Семь глав в обратной хронологии. Выбор главы сразу открывает её первый эпизод.</p>
+      </div>
+      <button class="dialog-close" id="menuClose" type="button" aria-label="Закрыть указатель глав" title="Закрыть">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg>
+      </button>
+    </header>
+    <div class="menu-list" id="menuList"></div>
+    <footer class="dialog-foot">
+      <button class="text-btn" id="menuHome" type="button">
+        <span class="text-btn-icon" aria-hidden="true">↖</span>
+        К началу
+      </button>
+      <span class="dialog-note">2006 — 2026 · Семь глав · 20 эпизодов</span>
+    </footer>
+  </section>
+</div>

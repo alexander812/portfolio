@@ -1,3 +1,6 @@
+import { gsap } from '../globals';
+import '../../pencil-embed.js';
+
 (() => {
   'use strict';
 
@@ -21,7 +24,6 @@
   const lerp = (a, b, t) => a + (b - a) * t;
   const pad = (value) => String(value).padStart(2, '0');
   const round6 = (value) => Math.round(value * 1e6) / 1e6;
-  const easeInOutCubic = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
   const easeOutCubic = (x) => 1 - Math.pow(1 - x, 3);
 
   function mulberry32(seed) {
@@ -66,8 +68,8 @@
         },
         {
           number: '02',
-          title: 'На поддержке',
-          text: 'Несколько небольших проектов, которые не отнимают много времени. Обновить, проверить, починить — ровный фон, на котором можно думать о большем.',
+          title: 'Между делом',
+          text: 'Несколько небольших проектов, которые не отнимают много времени. Обновить, проверить, починить — пауза для смены ритма.',
           skills: ['Поддержка', 'Frontend'],
           figure: '19',
           bare: true,
@@ -82,11 +84,12 @@
         },
         {
           number: '04',
-          title: 'Слово за словом',
-          text: 'Самая свежая работа, которую хочется показать, — приложение для изучения языков. Несколько механик помогают учить слова и фразы. Импульсом стал сын: он учит английский в школе.',
+          title: 'Изучаем языки',
+          text: 'Самая свежая работа — приложение для изучения языков. Несколько механик помогают учить слова и фразы. Импульсом стал сын: он учит английский в школе.',
           skills: ['Пет-проект', 'Изучение языков'],
           figure: '21',
           bare: true,
+          link: 'https://lexi.casa/',
         },
       ],
     },
@@ -107,22 +110,30 @@
         },
         {
           number: '02',
-          title: 'ИИ до тренда',
+          title: 'iOS, Android + телега',
+          text: 'Мы разрабатывали и поддерживали приложение под разные платформы. А именно Web, iOS, Android и Telegram. С помощью файла конфигурации набор фич в приложениях мог быть разный.',
+          skills: ['Web', 'iOS', 'Android', 'Telegram'],
+          figure: '26',
+          bare: true,
+        },
+        {
+          number: '03',
+          title: 'Ставка на ИИ',
           text: 'Помимо стандартных инструментов торговли — ставка на искусственный интеллект. Развивали торговых агентов и сигналы ещё до того, как это стало трендом в индустрии.',
           skills: ['AI-агенты', 'Сигналы'],
           figure: '23',
           bare: true,
         },
         {
-          number: '03',
-          title: 'В три раза больше',
+          number: '04',
+          title: 'Скорость ракеты',
           text: 'Команда успевала делать в три раза больше, чем на моём предыдущем проекте. Постоянно экспериментировали с механиками: от профессиональных биржевых инструментов до игровых сценариев.',
           skills: ['Торговые механики', 'Эксперименты'],
           figure: '24',
           bare: true,
         },
         {
-          number: '04',
+          number: '05',
           title: 'Турниры',
           text: 'Периодически устраивали турниры для пользователей — как правило, в формате хакатона. Действовать приходилось быстро и креативно. Здесь же AI в кодинге окончательно стал обыденной реальностью.',
           skills: ['Турниры', 'Хакатоны', 'AI в коде'],
@@ -134,30 +145,33 @@
     {
       id: '2017',
       year: 2017,
-      title: 'Онлайн-брокер',
+      title: 'Akma',
       period: 'Апрель 2017 — декабрь 2023',
       tone: 'rgba(188, 164, 255, 0.09)',
       episodes: [
         {
           number: '01',
-          title: 'Архитектура платформы',
-          text: 'Участвовал в создании онлайн-брокера. Проектировал фронтенд на React и MobX, пока небольшой проект вырастал в крупную торговую платформу.',
-          skills: ['React', 'MobX', 'Архитектура'],
-          figure: '07',
+          title: 'Платформа для трейдинга',
+          text: 'Akma — очень крупный проект с миллионами пользователей. Здесь были реализованы торговые механики, CFD, Stocks, Forex и Options. Продукт работал только с зарубежными клиентами.',
+          skills: ['Трейдинг', 'CFD', 'Stocks', 'Forex', 'Options'],
+          figure: '09',
+          bare: true,
         },
         {
           number: '02',
-          title: 'Команда в масштабе',
-          text: 'Руководил фронтенд-командой примерно из 20 разработчиков. Вместе мы развивали интерфейсы брокера по мере роста платформы.',
-          skills: ['Тимлид', 'Фронтенд-команда'],
+          title: 'Команда и процессы',
+          text: 'Пришёл на проект Team Lead фронтенда и Senior Developer. В команде было около 20 разработчиков. Отвечал за архитектурные решения, набирал новых людей, организовывал командные синки и выездные сессии. В компании ежегодно проходили хакатоны — я всегда участвовал и несколько раз побеждал.',
+          skills: ['Team Lead', 'Senior', 'Архитектура', 'Найм', 'Хакатоны'],
           figure: '08',
+          bare: true,
         },
         {
           number: '03',
-          title: 'Вокруг брокера',
-          text: 'Помимо основной платформы разрабатывал вспомогательные продукты, в том числе криптообменник и криптокошелёк.',
-          skills: ['Криптообменник', 'Криптокошелёк'],
-          figure: '09',
+          title: 'Ядро и другие команды',
+          text: 'На проекте было много команд. Я работал в команде «Платформа», которая отвечала за ядро проекта. На время переходил в другие команды: поднимал фронтенд криптокошелька и интегрировал торговые графики. Изначально проект писался на Flux и JavaScript, позже работу с состоянием перевели на MobX и TypeScript.',
+          skills: ['Платформа', 'Криптокошелёк', 'Графики', 'Flux → MobX', 'TypeScript'],
+          figure: '07',
+          bare: true,
         },
       ],
     },
@@ -170,16 +184,16 @@
       episodes: [
         {
           number: '01',
-          title: 'React с нуля',
-          text: 'Создал с нуля торговую площадку. Внедрил новый на тот момент React и построил Flux-архитектуру приложения.',
-          skills: ['React', 'Flux', 'Архитектура'],
+          title: 'MVP на jQuery',
+          text: 'Интерселект — финтех-платформа бинарных опционов, очень популярных в те годы. Я пришёл в проект, когда в нём было около 10 человек. Первую версию собрали на jQuery за неделю как быстрое MVP, после чего платформа начала расти.',
+          skills: ['Финтех', 'Бинарные опционы', 'jQuery', 'MVP'],
           figure: '10',
         },
         {
           number: '02',
-          title: 'Начало команды',
-          text: 'Участвовал в наборе разработчиков в новый проект. Вместе с продуктом формировалась команда, которой предстояло его развивать.',
-          skills: ['Фронтенд', 'Найм', 'Команда'],
+          title: 'Backbone → React',
+          text: 'Когда платформа начала приносить прибыль, её переписали на Backbone. За несколько лет команда выросла примерно в 10 раз. Я стал тимлидом четырёх фронтенд-разработчиков: занимался архитектурой, наймом, синками и встречами. Следующим этапом стал масштабный рефакторинг с Backbone на React.',
+          skills: ['Backbone', 'React', 'Тимлид', 'Рефакторинг'],
           figure: '11',
         },
       ],
@@ -276,7 +290,7 @@
       year: 2023,
       month: 'Декабрь',
       type: 'Переход',
-      text: 'Завершил работу над онлайн-брокером. Перешёл в проект криптобиржи.',
+      text: 'Завершил работу над Akma. Перешёл в проект криптобиржи.',
     },
     {
       id: '2018-06',
@@ -291,7 +305,7 @@
       month: 'Апрель',
       type: 'Начало',
       company: 'Space307',
-      text: 'Присоединился к Space307. Начал работу над онлайн-брокером.',
+      text: 'Присоединился к Space307. Начал работу над платформой Akma.',
     },
     {
       id: '2017-04-ams',
@@ -312,7 +326,7 @@
       year: 2015,
       month: 'Август',
       type: 'Начало',
-      text: 'Начал работу в Интерселект: торговая площадка с нуля на React и Flux.',
+      text: 'Начал работу в Интерселект: платформа бинарных опционов, первый MVP на jQuery.',
     },
     {
       id: '2015-07',
@@ -427,10 +441,10 @@
     '04': { topic: 'Свечной график', kind: 'chart' },
     '05': { topic: 'Торговля и переводы', kind: 'transfers' },
     '06': { topic: 'Поединок', kind: 'duel' },
-    '07': { topic: 'Слои приложения', kind: 'layers' },
-    '08': { topic: 'Созвездие команды', kind: 'constellation' },
-    '09': { topic: 'Система продуктов', kind: 'products' },
-    '10': { topic: 'Поток данных', kind: 'dataflow' },
+    '07': { topic: 'Ядро и команды', kind: 'layers' },
+    '08': { topic: 'Команда фронтенда', kind: 'constellation' },
+    '09': { topic: 'Торговые рынки', kind: 'products' },
+    '10': { topic: 'Эволюция платформы', kind: 'dataflow' },
     '11': { topic: 'Сборка команды', kind: 'team' },
     '12': { topic: 'Клиент и сервер', kind: 'client' },
     '13': { topic: 'Облачная медиатека', kind: 'cloud' },
@@ -446,12 +460,19 @@
     '23': { topic: 'Агенты и сигналы', kind: 'signals' },
     '24': { topic: 'Три скорости', kind: 'mechanics' },
     '25': { topic: 'Турниры', kind: 'tournament' },
+    '26': { topic: 'Кроссплатформенные приложения', kind: 'platforms' },
   };
 
-  const ANIMATED_FIGURES = new Set(['01', '02', '03', '04', '05', '06', '19', '20', '21', '22', '23', '24', '25']);
+  const ANIMATED_FIGURES = new Set(['01', '02', '03', '04', '05', '06', '07', '08', '09', '19', '20', '21', '22', '23', '24', '25', '26']);
 
   const chapterById = new Map(CHAPTERS.map((chapter) => [chapter.id, chapter]));
   const eventById = new Map(EVENTS.map((event) => [event.id, event]));
+
+  const YEAR_NOTES = {
+    2021: 'Начали рефакторинг и переход на архитектуру, ориентированную на фичи. Для этого запустили на прод новый фреймворк, который позволял декларативно описывать набор фичей в приложении.',
+    2020: 'Закончили переезд платформы на MobX.',
+    2019: 'Грянул COVID, и мы все перешли на удалёнку.',
+  };
 
   /* ------------------------------------------------------------------------
      Маршрут
@@ -581,6 +602,12 @@
     const bare = Boolean(episode.bare);
     const body = animated ? animationBody(figureNumber) : staticFigure(figureNumber);
     const skills = episode.skills.map((skill) => `<li>${escapeHtml(skill)}</li>`).join('');
+    const projectLink = episode.link
+      ? `<a class="ep-project-link" href="${escapeHtml(episode.link)}" target="_blank" rel="noopener noreferrer">
+          <span>Перейти на проект</span>
+          <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5.2 4H10v4.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>`
+      : '';
     return `
       <article class="episode${bare ? ' episode--bare' : ''}" data-episode="${episodeIndex}" data-figure="${figureNumber}" style="--episode-glow:${chapter.tone}">
         <div class="episode-watermark" aria-hidden="true">${chapter.year}</div>
@@ -599,6 +626,7 @@
               <h2>${escapeHtml(episode.title)}</h2>
               <p>${escapeHtml(episode.text)}</p>
               <ul class="skills" aria-label="Навыки">${skills}</ul>
+              ${projectLink}
             </div>
             <figure class="ep-figure">
               ${figureShell(figureNumber, body, { ...(animated ? { animId: `fig${figureNumber}` } : {}), bare })}
@@ -629,7 +657,7 @@
             <div class="cover-copy">
               <p class="cover-eyebrow">Интерактивный атлас карьеры</p>
               <h1 class="cover-title"><span class="title-line">От jQuery</span><span class="title-line title-accent">до ИИ.</span></h1>
-              <p class="cover-lead"><strong>Двадцать лет во фронтенде.</strong> Сегодня проще перечислить технологии, которых я ещё не касался. Прошёл путь от jQuery-модулей и спагетти-кода до модульной архитектуры с декораторами, инъекциями и слотами. Переписывал приложения на десятки тысяч строк, когда менялась сама концепция разработки. И каждый следующий проект был сложнее и интереснее предыдущего.</p>
+              <p class="cover-lead">Я прошёл путь от jQuery-модулей и спагетти-кода до Feature-driven и Feature-Sliced Design. Переписывал приложения на десятки тысяч строк, когда менялась сама концепция разработки. И каждый следующий проект был сложнее и интереснее предыдущего. Теперь AI предлагает новый инструмент снимающий с разработчика рутинные процессы и дает раскрыться творческому потенциалу. Тем интереснее двигаться дальше.</p>
               <div class="cover-actions">
                 <button class="primary-btn" id="startBtn" type="button">
                   <span>Начать путешествие</span>
@@ -708,13 +736,17 @@
   }
 
   function renderYear(entry) {
+    const note = YEAR_NOTES[entry.year] || `По орбите к ${entry.nextChapter} году`;
     return `
       <section class="stop stop-year" data-index="${entry.index}" aria-label="${entry.year} год">
-        <div class="year-shell">
-          <div class="year-card">
-            <div class="year-number" aria-hidden="true">${entry.year}</div>
-            <h2 class="sr-only">${entry.year} год</h2>
-            <div class="year-caption">По орбите к ${entry.nextChapter} году</div>
+        <div class="event-shell">
+          <div class="event-card year-event-card">
+            <div class="event-year" aria-hidden="true">${entry.year}</div>
+            <div class="event-body">
+              <div class="event-kicker">Хронология</div>
+              <h2 class="sr-only">${entry.year} год</h2>
+              <p class="event-text year-note">${escapeHtml(note)}</p>
+            </div>
           </div>
         </div>
       </section>`;
@@ -927,32 +959,36 @@
     return sceneSvg(
       '09',
       `
-      <ellipse cx="320" cy="205" rx="250" ry="132" fill="none" stroke="rgba(188,164,255,.13)" stroke-width="1" stroke-dasharray="2 7" transform="rotate(-16 320 205)"/>
-      <path d="M255 160 L188 134M385 256 L454 284" fill="none" stroke="rgba(188,164,255,.36)" stroke-width="1" stroke-dasharray="3 5"/>
-      <circle cx="188" cy="134" r="4" fill="#BCA4FF"/>
-      <circle cx="454" cy="284" r="4" fill="#6FE7F2"/>
-      <g transform="translate(320 210)">
-        <rect x="-96" y="-61" width="192" height="122" rx="26" fill="#181b25" stroke="rgba(188,164,255,.42)" stroke-width="1.2"/>
-        <rect x="-82" y="-46" width="164" height="92" rx="18" fill="rgba(188,164,255,.045)" stroke="rgba(255,255,255,.08)"/>
-        <circle cx="0" cy="-21" r="15" fill="none" stroke="#BCA4FF" stroke-width="1.2"/>
-        <path d="M-7 -21h14M0 -28v14" stroke="#BCA4FF" stroke-width="1.2" stroke-linecap="round"/>
-        <text x="0" y="15" text-anchor="middle" class="svg-label">ОНЛАЙН-БРОКЕР</text>
-        <text x="0" y="32" text-anchor="middle" class="svg-label-dim">ПЛАТФОРМА</text>
+      <ellipse cx="320" cy="205" rx="252" ry="142" fill="none" stroke="rgba(188,164,255,.13)" stroke-width="1" stroke-dasharray="2 7" transform="rotate(-16 320 205)"/>
+      <path d="M246 150 L196 118M394 150 L444 118M320 269v34" fill="none" stroke="rgba(188,164,255,.34)" stroke-width="1" stroke-dasharray="3 5"/>
+      <circle cx="196" cy="118" r="4" fill="#6FE7F2"/>
+      <circle cx="444" cy="118" r="4" fill="#BCA4FF"/>
+      <circle cx="320" cy="303" r="4" fill="#FF7AD9"/>
+      <g transform="translate(320 205)">
+        <rect x="-108" y="-60" width="216" height="120" rx="26" fill="#181b25" stroke="rgba(188,164,255,.42)" stroke-width="1.2"/>
+        <rect x="-94" y="-45" width="188" height="90" rx="18" fill="rgba(188,164,255,.045)" stroke="rgba(255,255,255,.08)"/>
+        <path d="M-63 18 L-43 2 L-23 10 L-3 -14 L17 -2 L37 -22 L57 6" fill="none" stroke="#BCA4FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="57" cy="6" r="3.2" fill="#6FE7F2"/>
+        <text x="0" y="-19" text-anchor="middle" class="svg-label">AKMA</text>
+        <text x="0" y="39" text-anchor="middle" class="svg-label-dim">ТРЕЙДИНГОВАЯ ПЛАТФОРМА</text>
       </g>
-      <g transform="translate(128 125)">
-        <rect x="-74" y="-35" width="148" height="70" rx="18" fill="#0d101a" stroke="rgba(111,231,242,.32)"/>
-        <path d="M-46 -7h40l12-12M-6 7h-40L-58 -5" fill="none" stroke="#6FE7F2" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-        <circle cx="20" cy="-19" r="3" fill="#6FE7F2"/>
-        <text x="33" y="20" text-anchor="middle" class="svg-label-dim">КРИПТООБМЕННИК</text>
+      <g transform="translate(118 92)">
+        <rect x="-86" y="-30" width="172" height="60" rx="16" fill="#0d101a" stroke="rgba(111,231,242,.34)"/>
+        <path d="M-58 10 L-38 -4 L-18 4 L2 -14 L22 0 L42 4" fill="none" stroke="#6FE7F2" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="26" y="4" text-anchor="middle" class="svg-label">CFD</text>
       </g>
-      <g transform="translate(510 300)">
-        <rect x="-76" y="-35" width="152" height="70" rx="18" fill="#0d101a" stroke="rgba(188,164,255,.3)"/>
-        <rect x="-49" y="-16" width="34" height="25" rx="5" fill="none" stroke="#BCA4FF" stroke-width="1.2"/>
-        <path d="M-42 -16v-7h20v7" fill="none" stroke="#BCA4FF" stroke-width="1.2"/>
-        <circle cx="-32" cy="-4" r="3" fill="#BCA4FF"/>
-        <text x="22" y="5" text-anchor="middle" class="svg-label-dim">КРИПТОКОШЕЛЁК</text>
+      <g transform="translate(522 92)">
+        <rect x="-86" y="-30" width="172" height="60" rx="16" fill="#0d101a" stroke="rgba(188,164,255,.34)"/>
+        <path d="M-54 -10v24M-38 -18v30M-22 -4v18M-6 -14v28M10 0v14" stroke="#BCA4FF" stroke-width="1.6" stroke-linecap="round"/>
+        <text x="38" y="4" text-anchor="middle" class="svg-label">STOCKS</text>
       </g>
-      <text x="320" y="380" text-anchor="middle" class="svg-label-dim">СИСТЕМА ПРОДУКТОВ</text>
+      <g transform="translate(320 318)">
+        <rect x="-92" y="-28" width="184" height="56" rx="16" fill="#0d101a" stroke="rgba(255,122,217,.32)"/>
+        <rect x="-62" y="-12" width="28" height="24" rx="4" fill="none" stroke="#FF7AD9" stroke-width="1.3"/>
+        <path d="M-55 8 V-4M-48 8 V0M-41 8 V-8" stroke="#FF7AD9" stroke-width="1.4" stroke-linecap="round"/>
+        <text x="34" y="4" text-anchor="middle" class="svg-label">OPTIONS</text>
+      </g>
+      <text x="320" y="392" text-anchor="middle" class="svg-label-dim">ТОРГОВЫЕ МЕХАНИКИ · МЕЖДУНАРОДНЫЕ КЛИЕНТЫ</text>
       `
     );
   }
@@ -966,27 +1002,28 @@
           <path d="M0 0 6 3 0 6" fill="none" stroke="rgba(188,164,255,.7)" stroke-width="1"/>
         </marker>
       </defs>
-      <path d="M258 142 C190 176 160 222 176 268" fill="none" stroke="rgba(188,164,255,.4)" stroke-width="1.2" marker-end="url(#fig-arrow-10)" stroke-dasharray="4 5"/>
-      <path d="M246 318 C300 354 386 350 438 316" fill="none" stroke="rgba(111,231,242,.4)" stroke-width="1.2" marker-end="url(#fig-arrow-10)" stroke-dasharray="4 5"/>
-      <path d="M452 264 C472 216 448 176 382 146" fill="none" stroke="rgba(255,122,217,.35)" stroke-width="1.2" marker-end="url(#fig-arrow-10)" stroke-dasharray="4 5"/>
-      <g transform="translate(320 106)">
-        <rect x="-74" y="-30" width="148" height="60" rx="16" fill="#181b25" stroke="rgba(188,164,255,.42)"/>
-        <text x="0" y="4" text-anchor="middle" class="svg-label">ACTION</text>
+      <ellipse cx="320" cy="205" rx="252" ry="120" fill="none" stroke="rgba(188,164,255,.12)" stroke-width="1" stroke-dasharray="2 7" transform="rotate(-9 320 205)"/>
+      <path d="M196 190h34M410 190h34" fill="none" stroke="rgba(188,164,255,.5)" stroke-width="1.2" marker-end="url(#fig-arrow-10)"/>
+      <g transform="translate(110 190)">
+        <rect x="-80" y="-38" width="160" height="76" rx="18" fill="#0d101a" stroke="rgba(111,231,242,.4)"/>
+        <text x="0" y="-4" text-anchor="middle" class="svg-label">JQUERY</text>
+        <text x="0" y="17" text-anchor="middle" class="svg-label-dim">MVP ЗА НЕДЕЛЮ</text>
       </g>
-      <g transform="translate(170 302)">
-        <rect x="-74" y="-30" width="148" height="60" rx="16" fill="#0d101a" stroke="rgba(188,164,255,.25)"/>
-        <text x="0" y="4" text-anchor="middle" class="svg-label">STORE</text>
+      <g transform="translate(320 190)">
+        <rect x="-80" y="-38" width="160" height="76" rx="18" fill="#181b25" stroke="rgba(188,164,255,.48)"/>
+        <text x="0" y="-4" text-anchor="middle" class="svg-label">BACKBONE</text>
+        <text x="0" y="17" text-anchor="middle" class="svg-label-dim">РОСТ И ПРИБЫЛЬ</text>
       </g>
-      <g transform="translate(470 302)">
-        <rect x="-74" y="-30" width="148" height="60" rx="16" fill="#0d101a" stroke="rgba(111,231,242,.3)"/>
-        <text x="0" y="4" text-anchor="middle" class="svg-label">VIEW</text>
+      <g transform="translate(530 190)">
+        <rect x="-80" y="-38" width="160" height="76" rx="18" fill="#11141e" stroke="rgba(255,122,217,.38)"/>
+        <text x="0" y="-4" text-anchor="middle" class="svg-label">REACT</text>
+        <text x="0" y="17" text-anchor="middle" class="svg-label-dim">РЕФАКТОРИНГ</text>
       </g>
-      <circle cx="320" cy="220" r="49" fill="#080b14" stroke="rgba(188,164,255,.24)" stroke-width="1" stroke-dasharray="2 6"/>
-      <circle cx="320" cy="220" r="36" fill="rgba(188,164,255,.045)" stroke="rgba(188,164,255,.32)" stroke-width="1"/>
-      <path d="M310 214c8-8 24-6 24 7 0 12-18 14-25 4" fill="none" stroke="#BCA4FF" stroke-width="1.4" stroke-linecap="round"/>
-      <path d="M309 228c-8 6-18 3-18-6 0-10 12-13 21-7" fill="none" stroke="#6FE7F2" stroke-width="1.2" stroke-linecap="round"/>
-      <text x="320" y="279" text-anchor="middle" class="svg-label-dim">REACT · FLUX</text>
-      <text x="320" y="378" text-anchor="middle" class="svg-label-dim">ОДНОНАПРАВЛЕННЫЙ ПОТОК</text>
+      <circle cx="110" cy="142" r="3.5" fill="#6FE7F2"/>
+      <circle cx="320" cy="142" r="3.5" fill="#BCA4FF"/>
+      <circle cx="530" cy="142" r="3.5" fill="#FF7AD9"/>
+      <path d="M110 142v10M320 142v10M530 142v10" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+      <text x="320" y="342" text-anchor="middle" class="svg-label-dim">ЭВОЛЮЦИЯ ПЛАТФОРМЫ · 2015—2017</text>
       `
     );
   }
@@ -1313,6 +1350,12 @@
         return transfersFigure();
       case '06':
         return duelFigure();
+      case '07':
+        return coreTeamsFigure();
+      case '08':
+        return teamScaleFigure();
+      case '09':
+        return marketsFigure();
       case '19':
         return supportFigure();
       case '20':
@@ -1320,13 +1363,15 @@
       case '21':
         return languageFigure();
       case '22':
-        return teamFigure();
+        return teamCanvasFigure();
       case '23':
         return signalsFigure();
       case '24':
         return mechanicsFigure();
       case '25':
         return tournamentFigure();
+      case '26':
+        return platformsFigure();
       default:
         return '';
     }
@@ -1347,13 +1392,10 @@
   }
 
   function languageFigure() {
-    return `
-      <div class="fig-dom current-figure">
-        <canvas class="fig-canvas current-canvas" data-language aria-hidden="true"></canvas>
-      </div>`;
+    return deckFigure({ next: false });
   }
 
-  function teamFigure() {
+  function teamCanvasFigure() {
     return `
       <div class="fig-dom current-figure">
         <canvas class="fig-canvas current-canvas" data-team aria-hidden="true"></canvas>
@@ -1378,6 +1420,34 @@
     return `
       <div class="fig-dom current-figure">
         <canvas class="fig-canvas current-canvas" data-tournament aria-hidden="true"></canvas>
+      </div>`;
+  }
+
+  function platformsFigure() {
+    return `
+      <div class="fig-dom current-figure">
+        <canvas class="fig-canvas current-canvas" data-platforms aria-hidden="true"></canvas>
+      </div>`;
+  }
+
+  function coreTeamsFigure() {
+    return `
+      <div class="fig-dom current-figure">
+        <canvas class="fig-canvas current-canvas" data-core-teams aria-hidden="true"></canvas>
+      </div>`;
+  }
+
+  function teamScaleFigure() {
+    return `
+      <div class="fig-dom current-figure">
+        <canvas class="fig-canvas current-canvas" data-team-scale aria-hidden="true"></canvas>
+      </div>`;
+  }
+
+  function marketsFigure() {
+    return `
+      <div class="fig-dom current-figure">
+        <canvas class="fig-canvas current-canvas" data-markets aria-hidden="true"></canvas>
       </div>`;
   }
 
@@ -1418,16 +1488,16 @@
     );
   }
 
-  function deckFigure() {
+  function deckFigure(options = {}) {
     return `
       <div class="fig-dom">
         <div class="deck-wrap">
           <div class="deck" data-deck role="group" aria-label="Колода карточек для изучения языка: слово и перевод">
             <span class="sr-only" data-deck-live aria-live="polite"></span>
           </div>
-          <button class="deck-next" type="button" aria-label="Следующее слово" title="Следующее слово">
+          ${options.next === false ? '' : `<button class="deck-next" type="button" aria-label="Следующее слово" title="Следующее слово">
             <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7h9M7.8 3.2 11.6 7l-3.8 3.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          </button>`}
         </div>
       </div>`;
   }
@@ -1573,6 +1643,8 @@
       const observer = new IntersectionObserver(
         (entries) => {
           const visible = entries.some((entry) => entry.isIntersecting);
+          const wasInView = anim.inView;
+          if (visible && !wasInView && options.restartOnEnter) anim.time = 0;
           anim.inView = visible;
           anim.last = 0;
           anim.lastDraw = 0;
@@ -2568,6 +2640,7 @@
   const FIG_LAV = '188, 164, 255';
   const FIG_CYAN = '111, 231, 242';
   const FIG_WHITE = '247, 245, 255';
+  const FIG_MAGENTA = '255, 122, 217';
   const figRgba = (rgb, alpha) => `rgba(${rgb}, ${alpha})`;
 
   function setupCurrentCanvas(canvas) {
@@ -2619,14 +2692,65 @@
       phase: random() * TAU,
     }));
 
-    const orbits = [
-      { rx: 0.98, ry: 0.31, tilt: -0.42, speed: 0.15, phase: 0.2, accent: FIG_LAV, size: 2.3 },
-      { rx: 0.8, ry: 0.48, tilt: 0.56, speed: -0.19, phase: 2.3, accent: FIG_CYAN, size: 1.7 },
-      { rx: 0.61, ry: 0.58, tilt: -0.14, speed: 0.26, phase: 4.1, accent: FIG_LAV, size: 2.7 },
-      { rx: 1.08, ry: 0.46, tilt: 0.19, speed: -0.11, phase: 1.1, accent: FIG_LAV, size: 1.5, dashed: true },
-      { rx: 0.47, ry: 0.27, tilt: 0.92, speed: 0.34, phase: 5.2, accent: FIG_WHITE, size: 1.4 },
-      { rx: 0.74, ry: 0.21, tilt: -0.74, speed: 0.21, phase: 3.2, accent: FIG_LAV, size: 1.9 },
+    const KEYS = [
+      {
+        labels: ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']'],
+        widths: Array(12).fill(1),
+        offset: 0,
+      },
+      {
+        labels: ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'enter'],
+        widths: [...Array(11).fill(1), 1.8],
+        offset: 0.32,
+      },
+      {
+        labels: ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'shift'],
+        widths: [2.2, ...Array(10).fill(1), 2.2],
+        offset: 0.12,
+      },
+      {
+        labels: ['ctrl', 'alt', 'cmd', 'space', 'cmd', 'alt', 'ctrl'],
+        widths: [1.4, 1.2, 1.4, 6.2, 1.4, 1.2, 1.4],
+        offset: 0.1,
+      },
     ];
+
+    const keyLookup = new Map();
+    KEYS.forEach((row, rowIndex) => {
+      row.labels.forEach((label, keyIndex) => {
+        const key = `${rowIndex}:${keyIndex}`;
+        if (!keyLookup.has(label)) keyLookup.set(label, key);
+      });
+    });
+
+    const PHRASE = 'npm run build';
+    const TYPE_START = 0.25;
+    const TYPE_STEP = 0.115;
+    const TYPE_END = TYPE_START + (PHRASE.length - 1) * TYPE_STEP;
+    const CYCLE = TYPE_END + 2.2;
+    const presses = new Map();
+    Array.from(PHRASE).forEach((character, index) => {
+      const label = character === ' ' ? 'space' : character.toLowerCase();
+      const key = keyLookup.get(label);
+      if (!key) return;
+      if (!presses.has(key)) presses.set(key, []);
+      presses.get(key).push(TYPE_START + index * TYPE_STEP);
+    });
+
+    const roundedRect = (x, y, width, height, radius) => {
+      const r = Math.min(radius, width * 0.5, height * 0.5);
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + width - r, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+      ctx.lineTo(x + width, y + height - r);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+      ctx.lineTo(x + r, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    };
 
     function draw(time) {
       resize();
@@ -2635,109 +2759,109 @@
       if (width < 2 || height < 2) return;
 
       const cx = width * 0.5;
-      const cy = height * 0.5;
-      const radius = Math.min(width * 0.43, height * 0.49);
-      const pulse = 0.5 + 0.5 * Math.sin(time * 0.62);
+      const phase = time % CYCLE;
+      const maxUnits = Math.max(...KEYS.map((row) => row.widths.reduce((sum, value) => sum + value, 0)));
+      const keyboardWidth = Math.min(width * 0.9, height * 1.62, 640);
+      const unit = keyboardWidth / maxUnits;
+      const gap = unit * 0.11;
+      const keyHeight = unit * 0.78;
+      const rowGap = unit * 0.14;
+      const keyboardHeight = KEYS.length * keyHeight + (KEYS.length - 1) * rowGap;
+      const keyboardTop = (height - keyboardHeight) * 0.5;
 
       ctx.clearRect(0, 0, width, height);
       ctx.globalCompositeOperation = 'lighter';
 
-      drawStarfield(ctx, width, height, dust, time, radius * 1.16);
+      drawStarfield(ctx, width, height, dust, time, Math.max(width, height) * 0.55);
 
-      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.78);
-      ambient.addColorStop(0, figRgba(FIG_LAV, 0.14 + pulse * 0.04));
-      ambient.addColorStop(0.52, figRgba(FIG_LAV, 0.035));
+      const ambient = ctx.createRadialGradient(cx, keyboardTop + keyboardHeight * 0.5, 0, cx, keyboardTop + keyboardHeight * 0.5, keyboardWidth * 0.68);
+      ambient.addColorStop(0, figRgba(FIG_LAV, 0.11));
+      ambient.addColorStop(0.55, figRgba(FIG_LAV, 0.026));
       ambient.addColorStop(1, figRgba(FIG_LAV, 0));
       ctx.fillStyle = ambient;
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius * 0.78, 0, TAU);
-      ctx.fill();
-
-      ctx.lineWidth = 1;
-      for (const orbit of orbits) {
-        const wobble = 1 + Math.sin(time * 0.07 + orbit.phase) * 0.012;
-        ctx.save();
-        ctx.translate(cx, cy);
-        ctx.rotate(orbit.tilt);
-        ctx.setLineDash(orbit.dashed ? [2, 8] : []);
-        ctx.strokeStyle = figRgba(orbit.accent, orbit.dashed ? 0.1 : 0.13);
-        ctx.beginPath();
-        ctx.ellipse(0, 0, radius * orbit.rx * wobble, radius * orbit.ry * wobble, 0, 0, TAU);
-        ctx.stroke();
-        ctx.restore();
-      }
-      ctx.setLineDash([]);
-
-      for (const orbit of orbits) {
-        const angle = time * orbit.speed + orbit.phase;
-        const cosTilt = Math.cos(orbit.tilt);
-        const sinTilt = Math.sin(orbit.tilt);
-        const positionAt = (a) => {
-          const ex = Math.cos(a) * radius * orbit.rx;
-          const ey = Math.sin(a) * radius * orbit.ry;
-          return { x: cx + ex * cosTilt - ey * sinTilt, y: cy + ex * sinTilt + ey * cosTilt };
-        };
-
-        for (let step = 1; step <= 12; step += 1) {
-          const a0 = angle - Math.sign(orbit.speed) * (step - 1) * 0.035;
-          const a1 = angle - Math.sign(orbit.speed) * step * 0.035;
-          const start = positionAt(a0);
-          const end = positionAt(a1);
-          ctx.strokeStyle = figRgba(orbit.accent, 0.22 * (1 - step / 13));
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(start.x, start.y);
-          ctx.lineTo(end.x, end.y);
-          ctx.stroke();
-        }
-
-        const point = positionAt(angle);
-        const halo = ctx.createRadialGradient(point.x, point.y, 0, point.x, point.y, orbit.size * 8);
-        halo.addColorStop(0, figRgba(orbit.accent, 0.38));
-        halo.addColorStop(1, figRgba(orbit.accent, 0));
-        ctx.fillStyle = halo;
-        ctx.beginPath();
-        ctx.arc(point.x, point.y, orbit.size * 8, 0, TAU);
-        ctx.fill();
-
-        ctx.fillStyle = figRgba(FIG_WHITE, 0.86);
-        ctx.beginPath();
-        ctx.arc(point.x, point.y, orbit.size * 0.72, 0, TAU);
-        ctx.fill();
-      }
-
-      const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.23);
-      core.addColorStop(0, figRgba(FIG_WHITE, 0.2 + pulse * 0.1));
-      core.addColorStop(0.38, figRgba(FIG_LAV, 0.2 + pulse * 0.08));
-      core.addColorStop(1, figRgba(FIG_LAV, 0));
-      ctx.fillStyle = core;
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius * 0.23, 0, TAU);
-      ctx.fill();
-
-      ctx.strokeStyle = figRgba(FIG_WHITE, 0.1 + pulse * 0.08);
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(cx - radius * 0.2, cy);
-      ctx.lineTo(cx + radius * 0.2, cy);
-      ctx.moveTo(cx, cy - radius * 0.2);
-      ctx.lineTo(cx, cy + radius * 0.2);
-      ctx.stroke();
-
-      ctx.strokeStyle = figRgba(FIG_LAV, 0.2);
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius * 0.085, 0, TAU);
-      ctx.stroke();
-
-      ctx.fillStyle = figRgba(FIG_WHITE, 0.92);
-      ctx.beginPath();
-      ctx.arc(cx, cy, 2.1 + pulse * 0.9, 0, TAU);
-      ctx.fill();
+      ctx.fillRect(cx - keyboardWidth, keyboardTop - keyboardHeight, keyboardWidth * 2, keyboardHeight * 3);
 
       ctx.globalCompositeOperation = 'source-over';
+
+      KEYS.forEach((row, rowIndex) => {
+        const rowWidth = row.widths.reduce((sum, value) => sum + value, 0) * unit;
+        const rowStart = cx - rowWidth * 0.5 + row.offset * unit;
+        const y = keyboardTop + rowIndex * (keyHeight + rowGap);
+        let cursor = rowStart;
+
+        row.labels.forEach((label, keyIndex) => {
+          const keyWidth = row.widths[keyIndex] * unit - gap;
+          const x = cursor + gap * 0.5;
+          cursor += row.widths[keyIndex] * unit;
+
+          const key = `${rowIndex}:${keyIndex}`;
+          const pressTimes = presses.get(key) || [];
+          let press = 0;
+          for (const pressTime of pressTimes) {
+            const since = phase - pressTime;
+            if (since >= 0 && since < 0.5) press = Math.max(press, Math.exp(-since * 9));
+          }
+
+          if (press > 0.02) {
+            const glow = ctx.createRadialGradient(x + keyWidth * 0.5, y + keyHeight * 0.5, 0, x + keyWidth * 0.5, y + keyHeight * 0.5, unit * 1.15);
+            glow.addColorStop(0, figRgba(FIG_LAV, 0.3 * press));
+            glow.addColorStop(1, figRgba(FIG_LAV, 0));
+            ctx.fillStyle = glow;
+            ctx.fillRect(x - unit * 0.6, y - unit * 0.6, keyWidth + unit * 1.2, keyHeight + unit * 1.2);
+          }
+
+          const pressOffset = press * keyHeight * 0.08;
+          const inflate = 1 - press * 0.025;
+          ctx.save();
+          ctx.translate(x + keyWidth * 0.5, y + keyHeight * 0.5 + pressOffset);
+          ctx.scale(inflate, inflate);
+          roundedRect(-keyWidth * 0.5, -keyHeight * 0.5, keyWidth, keyHeight, unit * 0.14);
+          ctx.fillStyle = press > 0.02
+            ? `rgba(188, 164, 255, ${(0.1 + press * 0.2).toFixed(3)})`
+            : 'rgba(17, 20, 32, 0.86)';
+          ctx.fill();
+          ctx.strokeStyle = press > 0.02
+            ? figRgba(FIG_LAV, 0.34 + press * 0.45)
+            : 'rgba(247, 245, 255, 0.09)';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+
+          ctx.fillStyle = press > 0.02
+            ? figRgba(FIG_WHITE, 0.86)
+            : figRgba(FIG_WHITE, 0.34);
+          ctx.font = `${Math.max(7, unit * 0.29)}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(label, 0, 0.5);
+          ctx.restore();
+        });
+      });
+
+      const typedCount = Math.min(PHRASE.length, Math.max(0, Math.floor((phase - TYPE_START) / TYPE_STEP) + 1));
+      const shown = PHRASE.slice(0, typedCount);
+      const textY = keyboardTop - unit * 0.72;
+      const fontSize = Math.max(10, Math.min(16, width * 0.023));
+      ctx.font = `${fontSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      const textWidth = ctx.measureText(PHRASE).width;
+      const textX = cx - textWidth * 0.5;
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.68);
+      ctx.fillText(shown, textX, textY);
+      const caretOn = Math.floor(phase * 2.4) % 2 === 0;
+      if (caretOn) {
+        ctx.fillStyle = figRgba(FIG_LAV, 0.8);
+        ctx.fillRect(textX + ctx.measureText(shown).width + 2, textY - fontSize * 0.62, Math.max(2, fontSize * 0.5), fontSize * 0.92);
+      }
+      ctx.strokeStyle = figRgba(FIG_LAV, 0.2);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(cx - textWidth * 0.5 - fontSize, textY + fontSize * 0.95);
+      ctx.lineTo(cx + textWidth * 0.5 + fontSize, textY + fontSize * 0.95);
+      ctx.stroke();
     }
 
-    registerAnimation('fig19', host, draw, { staticTime: 4.2 });
+    registerAnimation('fig19', host, draw, { staticTime: TYPE_END + 0.5 });
   }
 
   function initMediaAnimation() {
@@ -2959,144 +3083,7 @@
 
   function initLanguageAnimation() {
     const host = $('[data-figure-body="21"]');
-    if (!host) return;
-    const canvas = $('[data-language]', host);
-    if (!canvas) return;
-    const setup = setupCurrentCanvas(canvas);
-    if (!setup) return;
-    const { ctx, state, resize } = setup;
-
-    const random = mulberry32(0x1a2b3c);
-    const dust = Array.from({ length: 38 }, () => ({
-      x: random() * 2 - 1,
-      y: random() * 2 - 1,
-      size: 0.5 + random() * 1.1,
-      alpha: 0.07 + random() * 0.2,
-      phase: random() * TAU,
-    }));
-
-    const streams = [
-      {
-        accent: FIG_LAV,
-        offset: -1,
-        particles: Array.from({ length: 46 }, () => ({
-          speed: 0.11 + random() * 0.05,
-          phase: random() * TAU,
-          size: 0.9 + random() * 1.7,
-        })),
-      },
-      {
-        accent: FIG_CYAN,
-        offset: 1,
-        particles: Array.from({ length: 40 }, () => ({
-          speed: 0.09 + random() * 0.05,
-          phase: random() * TAU,
-          size: 0.8 + random() * 1.5,
-        })),
-      },
-    ];
-
-    function draw(time) {
-      resize();
-      const width = state.width;
-      const height = state.height;
-      if (width < 2 || height < 2) return;
-
-      const cx = width * 0.5;
-      const cy = height * 0.5;
-      const radius = Math.min(width * 0.47, height * 0.55);
-      const pulse = 0.5 + 0.5 * Math.sin(time * 0.7);
-
-      const pointAt = (t, offset) => {
-        const z = Math.sin(t) * 0.55;
-        const perspective = 2.2 / (2.2 - z * 0.55);
-        return {
-          x: cx + Math.cos(t) * radius * perspective,
-          y: cy + Math.sin(t * 2) * radius * 0.47 * perspective + offset * radius * 0.035,
-          depth: perspective,
-        };
-      };
-
-      ctx.clearRect(0, 0, width, height);
-      ctx.globalCompositeOperation = 'lighter';
-
-      drawStarfield(ctx, width, height, dust, time, radius * 1.6);
-
-      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.95);
-      ambient.addColorStop(0, figRgba(FIG_LAV, 0.11 + pulse * 0.04));
-      ambient.addColorStop(0.55, figRgba(FIG_LAV, 0.025));
-      ambient.addColorStop(1, figRgba(FIG_LAV, 0));
-      ctx.fillStyle = ambient;
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius * 0.95, 0, TAU);
-      ctx.fill();
-
-      for (const stream of streams) {
-        ctx.strokeStyle = figRgba(stream.accent, 0.1);
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        for (let step = 0; step <= 240; step += 1) {
-          const point = pointAt((step / 240) * TAU, stream.offset);
-          if (step === 0) ctx.moveTo(point.x, point.y);
-          else ctx.lineTo(point.x, point.y);
-        }
-        ctx.closePath();
-        ctx.stroke();
-      }
-
-      for (const stream of streams) {
-        for (const particle of stream.particles) {
-          const t = ((time * particle.speed + particle.phase) % TAU + TAU) % TAU;
-          const direction = stream.offset < 0 ? 1 : -1;
-          const depthFade = 0.55 + 0.45 * (pointAt(t, stream.offset).depth - 0.45);
-
-          for (let step = 1; step <= 5; step += 1) {
-            const a = pointAt(t - direction * step * 0.022, stream.offset);
-            const b = pointAt(t - direction * (step - 1) * 0.022, stream.offset);
-            ctx.strokeStyle = figRgba(stream.accent, 0.16 * (1 - step / 6) * depthFade);
-            ctx.lineWidth = 1.2;
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.stroke();
-          }
-
-          const head = pointAt(t, stream.offset);
-          ctx.fillStyle = figRgba(stream.accent, 0.34 * depthFade);
-          ctx.beginPath();
-          ctx.arc(head.x, head.y, particle.size * 2.2, 0, TAU);
-          ctx.fill();
-          ctx.fillStyle = figRgba(FIG_WHITE, 0.55 * depthFade);
-          ctx.beginPath();
-          ctx.arc(head.x, head.y, particle.size * 0.65, 0, TAU);
-          ctx.fill();
-        }
-      }
-
-      const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.3);
-      core.addColorStop(0, figRgba(FIG_WHITE, 0.25 + pulse * 0.1));
-      core.addColorStop(0.3, figRgba(FIG_LAV, 0.16 + pulse * 0.06));
-      core.addColorStop(1, figRgba(FIG_LAV, 0));
-      ctx.fillStyle = core;
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius * 0.3, 0, TAU);
-      ctx.fill();
-
-      ctx.strokeStyle = figRgba(FIG_LAV, 0.2);
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius * 0.085, 0, TAU);
-      ctx.stroke();
-
-      ctx.fillStyle = figRgba(FIG_WHITE, 0.9);
-      ctx.beginPath();
-      ctx.arc(cx, cy, 2 + pulse * 0.8, 0, TAU);
-      ctx.fill();
-
-      ctx.globalCompositeOperation = 'source-over';
-    }
-
-    registerAnimation('fig21', host, draw, { staticTime: 1.6 });
+    if (host) setupWordDeck(host, 'fig21');
   }
 
   /* --- 22–25 · Криптобиржа ------------------------------------------------ */
@@ -3273,19 +3260,59 @@
       phase: random() * TAU,
     }));
 
-    const blips = Array.from({ length: 12 }, (_, index) => ({
-      angle: (index / 12) * TAU + random() * 0.3,
-      distance: 0.3 + random() * 0.62,
-      size: 0.9 + random() * 1.5,
-      accent: index === 3 || index === 8 ? FIG_CYAN : FIG_LAV,
-      phase: random() * TAU,
-    }));
+    const CANDLE_PERIOD = 1.15;
+    const SLOTS = 14;
+    const CYCLE = 14.4;
+    const PRICE_MIN = 82;
+    const PRICE_MAX = 118;
+    const priceAt = (index) =>
+      100 +
+      Math.sin(index * 0.47) * 7 +
+      Math.sin(index * 0.19 + 1.3) * 4 +
+      Math.sin(index * 1.31) * 1.2;
+    const hash = (index, salt) => {
+      const value = Math.sin(index * 127.1 + salt * 311.7) * 43758.5453;
+      return value - Math.floor(value);
+    };
+    const candleAt = (index, progress) => {
+      const open = index === 0 ? priceAt(0) : priceAt(index - 1);
+      const target = priceAt(index);
+      const close = open + (target - open) * progress;
+      const wick = 1 + hash(index, 1) * 2.5;
+      return {
+        open,
+        close,
+        high: Math.max(open, close) + wick * progress,
+        low: Math.min(open, close) - wick * progress,
+      };
+    };
+    const money = (value) => {
+      const rounded = Math.round(Math.abs(value)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+      return `${value < 0 ? '−' : ''}$${rounded}`;
+    };
+    const signedMoney = (value) => `${value >= 0 ? '+' : '−'}$${Math.round(Math.abs(value)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}`;
 
-    const agents = [
-      { angle: 0.5, size: 3.2, accent: FIG_CYAN },
-      { angle: 2.7, size: 2.7, accent: FIG_LAV },
-      { angle: 5.1, size: 3.6, accent: FIG_WHITE },
+    const trades = [
+      { side: 'LONG', amount: 1200, entryOffset: 5, openAt: 1.0, base: 2.2, phase: 0.2, accent: FIG_CYAN },
+      { side: 'LONG', amount: 850, entryOffset: 4, openAt: 1.25, base: 2.7, phase: 1.4, accent: FIG_CYAN },
+      { side: 'LONG', amount: 1500, entryOffset: 3, openAt: 1.5, base: 1.8, phase: 2.7, accent: FIG_CYAN },
+      { side: 'SHORT', amount: 6000, entryOffset: 2, openAt: 8.0, base: -3.1, phase: 0.9, accent: FIG_LAV },
     ];
+
+    function roundedRect(x, y, width, height, radius) {
+      const r = Math.min(radius, width * 0.5, height * 0.5);
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + width - r, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+      ctx.lineTo(x + width, y + height - r);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+      ctx.lineTo(x + r, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
 
     function draw(time) {
       resize();
@@ -3293,120 +3320,281 @@
       const height = state.height;
       if (width < 2 || height < 2) return;
 
-      const cx = width * 0.54;
-      const cy = height * 0.5;
-      const radius = Math.min(width * 0.39, height * 0.45);
-      const sweep = time * 0.55;
-      const pulse = 0.5 + 0.5 * Math.sin(time * 0.7);
+      const compact = width < 520;
+      const chart = compact
+        ? { left: width * 0.06, right: width * 0.94, top: height * 0.14, bottom: height * 0.6 }
+        : { left: width * 0.06, right: width * 0.66, top: height * 0.16, bottom: height * 0.87 };
+      const chartWidth = chart.right - chart.left;
+      const chartHeight = chart.bottom - chart.top;
+      const panel = compact
+        ? { left: width * 0.04, right: width * 0.96, top: height * 0.65, bottom: height * 0.97 }
+        : { left: width * 0.71, right: width * 0.95, top: chart.top, bottom: chart.bottom };
+      const yFor = (price) => chart.bottom - ((price - PRICE_MIN) / (PRICE_MAX - PRICE_MIN)) * chartHeight;
+      const slot = Math.floor(time / CANDLE_PERIOD);
+      const fraction = (time % CANDLE_PERIOD) / CANDLE_PERIOD;
+      const slotWidth = chartWidth / SLOTS;
+      const phase = time % CYCLE;
+      const cycleFade = 1 - smooth(clamp((phase - (CYCLE - 0.6)) / 0.5, 0, 1));
+      const tradeStates = trades.map((trade) => {
+        const age = phase - trade.openAt;
+        const active = age >= 0;
+        const appear = active ? smooth(clamp(age / 0.35, 0, 1)) * cycleFade : 0;
+        const wobble = Math.sin(time * 2.2 + trade.phase) * 0.45 + Math.sin(time * 0.83 + trade.phase * 2.1) * 0.25;
+        const drift = trade.side === 'LONG' ? Math.min(1.5, age * 0.22) : -Math.min(1.1, age * 0.2);
+        const pct = trade.base + wobble * Math.min(1, Math.max(0, age) * 0.8) + drift;
+        return { ...trade, age, active, appear, pct, pnl: (trade.amount * pct) / 100 };
+      });
+      const activeTrades = tradeStates.filter((trade) => trade.active && trade.appear > 0.01);
+      const totalPnl = activeTrades.reduce((sum, trade) => sum + trade.pnl, 0);
 
       ctx.clearRect(0, 0, width, height);
       ctx.globalCompositeOperation = 'lighter';
+      drawStarfield(ctx, width, height, dust, time, Math.max(width, height) * 0.55);
 
-      drawStarfield(ctx, width, height, dust, time, radius * 1.55);
-
-      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.9);
-      ambient.addColorStop(0, figRgba(FIG_LAV, 0.1 + pulse * 0.03));
-      ambient.addColorStop(0.6, figRgba(FIG_LAV, 0.025));
+      const ambient = ctx.createRadialGradient(chart.right * 0.7, chart.top + chartHeight * 0.45, 0, chart.right * 0.7, chart.top + chartHeight * 0.45, chartWidth * 0.9);
+      ambient.addColorStop(0, figRgba(FIG_LAV, 0.08));
+      ambient.addColorStop(0.6, figRgba(FIG_LAV, 0.02));
       ambient.addColorStop(1, figRgba(FIG_LAV, 0));
       ctx.fillStyle = ambient;
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius * 0.9, 0, TAU);
-      ctx.fill();
+      ctx.fillRect(0, 0, width, height);
+      ctx.globalCompositeOperation = 'source-over';
 
+      ctx.strokeStyle = figRgba(FIG_WHITE, 0.055);
       ctx.lineWidth = 1;
-      for (let ring = 1; ring <= 4; ring += 1) {
-        ctx.setLineDash(ring === 4 ? [2, 8] : []);
-        ctx.strokeStyle = figRgba(FIG_LAV, ring === 4 ? 0.09 : 0.11);
+      for (let level = 0; level <= 4; level += 1) {
+        const y = chart.top + (chartHeight / 4) * level;
+        ctx.setLineDash(level === 0 || level === 4 ? [] : [3, 7]);
         ctx.beginPath();
-        ctx.arc(cx, cy, radius * ring * 0.24, 0, TAU);
+        ctx.moveTo(chart.left, y);
+        ctx.lineTo(chart.right, y);
         ctx.stroke();
       }
       ctx.setLineDash([]);
-
-      for (let step = 0; step < 26; step += 1) {
-        const angle = sweep - step * 0.011;
-        const alpha = 0.18 * (1 - step / 26);
-        ctx.strokeStyle = figRgba(step === 0 ? FIG_WHITE : FIG_LAV, alpha);
-        ctx.lineWidth = step === 0 ? 1.4 : 1;
+      ctx.strokeStyle = figRgba(FIG_LAV, 0.08);
+      for (let step = 0; step <= SLOTS; step += 2) {
+        const x = chart.left + (chartWidth / SLOTS) * step;
         ctx.beginPath();
-        ctx.moveTo(cx, cy);
-        ctx.lineTo(cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius);
+        ctx.moveTo(x, chart.top);
+        ctx.lineTo(x, chart.bottom);
         ctx.stroke();
       }
 
-      for (const blip of blips) {
-        const diff = ((sweep - blip.angle) % TAU + TAU) % TAU;
-        const glow = Math.max(0, 1 - diff / 1.5);
-        const x = cx + Math.cos(blip.angle) * radius * blip.distance;
-        const y = cy + Math.sin(blip.angle) * radius * blip.distance;
-        const size = blip.size * (0.7 + glow * 1.6);
+      const candlePoints = [];
+      for (let index = slot - SLOTS + 1; index <= slot; index += 1) {
+        const progress = index === slot ? fraction : 1;
+        const candle = candleAt(index, progress);
+        const x = chart.right - (slot - index + 0.5 + fraction) * slotWidth;
+        if (x < chart.left - slotWidth * 0.6 || x > chart.right + slotWidth * 0.6) continue;
+        const up = candle.close >= candle.open;
+        const color = up ? FIG_CYAN : FIG_LAV;
+        const openY = yFor(candle.open);
+        const closeY = yFor(candle.close);
+        const highY = yFor(candle.high);
+        const lowY = yFor(candle.low);
+        const bodyWidth = slotWidth * 0.52;
 
-        const halo = ctx.createRadialGradient(x, y, 0, x, y, size * 7);
-        halo.addColorStop(0, figRgba(blip.accent, 0.12 + glow * 0.34));
-        halo.addColorStop(1, figRgba(blip.accent, 0));
-        ctx.fillStyle = halo;
-        ctx.beginPath();
-        ctx.arc(x, y, size * 7, 0, TAU);
-        ctx.fill();
-
-        ctx.fillStyle = figRgba(blip.accent, 0.25 + glow * 0.65);
-        ctx.beginPath();
-        ctx.arc(x, y, size, 0, TAU);
-        ctx.fill();
-      }
-
-      for (const agent of agents) {
-        const x = cx + Math.cos(agent.angle) * radius * 0.96;
-        const y = cy + Math.sin(agent.angle) * radius * 0.96;
-        ctx.strokeStyle = figRgba(agent.accent, 0.12);
+        ctx.strokeStyle = figRgba(color, 0.72);
         ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(cx, cy);
+        ctx.moveTo(x, highY);
+        ctx.lineTo(x, lowY);
         ctx.stroke();
 
-        const travel = ((time * 0.18 + agent.angle) % 1 + 1) % 1;
-        const head = {
-          x: x + (cx - x) * travel,
-          y: y + (cy - y) * travel,
-        };
-        const halo = ctx.createRadialGradient(head.x, head.y, 0, head.x, head.y, 10);
-        halo.addColorStop(0, figRgba(agent.accent, 0.45));
-        halo.addColorStop(1, figRgba(agent.accent, 0));
-        ctx.fillStyle = halo;
-        ctx.beginPath();
-        ctx.arc(head.x, head.y, 10, 0, TAU);
-        ctx.fill();
-        ctx.fillStyle = figRgba(FIG_WHITE, 0.7);
-        ctx.beginPath();
-        ctx.arc(head.x, head.y, 1.4, 0, TAU);
-        ctx.fill();
-
-        const agentHalo = ctx.createRadialGradient(x, y, 0, x, y, agent.size * 8);
-        agentHalo.addColorStop(0, figRgba(agent.accent, 0.32));
-        agentHalo.addColorStop(1, figRgba(agent.accent, 0));
-        ctx.fillStyle = agentHalo;
-        ctx.beginPath();
-        ctx.arc(x, y, agent.size * 8, 0, TAU);
-        ctx.fill();
-        ctx.fillStyle = figRgba(FIG_WHITE, 0.86);
-        ctx.beginPath();
-        ctx.arc(x, y, agent.size * 0.68, 0, TAU);
-        ctx.fill();
+        ctx.fillStyle = figRgba(color, up ? 0.42 : 0.31);
+        ctx.strokeStyle = figRgba(color, 0.78);
+        ctx.fillRect(x - bodyWidth * 0.5, Math.min(openY, closeY), bodyWidth, Math.max(1.5, Math.abs(closeY - openY)));
+        ctx.strokeRect(x - bodyWidth * 0.5, Math.min(openY, closeY), bodyWidth, Math.max(1.5, Math.abs(closeY - openY)));
+        candlePoints.push({ x, y: closeY, color, index });
       }
 
-      const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.18);
-      core.addColorStop(0, figRgba(FIG_WHITE, 0.2 + pulse * 0.08));
-      core.addColorStop(1, figRgba(FIG_LAV, 0));
-      ctx.fillStyle = core;
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius * 0.18, 0, TAU);
-      ctx.fill();
+      if (candlePoints.length > 1) {
+        ctx.beginPath();
+        candlePoints.forEach((point, index) => {
+          if (index === 0) ctx.moveTo(point.x, point.y);
+          else ctx.lineTo(point.x, point.y);
+        });
+        ctx.strokeStyle = figRgba(FIG_WHITE, 0.17);
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
 
-      ctx.fillStyle = figRgba(FIG_WHITE, 0.9);
-      ctx.beginPath();
-      ctx.arc(cx, cy, 2.1 + pulse * 0.7, 0, TAU);
+      const last = candlePoints[candlePoints.length - 1];
+      if (last) {
+        ctx.setLineDash([2, 6]);
+        ctx.strokeStyle = figRgba(last.color, 0.24);
+        ctx.beginPath();
+        ctx.moveTo(last.x, last.y);
+        ctx.lineTo(chart.right, last.y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.8);
+        ctx.beginPath();
+        ctx.arc(last.x, last.y, 2, 0, TAU);
+        ctx.fill();
+
+        tradeStates.forEach((trade, index) => {
+          if (trade.appear <= 0.01) return;
+          const entryY = Math.min(chart.bottom - 4, last.y + chartHeight * (trade.side === 'LONG' ? 0.055 : 0.04) + index * 2.5);
+          const entryX = Math.max(chart.left + 2, chart.right - (trade.entryOffset + 0.5 + fraction) * slotWidth);
+          ctx.save();
+          ctx.globalAlpha = trade.appear * 0.75;
+          ctx.strokeStyle = figRgba(trade.accent, 0.3);
+          ctx.lineWidth = 1;
+          ctx.setLineDash([3, 5]);
+          ctx.beginPath();
+          ctx.moveTo(entryX, entryY);
+          ctx.lineTo(chart.right, entryY);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = figRgba(trade.accent, 0.8);
+          ctx.beginPath();
+          ctx.arc(entryX, entryY, 2.2, 0, TAU);
+          ctx.fill();
+          ctx.restore();
+        });
+      }
+
+      ctx.font = '9px ui-monospace, SFMono-Regular, Menlo, monospace';
+      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'left';
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.34);
+      ctx.fillText('BTC / USDT', chart.left, chart.top - 14);
+
+      const panelWidth = panel.right - panel.left;
+      const panelHeight = panel.bottom - panel.top;
+      roundedRect(panel.left, panel.top, panelWidth, panelHeight, compact ? 7 : 9);
+      ctx.fillStyle = 'rgba(13, 16, 27, 0.56)';
       ctx.fill();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.075)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      const headerY = panel.top + (compact ? 9 : 13);
+      ctx.font = `${compact ? 6.5 : 7}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.32);
+      ctx.textAlign = 'left';
+      ctx.fillText('AI TRADES', panel.left + 7, headerY);
+      ctx.textAlign = 'right';
+      ctx.font = `${compact ? 8 : 11}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      ctx.fillStyle = figRgba(activeTrades.length ? (totalPnl >= 0 ? FIG_CYAN : FIG_MAGENTA) : FIG_WHITE, activeTrades.length ? 0.9 : 0.32);
+      ctx.fillText(activeTrades.length ? signedMoney(totalPnl) : '—', panel.right - 7, headerY);
+
+      const drawTradeCard = (trade, x, y, widthValue, heightValue, small) => {
+        ctx.save();
+        ctx.globalAlpha = trade.appear;
+        roundedRect(x, y, widthValue, heightValue, small ? 5 : 6);
+        ctx.fillStyle = figRgba(trade.accent, 0.045);
+        ctx.fill();
+        ctx.strokeStyle = figRgba(trade.accent, 0.16);
+        ctx.stroke();
+        ctx.fillStyle = figRgba(trade.accent, 0.72);
+        ctx.fillRect(x, y + 6, 2, heightValue - 12);
+
+        const pillWidth = small ? 30 : 34;
+        const pillHeight = small ? 10 : 11;
+        roundedRect(x + 6, y + (small ? 5 : 7), pillWidth, pillHeight, pillHeight * 0.5);
+        ctx.fillStyle = figRgba(trade.accent, 0.14);
+        ctx.fill();
+        ctx.strokeStyle = figRgba(trade.accent, 0.4);
+        ctx.stroke();
+        ctx.fillStyle = figRgba(trade.accent, 0.92);
+        ctx.font = `${small ? 5.5 : 6.5}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+        ctx.textAlign = 'center';
+        ctx.fillText(trade.side, x + 6 + pillWidth * 0.5, y + (small ? 5 : 7) + pillHeight * 0.5);
+
+        const pnlColor = trade.pnl >= 0 ? FIG_CYAN : FIG_MAGENTA;
+        if (small) {
+          ctx.textAlign = 'left';
+          ctx.fillStyle = figRgba(FIG_WHITE, 0.72);
+          ctx.font = '6.5px ui-monospace, SFMono-Regular, Menlo, monospace';
+          ctx.fillText(money(trade.amount), x + 6, y + 21);
+          ctx.fillStyle = figRgba(pnlColor, 0.94);
+          ctx.font = '8px ui-monospace, SFMono-Regular, Menlo, monospace';
+          ctx.fillText(signedMoney(trade.pnl), x + 6, y + 33);
+          ctx.fillStyle = figRgba(pnlColor, 0.62);
+          ctx.font = '6px ui-monospace, SFMono-Regular, Menlo, monospace';
+          ctx.fillText(`${trade.pct >= 0 ? '+' : '−'}${Math.abs(trade.pct).toFixed(2)}%`, x + 6, y + 43);
+        } else {
+          ctx.textAlign = 'left';
+          ctx.fillStyle = figRgba(FIG_WHITE, 0.74);
+          ctx.font = '8px ui-monospace, SFMono-Regular, Menlo, monospace';
+          ctx.fillText(money(trade.amount), x + 6, y + 32);
+          ctx.fillStyle = figRgba(FIG_WHITE, 0.24);
+          ctx.font = '6.5px ui-monospace, SFMono-Regular, Menlo, monospace';
+          ctx.fillText('BTC / USDT', x + 6, y + 47);
+          ctx.textAlign = 'right';
+          ctx.fillStyle = figRgba(pnlColor, 0.96);
+          ctx.font = '10px ui-monospace, SFMono-Regular, Menlo, monospace';
+          ctx.fillText(signedMoney(trade.pnl), x + widthValue - 6, y + 17);
+          ctx.fillStyle = figRgba(pnlColor, 0.66);
+          ctx.font = '7px ui-monospace, SFMono-Regular, Menlo, monospace';
+          ctx.fillText(`${trade.pct >= 0 ? '+' : '−'}${Math.abs(trade.pct).toFixed(2)}%`, x + widthValue - 6, y + 30);
+        }
+        ctx.restore();
+      };
+
+      if (compact) {
+        const gap = 3;
+        const startY = panel.top + 16;
+        const cardWidth = (panelWidth - 8 - gap * (trades.length - 1)) / trades.length;
+        const cardHeight = panel.bottom - startY - 4;
+        tradeStates.forEach((trade, index) => {
+          if (trade.appear <= 0.01) return;
+          drawTradeCard(trade, panel.left + 4 + index * (cardWidth + gap), startY, cardWidth, cardHeight, true);
+        });
+      } else {
+        const gap = 4;
+        const startY = panel.top + 26;
+        const cardWidth = panelWidth - 12;
+        const cardHeight = (panel.bottom - startY - 5 - gap * (trades.length - 1)) / trades.length;
+        tradeStates.forEach((trade, index) => {
+          if (trade.appear <= 0.01) return;
+          drawTradeCard(trade, panel.left + 6, startY + index * (cardHeight + gap), cardWidth, cardHeight, false);
+        });
+      }
+
+      const messageAlpha = (start, end) => smooth(clamp((phase - start) / 0.3, 0, 1)) * (1 - smooth(clamp((phase - end) / 0.35, 0, 1)));
+      const drawMessage = (text, accent, alpha) => {
+        if (alpha <= 0.01) return;
+        const fontSize = compact ? 8 : 9.5;
+        ctx.font = `${fontSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+        const textWidth = ctx.measureText(text).width;
+        const widthValue = Math.min(chartWidth - 16, textWidth + 36);
+        const heightValue = compact ? 23 : 29;
+        const x = chart.left + (chartWidth - widthValue) * 0.5;
+        const y = chart.top + 7;
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        roundedRect(x, y, widthValue, heightValue, heightValue * 0.5);
+        ctx.fillStyle = 'rgba(10, 13, 23, 0.93)';
+        ctx.fill();
+        ctx.strokeStyle = figRgba(accent, 0.38);
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        const pulse = 0.5 + 0.5 * Math.sin(time * 3.2);
+        const dotX = x + 13;
+        const dotY = y + heightValue * 0.5;
+        const halo = ctx.createRadialGradient(dotX, dotY, 0, dotX, dotY, 9);
+        halo.addColorStop(0, figRgba(accent, 0.36 + pulse * 0.18));
+        halo.addColorStop(1, figRgba(accent, 0));
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(dotX, dotY, 9, 0, TAU);
+        ctx.fill();
+        ctx.fillStyle = figRgba(accent, 0.92);
+        ctx.beginPath();
+        ctx.arc(dotX, dotY, 2.2, 0, TAU);
+        ctx.fill();
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.84);
+        ctx.textAlign = 'left';
+        ctx.font = `${fontSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+        ctx.fillText(text, x + 23, dotY);
+        ctx.restore();
+      };
+
+      drawMessage('AI-агент открыл три сделки в Long', FIG_CYAN, messageAlpha(0.2, 3.2));
+      drawMessage('AI-агент открыл сделку в Short', FIG_LAV, messageAlpha(7.2, 10.5));
 
       ctx.globalCompositeOperation = 'source-over';
     }
@@ -3437,6 +3625,8 @@
       { rx: 0.8, ry: 0.26, tilt: 0.52, speed: -0.4, phase: 2.2, accent: FIG_CYAN },
       { rx: 0.34, ry: 0.76, tilt: 0.08, speed: 0.46, phase: 4.1, accent: FIG_LAV },
     ];
+
+    const rocketOrbit = { rx: 1.02, ry: 0.34, tilt: -0.24, speed: 0.26, phase: 0.9 };
 
     function draw(time) {
       resize();
@@ -3474,6 +3664,13 @@
         };
       };
 
+      ctx.strokeStyle = figRgba(FIG_WHITE, 0.08);
+      ctx.setLineDash([2, 7]);
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, radius * rocketOrbit.rx, radius * rocketOrbit.ry, rocketOrbit.tilt, 0, TAU);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
       for (const ring of rings) {
         ctx.strokeStyle = figRgba(ring.accent, 0.16);
         ctx.lineWidth = 1;
@@ -3510,6 +3707,85 @@
         }
       }
 
+      const rocketAngle = time * rocketOrbit.speed + rocketOrbit.phase;
+      const rocketPoint = pointAt(rocketOrbit, rocketAngle);
+      const rocketAhead = pointAt(rocketOrbit, rocketAngle + 0.012);
+      const rocketRotation = Math.atan2(rocketAhead.y - rocketPoint.y, rocketAhead.x - rocketPoint.x);
+      const rocketSize = Math.max(10, Math.min(width, height) * 0.028);
+
+      for (let step = 1; step <= 20; step += 1) {
+        const a = pointAt(rocketOrbit, rocketAngle - step * 0.014);
+        const b = pointAt(rocketOrbit, rocketAngle - (step - 1) * 0.014);
+        ctx.strokeStyle = figRgba(step % 2 ? FIG_CYAN : FIG_LAV, 0.18 * (1 - step / 21));
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      }
+
+      ctx.globalCompositeOperation = 'source-over';
+      const rocketGlow = ctx.createRadialGradient(rocketPoint.x, rocketPoint.y, 0, rocketPoint.x, rocketPoint.y, rocketSize * 3.4);
+      rocketGlow.addColorStop(0, figRgba(FIG_CYAN, 0.3));
+      rocketGlow.addColorStop(1, figRgba(FIG_CYAN, 0));
+      ctx.fillStyle = rocketGlow;
+      ctx.beginPath();
+      ctx.arc(rocketPoint.x, rocketPoint.y, rocketSize * 3.4, 0, TAU);
+      ctx.fill();
+
+      ctx.save();
+      ctx.translate(rocketPoint.x, rocketPoint.y);
+      ctx.rotate(rocketRotation);
+
+      const flame = 0.72 + 0.28 * Math.sin(time * 16);
+      ctx.fillStyle = figRgba(FIG_CYAN, 0.4 * flame);
+      ctx.beginPath();
+      ctx.moveTo(-rocketSize * 0.9, -rocketSize * 0.3);
+      ctx.lineTo(-rocketSize * (1.7 + flame * 0.7), 0);
+      ctx.lineTo(-rocketSize * 0.9, rocketSize * 0.3);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.22 * flame);
+      ctx.beginPath();
+      ctx.moveTo(-rocketSize * 0.9, -rocketSize * 0.12);
+      ctx.lineTo(-rocketSize * 1.4, 0);
+      ctx.lineTo(-rocketSize * 0.9, rocketSize * 0.12);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = 'rgba(15, 18, 30, 0.96)';
+      ctx.strokeStyle = figRgba(FIG_LAV, 0.86);
+      ctx.lineWidth = 1.1;
+      ctx.beginPath();
+      ctx.moveTo(rocketSize * 1.15, 0);
+      ctx.quadraticCurveTo(rocketSize * 0.45, -rocketSize * 0.52, -rocketSize * 0.72, -rocketSize * 0.38);
+      ctx.lineTo(-rocketSize * 0.72, rocketSize * 0.38);
+      ctx.quadraticCurveTo(rocketSize * 0.45, rocketSize * 0.52, rocketSize * 1.15, 0);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = figRgba(FIG_LAV, 0.34);
+      ctx.beginPath();
+      ctx.moveTo(-rocketSize * 0.72, -rocketSize * 0.38);
+      ctx.lineTo(-rocketSize * 1.08, -rocketSize * 0.66);
+      ctx.lineTo(-rocketSize * 0.96, -rocketSize * 0.16);
+      ctx.closePath();
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(-rocketSize * 0.72, rocketSize * 0.38);
+      ctx.lineTo(-rocketSize * 1.08, rocketSize * 0.66);
+      ctx.lineTo(-rocketSize * 0.96, rocketSize * 0.16);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.88);
+      ctx.beginPath();
+      ctx.arc(rocketSize * 0.24, 0, rocketSize * 0.19, 0, TAU);
+      ctx.fill();
+      ctx.restore();
+      ctx.globalCompositeOperation = 'lighter';
+
       const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.26);
       core.addColorStop(0, figRgba(FIG_WHITE, 0.22 + pulse * 0.08));
       core.addColorStop(0.38, figRgba(FIG_LAV, 0.16 + pulse * 0.05));
@@ -3535,12 +3811,31 @@
     if (!host) return;
     const canvas = $('[data-tournament]', host);
     if (!canvas) return;
+    const pencil = window.__createPencilDrawing?.(canvas, {
+      color: 'rgba(247, 245, 255, 0.9)',
+      showPencil: true,
+      fitContainer: true,
+    });
+    if (!pencil) return;
+
+    pencil.pause();
+    const staticTime = pencil.drawingDuration + 0.15;
+    registerAnimation('fig25', host, (time) => {
+      pencil.seek(reduceMotion ? staticTime : Math.min(staticTime, time));
+    }, { staticTime, restartOnEnter: true });
+  }
+
+  function initPlatformsAnimation() {
+    const host = $('[data-figure-body="26"]');
+    if (!host) return;
+    const canvas = $('[data-platforms]', host);
+    if (!canvas) return;
     const setup = setupCurrentCanvas(canvas);
     if (!setup) return;
     const { ctx, state, resize } = setup;
 
-    const random = mulberry32(0x70a325);
-    const dust = Array.from({ length: 36 }, () => ({
+    const random = mulberry32(0x26fa17);
+    const dust = Array.from({ length: 34 }, () => ({
       x: random() * 2 - 1,
       y: random() * 2 - 1,
       size: 0.5 + random() * 1,
@@ -3548,11 +3843,451 @@
       phase: random() * TAU,
     }));
 
-    const sparks = Array.from({ length: 22 }, (_, index) => ({
-      angle: (index / 22) * TAU + random() * 0.16,
-      length: 0.18 + random() * 0.34,
-      width: index % 3 === 0 ? 1.6 : 1,
-      accent: index % 4 === 0 ? FIG_CYAN : index % 3 === 0 ? FIG_LAV : FIG_WHITE,
+    const orbits = [
+      { platform: 'iOS', accent: FIG_LAV, rx: 0.92, ry: 0.3, tilt: -0.34, speed: 0.22, phase: 0.3 },
+      { platform: 'Android', accent: FIG_CYAN, rx: 0.8, ry: 0.44, tilt: 0.48, speed: -0.27, phase: 2.15 },
+      { platform: 'Telegram', accent: FIG_MAGENTA, rx: 0.64, ry: 0.58, tilt: -0.12, speed: 0.32, phase: 4.2 },
+    ];
+
+    function drawPlatformIcon(kind, size) {
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      if (kind === 'Web') {
+        ctx.strokeStyle = figRgba(FIG_WHITE, 0.9);
+        ctx.lineWidth = Math.max(1, size * 0.055);
+        ctx.beginPath();
+        ctx.arc(0, 0, size * 0.32, 0, TAU);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(0, 0, size * 0.14, size * 0.32, 0, 0, TAU);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(0, 0, size * 0.32, size * 0.13, 0, 0, TAU);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(-size * 0.32, 0);
+        ctx.lineTo(size * 0.32, 0);
+        ctx.stroke();
+      } else if (kind === 'iOS') {
+        const body = size * 0.32;
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.94);
+        ctx.beginPath();
+        ctx.arc(0, size * 0.04, body, 0, TAU);
+        ctx.fill();
+        ctx.fillStyle = '#0c0f1a';
+        ctx.beginPath();
+        ctx.arc(body * 0.78, -body * 0.18, body * 0.34, 0, TAU);
+        ctx.fill();
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.94);
+        ctx.beginPath();
+        ctx.ellipse(body * 0.08, -body * 0.74, body * 0.15, body * 0.3, 0.55, 0, TAU);
+        ctx.fill();
+        ctx.strokeStyle = figRgba(FIG_WHITE, 0.94);
+        ctx.lineWidth = Math.max(1, size * 0.045);
+        ctx.beginPath();
+        ctx.moveTo(body * 0.08, -body * 0.48);
+        ctx.lineTo(body * 0.12, -body * 0.66);
+        ctx.stroke();
+      } else if (kind === 'Android') {
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.94);
+        ctx.beginPath();
+        ctx.arc(0, size * 0.03, size * 0.29, 0, TAU);
+        ctx.fill();
+        ctx.strokeStyle = figRgba(FIG_WHITE, 0.94);
+        ctx.lineWidth = Math.max(1, size * 0.055);
+        ctx.beginPath();
+        ctx.moveTo(-size * 0.16, -size * 0.15);
+        ctx.lineTo(-size * 0.26, -size * 0.28);
+        ctx.moveTo(size * 0.16, -size * 0.15);
+        ctx.lineTo(size * 0.26, -size * 0.28);
+        ctx.stroke();
+        ctx.fillStyle = '#0c0f1a';
+        ctx.beginPath();
+        ctx.arc(-size * 0.1, size * 0.02, size * 0.038, 0, TAU);
+        ctx.arc(size * 0.1, size * 0.02, size * 0.038, 0, TAU);
+        ctx.fill();
+      } else {
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.94);
+        ctx.beginPath();
+        ctx.moveTo(-size * 0.36, size * 0.02);
+        ctx.lineTo(size * 0.38, -size * 0.25);
+        ctx.lineTo(size * 0.14, size * 0.32);
+        ctx.lineTo(size * 0.02, size * 0.1);
+        ctx.closePath();
+        ctx.fill();
+        ctx.fillStyle = 'rgba(12, 15, 26, 0.9)';
+        ctx.beginPath();
+        ctx.moveTo(-size * 0.02, size * 0.06);
+        ctx.lineTo(size * 0.12, size * 0.18);
+        ctx.lineTo(size * 0.02, size * 0.24);
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+
+    function drawBadge(platform, accent, x, y, size, scale, alpha, depth) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(scale, scale);
+      ctx.globalAlpha = alpha;
+
+      const glow = ctx.createRadialGradient(0, 0, size * 0.4, 0, 0, size * 1.7);
+      glow.addColorStop(0, figRgba(accent, 0.2 + depth * 0.12));
+      glow.addColorStop(1, figRgba(accent, 0));
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(0, 0, size * 1.7, 0, TAU);
+      ctx.fill();
+
+      ctx.fillStyle = '#0c0f1a';
+      ctx.beginPath();
+      ctx.arc(0, 0, size, 0, TAU);
+      ctx.fill();
+      ctx.strokeStyle = figRgba(accent, 0.5 + depth * 0.35);
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+
+      drawPlatformIcon(platform, size);
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.48 + depth * 0.22);
+      ctx.font = `${Math.max(5.5, size * 0.24)}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(platform === 'Web' ? 'WEB' : platform, 0, size + Math.max(7, size * 0.3));
+      ctx.restore();
+    }
+
+    function draw(time) {
+      resize();
+      const width = state.width;
+      const height = state.height;
+      if (width < 2 || height < 2) return;
+
+      const cx = width * 0.5;
+      const cy = height * 0.5;
+      const radius = Math.min(width * 0.42, height * 0.46);
+      const badgeSize = Math.max(15, Math.min(width, height) * 0.06);
+      const pulse = 0.5 + 0.5 * Math.sin(time * 0.7);
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.globalCompositeOperation = 'lighter';
+      drawStarfield(ctx, width, height, dust, time, Math.max(width, height) * 0.55);
+
+      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.95);
+      ambient.addColorStop(0, figRgba(FIG_LAV, 0.12 + pulse * 0.04));
+      ambient.addColorStop(0.55, figRgba(FIG_LAV, 0.028));
+      ambient.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = ambient;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius * 0.95, 0, TAU);
+      ctx.fill();
+
+      const pointAt = (orbit, angle) => {
+        const ex = Math.cos(angle) * radius * orbit.rx;
+        const ey = Math.sin(angle) * radius * orbit.ry;
+        const cosTilt = Math.cos(orbit.tilt);
+        const sinTilt = Math.sin(orbit.tilt);
+        return {
+          x: cx + ex * cosTilt - ey * sinTilt,
+          y: cy + ex * sinTilt + ey * cosTilt,
+          depth: (Math.sin(angle) + 1) * 0.5,
+        };
+      };
+
+      for (const orbit of orbits) {
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(orbit.tilt);
+        ctx.strokeStyle = figRgba(orbit.accent, 0.13);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, radius * orbit.rx, radius * orbit.ry, 0, 0, TAU);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      const bodies = [];
+      for (const orbit of orbits) {
+        const angle = time * orbit.speed + orbit.phase;
+        for (let step = 1; step <= 10; step += 1) {
+          const a0 = angle - Math.sign(orbit.speed) * (step - 1) * 0.035;
+          const a1 = angle - Math.sign(orbit.speed) * step * 0.035;
+          const start = pointAt(orbit, a0);
+          const end = pointAt(orbit, a1);
+          ctx.strokeStyle = figRgba(orbit.accent, 0.18 * (1 - step / 11));
+          ctx.lineWidth = 1.1;
+          ctx.beginPath();
+          ctx.moveTo(start.x, start.y);
+          ctx.lineTo(end.x, end.y);
+          ctx.stroke();
+        }
+        const point = pointAt(orbit, angle);
+        bodies.push({ orbit, point });
+      }
+
+      bodies.sort((a, b) => a.point.depth - b.point.depth);
+      for (const { orbit, point } of bodies) {
+        drawBadge(orbit.platform, orbit.accent, point.x, point.y, badgeSize, 0.9 + point.depth * 0.16, 0.72 + point.depth * 0.28, point.depth);
+      }
+
+      ctx.globalCompositeOperation = 'source-over';
+      const webSize = badgeSize * 1.3;
+      const webGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, webSize * 2.4);
+      webGlow.addColorStop(0, figRgba(FIG_CYAN, 0.2 + pulse * 0.08));
+      webGlow.addColorStop(0.5, figRgba(FIG_LAV, 0.08));
+      webGlow.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = webGlow;
+      ctx.beginPath();
+      ctx.arc(cx, cy, webSize * 2.4, 0, TAU);
+      ctx.fill();
+
+      drawBadge('Web', FIG_CYAN, cx, cy, webSize, 1, 1, 1);
+    }
+
+    registerAnimation('fig26', host, draw, { staticTime: 2.6 });
+  }
+
+  function initMarketsAnimation() {
+    const host = $('[data-figure-body="09"]');
+    if (!host) return;
+    const canvas = $('[data-markets]', host);
+    if (!canvas) return;
+    const setup = setupCurrentCanvas(canvas);
+    if (!setup) return;
+    const { ctx, state, resize } = setup;
+
+    const random = mulberry32(0x09a6e);
+    const dust = Array.from({ length: 32 }, () => ({
+      x: random() * 2 - 1,
+      y: random() * 2 - 1,
+      size: 0.5 + random() * 1,
+      alpha: 0.06 + random() * 0.18,
+      phase: random() * TAU,
+    }));
+
+    const markets = [
+      { label: 'CFD', ticker: 'US500', value: '5 432.18', change: '+1.24%', accent: FIG_CYAN, icon: 'cfd', phase: 0.2 },
+      { label: 'STOCKS', ticker: 'AAPL', value: '227.52', change: '+0.86%', accent: FIG_LAV, icon: 'stocks', phase: 1.4 },
+      { label: 'FOREX', ticker: 'EUR / USD', value: '1.0864', change: '−0.32%', accent: FIG_MAGENTA, icon: 'forex', phase: 2.6 },
+      { label: 'OPTIONS', ticker: 'BTC', value: '68 420', change: '+2.18%', accent: FIG_WHITE, icon: 'options', phase: 3.8 },
+    ];
+
+    function roundedRect(x, y, width, height, radius) {
+      const r = Math.min(radius, width * 0.5, height * 0.5);
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + width - r, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+      ctx.lineTo(x + width, y + height - r);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+      ctx.lineTo(x + r, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
+    function drawIcon(kind, size, accent) {
+      ctx.strokeStyle = figRgba(accent, 0.9);
+      ctx.fillStyle = figRgba(accent, 0.9);
+      ctx.lineWidth = Math.max(1, size * 0.12);
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      if (kind === 'cfd') {
+        ctx.beginPath();
+        ctx.moveTo(-size * 0.5, size * 0.3);
+        ctx.lineTo(-size * 0.16, -size * 0.18);
+        ctx.lineTo(size * 0.14, size * 0.08);
+        ctx.lineTo(size * 0.5, -size * 0.34);
+        ctx.stroke();
+      } else if (kind === 'stocks') {
+        [-0.36, -0.12, 0.12, 0.36].forEach((offset, index) => {
+          const height = size * (0.35 + (index % 3) * 0.18);
+          ctx.fillRect(size * offset - size * 0.06, size * 0.32 - height, size * 0.12, height);
+        });
+      } else if (kind === 'forex') {
+        ctx.beginPath();
+        ctx.moveTo(-size * 0.45, -size * 0.18);
+        ctx.lineTo(size * 0.38, -size * 0.18);
+        ctx.lineTo(size * 0.16, -size * 0.38);
+        ctx.moveTo(size * 0.45, size * 0.18);
+        ctx.lineTo(-size * 0.38, size * 0.18);
+        ctx.lineTo(-size * 0.16, size * 0.38);
+        ctx.stroke();
+      } else {
+        ctx.beginPath();
+        ctx.arc(0, 0, size * 0.46, 0, TAU);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(-size * 0.2, 0);
+        ctx.lineTo(-size * 0.04, size * 0.16);
+        ctx.lineTo(size * 0.24, -size * 0.16);
+        ctx.stroke();
+      }
+    }
+
+    function draw(time) {
+      resize();
+      const width = state.width;
+      const height = state.height;
+      if (width < 2 || height < 2) return;
+
+      const compact = width < 520;
+      const margin = compact ? 10 : 24;
+      const gap = compact ? 8 : 18;
+      const cardWidth = (width - margin * 2 - gap) * 0.5;
+      const cardHeight = (height - margin * 2 - gap) * 0.5;
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.globalCompositeOperation = 'lighter';
+      drawStarfield(ctx, width, height, dust, time, Math.max(width, height) * 0.55);
+
+      const ambient = ctx.createRadialGradient(width * 0.5, height * 0.5, 0, width * 0.5, height * 0.5, Math.max(width, height) * 0.55);
+      ambient.addColorStop(0, figRgba(FIG_LAV, 0.08));
+      ambient.addColorStop(0.6, figRgba(FIG_LAV, 0.02));
+      ambient.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = ambient;
+      ctx.fillRect(0, 0, width, height);
+      ctx.globalCompositeOperation = 'source-over';
+
+      markets.forEach((market, index) => {
+        const column = index % 2;
+        const row = Math.floor(index / 2);
+        const x = margin + column * (cardWidth + gap);
+        const y = margin + row * (cardHeight + gap);
+
+        roundedRect(x, y, cardWidth, cardHeight, compact ? 7 : 11);
+        ctx.fillStyle = 'rgba(13, 16, 27, 0.66)';
+        ctx.fill();
+        ctx.strokeStyle = figRgba(market.accent, 0.22);
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        ctx.fillStyle = figRgba(market.accent, 0.72);
+        ctx.fillRect(x + 12, y + 11, Math.min(24, cardWidth * 0.2), 2);
+
+        ctx.save();
+        ctx.translate(x + (compact ? 18 : 24), y + (compact ? 28 : 38));
+        drawIcon(market.icon, compact ? 11 : 16, market.accent);
+        ctx.restore();
+
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.86);
+        ctx.font = `${compact ? 8 : 12}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+        ctx.fillText(market.label, x + (compact ? 32 : 46), y + (compact ? 28 : 38));
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.3);
+        ctx.font = `${compact ? 5.5 : 8}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+        ctx.fillText(market.ticker, x + (compact ? 32 : 46), y + (compact ? 40 : 54));
+
+        for (let dot = 0; dot < 3; dot += 1) {
+          ctx.fillStyle = figRgba(FIG_WHITE, 0.16);
+          ctx.beginPath();
+          ctx.arc(x + cardWidth - (compact ? 12 : 18) + dot * (compact ? 6 : 8), y + (compact ? 13 : 17), compact ? 1.3 : 1.8, 0, TAU);
+          ctx.fill();
+        }
+
+        const chartLeft = x + (compact ? 10 : 16);
+        const chartRight = x + cardWidth - (compact ? 10 : 16);
+        const chartTop = y + cardHeight * (compact ? 0.48 : 0.5);
+        const chartBottom = y + cardHeight - (compact ? 18 : 28);
+        const points = [];
+        for (let step = 0; step <= 15; step += 1) {
+          const progress = step / 15;
+          const wave = Math.sin(time * 0.8 + market.phase + step * 0.62) * 0.24 + Math.sin(time * 0.31 + market.phase * 1.6 + step * 0.21) * 0.14 + 0.08;
+          points.push({
+            x: lerp(chartLeft, chartRight, progress),
+            y: chartBottom - clamp(0.5 + wave, 0.12, 0.94) * (chartBottom - chartTop),
+          });
+        }
+
+        const fill = ctx.createLinearGradient(0, chartTop, 0, chartBottom);
+        fill.addColorStop(0, figRgba(market.accent, 0.16));
+        fill.addColorStop(1, figRgba(market.accent, 0));
+        ctx.fillStyle = fill;
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, chartBottom);
+        points.forEach((point) => ctx.lineTo(point.x, point.y));
+        ctx.lineTo(points[points.length - 1].x, chartBottom);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.strokeStyle = figRgba(market.accent, 0.82);
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        points.forEach((point, pointIndex) => {
+          if (pointIndex === 0) ctx.moveTo(point.x, point.y);
+          else ctx.lineTo(point.x, point.y);
+        });
+        ctx.stroke();
+
+        const scanX = lerp(chartLeft, chartRight, ((time * 0.18 + market.phase) % 1 + 1) % 1);
+        ctx.strokeStyle = figRgba(market.accent, 0.1);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(scanX, chartTop);
+        ctx.lineTo(scanX, chartBottom);
+        ctx.stroke();
+
+        const lastPoint = points[points.length - 1];
+        const halo = ctx.createRadialGradient(lastPoint.x, lastPoint.y, 0, lastPoint.x, lastPoint.y, compact ? 7 : 10);
+        halo.addColorStop(0, figRgba(market.accent, 0.4));
+        halo.addColorStop(1, figRgba(market.accent, 0));
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(lastPoint.x, lastPoint.y, compact ? 7 : 10, 0, TAU);
+        ctx.fill();
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.9);
+        ctx.beginPath();
+        ctx.arc(lastPoint.x, lastPoint.y, compact ? 1.6 : 2.2, 0, TAU);
+        ctx.fill();
+
+        const footerY = y + cardHeight - (compact ? 9 : 14);
+        ctx.textAlign = 'left';
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.7);
+        ctx.font = `${compact ? 6 : 9}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+        ctx.fillText(market.value, x + 12, footerY);
+        ctx.textAlign = 'right';
+        ctx.fillStyle = figRgba(market.change.startsWith('−') ? FIG_MAGENTA : market.accent, 0.86);
+        ctx.fillText(market.change, x + cardWidth - 12, footerY);
+      });
+
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    registerAnimation('fig09', host, draw, { staticTime: 2.4 });
+  }
+
+  function initTeamScaleAnimation() {
+    const host = $('[data-figure-body="08"]');
+    if (!host) return;
+    const canvas = $('[data-team-scale]', host);
+    if (!canvas) return;
+    const setup = setupCurrentCanvas(canvas);
+    if (!setup) return;
+    const { ctx, state, resize } = setup;
+
+    const random = mulberry32(0x08ea17);
+    const dust = Array.from({ length: 34 }, () => ({
+      x: random() * 2 - 1,
+      y: random() * 2 - 1,
+      size: 0.5 + random() * 1,
+      alpha: 0.06 + random() * 0.18,
+      phase: random() * TAU,
+    }));
+
+    const inner = Array.from({ length: 8 }, (_, index) => ({
+      angle: (index / 8) * TAU + random() * 0.14,
+      radius: 0.58 + random() * 0.08,
+      size: 1.3 + random() * 0.7,
+      phase: random() * TAU,
+      accent: index % 3 === 0 ? FIG_CYAN : FIG_LAV,
+    }));
+    const outer = Array.from({ length: 12 }, (_, index) => ({
+      angle: (index / 12) * TAU + random() * 0.1,
+      radius: 0.96 + random() * 0.1,
+      size: 1.1 + random() * 0.9,
+      phase: random() * TAU,
+      accent: index % 4 === 0 ? FIG_MAGENTA : index % 3 === 0 ? FIG_CYAN : FIG_LAV,
     }));
 
     function draw(time) {
@@ -3563,112 +4298,289 @@
 
       const cx = width * 0.5;
       const cy = height * 0.5;
-      const radius = Math.min(width * 0.38, height * 0.43);
-      const pulse = 0.5 + 0.5 * Math.sin(time * 0.7);
-      const cycle = 3.6;
-      const phase = (time % cycle) / cycle;
-      const burst = Math.pow(Math.max(0, Math.sin(phase * Math.PI)), 8);
-      const flash = Math.exp(-Math.pow((phase - 0.82) / 0.1, 2));
+      const cluster = Math.min(width * 0.36, height * 0.4);
+      const pulse = 0.5 + 0.5 * Math.sin(time * 0.6);
+      const rotation = time * 0.035;
 
       ctx.clearRect(0, 0, width, height);
       ctx.globalCompositeOperation = 'lighter';
+      drawStarfield(ctx, width, height, dust, time, cluster * 1.7);
 
-      drawStarfield(ctx, width, height, dust, time, radius * 1.55);
-
-      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.9);
-      ambient.addColorStop(0, figRgba(FIG_LAV, 0.1 + pulse * 0.03 + flash * 0.1));
-      ambient.addColorStop(0.55, figRgba(FIG_LAV, 0.025));
+      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, cluster * 1.1);
+      ambient.addColorStop(0, figRgba(FIG_LAV, 0.13 + pulse * 0.04));
+      ambient.addColorStop(0.55, figRgba(FIG_LAV, 0.03));
       ambient.addColorStop(1, figRgba(FIG_LAV, 0));
       ctx.fillStyle = ambient;
       ctx.beginPath();
-      ctx.arc(cx, cy, radius * 0.9, 0, TAU);
+      ctx.arc(cx, cy, cluster * 1.1, 0, TAU);
       ctx.fill();
 
-      const streams = [
-        {
-          start: { x: cx - radius * 1.05, y: cy - radius * 0.5 },
-          control: { x: cx - radius * 0.52, y: cy - radius * 0.34 },
-          accent: FIG_LAV,
-        },
-        {
-          start: { x: cx + radius * 1.05, y: cy + radius * 0.5 },
-          control: { x: cx + radius * 0.52, y: cy + radius * 0.34 },
-          accent: FIG_CYAN,
-        },
-      ];
-
-      const pointAt = (stream, t) => {
-        const mt = 1 - t;
-        return {
-          x: mt * mt * stream.start.x + 2 * mt * t * stream.control.x + t * t * cx,
-          y: mt * mt * stream.start.y + 2 * mt * t * stream.control.y + t * t * cy,
-        };
-      };
-
-      for (const stream of streams) {
-        ctx.strokeStyle = figRgba(stream.accent, 0.1);
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(stream.start.x, stream.start.y);
-        ctx.quadraticCurveTo(stream.control.x, stream.control.y, cx, cy);
-        ctx.stroke();
-
-        for (let index = 0; index < 13; index += 1) {
-          const t = ((time * 0.2 + index / 13) % 1 + 1) % 1;
-          const head = pointAt(stream, t);
-          const tail = pointAt(stream, Math.max(0, t - 0.12));
-          const gradient = ctx.createLinearGradient(tail.x, tail.y, head.x, head.y);
-          gradient.addColorStop(0, figRgba(stream.accent, 0));
-          gradient.addColorStop(1, figRgba(stream.accent, 0.55));
-          ctx.strokeStyle = gradient;
-          ctx.lineWidth = 1.7;
-          ctx.beginPath();
-          ctx.moveTo(tail.x, tail.y);
-          ctx.lineTo(head.x, head.y);
-          ctx.stroke();
-
-          ctx.fillStyle = figRgba(FIG_WHITE, 0.55 * t);
-          ctx.beginPath();
-          ctx.arc(head.x, head.y, 1.1, 0, TAU);
-          ctx.fill();
-        }
-      }
-
-      for (const spark of sparks) {
-        const inner = radius * (0.06 + burst * 0.06);
-        const outer = radius * (0.06 + spark.length * (0.35 + burst * 0.65));
-        ctx.strokeStyle = figRgba(spark.accent, 0.2 + burst * 0.55);
-        ctx.lineWidth = spark.width;
-        ctx.beginPath();
-        ctx.moveTo(cx + Math.cos(spark.angle) * inner, cy + Math.sin(spark.angle) * inner);
-        ctx.lineTo(cx + Math.cos(spark.angle) * outer, cy + Math.sin(spark.angle) * outer);
-        ctx.stroke();
-      }
-
-      const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.3);
-      core.addColorStop(0, figRgba(FIG_WHITE, 0.16 + pulse * 0.05 + flash * 0.3));
-      core.addColorStop(0.35, figRgba(FIG_LAV, 0.14 + flash * 0.2));
-      core.addColorStop(1, figRgba(FIG_LAV, 0));
-      ctx.fillStyle = core;
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius * 0.3, 0, TAU);
-      ctx.fill();
-
-      ctx.strokeStyle = figRgba(FIG_WHITE, 0.12 + flash * 0.45);
+      ctx.strokeStyle = figRgba(FIG_LAV, 0.12);
       ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.arc(cx, cy, radius * (0.13 + burst * 0.05), 0, TAU);
+      ctx.arc(cx, cy, cluster * 0.7, 0, TAU);
       ctx.stroke();
-
-      ctx.fillStyle = figRgba(FIG_WHITE, 0.7 + flash * 0.25);
+      ctx.setLineDash([2, 8]);
+      ctx.strokeStyle = figRgba(FIG_CYAN, 0.12);
       ctx.beginPath();
-      ctx.arc(cx, cy, 1.8 + pulse * 0.5 + flash * 1.6, 0, TAU);
+      ctx.arc(cx, cy, cluster * 1.06, 0, TAU);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      const pointAt = (member, offset) => ({
+        x: cx + Math.cos(member.angle + rotation + offset) * cluster * member.radius,
+        y: cy + Math.sin(member.angle + rotation + offset) * cluster * member.radius * 0.82,
+      });
+
+      const all = [...inner, ...outer];
+      all.forEach((member, index) => {
+        const point = pointAt(member, 0);
+        const next = pointAt(all[(index + 1) % all.length], 0);
+        if (member.radius > 0.8 && all[(index + 1) % all.length].radius > 0.8) {
+          ctx.strokeStyle = figRgba(FIG_LAV, 0.08);
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(point.x, point.y);
+          ctx.lineTo(next.x, next.y);
+          ctx.stroke();
+        }
+      });
+
+      for (const member of all) {
+        const point = pointAt(member, 0);
+        const memberPulse = 0.5 + 0.5 * Math.sin(time * 0.8 + member.phase);
+        const halo = ctx.createRadialGradient(point.x, point.y, 0, point.x, point.y, member.size * 8);
+        halo.addColorStop(0, figRgba(member.accent, 0.24 + memberPulse * 0.14));
+        halo.addColorStop(1, figRgba(member.accent, 0));
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, member.size * 8, 0, TAU);
+        ctx.fill();
+
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.8);
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, member.size * 0.8, 0, TAU);
+        ctx.fill();
+      }
+
+      for (let index = 0; index < 4; index += 1) {
+        const progress = ((time * 0.22 + index / 4) % 1 + 1) % 1;
+        const angle = progress * TAU;
+        const radius = cluster * (0.7 + (index % 2) * 0.36);
+        const x = cx + Math.cos(angle) * radius;
+        const y = cy + Math.sin(angle) * radius * 0.82;
+        const halo = ctx.createRadialGradient(x, y, 0, x, y, 8);
+        halo.addColorStop(0, figRgba(index % 2 ? FIG_CYAN : FIG_LAV, 0.4));
+        halo.addColorStop(1, figRgba(index % 2 ? FIG_CYAN : FIG_LAV, 0));
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(x, y, 8, 0, TAU);
+        ctx.fill();
+      }
+
+      const centerHalo = ctx.createRadialGradient(cx, cy, 0, cx, cy, cluster * 0.5);
+      centerHalo.addColorStop(0, figRgba(FIG_WHITE, 0.16 + pulse * 0.06));
+      centerHalo.addColorStop(0.45, figRgba(FIG_LAV, 0.16 + pulse * 0.06));
+      centerHalo.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = centerHalo;
+      ctx.beginPath();
+      ctx.arc(cx, cy, cluster * 0.5, 0, TAU);
       ctx.fill();
+
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.94);
+      ctx.font = `${Math.max(28, Math.min(width, height) * 0.14)}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      ctx.fillText('20', cx, cy - cluster * 0.04);
+      ctx.fillStyle = figRgba(FIG_LAV, 0.62);
+      ctx.font = `${Math.max(6, Math.min(width, height) * 0.026)}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      ctx.fillText('FRONTEND', cx, cy + cluster * 0.14);
 
       ctx.globalCompositeOperation = 'source-over';
     }
 
-    registerAnimation('fig25', host, draw, { staticTime: 2.9 });
+    registerAnimation('fig08', host, draw, { staticTime: 2.2 });
+  }
+
+  function initCoreTeamsAnimation() {
+    const host = $('[data-figure-body="07"]');
+    if (!host) return;
+    const canvas = $('[data-core-teams]', host);
+    if (!canvas) return;
+    const setup = setupCurrentCanvas(canvas);
+    if (!setup) return;
+    const { ctx, state, resize } = setup;
+
+    const random = mulberry32(0x07c0e);
+    const dust = Array.from({ length: 32 }, () => ({
+      x: random() * 2 - 1,
+      y: random() * 2 - 1,
+      size: 0.5 + random() * 1,
+      alpha: 0.06 + random() * 0.18,
+      phase: random() * TAU,
+    }));
+
+    const teams = [
+      { label: 'PLATFORM', accent: FIG_LAV, phase: 0.3, speed: 0.2, rx: 1.0, ry: 0.52 },
+      { label: 'WALLET', accent: FIG_CYAN, phase: 2.3, speed: -0.24, rx: 1.06, ry: 0.6 },
+      { label: 'CHARTS', accent: FIG_MAGENTA, phase: 4.2, speed: 0.17, rx: 0.92, ry: 0.46 },
+    ];
+
+    function roundedRect(x, y, width, height, radius) {
+      const r = Math.min(radius, width * 0.5, height * 0.5);
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + width - r, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+      ctx.lineTo(x + width, y + height - r);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+      ctx.lineTo(x + r, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
+    function draw(time) {
+      resize();
+      const width = state.width;
+      const height = state.height;
+      if (width < 2 || height < 2) return;
+
+      const compact = width < 520;
+      const cx = width * 0.5;
+      const cy = height * 0.42;
+      const radius = Math.min(width * 0.33, height * 0.33);
+      const pulse = 0.5 + 0.5 * Math.sin(time * 0.65);
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.globalCompositeOperation = 'lighter';
+      drawStarfield(ctx, width, height, dust, time, Math.max(width, height) * 0.55);
+
+      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.1);
+      ambient.addColorStop(0, figRgba(FIG_LAV, 0.13 + pulse * 0.04));
+      ambient.addColorStop(0.55, figRgba(FIG_LAV, 0.03));
+      ambient.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = ambient;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius * 1.1, 0, TAU);
+      ctx.fill();
+
+      ctx.strokeStyle = figRgba(FIG_LAV, 0.1);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, radius * 1.02, radius * 0.56, 0, 0, TAU);
+      ctx.stroke();
+      ctx.setLineDash([2, 8]);
+      ctx.strokeStyle = figRgba(FIG_CYAN, 0.1);
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, radius * 0.92, radius * 0.46, 0, 0, TAU);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      const pointAt = (team, angle) => ({
+        x: cx + Math.cos(angle) * radius * team.rx,
+        y: cy + Math.sin(angle) * radius * team.ry,
+      });
+
+      for (const team of teams) {
+        const angle = time * team.speed + team.phase;
+        const point = pointAt(team, angle);
+        ctx.strokeStyle = figRgba(team.accent, 0.16);
+        ctx.lineWidth = 1;
+        ctx.setLineDash([3, 5]);
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(point.x, point.y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        const travel = ((time * 0.3 + team.phase) % 1 + 1) % 1;
+        const head = { x: cx + (point.x - cx) * travel, y: cy + (point.y - cy) * travel };
+        ctx.fillStyle = figRgba(team.accent, 0.7);
+        ctx.beginPath();
+        ctx.arc(head.x, head.y, 1.6, 0, TAU);
+        ctx.fill();
+
+        ctx.save();
+        ctx.translate(point.x, point.y);
+        ctx.font = `${compact ? 6 : 8}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+        const labelWidth = ctx.measureText(team.label).width;
+        const pillWidth = Math.max(compact ? 46 : 64, labelWidth + (compact ? 14 : 20));
+        const pillHeight = compact ? 14 : 19;
+        ctx.fillStyle = 'rgba(12, 15, 26, 0.92)';
+        roundedRect(-pillWidth * 0.5, -pillHeight * 0.5, pillWidth, pillHeight, pillHeight * 0.5);
+        ctx.fill();
+        ctx.strokeStyle = figRgba(team.accent, 0.45);
+        ctx.stroke();
+        ctx.fillStyle = figRgba(team.accent, 0.9);
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(team.label, 0, 0);
+        ctx.restore();
+      }
+
+      const coreGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.32);
+      coreGlow.addColorStop(0, figRgba(FIG_WHITE, 0.2 + pulse * 0.08));
+      coreGlow.addColorStop(0.4, figRgba(FIG_LAV, 0.18 + pulse * 0.06));
+      coreGlow.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = coreGlow;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius * 0.32, 0, TAU);
+      ctx.fill();
+
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.94);
+      ctx.font = `${compact ? 8 : 12}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      ctx.fillText('AKMA', cx, cy - 5);
+      ctx.fillStyle = figRgba(FIG_LAV, 0.66);
+      ctx.font = `${compact ? 5.5 : 7}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      ctx.fillText('CORE', cx, cy + 9);
+
+      ctx.globalCompositeOperation = 'source-over';
+      const barY = height * 0.88;
+      const barWidth = Math.min(width * 0.68, compact ? 230 : 340);
+      const barX = cx - barWidth * 0.5;
+      ctx.strokeStyle = figRgba(FIG_LAV, 0.24);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(barX, barY);
+      ctx.lineTo(barX + barWidth, barY);
+      ctx.stroke();
+
+      const stages = ['FLUX', 'MOBX + TS'];
+      const stageGap = barWidth * 0.28;
+      const startX = cx - stageGap * 0.5;
+      stages.forEach((stage, index) => {
+        const x = startX + index * stageGap;
+        ctx.font = `${compact ? 5.5 : 8}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+        const widthValue = Math.max(compact ? 38 : 54, ctx.measureText(stage).width + (compact ? 12 : 18));
+        ctx.fillStyle = 'rgba(12, 15, 26, 0.92)';
+        roundedRect(x - widthValue * 0.5, barY - (compact ? 8 : 11), widthValue, compact ? 16 : 22, compact ? 8 : 11);
+        ctx.fill();
+        ctx.strokeStyle = figRgba(index === 0 ? FIG_WHITE : FIG_CYAN, 0.28);
+        ctx.stroke();
+        ctx.fillStyle = figRgba(index === 0 ? FIG_WHITE : FIG_CYAN, 0.8);
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(stage, x, barY);
+      });
+
+      const arrowProgress = ((time * 0.35) % 1 + 1) % 1;
+      const arrowX = startX + (stageGap * 0.55) * arrowProgress;
+      ctx.strokeStyle = figRgba(FIG_CYAN, 0.45);
+      ctx.beginPath();
+      ctx.moveTo(startX + 28, barY);
+      ctx.lineTo(startX + stageGap - 28, barY);
+      ctx.stroke();
+      ctx.fillStyle = figRgba(FIG_CYAN, 0.8);
+      ctx.beginPath();
+      ctx.arc(arrowX, barY, 2.2 + pulse * 1.2, 0, TAU);
+      ctx.fill();
+    }
+
+    registerAnimation('fig07', host, draw, { staticTime: 2.6 });
   }
 
   /* --- 02 · Конвейер заказов ---------------------------------------------- */
@@ -3779,9 +4691,7 @@
     </svg>`;
   }
 
-  function initDeckAnimation() {
-    const host = $('[data-figure-body="03"]');
-    if (!host) return;
+  function setupWordDeck(host, animationId) {
     const deck = $('[data-deck]', host);
     const nextButton = $('.deck-next', host);
     const deckLive = $('[data-deck-live]', deck);
@@ -4061,7 +4971,12 @@
     }
 
     render();
-    registerAnimation('fig03', host, draw, { staticTime: 0 });
+    registerAnimation(animationId, host, draw, { staticTime: 0 });
+  }
+
+  function initDeckAnimation() {
+    const host = $('[data-figure-body="03"]');
+    if (host) setupWordDeck(host, 'fig03');
   }
 
   /* --- 04 · Свечной график ------------------------------------------------- */
@@ -4410,6 +5325,9 @@
     initChartAnimation();
     initTransfersAnimation();
     initDuelAnimation();
+    initCoreTeamsAnimation();
+    initTeamScaleAnimation();
+    initMarketsAnimation();
     initSupportAnimation();
     initMediaAnimation();
     initLanguageAnimation();
@@ -4417,6 +5335,7 @@
     initSignalsAnimation();
     initMechanicsAnimation();
     initTournamentAnimation();
+    initPlatformsAnimation();
     bindPauseButtons();
   }
 
@@ -4910,11 +5829,12 @@
      Программная прокрутка и прямой переход
      ------------------------------------------------------------------------ */
 
-  let scrollAnimation = null;
+  let scrollTween = null;
 
   function cancelScrollAnimation() {
-    if (scrollAnimation) {
-      scrollAnimation = null;
+    if (scrollTween) {
+      scrollTween.kill();
+      scrollTween = null;
       sky.suppressUntil = performance.now() + 180;
     }
   }
@@ -4946,27 +5866,23 @@
       jumpToT(target);
       return;
     }
-    const durationMs = clamp(duration, 300, 1800);
-    const startTime = performance.now();
+    const durationSec = clamp(duration, 300, 1800) / 1000;
+    cancelScrollAnimation();
     sky.lastT = scene.t;
-    scrollAnimation = {
-      startTime,
-      durationMs,
-      startY,
-      targetY,
-      tick(now) {
-        if (!scrollAnimation) return false;
-        const p = clamp((now - startTime) / durationMs, 0, 1);
-        const eased = easeInOutCubic(p);
-        window.scrollTo(0, startY + (targetY - startY) * eased);
-        if (p >= 1) {
-          scrollAnimation = null;
-          renderScene(true);
-          return false;
-        }
-        return true;
+    const proxy = { y: startY };
+    scrollTween = gsap.to(proxy, {
+      y: targetY,
+      duration: durationSec,
+      ease: 'power2.inOut',
+      overwrite: true,
+      onUpdate: () => {
+        window.scrollTo(0, proxy.y);
       },
-    };
+      onComplete: () => {
+        scrollTween = null;
+        renderScene(true);
+      },
+    });
   }
 
   function goNext() {
@@ -5031,6 +5947,21 @@
     dialog.scrollTop = 0;
     requestAnimationFrame(() => {
       modal.classList.add('is-open');
+      if (!reduceMotion) {
+        gsap.fromTo(
+          dialog.querySelectorAll('.menu-item'),
+          { opacity: 0, y: 16 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.38,
+            stagger: 0.03,
+            ease: 'power3.out',
+            overwrite: true,
+            clearProps: 'opacity,transform',
+          }
+        );
+      }
       const closeButton = $('#menuClose');
       if (closeButton) closeButton.focus();
     });
@@ -5351,11 +6282,7 @@
   }
 
   function frame(now) {
-    window.requestAnimationFrame(frame);
     if (document.hidden) return;
-    if (scrollAnimation) {
-      if (!scrollAnimation.tick(now)) scrollAnimation = null;
-    }
     const t = clamp(window.scrollY / scene.U, 0, ROUTE_END);
     if (Math.abs(t - scene.t) > 1e-7) renderScene();
     if (!reduceMotion) {
@@ -5384,7 +6311,7 @@
   } else {
     sky.draw(0, performance.now(), false, true);
   }
-  window.requestAnimationFrame(frame);
+  gsap.ticker.add(() => frame(performance.now()));
 
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(() => {

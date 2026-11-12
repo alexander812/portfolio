@@ -6,7 +6,7 @@ const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-
 const b=await chromium.launch({executablePath:exe,headless:true});
 const c=await b.newContext({viewport:{width:1200,height:800}});
 const p=await c.newPage();
-await p.goto(pathToFileURL('/Users/a.smirnov/p/portfolio-deepsick/index.html').href); await p.waitForTimeout(700);
+await p.goto((process.env.BASE_URL ?? 'http://localhost:4321')); await p.waitForTimeout(700);
 const t0=await p.evaluate(()=>window.__orbits.getAnimations().find(a=>a.id==='skills').time);
 await p.emulateMedia({reducedMotion:'reduce'}); await p.waitForTimeout(300);
 const s1=await p.evaluate(()=>({cls:document.documentElement.classList.contains('reduce-motion'),pause:getComputedStyle(document.querySelector('.pause-btn')).display,t:window.__orbits.getAnimations().find(a=>a.id==='skills').time}));

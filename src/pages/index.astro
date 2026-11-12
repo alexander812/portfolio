@@ -1,0 +1,37 @@
+---
+import HomeFooter from '../components/HomeFooter.astro';
+import HomeHeader from '../components/HomeHeader.astro';
+import HomeMenu from '../components/HomeMenu.astro';
+import HomeNojsFallback from '../components/HomeNojsFallback.astro';
+import HomeSky from '../components/HomeSky.astro';
+import HomeStage from '../components/HomeStage.astro';
+import ProgressRail from '../components/ProgressRail.astro';
+import HomeLayout from '../layouts/HomeLayout.astro';
+---
+
+<HomeLayout>
+  <a class="skip-link" href="#stage">К интерактивному атласу</a>
+
+  <HomeSky />
+  <ProgressRail />
+  <HomeHeader />
+  <HomeStage />
+  <HomeFooter />
+  <HomeMenu />
+  <HomeNojsFallback />
+
+  <div id="scrollSpacer" aria-hidden="true"></div>
+
+  <noscript>
+    <style is:inline>
+      #sky, #app, .hud-top, .hud-bottom, .progress-rail, .modal, .skip-link { display: none !important; }
+      body::before, body::after { display: none !important; }
+      .nojs-fallback { display: block !important; }
+      html, body { overflow: auto !important; background: #00030E !important; }
+    </style>
+  </noscript>
+
+  <script>
+    import '../scripts/main';
+  </script>
+</HomeLayout>

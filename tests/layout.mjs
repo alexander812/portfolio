@@ -7,7 +7,7 @@ const b=await chromium.launch({executablePath:exe,headless:true});
 const results=[];
 for (const {width,height} of [{width:1200,height:800},{width:390,height:844},{width:1200,height:520}]){
  const p=await b.newPage({viewport:{width,height}});
- await p.goto(pathToFileURL('/Users/a.smirnov/p/portfolio-deepsick/index.html').href); await p.waitForTimeout(500);
+ await p.goto((process.env.BASE_URL ?? 'http://localhost:4321')); await p.waitForTimeout(500);
  const centers=await p.evaluate(()=>window.__orbits.getStops().map(s=>s.t).concat(window.__orbits.getEntries().filter(e=>e.kind==='year').map(e=>e.center)));
  const issues=[];
  for (const t of [...new Set(centers)]){

@@ -1,14 +1,22 @@
 {
   "name": "orbits-of-experience",
+  "version": "2.0.0",
   "private": true,
-  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "node build.mjs",
-    "serve": "python3 -m http.server 4173",
-    "test": "node tests/e2e.mjs"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "astro build && node tests/run.mjs"
+  },
+  "dependencies": {
+    "astro": "5.18.1",
+    "gsap": "3.14.2"
   },
   "devDependencies": {
-    "playwright-core": "^1.55.0"
+    "@astrojs/check": "0.9.8",
+    "playwright-core": "^1.55.0",
+    "typescript": "5.9.3"
   }
 }

@@ -6,7 +6,7 @@ const exe=join(homedir(),'Library/Caches/ms-playwright/chromium-1248/chrome-mac-
 const [t,wait,name]=process.argv.slice(2);
 const b=await chromium.launch({executablePath:exe,headless:true});
 const p=await b.newPage({viewport:{width:1200,height:800}});
-await p.goto(pathToFileURL('/Users/a.smirnov/p/portfolio-deepsick/index.html').href); await p.waitForTimeout(500);
+await p.goto((process.env.BASE_URL ?? 'http://localhost:4321')); await p.waitForTimeout(500);
 await p.evaluate((t)=>window.__orbits.jumpToT(Number(t)), t);
 await p.waitForTimeout(Number(wait));
 await p.screenshot({path:`tests/${name}.png`});
