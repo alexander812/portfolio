@@ -7,6 +7,7 @@ import '../../pencil-embed.js';
   const html = document.documentElement;
   const body = document.body;
   html.classList.remove('no-js');
+  document.getElementById('stage')?.setAttribute('role', 'main');
 
   const TAU = Math.PI * 2;
   const STEP_T = 1.05;
@@ -649,31 +650,6 @@ import '../../pencil-embed.js';
       </section>`;
   }
 
-  function renderCover(entry) {
-    return `
-      <section class="stop stop-cover" data-index="${entry.index}" aria-label="Обложка: От jQuery до ИИ">
-        <div class="cover-shell">
-          <div class="cover-grid">
-            <div class="cover-copy">
-              <p class="cover-eyebrow">Интерактивный атлас карьеры</p>
-              <h1 class="cover-title"><span class="title-line">От jQuery</span><span class="title-line title-accent">до ИИ.</span></h1>
-              <p class="cover-lead">Я прошёл путь от jQuery-модулей и спагетти-кода до Feature-driven и Feature-Sliced Design. Переписывал приложения на десятки тысяч строк, когда менялась сама концепция разработки. И каждый следующий проект был сложнее и интереснее предыдущего. Теперь AI предлагает новый инструмент снимающий с разработчика рутинные процессы и дает раскрыться творческому потенциалу. Тем интереснее двигаться дальше.</p>
-              <div class="cover-actions">
-                <button class="primary-btn" id="startBtn" type="button">
-                  <span>Начать путешествие</span>
-                  <span class="btn-orb" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h9M8.4 3.6 12.8 8l-4.4 4.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                </button>
-                <span class="secondary-note"><span class="scroll-line" aria-hidden="true"></span>Прокрутите вниз</span>
-              </div>
-            </div>
-            <div class="cover-visual">
-              ${skillsCard()}
-            </div>
-          </div>
-        </div>
-      </section>`;
-  }
-
   const SKILL_GROUPS = [
     [
       { name: 'React', mark: 'react' },
@@ -699,19 +675,6 @@ import '../../pencil-embed.js';
       { name: 'Python', mark: 'python' },
     ],
   ];
-
-  function skillsCard() {
-    const skillNames = SKILL_GROUPS.flat()
-      .map((skill) => skill.name)
-      .join(', ');
-    return `
-      <div class="skills-card" data-anim-host="skills">
-        <span class="sr-only fig-number">Рис. 00</span>
-        <div class="skills-stage" data-skills-stage role="img" aria-label="Тетрис собирает таблицу навыков: ${escapeHtml(skillNames)}">
-          <canvas class="skills-canvas" data-skills-canvas aria-hidden="true"></canvas>
-        </div>
-      </div>`;
-  }
 
   const SPACE307_LOGO = '<svg class="event-company-logo" viewBox="0 0 160 160" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M105.26 93.9831L76.485 65.466C74.876 63.8826 72.8182 63.0096 70.714 63H50.6501L32.5773 63.0004C30.4786 63.0134 28.3794 63.8053 26.7747 65.3845L21.2163 70.8937C19.5964 72.4959 19.5977 75.094 21.2172 76.6967L27.078 82.505C28.6984 84.1077 31.3599 84.1328 32.9802 82.5301L39.8358 75.7359L48.6758 66.9751C50.2953 65.3728 52.883 65.3733 54.5025 66.9759L83.4528 95.6664C85.0617 97.2502 87.2685 97.9423 89.3727 97.9515H109.437L127.553 97.951C129.652 97.9377 131.792 97.1859 133.397 95.6066L138.766 90.2855C140.493 88.5767 140.346 86.0442 138.726 84.4416L132.865 78.6328C131.246 77.0314 128.623 77.0502 127.004 78.647L120.324 85.2669L111.543 93.9693C109.923 95.5715 106.879 95.5853 105.26 93.9831Z" fill="currentColor"/></svg>';
 
@@ -775,9 +738,13 @@ import '../../pencil-embed.js';
   }
 
   for (const entry of ENTRIES) {
+    if (entry.kind === 'cover') {
+      entry.el = $('.stop-cover', drum);
+      if (!entry.el) throw new Error('Missing server-rendered cover');
+      continue;
+    }
     let markup = '';
-    if (entry.kind === 'cover') markup = renderCover(entry);
-    else if (entry.kind === 'chapter') markup = renderChapter(entry);
+    if (entry.kind === 'chapter') markup = renderChapter(entry);
     else if (entry.kind === 'event') markup = renderEvent(entry);
     else if (entry.kind === 'year') markup = renderYear(entry);
     else if (entry.kind === 'finale') markup = renderFinale(entry);

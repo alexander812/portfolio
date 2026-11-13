@@ -24,6 +24,14 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" href="/fonts/hanken-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" href="/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <noscript>
+      <style is:inline>
+        #sky, #app, .hud-top, .hud-bottom, .progress-rail, .modal, .skip-link { display: none !important; }
+        body::before, body::after { display: none !important; }
+        .nojs-fallback { display: block !important; }
+        html, body { overflow: auto !important; background: #00030E !important; }
+      </style>
+    </noscript>
     <slot name="head" />
   </head>
   <body>

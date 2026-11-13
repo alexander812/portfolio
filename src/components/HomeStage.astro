@@ -1,6 +1,10 @@
+---
+import HomeCover from './HomeCover.astro';
+---
+
 <div class="app" id="app">
-  <main class="stage" id="stage" tabindex="-1" aria-label="Интерактивный атлас карьеры «Орбиты опыта»" aria-describedby="sceneHint">
-    <div class="drum" id="drum"></div>
+  <div class="stage" id="stage" role="region" tabindex="-1" aria-label="Интерактивный атлас карьеры «Орбиты опыта»" aria-describedby="sceneHint">
+    <div class="drum" id="drum"><HomeCover /></div>
     <p class="sr-only" id="sceneHint">Используйте вертикальную прокрутку, горизонтальные жесты или стрелки влево и вправо, чтобы путешествовать по карьере. Кнопка «Главы» открывает указатель глав.</p>
-  </main>
+  </div>
 </div>

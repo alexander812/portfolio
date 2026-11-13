@@ -733,6 +733,11 @@ body::after {
   height: 100%;
 }
 
+/* The cover is in the HTML and must be centered before the atlas script runs. */
+.stop-cover {
+  transform: translateY(-50%);
+}
+
 /* --------------------------------------------------------------------------
    Обложка
    -------------------------------------------------------------------------- */
