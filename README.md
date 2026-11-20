@@ -12,12 +12,12 @@
    ```
 
 3. После публикации сайта создайте виджет [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/get-started/) для его домена. Сохраните публичный sitekey и секретный ключ.
-4. Worker уже развёрнут по адресу `https://portfolio-contact.a-s-smirnoff.workers.dev/contact`. В нём настроено ограничение частоты запросов. После публикации сайта откройте Cloudflare → Workers & Pages → `portfolio-contact` → Settings → Runtime variables and secrets и добавьте четыре переменные типа **Secret**. Для `ALLOWED_ORIGIN` укажите **только origin** опубликованного сайта: например, `https://alexander812.github.io` без `/portfolio` и завершающего `/`.
+4. Worker уже развёрнут по адресу `https://portfolio-contact.a-s-smirnoff.workers.dev/contact`. В нём настроено ограничение частоты запросов. Откройте Cloudflare → Workers & Pages → `portfolio-contact` → Settings → Runtime variables and secrets. Добавьте три значения типа **Secret** и одно значение типа **Variable**. Для `ALLOWED_ORIGIN` укажите **только origin** опубликованного сайта: `https://alexander812.github.io` без `/portfolio` и завершающего `/`.
 
    - `TELEGRAM_BOT_TOKEN` — токен от BotFather;
    - `TELEGRAM_CHAT_ID` — числовой ID вашего личного чата;
    - `TURNSTILE_SECRET_KEY` — секретный ключ виджета;
-   - `ALLOWED_ORIGIN` — origin сайта.
+   - `ALLOWED_ORIGIN` — origin сайта, тип **Variable**.
 
    Для будущих обновлений кода можно использовать `npx wrangler login` и `npx wrangler deploy` из корня проекта. Привязка лимита уже отражена в `wrangler.toml`.
 

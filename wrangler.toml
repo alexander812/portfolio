@@ -2,6 +2,9 @@ name = "portfolio-contact"
 main = "worker/contact.mjs"
 compatibility_date = "2026-11-20"
 
+[vars]
+ALLOWED_ORIGIN = "https://alexander812.github.io"
+
 [[ratelimits]]
 name = "CONTACT_RATE_LIMIT"
 namespace_id = "20261120"
@@ -9,6 +12,3 @@ namespace_id = "20261120"
 [ratelimits.simple]
 limit = 5
 period = 60
-
-# Set ALLOWED_ORIGIN to the published site's origin in the Cloudflare dashboard.
-# Example: https://alexander812.github.io (without /portfolio).
