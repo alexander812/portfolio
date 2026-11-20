@@ -1,7 +1,11 @@
+---
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+---
+
 <header class="hud-top">
   <button class="brand" id="brandBtn" type="button" aria-haspopup="dialog" aria-label="Александр Смирнов — открыть профиль" title="Профиль">
     <span class="brand-mark" aria-hidden="true">
-      <img src="/images/aleksandr-smirnov.jpg" alt="" loading="eager" decoding="async" />
+      <img src={`${base}images/aleksandr-smirnov.jpg`} alt="" loading="eager" decoding="async" />
     </span>
     <span class="brand-copy">
       <span class="brand-name">Александр Смирнов</span>
@@ -24,7 +28,7 @@
     <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg>
   </button>
   <figure class="profile-figure">
-    <img class="profile-photo" src="/images/aleksandr-smirnov.jpg" alt="Александр Смирнов" width="1122" height="1402" loading="eager" decoding="async" />
+    <img class="profile-photo" src={`${base}images/aleksandr-smirnov.jpg`} alt="Александр Смирнов" width="1122" height="1402" loading="eager" decoding="async" />
     <figcaption class="profile-caption">
       <span class="profile-eyebrow">Александр Смирнов</span>
       <h2 class="profile-name" id="profileName">Senior frontend-разработчик</h2>

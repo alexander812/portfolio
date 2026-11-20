@@ -10,6 +10,7 @@ const {
   description = 'Интерактивный атлас карьеры фронтенд-разработчика: от jQuery до ИИ, 2006–2027. Восемь глав и 25 эпизодов.',
   title = 'Орбиты опыта — от jQuery до ИИ',
 } = Astro.props;
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 ---
 
 <!doctype html>
@@ -21,9 +22,9 @@ const {
     <meta name="description" content={description} />
     <meta name="theme-color" content="#00030E" />
     <meta name="color-scheme" content="dark" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preload" href="/fonts/hanken-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href="/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="preload" href={`${base}fonts/hanken-latin.woff2`} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={`${base}fonts/onest-cyrillic.woff2`} as="font" type="font/woff2" crossorigin="anonymous" />
     <noscript>
       <style is:inline>
         #sky, #app, .hud-top, .hud-bottom, .progress-rail, .modal, .skip-link { display: none !important; }

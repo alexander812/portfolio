@@ -908,7 +908,7 @@ import '../../pencil-embed.js';
       })
       .join('');
     return eventBackdropShell(`
-      <g fill="rgba(188,164,255,.018)" stroke="rgba(188,164,255,.13)" stroke-width="1.1" stroke-linejoin="round">
+      <g transform="translate(0 36)" fill="rgba(188,164,255,.018)" stroke="rgba(188,164,255,.13)" stroke-width="1.1" stroke-linejoin="round">
         ${houses}
         <path d="M28 378h584"/>
         <path d="M34 394h572" stroke-dasharray="2 10"/>
@@ -916,10 +916,321 @@ import '../../pencil-embed.js';
       </g>`);
   }
 
+  function backdropCoin(x, y, radius, label, symbol, accent = '188,164,255') {
+    return `
+      <g transform="translate(${x} ${y})">
+        <circle r="${radius}" fill="rgba(${accent},.035)" stroke="rgba(${accent},.16)" stroke-width="1.2"/>
+        <circle r="${(radius * 0.78).toFixed(1)}" fill="none" stroke="rgba(${accent},.08)" stroke-dasharray="2 7"/>
+        <text y="${(radius * 0.24).toFixed(1)}" text-anchor="middle" fill="rgba(${accent},.17)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="${Math.max(15, radius * 0.56).toFixed(1)}" font-weight="700">${symbol}</text>
+        <text y="${(radius + 15).toFixed(1)}" text-anchor="middle" fill="rgba(${accent},.11)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" letter-spacing=".1em">${label}</text>
+      </g>`;
+  }
+
+  function spbSkyline(x, y, scale, accent) {
+    return `
+      <g transform="translate(${x} ${y}) scale(${scale})" fill="none" stroke="rgba(${accent},.15)" stroke-width="1.2" stroke-linejoin="round">
+        <path d="M0 0h260"/>
+        <path d="M8 0v-42h28v42M12 -42l10-14 10 14M18 -56v-8h12v8"/>
+        <path d="M52 0v-58h20v58M56 -58l6-12 6 12"/>
+        <path d="M80 0v-74l8-62 8 62v74"/>
+        <circle cx="88" cy="-142" r="4"/>
+        <path d="M106 0v-28c0-20 14-32 34-32s34 12 34 32v28"/>
+        <path d="M116 -48v-14M164 -48v-14M140 -62v-8"/>
+        <path d="M188 0v-50h30v50M194 -50l9-12 9 12"/>
+        <path d="M228 0v-34h24v34M232 -34l6-10 6 10"/>
+        <path d="M0 -3h260" stroke-dasharray="2 8" stroke-opacity=".55"/>
+        <path d="M-8 8c20-10 40-10 60 0s40 10 60 0 40-10 60 0 40 10 60 0 40-10 60 0" stroke-opacity=".5"/>
+      </g>`;
+  }
+
+  function londonSkyline(x, y, scale, accent) {
+    return `
+      <g transform="translate(${x} ${y}) scale(${scale})" fill="none" stroke="rgba(${accent},.15)" stroke-width="1.2" stroke-linejoin="round">
+        <path d="M0 0h280"/>
+        <path d="M8 0v-116h44v116M8 -116h44M30 -116v-24M30 -140v-12"/>
+        <path d="M8 -126l22-16 22 16"/>
+        <circle cx="30" cy="-92" r="14"/>
+        <path d="M30 -92v-8M30 -92h8"/>
+        <path d="M56 0v-52h80v52M58 -52h76"/>
+        <path d="M72 -18v-24M86 -18v-24M100 -18v-24M114 -18v-24M128 -18v-24"/>
+        <path d="M150 0v-64h22v64M161 -64l-7-16h34l-7 16M161 -16v-28h0"/>
+        <path d="M198 0v-64h22v64M209 -64l-7-16h34l-7 16M209 -16v-28h0"/>
+        <path d="M172 -48c10 8 24 8 34 0M150 -40c20 12 62 12 82 0" stroke-dasharray="2 5" stroke-opacity=".65"/>
+        <circle cx="252" cy="-52" r="34" stroke-dasharray="2 6"/>
+        <path d="M252 -86v68M218 -52h68M228 -76l48 48M276 -76l-48 48" stroke-opacity=".55"/>
+        <path d="M0 -3h280" stroke-dasharray="2 8" stroke-opacity=".5"/>
+      </g>`;
+  }
+
+  function tMobileMark(x, y, scale) {
+    return `
+      <g transform="translate(${x} ${y}) scale(${scale})" fill="none" stroke="rgba(226,0,116,.2)" stroke-width="1.4" stroke-linejoin="round">
+        <rect x="-52" y="-52" width="104" height="104" rx="20" fill="rgba(226,0,116,.035)"/>
+        <path d="M-30 -31h60v16h-22v47h-16v-47h-22z" fill="rgba(226,0,116,.09)" stroke="none"/>
+        <text y="76" text-anchor="middle" fill="rgba(226,0,116,.14)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing=".12em" stroke="none">T-MOBILE</text>
+      </g>`;
+  }
+
+  function germanFlag(x, y, width, rotate = -6) {
+    return `
+      <g transform="translate(${x} ${y}) rotate(${rotate})" stroke="rgba(255,255,255,.05)" stroke-width=".6">
+        <rect x="${-width / 2}" y="-22" width="${width}" height="15" fill="rgba(0,0,0,.24)"/>
+        <rect x="${-width / 2}" y="-7" width="${width}" height="15" fill="rgba(255,80,80,.1)"/>
+        <rect x="${-width / 2}" y="8" width="${width}" height="15" fill="rgba(255,206,84,.1)"/>
+      </g>`;
+  }
+
+  function brandenburgGate(x, y, scale, accent) {
+    return `
+      <g transform="translate(${x} ${y}) scale(${scale})" fill="none" stroke="rgba(${accent},.15)" stroke-width="1.2" stroke-linejoin="round">
+        <path d="M-76 0h152M-66 0v-52h132v52M-74 -52l14-8h120l14 8"/>
+        <path d="M-52 -52v52M-26 -52v52M0 -52v52M26 -52v52M52 -52v52"/>
+        <path d="M-22 -52v-12h44v12M-12 -64v-8h24v8"/>
+        <path d="M-8 -72v-12M8 -72v-12M0 -84v-10"/>
+        <path d="M-72 4h144" stroke-dasharray="2 7" stroke-opacity=".6"/>
+      </g>`;
+  }
+
+  function memeCoinsBackdrop() {
+    return eventBackdropShell(`
+      <path d="M18 398 112 356 196 374 286 318 366 334 456 292 548 308 616 276" fill="none" stroke="rgba(247,196,84,.1)" stroke-width="1.2" stroke-dasharray="4 6"/>
+      ${backdropCoin(96, 344, 52, 'DOGE', 'Ð', '247,196,84')}
+      ${backdropCoin(224, 314, 40, 'SHIB', 'S', '255,150,90')}
+      ${backdropCoin(350, 352, 56, 'PEPE', 'P', '110,231,160')}
+      ${backdropCoin(474, 312, 36, 'BONK', 'B', '255,206,84')}
+      ${backdropCoin(584, 348, 42, 'WIF', 'W', '255,122,217')}
+      <g fill="none" stroke="rgba(247,196,84,.1)" stroke-width="1">
+        <path d="M122 286h22M132 276v20M282 266h18M291 257v18M526 266h16M534 258v16"/>
+      </g>`);
+  }
+
+  function cryptoAssetsBackdrop() {
+    return eventBackdropShell(`
+      <path d="M22 402 114 366 200 384 286 330 372 348 456 306 548 320 618 286" fill="none" stroke="rgba(111,231,242,.1)" stroke-width="1.2" stroke-dasharray="3 6"/>
+      ${backdropCoin(88, 350, 42, 'BTC', '₿', '247,196,84')}
+      ${backdropCoin(208, 326, 34, 'ETH', 'Ξ', '188,164,255')}
+      ${backdropCoin(326, 360, 46, 'SOL', 'S', '110,231,160')}
+      ${backdropCoin(448, 326, 32, 'USDT', '₮', '111,231,242')}
+      ${backdropCoin(556, 354, 38, 'BNB', 'B', '255,206,84')}
+      <g fill="none" stroke="rgba(111,231,242,.09)" stroke-width="1">
+        <path d="M128 294h18M137 285v18M500 294h18M509 285v18"/>
+        <path d="M270 286l14-14 14 14M576 290l12-12 12 12"/>
+      </g>`);
+  }
+
+  function refactorBackdrop() {
+    return eventBackdropShell(`
+      <g fill="none" stroke="rgba(255,122,217,.12)" stroke-width="1.2" stroke-linecap="round">
+        <path d="M28 408c36-58 54 26 82-26s44 48 76-6 50 30 82-16 58 24 86-14"/>
+        <path d="M46 378c24-18 38 16 60-4s34 20 56 0"/>
+      </g>
+      <g transform="translate(420 352)" fill="none" stroke="rgba(111,231,242,.16)" stroke-width="1.2" stroke-linejoin="round">
+        <rect x="-92" y="-82" width="184" height="26" rx="6" fill="rgba(111,231,242,.03)"/>
+        <rect x="-92" y="-48" width="184" height="26" rx="6" fill="rgba(188,164,255,.03)"/>
+        <rect x="-92" y="-14" width="184" height="26" rx="6" fill="rgba(111,231,242,.03)"/>
+        <rect x="-92" y="20" width="184" height="26" rx="6" fill="rgba(188,164,255,.03)"/>
+        <path d="M-78 -69h96M-78 -35h64M-78 -1h112M-78 33h80" stroke-opacity=".65"/>
+        <path d="M108 -69h32M108 -35h56M108 -1h24M108 33h46" stroke-dasharray="2 4" stroke-opacity=".6"/>
+      </g>
+      <g transform="translate(320 348)" fill="none" stroke="rgba(188,164,255,.18)" stroke-width="1.2">
+        <path d="M-38 -42h-14v84h14M38 -42h14v84H38"/>
+        <path d="M-18 -16h36M-18 0h28M-18 16h34" stroke-opacity=".6"/>
+      </g>
+      <g transform="translate(270 396)" fill="none" stroke="rgba(247,196,84,.14)" stroke-width="1.2">
+        <circle r="24"/>
+        <circle r="9"/>
+        ${Array.from({ length: 8 }, (_, index) => {
+          const angle = (index / 8) * TAU;
+          return `<path d="M${(Math.cos(angle) * 25).toFixed(1)} ${(Math.sin(angle) * 25).toFixed(1)}L${(Math.cos(angle) * 34).toFixed(1)} ${(Math.sin(angle) * 34).toFixed(1)}"/>`;
+        }).join('')}
+      </g>`);
+  }
+
+  function forexBackdrop() {
+    return eventBackdropShell(`
+      <text x="320" y="394" text-anchor="middle" fill="rgba(188,164,255,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="68" font-weight="700" letter-spacing=".08em">FOREX</text>
+      <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="700" text-anchor="middle" fill="rgba(111,231,242,.13)">
+        <text x="94" y="332" font-size="36">$</text>
+        <text x="196" y="306" font-size="28">€</text>
+        <text x="442" y="306" font-size="28">¥</text>
+        <text x="548" y="334" font-size="36">£</text>
+      </g>
+      <path d="M34 396 104 364 168 382 242 330 312 352 388 306 464 326 540 288 608 302" fill="none" stroke="rgba(188,164,255,.11)" stroke-width="1.3"/>
+      <g fill="none" stroke="rgba(188,164,255,.12)" stroke-width="1">
+        <path d="M124 350v-22M124 338h10M134 338v-14M144 324v-18"/>
+        <path d="M492 340v-26M492 326h10M502 326v-16M512 310v-20"/>
+      </g>`);
+  }
+
+  function videoHostingBackdrop() {
+    const holes = Array.from({ length: 8 }, (_, index) => `<rect x="${-102 + index * 26}" y="-54" width="12" height="5" rx="2"/><rect x="${-102 + index * 26}" y="49" width="12" height="5" rx="2"/>`).join('');
+    return eventBackdropShell(`
+      <g transform="translate(412 350)" fill="none" stroke="rgba(111,231,242,.16)" stroke-width="1.3" stroke-linejoin="round">
+        <rect x="-124" y="-60" width="248" height="120" rx="14" fill="rgba(111,231,242,.03)"/>
+        <path d="M-18 -24 34 0-18 24Z" fill="rgba(111,231,242,.06)"/>
+        ${holes}
+      </g>
+      <g transform="translate(174 344)" fill="none" stroke="rgba(188,164,255,.16)" stroke-width="1.3" stroke-linejoin="round">
+        <path d="M-44 20c-18 0-30-11-30-25 0-13 10-23 24-25 5-18 20-30 40-30 21 0 38 14 42 34 14 0 25 10 25 24 0 13-12 22-28 22Z"/>
+        <path d="M0 34V-16M-10 -4 0-16 10-4" stroke-linecap="round"/>
+      </g>
+      <text x="412" y="406" text-anchor="middle" fill="rgba(111,231,242,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing=".18em">VIDEO HOSTING</text>`);
+  }
+
+  function languagesBackdrop() {
+    return eventBackdropShell(`
+      <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="700" text-anchor="middle">
+        <text x="62" y="382" font-size="36" fill="rgba(188,164,255,.13)">PHP</text>
+        <text x="192" y="350" font-size="24" fill="rgba(247,196,84,.13)">JavaScript</text>
+        <text x="344" y="388" font-size="30" fill="rgba(255,150,90,.13)">HTML</text>
+        <text x="454" y="350" font-size="30" fill="rgba(111,231,242,.13)">CSS</text>
+        <text x="562" y="390" font-size="24" fill="rgba(110,231,160,.13)">MySQL</text>
+      </g>
+      <g transform="translate(562 342)" fill="none" stroke="rgba(110,231,160,.17)" stroke-width="1.2">
+        <ellipse rx="34" ry="10"/>
+        <path d="M-34 0v28c0 6 68 6 68 0V0M-34 14c0 6 68 6 68 0"/>
+      </g>
+      <g fill="none" stroke="rgba(188,164,255,.11)" stroke-width="1.2">
+        <path d="M292 306h-12v48h12M310 306h12v48h-12" />
+        <path d="M132 300h-10v34h10M148 300h10v34h-10" />
+      </g>`);
+  }
+
+  function videoAdsBackdrop() {
+    return eventBackdropShell(`
+      <g transform="translate(408 352)" fill="none" stroke="rgba(111,231,242,.16)" stroke-width="1.3" stroke-linejoin="round">
+        <rect x="-96" y="-48" width="192" height="96" rx="12" fill="rgba(111,231,242,.03)"/>
+        <path d="M-14 -20 27 0-14 20Z" fill="rgba(111,231,242,.07)"/>
+        <path d="M-82 -56h164M-82 56h164" stroke-dasharray="2 7" stroke-opacity=".6"/>
+      </g>
+      <g transform="translate(172 352) rotate(-12)" fill="none" stroke="rgba(255,122,217,.16)" stroke-width="1.3" stroke-linejoin="round">
+        <path d="M-38 -10 10 -34v68l-48-24Z"/>
+        <path d="M-38 -10h-18v20h18M10 -28c12 4 20 14 20 28M24 -44c20 8 32 24 32 44" stroke-linecap="round"/>
+      </g>
+      <g transform="translate(560 334)" fill="none" stroke="rgba(247,196,84,.16)" stroke-width="1.2">
+        <rect x="-52" y="-28" width="104" height="56" rx="8" fill="rgba(247,196,84,.03)"/>
+        <text y="5" text-anchor="middle" fill="rgba(247,196,84,.15)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="700" stroke="none">AD</text>
+        <path d="M-36 18h50M-36 26h30" stroke-opacity=".6"/>
+      </g>`);
+  }
+
+  function fileExchangeBackdrop() {
+    return eventBackdropShell(`
+      <g transform="translate(96 356)" fill="none" stroke="rgba(188,164,255,.16)" stroke-width="1.2" stroke-linejoin="round">
+        <rect x="-44" y="-40" width="76" height="58" rx="6" fill="rgba(188,164,255,.03)"/>
+        <rect x="-34" y="-52" width="76" height="58" rx="6" fill="rgba(188,164,255,.02)"/>
+        <path d="M-24 -18h42M-24 -4h30M-24 10h36" stroke-opacity=".6"/>
+        <text y="38" text-anchor="middle" fill="rgba(188,164,255,.11)" font-family="ui-monospace, monospace" font-size="10" stroke="none">MPA</text>
+      </g>
+      <g transform="translate(252 356)" fill="none" stroke="rgba(111,231,242,.16)" stroke-width="1.2" stroke-linejoin="round">
+        <rect x="-42" y="-38" width="84" height="66" rx="8" fill="rgba(111,231,242,.03)"/>
+        <path d="M-42 -24h84M-30 -12h54M-30 4h36M-30 18h48" stroke-opacity=".6"/>
+        <text y="46" text-anchor="middle" fill="rgba(111,231,242,.11)" font-family="ui-monospace, monospace" font-size="10" stroke="none">SPA</text>
+      </g>
+      <g fill="none" stroke="rgba(111,231,242,.14)" stroke-width="1.3" stroke-linecap="round">
+        <path d="M142 318h64M196 308l10 10-10 10"/>
+        <path d="M214 388h-64M160 378l-10 10 10 10"/>
+      </g>
+      <g transform="translate(430 352)" fill="none" stroke="rgba(255,122,217,.14)" stroke-width="1.2" stroke-linejoin="round">
+        <text x="-66" y="-26" fill="rgba(255,122,217,.13)" font-family="ui-monospace, monospace" font-size="22" stroke="none">&lt;?php</text>
+        <path d="M-42 8h-12v42h12M64 8h12v42H64"/>
+        <path d="M34 58c-30-12 4-26-14-42s10-18-6-30"/>
+      </g>`);
+  }
+
+  function spbStriderBackdrop() {
+    return eventBackdropShell(`
+      ${spbSkyline(36, 408, 1.25, '188,164,255')}
+      ${spbSkyline(312, 412, 0.9, '111,231,242')}
+      <text x="566" y="386" text-anchor="middle" fill="rgba(188,164,255,.09)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" font-weight="700" letter-spacing=".14em">STRIDER</text>
+      <text x="566" y="404" text-anchor="middle" fill="rgba(111,231,242,.09)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".2em">САНКТ-ПЕТЕРБУРГ</text>`);
+  }
+
+  function germanExitBackdrop() {
+    return eventBackdropShell(`
+      ${germanFlag(470, 326, 230, -5)}
+      ${brandenburgGate(506, 408, 1.35, '188,164,255')}
+      <g fill="none" stroke="rgba(247,196,84,.14)" stroke-width="1.3" stroke-linecap="round">
+        <path d="M120 356h130M240 346l12 10-12 10"/>
+        <path d="M248 384h-118M140 374l-12 10 12 10" stroke-opacity=".6"/>
+      </g>
+      <text x="150" y="328" text-anchor="middle" fill="rgba(188,164,255,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" letter-spacing=".12em">MASH RUSSLAND</text>`);
+  }
+
+  function germanCmsBackdrop() {
+    return eventBackdropShell(`
+      ${germanFlag(500, 322, 220, -5)}
+      ${brandenburgGate(520, 408, 1.1, '188,164,255')}
+      <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="700" text-anchor="middle">
+        <text x="90" y="410" font-size="22" fill="rgba(188,164,255,.14)">CMS</text>
+        <text x="220" y="410" font-size="24" fill="rgba(111,231,242,.14)">PHP</text>
+        <text x="360" y="410" font-size="20" fill="rgba(110,231,160,.14)">MySQL</text>
+      </g>
+      <g transform="translate(510 394)" fill="none" stroke="rgba(110,231,160,.16)" stroke-width="1.1">
+        <ellipse rx="26" ry="8"/>
+        <path d="M-26 0v18c0 5 52 5 52 0V0M-26 9c0 5 52 5 52 0"/>
+      </g>`);
+  }
+
+  function tMobileExitBackdrop() {
+    return eventBackdropShell(`
+      ${tMobileMark(520, 356, 1.35)}
+      <g fill="none" stroke="rgba(226,0,116,.16)" stroke-width="1.3" stroke-linecap="round">
+        <path d="M128 350h106M222 340l12 10-12 10"/>
+        <path d="M70 350h-18v46h18M88 350h-18" stroke-opacity=".7"/>
+      </g>
+      <text x="180" y="318" text-anchor="middle" fill="rgba(226,0,116,.11)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing=".18em">EXIT</text>`);
+  }
+
+  function londonTMobileBackdrop() {
+    return eventBackdropShell(`
+      ${londonSkyline(24, 410, 1.14, '111,231,242')}
+      ${tMobileMark(544, 352, 1.1)}
+      <text x="150" y="404" text-anchor="middle" fill="rgba(111,231,242,.09)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing=".2em">LONDON</text>`);
+  }
+
+  function spbLondonBackdrop() {
+    return eventBackdropShell(`
+      ${spbSkyline(20, 406, 0.82, '188,164,255')}
+      ${londonSkyline(356, 408, 0.82, '111,231,242')}
+      <g fill="none" stroke="rgba(247,196,84,.16)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 6">
+        <path d="M248 348c42-42 86-42 126 0M364 336l10 12-10 12"/>
+      </g>
+      <text x="86" y="398" text-anchor="middle" fill="rgba(188,164,255,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".18em">СПБ</text>
+      <text x="472" y="400" text-anchor="middle" fill="rgba(111,231,242,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".18em">LONDON</text>`);
+  }
+
+  function spbTMobileBackdrop() {
+    return eventBackdropShell(`
+      ${spbSkyline(24, 410, 1.12, '188,164,255')}
+      ${tMobileMark(544, 350, 1.2)}
+      <text x="150" y="402" text-anchor="middle" fill="rgba(188,164,255,.09)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing=".2em">САНКТ-ПЕТЕРБУРГ</text>
+      <path d="M314 344h108M408 334l12 10-12 10" fill="none" stroke="rgba(226,0,116,.14)" stroke-width="1.3" stroke-linecap="round"/>`);
+  }
+
   function eventBackdrop(eventId) {
     if (eventId === '2026-05' || eventId === '2017-04') return space307Backdrop();
     if (eventId === '2018-06') return shanghaiBackdrop();
     if (eventId === '2018-04-ams') return amsterdamBackdrop();
+    if (eventId === '2023-12') return cryptoAssetsBackdrop();
+    if (eventId === '2015-07') return languagesBackdrop();
+    if (eventId === '2010-10') return spbStriderBackdrop();
+    if (eventId === '2010-07') return germanExitBackdrop();
+    if (eventId === '2009-03') return germanCmsBackdrop();
+    if (eventId === '2009-01') return tMobileExitBackdrop();
+    if (eventId === '2008-03') return londonTMobileBackdrop();
+    if (eventId === '2007-06') return spbLondonBackdrop();
+    if (eventId === '2006-12') return spbTMobileBackdrop();
+    return '';
+  }
+
+  function yearBackdrop(year) {
+    if (year === 2025) return memeCoinsBackdrop();
+    if (year === 2021) return refactorBackdrop();
+    if (year === 2016) return forexBackdrop();
+    if (year === 2014) return videoHostingBackdrop();
+    if (year === 2013) return videoAdsBackdrop();
+    if (year === 2011) return fileExchangeBackdrop();
     return '';
   }
 
@@ -950,7 +1261,7 @@ import '../../pencil-embed.js';
       <section class="stop stop-year" data-index="${entry.index}" aria-label="${entry.year} год">
         <div class="event-shell">
           <div class="event-card year-event-card">
-            ${entry.year === 2019 ? covidBackdrop() : ''}
+            ${entry.year === 2019 ? covidBackdrop() : yearBackdrop(entry.year)}
             <div class="event-year" aria-hidden="true">${entry.year}</div>
             <div class="event-body">
               <div class="event-kicker">Хронология</div>

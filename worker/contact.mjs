@@ -128,12 +128,12 @@ export default {
 
       const text = [
         'Новое сообщение с портфолио',
-        `От: ${name || 'Не указано'}`,
-        `Ответить: ${replyTo}`,
+        'От: ' + (name || 'Не указано'),
+        'Ответить: ' + replyTo,
         '',
         message,
       ].join('\n');
-      const telegram = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      const telegram = await fetch('https://api.telegram.org/bot' + env.TELEGRAM_BOT_TOKEN + '/sendMessage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

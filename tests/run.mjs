@@ -4,6 +4,7 @@ import { createServer } from 'node:net';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { promisify } from 'node:util';
+import astroConfig from '../astro.config.mjs';
 
 const run = promisify(execFile);
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
@@ -22,7 +23,7 @@ async function getFreePort() {
 }
 
 const port = Number(process.env.PORT ?? (await getFreePort()));
-const baseUrl = `http://localhost:${port}`;
+const baseUrl = `http://localhost:${port}${astroConfig.base ?? '/'}`;
 
 const server = spawn(astro, ['preview', '--port', String(port)], {
   cwd: root,
