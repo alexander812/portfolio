@@ -69,14 +69,6 @@ import '../../pencil-embed.js';
         },
         {
           number: '02',
-          title: 'Между делом',
-          text: 'Несколько небольших проектов, которые не отнимают много времени. Обновить, проверить, починить — пауза для смены ритма.',
-          skills: ['Поддержка', 'Frontend'],
-          figure: '19',
-          bare: true,
-        },
-        {
-          number: '03',
           title: 'Медиаплатформа',
           text: 'Разрабатываю медиаплатформу для некоммерческой организации: блог и каталог статей, комментарии, закрытые и открытые материалы, headless CMS для авторов, административная система и CRM.',
           skills: ['Headless CMS', 'CRM'],
@@ -84,13 +76,21 @@ import '../../pencil-embed.js';
           bare: true,
         },
         {
-          number: '04',
+          number: '03',
           title: 'Изучаем языки',
           text: 'Самая свежая работа — приложение для изучения языков. Несколько механик помогают учить слова и фразы. Импульсом стал сын: он учит английский в школе.',
           skills: ['Пет-проект', 'Изучение языков'],
           figure: '21',
           bare: true,
           link: 'https://lexi.casa/',
+        },
+        {
+          number: '04',
+          title: 'Между делом',
+          text: 'Несколько небольших проектов, которые не отнимают много времени. Обновить, проверить, починить — пауза для смены ритма.',
+          skills: ['Поддержка', 'Frontend'],
+          figure: '19',
+          bare: true,
         },
       ],
     },
@@ -161,7 +161,7 @@ import '../../pencil-embed.js';
         {
           number: '02',
           title: 'Команда и процессы',
-          text: 'Пришёл на проект Team Lead фронтенда и Senior Developer. В команде было около 20 разработчиков. Отвечал за архитектурные решения, набирал новых людей, организовывал командные синки и выездные сессии. В компании ежегодно проходили хакатоны — я всегда участвовал и несколько раз побеждал.',
+          text: 'Пришёл на проект Team Lead фронтенда и Senior Developer. В команде было около 20 разработчиков. Отвечал за архитектурные решения, набирал новых людей, организовывал командные синки и выездные сессии. В компании ежегодно проходили хакатоны — я всегда участвовал, борьба была нешуточная, но и награды тоже.',
           skills: ['Team Lead', 'Senior', 'Архитектура', 'Найм', 'Хакатоны'],
           figure: '08',
           bare: true,
@@ -186,9 +186,10 @@ import '../../pencil-embed.js';
         {
           number: '01',
           title: 'MVP на jQuery',
-          text: 'Интерселект — финтех-платформа бинарных опционов, очень популярных в те годы. Я пришёл в проект, когда в нём было около 10 человек. Первую версию собрали на jQuery за неделю как быстрое MVP, после чего платформа начала расти.',
+          text: 'Интерселект — финтех-платформа бинарных опционов, очень популярная механика в те годы. Я пришёл в проект, когда в нём было около 10 человек. Первую версию собрали на jQuery за неделю как быстрое MVP, для проверки гипотезы.',
           skills: ['Финтех', 'Бинарные опционы', 'jQuery', 'MVP'],
           figure: '10',
+          bare: true,
         },
         {
           number: '02',
@@ -196,6 +197,7 @@ import '../../pencil-embed.js';
           text: 'Когда платформа начала приносить прибыль, её переписали на Backbone. За несколько лет команда выросла примерно в 10 раз. Я стал тимлидом четырёх фронтенд-разработчиков: занимался архитектурой, наймом, синками и встречами. Следующим этапом стал масштабный рефакторинг с Backbone на React.',
           skills: ['Backbone', 'React', 'Тимлид', 'Рефакторинг'],
           figure: '11',
+          bare: true,
         },
       ],
     },
@@ -212,6 +214,7 @@ import '../../pencil-embed.js';
           text: 'Работал fullstack-разработчиком: делал и бэкенд, и фронтенд. Участвовал в разных проектах компании, связывая интерфейс с серверной частью.',
           skills: ['Fullstack', 'Backend', 'Frontend'],
           figure: '12',
+          bare: true,
         },
         {
           number: '02',
@@ -219,6 +222,7 @@ import '../../pencil-embed.js';
           text: 'Среди проектов — сервис загрузки и просмотра видео и облачный файловый сервис. Работал с пользовательским интерфейсом и логикой на сервере.',
           skills: ['Видео', 'Файлы', 'Облачные сервисы'],
           figure: '13',
+          bare: true,
         },
         {
           number: '03',
@@ -226,6 +230,7 @@ import '../../pencil-embed.js';
           text: 'Внедрял в проект новый на тот момент Backbone. Фронтенд становился самостоятельным приложением со своей структурой.',
           skills: ['JavaScript', 'Backbone'],
           figure: '14',
+          bare: true,
         },
       ],
     },
@@ -242,6 +247,7 @@ import '../../pencil-embed.js';
           text: 'Писал CMS и плагины на PHP для программного обеспечения государственных учреждений Германии. За хранение данных отвечал MSSQL.',
           skills: ['PHP', 'MSSQL', 'CMS'],
           figure: '15',
+          bare: true,
         },
         {
           number: '02',
@@ -249,6 +255,15 @@ import '../../pencil-embed.js';
           text: 'В команде было шесть человек: два бэкендера, два фронтендера, тестировщик и продакт. Работал одним из двух бэкенд-разработчиков.',
           skills: ['Backend', 'Взаимодействие', 'Команда'],
           figure: '16',
+          bare: true,
+        },
+        {
+          number: '03',
+          title: 'Редактор и экспорт',
+          text: 'Разрабатывал с нуля редактор WYSIWYG, плагины экспорта Excel и документов Word в HTML.',
+          skills: ['WYSIWYG', 'PHP', 'Экспорт'],
+          figure: '27',
+          bare: true,
         },
       ],
     },
@@ -261,10 +276,11 @@ import '../../pencil-embed.js';
       episodes: [
         {
           number: '01',
-          title: 'JavaScript в масштабе',
+          title: 'Первый опыт в JS',
           text: 'Работал над проектом для T-Mobile и отвечал за JavaScript. Здесь начинается коммерческий опыт, отражённый в этом атласе.',
           skills: ['JavaScript', 'Frontend', 'T-Mobile'],
           figure: '17',
+          bare: true,
         },
         {
           number: '02',
@@ -272,6 +288,47 @@ import '../../pencil-embed.js';
           text: 'На второй год работы стал тимлидом команды. Неоднократно ездил в зарубежные командировки для обмена опытом.',
           skills: ['Тимлид', 'Международная команда'],
           figure: '18',
+          bare: true,
+        },
+        {
+          number: '03',
+          title: 'Каталог и CRM',
+          text: 'Разрабатывал каталог продуктов и CRM на базе ExtJS.',
+          skills: ['ExtJS', 'CRM', 'Каталог'],
+          figure: '28',
+          bare: true,
+        },
+        {
+          number: '04',
+          title: 'Библиотека компонентов',
+          text: 'Создавал библиотеку компонентов для электронного магазина T-Mobile. Поддерживал браузеры начиная с IE6, обеспечивал 100% accessibility и валидацию W3C.',
+          skills: ['UI-кит', 'IE6', 'Accessibility', 'W3C'],
+          figure: '29',
+          bare: true,
+        },
+      ],
+    },
+    {
+      id: 'expectations',
+      year: 2027,
+      title: 'Мои ожидания',
+      period: 'Пожелания к следующей роли',
+      tone: 'rgba(255, 122, 217, 0.075)',
+      episodes: [
+        {
+          number: '01',
+          title: 'Мои ожидания',
+          text: 'Каким я вижу следующее место работы.',
+          bullets: [
+            'Удалённый или гибридный режим.',
+            'Достойная оплата.',
+            'Гибкость по времени: можно отлучиться по необходимости и доделать работу позже.',
+            'Минимум бюрократии.',
+            'Нормальное планирование и расстановка приоритетов.',
+          ],
+          skills: ['Remote', 'Гибкий график', 'Оплата', 'Процессы'],
+          figure: '30',
+          bare: true,
         },
       ],
     },
@@ -285,6 +342,14 @@ import '../../pencil-embed.js';
       type: 'Завершение',
       company: 'Space307',
       text: 'Завершил проект криптобиржи и работу в Space307.',
+    },
+    {
+      id: '2026-03',
+      year: 2026,
+      month: 'Март',
+      type: 'Запуск',
+      company: 'Space307',
+      text: 'Подключение DCA-торговых агентов. Перпы.',
     },
     {
       id: '2023-12',
@@ -301,19 +366,19 @@ import '../../pencil-embed.js';
       text: 'Mobile World Congress Shanghai в Шанхае. Первое знакомство с искусственным интеллектом — технологиями машинного зрения.',
     },
     {
+      id: '2018-04-ams',
+      year: 2018,
+      month: 'Апрель',
+      type: 'Конференция',
+      text: 'React Amsterdam 2018. Удалось пообщаться с создателем MobX.',
+    },
+    {
       id: '2017-04',
       year: 2017,
       month: 'Апрель',
       type: 'Начало',
       company: 'Space307',
       text: 'Присоединился к Space307. Начал работу над платформой Akma.',
-    },
-    {
-      id: '2017-04-ams',
-      year: 2017,
-      month: 'Апрель',
-      type: 'Конференция',
-      text: 'React Amsterdam 2017. Удалось пообщаться с создателем MobX.',
     },
     {
       id: '2017-03',
@@ -397,6 +462,7 @@ import '../../pencil-embed.js';
   const ROUTE_PLAN = [
     'chapter:2026',
     'event:2026-05',
+    'event:2026-03',
     'year:2025',
     'year:2024',
     'chapter:2023',
@@ -405,11 +471,10 @@ import '../../pencil-embed.js';
     'year:2021',
     'year:2020',
     'year:2019',
-    'year:2018',
     'event:2018-06',
+    'event:2018-04-ams',
     'chapter:2017',
     'event:2017-04',
-    'event:2017-04-ams',
     'event:2017-03',
     'year:2016',
     'chapter:2015',
@@ -425,13 +490,12 @@ import '../../pencil-embed.js';
     'chapter:2009',
     'event:2009-03',
     'event:2009-01',
-    'year:2008',
     'event:2008-06',
     'event:2008-03',
-    'year:2007',
     'event:2007-06',
     'chapter:2006',
     'event:2006-12',
+    'chapter:expectations',
   ];
 
   const FIGURES = {
@@ -462,24 +526,43 @@ import '../../pencil-embed.js';
     '24': { topic: 'Три скорости', kind: 'mechanics' },
     '25': { topic: 'Турниры', kind: 'tournament' },
     '26': { topic: 'Кроссплатформенные приложения', kind: 'platforms' },
+    '27': { topic: 'Редактор и экспорт', kind: 'editor' },
+    '28': { topic: 'Каталог и CRM', kind: 'catalog' },
+    '29': { topic: 'Библиотека компонентов', kind: 'components' },
+    '30': { topic: 'Ожидания от работы', kind: 'expectations' },
   };
 
-  const ANIMATED_FIGURES = new Set(['01', '02', '03', '04', '05', '06', '07', '08', '09', '19', '20', '21', '22', '23', '24', '25', '26']);
+  const ANIMATED_FIGURES = new Set([
+    '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18',
+    '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
+  ]);
 
   const chapterById = new Map(CHAPTERS.map((chapter) => [chapter.id, chapter]));
   const eventById = new Map(EVENTS.map((event) => [event.id, event]));
 
   const YEAR_NOTES = {
+    2025: 'Внедрение AI-агентов. Мемкоины и предикшн-блоки. Партнёрка.',
+    2024: 'Графики, торговые сигналы и CFD. Битва за LTV пользователей.',
+    2022: 'Интеграция графиков на С++. Битва за ретеншн пользователей.',
     2021: 'Начали рефакторинг и переход на архитектуру, ориентированную на фичи. Для этого запустили на прод новый фреймворк, который позволял декларативно описывать набор фичей в приложении.',
     2020: 'Закончили переезд платформы на MobX.',
-    2019: 'Грянул COVID, и мы все перешли на удалёнку.',
+    2019: 'Грянул COVID, и мы все перешли на удалёнку. Создавали сотни A/B-тестов, проверяли гипотезы и воронки конверсии.',
+    2016: 'Разработка Forex-механики.',
+    2014: 'Развивали проект видео-платформы, создали партнёрскую программу.',
+    2013: 'Запускали видео-сервис: SPA-приложение и кастомный видеоплеер с рекламными интеграциями.',
+    2012: 'Занимался рекламными интеграциями на страницах, аналитикой и системой показа по результатам продаж в автоматическом режиме.',
+    2011: 'Переписал приложение по обмену файлами с MPA на SPA. Распутывал спагетти на PHP.',
   };
 
   /* ------------------------------------------------------------------------
      Маршрут
      ------------------------------------------------------------------------ */
 
-  const planItems = [{ kind: 'cover' }];
+  const planItems = [
+    { kind: 'cover', id: 'intro', label: 'Обложка: Для кого этот сайт' },
+    { kind: 'cover', id: 'help', label: 'Чем я могу помочь' },
+    { kind: 'cover', id: 'start', label: 'Начало путешествия' },
+  ];
 
   for (const token of ROUTE_PLAN) {
     const [kind, id] = token.split(':');
@@ -512,7 +595,30 @@ import '../../pencil-embed.js';
     entry.nextChapter = nextChapter ? nextChapter.chapter.year : 2006;
   }
 
-  const STOPS = [{ t: 0, kind: 'cover', label: 'Обложка' }];
+  const chapterEntries = ENTRIES.filter((entry) => entry.kind === 'chapter');
+  for (const entry of ENTRIES) {
+    if (entry.kind === 'chapter') {
+      entry.focusYear = entry.chapter.id;
+      continue;
+    }
+    if (entry.kind !== 'event' && entry.kind !== 'year') continue;
+    let nearest = null;
+    let nearestDistance = Infinity;
+    for (const chapterEntry of chapterEntries) {
+      const distance = Math.abs(chapterEntry.center - entry.center);
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearest = chapterEntry;
+      }
+    }
+    entry.focusYear = nearest ? nearest.chapter.id : null;
+  }
+
+  const STOPS = ENTRIES.filter((entry) => entry.kind === 'cover').map((entry) => ({
+    t: entry.center,
+    kind: 'cover',
+    label: entry.label,
+  }));
   for (const entry of ENTRIES) {
     if (entry.kind === 'chapter') {
       entry.chapter.episodes.forEach((episode, index) => {
@@ -603,6 +709,9 @@ import '../../pencil-embed.js';
     const bare = Boolean(episode.bare);
     const body = animated ? animationBody(figureNumber) : staticFigure(figureNumber);
     const skills = episode.skills.map((skill) => `<li>${escapeHtml(skill)}</li>`).join('');
+    const bullets = episode.bullets
+      ? `<ul class="ep-list">${episode.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`
+      : '';
     const projectLink = episode.link
       ? `<a class="ep-project-link" href="${escapeHtml(episode.link)}" target="_blank" rel="noopener noreferrer">
           <span>Перейти на проект</span>
@@ -626,6 +735,7 @@ import '../../pencil-embed.js';
             <div class="ep-copy">
               <h2>${escapeHtml(episode.title)}</h2>
               <p>${escapeHtml(episode.text)}</p>
+              ${bullets}
               <ul class="skills" aria-label="Навыки">${skills}</ul>
               ${projectLink}
             </div>
@@ -676,7 +786,142 @@ import '../../pencil-embed.js';
     ],
   ];
 
-  const SPACE307_LOGO = '<svg class="event-company-logo" viewBox="0 0 160 160" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M105.26 93.9831L76.485 65.466C74.876 63.8826 72.8182 63.0096 70.714 63H50.6501L32.5773 63.0004C30.4786 63.0134 28.3794 63.8053 26.7747 65.3845L21.2163 70.8937C19.5964 72.4959 19.5977 75.094 21.2172 76.6967L27.078 82.505C28.6984 84.1077 31.3599 84.1328 32.9802 82.5301L39.8358 75.7359L48.6758 66.9751C50.2953 65.3728 52.883 65.3733 54.5025 66.9759L83.4528 95.6664C85.0617 97.2502 87.2685 97.9423 89.3727 97.9515H109.437L127.553 97.951C129.652 97.9377 131.792 97.1859 133.397 95.6066L138.766 90.2855C140.493 88.5767 140.346 86.0442 138.726 84.4416L132.865 78.6328C131.246 77.0314 128.623 77.0502 127.004 78.647L120.324 85.2669L111.543 93.9693C109.923 95.5715 106.879 95.5853 105.26 93.9831Z" fill="currentColor"/></svg>';
+  const SPACE307_LOGO_PATH = 'M105.26 93.9831L76.485 65.466C74.876 63.8826 72.8182 63.0096 70.714 63H50.6501L32.5773 63.0004C30.4786 63.0134 28.3794 63.8053 26.7747 65.3845L21.2163 70.8937C19.5964 72.4959 19.5977 75.094 21.2172 76.6967L27.078 82.505C28.6984 84.1077 31.3599 84.1328 32.9802 82.5301L39.8358 75.7359L48.6758 66.9751C50.2953 65.3728 52.883 65.3733 54.5025 66.9759L83.4528 95.6664C85.0617 97.2502 87.2685 97.9423 89.3727 97.9515H109.437L127.553 97.951C129.652 97.9377 131.792 97.1859 133.397 95.6066L138.766 90.2855C140.493 88.5767 140.346 86.0442 138.726 84.4416L132.865 78.6328C131.246 77.0314 128.623 77.0502 127.004 78.647L120.324 85.2669L111.543 93.9693C109.923 95.5715 106.879 95.5853 105.26 93.9831Z';
+  const SPACE307_LOGO = `<svg class="event-company-logo" viewBox="0 0 160 160" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="${SPACE307_LOGO_PATH}" fill="currentColor"/></svg>`;
+
+  function eventBackdropShell(content) {
+    return `<div class="event-backdrop" aria-hidden="true"><svg viewBox="0 0 640 420" preserveAspectRatio="xMidYMax slice" focusable="false">${content}</svg></div>`;
+  }
+
+  function space307Backdrop() {
+    return eventBackdropShell(`
+      <g fill="none" stroke="rgba(111,231,242,.07)" stroke-width="1">
+        <circle cx="320" cy="210" r="196"/>
+        <circle cx="320" cy="210" r="154" stroke-dasharray="2 12"/>
+        <path d="M124 210h392" stroke-dasharray="2 14"/>
+      </g>
+      <g transform="translate(320 352) scale(2.35) translate(-80 -80)" fill="rgba(188,164,255,.11)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="${SPACE307_LOGO_PATH}"/>
+      </g>`);
+  }
+
+  function covidBackdrop() {
+    const viruses = [
+      { x: 118, y: 304, radius: 46, spikes: 14, opacity: 0.72 },
+      { x: 516, y: 318, radius: 68, spikes: 18, opacity: 0.55 },
+      { x: 430, y: 262, radius: 28, spikes: 10, opacity: 0.62 },
+      { x: 196, y: 396, radius: 34, spikes: 10, opacity: 0.5 },
+    ];
+    const shapes = viruses.map((virus) => {
+      const spikes = Array.from({ length: virus.spikes }, (_, index) => {
+        const angle = (index / virus.spikes) * TAU;
+        const inner = virus.radius + 2;
+        const outer = virus.radius + 5 + (index % 2) * 9;
+        return `<path d="M${(virus.x + Math.cos(angle) * inner).toFixed(1)} ${(virus.y + Math.sin(angle) * inner).toFixed(1)}L${(virus.x + Math.cos(angle) * outer).toFixed(1)} ${(virus.y + Math.sin(angle) * outer).toFixed(1)}"/>`;
+      }).join('');
+      return `
+        <g opacity="${virus.opacity}">
+          ${spikes}
+          <circle cx="${virus.x}" cy="${virus.y}" r="${virus.radius}"/>
+          <circle cx="${virus.x}" cy="${virus.y}" r="${(virus.radius * 0.62).toFixed(1)}" stroke-dasharray="2 7"/>
+          <circle cx="${virus.x}" cy="${virus.y}" r="${(virus.radius * 0.3).toFixed(1)}"/>
+          <circle cx="${(virus.x + virus.radius * 0.36).toFixed(1)}" cy="${(virus.y - virus.radius * 0.28).toFixed(1)}" r="2.4" fill="rgba(110,231,160,.32)" stroke="none"/>
+          <circle cx="${(virus.x - virus.radius * 0.4).toFixed(1)}" cy="${(virus.y + virus.radius * 0.34).toFixed(1)}" r="1.8" fill="rgba(110,231,160,.28)" stroke="none"/>
+        </g>`;
+    }).join('');
+    return eventBackdropShell(`<g fill="rgba(110,231,160,.03)" stroke="rgba(110,231,160,.3)" stroke-width="1.8" stroke-linecap="round">${shapes}</g>`);
+  }
+
+  function shanghaiBackdrop() {
+    const blocks = [
+      { x: 38, y: 286, w: 34, h: 92 },
+      { x: 78, y: 252, w: 26, h: 126 },
+      { x: 110, y: 306, w: 42, h: 72 },
+      { x: 158, y: 292, w: 20, h: 86 },
+      { x: 228, y: 270, w: 30, h: 108 },
+      { x: 264, y: 300, w: 34, h: 78 },
+      { x: 366, y: 292, w: 30, h: 86 },
+      { x: 402, y: 262, w: 26, h: 116 },
+      { x: 456, y: 304, w: 38, h: 74 },
+      { x: 500, y: 282, w: 28, h: 96 },
+      { x: 534, y: 312, w: 48, h: 66 },
+      { x: 588, y: 296, w: 24, h: 82 },
+    ]
+      .map((block) => `<rect x="${block.x}" y="${block.y}" width="${block.w}" height="${block.h}" rx="2"/>`)
+      .join('');
+    const towerWindows = Array.from({ length: 7 }, (_, row) => {
+      const y = 300 + row * 8;
+      return `<path d="M285 ${y}h26M352 ${y}h26"/>`;
+    }).join('');
+    return eventBackdropShell(`
+      <g fill="rgba(111,231,242,.022)" stroke="rgba(111,231,242,.14)" stroke-width="1.1" stroke-linejoin="round">
+        ${blocks}
+        <path d="M166 378v-46h68v46"/>
+        <path d="M186 332v-24h28v24"/>
+        <circle cx="200" cy="294" r="22"/>
+        <circle cx="200" cy="238" r="14"/>
+        <circle cx="200" cy="196" r="7"/>
+        <path d="M200 332v-16M200 272v-20M200 224v-18M200 189v-34"/>
+        <path d="M178 348h44M172 360h56"/>
+        <path d="M302 378c4-70 9-146 16-190 5-28 13-52 22-70"/>
+        <path d="M354 378c-4-64-7-136-12-184-4-34-9-62-16-74"/>
+        <path d="M318 188c8-4 20-4 28 0M310 240c12-6 30-6 42 0M306 292c16-8 38-8 54 0M304 326c18-9 42-9 60 0"/>
+        ${towerWindows}
+        <path d="M392 378l7-172h38l7 172"/>
+        <path d="M404 206h30M409 212c0 20 18 20 18 0"/>
+        <path d="M396 352h50M399 326h44M402 300h38"/>
+        <path d="M470 378v-62h28v62M474 316v-36h20v36M478 280v-28h12v28M482 252v-22h4v22M484 230v-28"/>
+        <path d="M468 348h32M472 330h26M476 306h18"/>
+      </g>`);
+  }
+
+  function amsterdamBackdrop() {
+    const houseWidths = [58, 66, 52, 62, 56, 70, 54, 60];
+    let cursor = 46;
+    const houses = houseWidths
+      .map((width, index) => {
+        const height = 116 + ((index * 17) % 42);
+        const top = 378 - height;
+        const x = cursor;
+        cursor += width + 6;
+        const gable = index % 3;
+        const roof =
+          gable === 0
+            ? `M${x} ${top + 24}L${x + width / 2} ${top}L${x + width} ${top + 24}`
+            : gable === 1
+              ? `M${x} ${top + 24}C${x + 6} ${top + 18} ${x + width * 0.24} ${top + 2} ${x + width / 2} ${top}C${x + width * 0.76} ${top + 2} ${x + width - 6} ${top + 18} ${x + width} ${top + 24}`
+              : `M${x} ${top + 24}h8v-8h10V${top}h${width - 36}v8h10v8h8`;
+        const windows = Array.from({ length: 6 }, (_, cell) => {
+          const col = cell % 2;
+          const row = Math.floor(cell / 2);
+          const wx = x + 11 + col * (width - 33);
+          const wy = top + 36 + row * 28;
+          return `<rect x="${wx}" y="${wy}" width="12" height="17" rx="1"/>`;
+        }).join('');
+        return `
+          <g>
+            <path d="M${x} 378V${top + 24}H${x + width}V378Z"/>
+            <path d="${roof}"/>
+            ${windows}
+            <path d="M${x + width / 2 - 6} 378v-24h12v24"/>
+          </g>`;
+      })
+      .join('');
+    return eventBackdropShell(`
+      <g fill="rgba(188,164,255,.018)" stroke="rgba(188,164,255,.13)" stroke-width="1.1" stroke-linejoin="round">
+        ${houses}
+        <path d="M28 378h584"/>
+        <path d="M34 394h572" stroke-dasharray="2 10"/>
+        <path d="M74 394c0-12 18-18 28-6M520 390c8-12 26-10 30 2" stroke="rgba(111,231,242,.1)"/>
+      </g>`);
+  }
+
+  function eventBackdrop(eventId) {
+    if (eventId === '2026-05' || eventId === '2017-04') return space307Backdrop();
+    if (eventId === '2018-06') return shanghaiBackdrop();
+    if (eventId === '2018-04-ams') return amsterdamBackdrop();
+    return '';
+  }
 
   function renderEvent(entry) {
     const event = entry.event;
@@ -687,6 +932,7 @@ import '../../pencil-embed.js';
       <section class="stop stop-event" data-index="${entry.index}" aria-label="${escapeHtml(`${event.year}, ${event.month} · ${event.type}`)}">
         <div class="event-shell">
           <div class="event-card">
+            ${eventBackdrop(event.id)}
             <div class="event-year">${event.year}</div>
             <div class="event-body">
               <div class="event-kicker">${escapeHtml(event.month)} · ${escapeHtml(event.type)}</div>
@@ -704,6 +950,7 @@ import '../../pencil-embed.js';
       <section class="stop stop-year" data-index="${entry.index}" aria-label="${entry.year} год">
         <div class="event-shell">
           <div class="event-card year-event-card">
+            ${entry.year === 2019 ? covidBackdrop() : ''}
             <div class="event-year" aria-hidden="true">${entry.year}</div>
             <div class="event-body">
               <div class="event-kicker">Хронология</div>
@@ -727,7 +974,7 @@ import '../../pencil-embed.js';
           <div class="finale-content">
             <div class="finale-eyebrow">Начало пути</div>
             <h2 class="finale-title">Полный оборот.</h2>
-            <div class="finale-meta"><span class="meta-strong">2006 — 2026</span> · Семь глав · 20 эпизодов</div>
+            <div class="finale-meta"><span class="meta-strong">2006 — 2027</span> · Восемь глав · 25 эпизодов</div>
             <button class="primary-btn" id="finalHomeBtn" type="button">
               <span>К началу атласа</span>
               <span class="btn-orb" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h9M8.4 3.6 12.8 8l-4.4 4.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -737,10 +984,12 @@ import '../../pencil-embed.js';
       </section>`;
   }
 
+  const coverEls = new Map($$('.stop-cover', drum).map((element) => [element.dataset.cover, element]));
+
   for (const entry of ENTRIES) {
     if (entry.kind === 'cover') {
-      entry.el = $('.stop-cover', drum);
-      if (!entry.el) throw new Error('Missing server-rendered cover');
+      entry.el = coverEls.get(entry.id);
+      if (!entry.el) throw new Error(`Missing server-rendered cover: ${entry.id}`);
       continue;
     }
     let markup = '';
@@ -765,6 +1014,42 @@ import '../../pencil-embed.js';
   yearNav.innerHTML = CHAPTERS.map(
     (chapter) => `<button class="year-btn" type="button" data-year="${chapter.id}" aria-label="Перейти к главе ${chapter.year}: ${escapeHtml(chapter.title)}">${chapter.year}</button>`
   ).join('');
+
+  const yearNavWrap = $('.year-nav-wrap');
+  const yearPrev = $('#yearPrev');
+  const yearNext = $('#yearNext');
+
+  function updateYearScrollButtons() {
+    if (!yearNav || !yearPrev || !yearNext) return;
+    const overflow = yearNav.scrollWidth - yearNav.clientWidth;
+    yearNavWrap?.classList.toggle('is-scrollable', overflow > 1);
+    yearPrev.disabled = yearNav.scrollLeft <= 1;
+    yearNext.disabled = yearNav.scrollLeft >= overflow - 1;
+  }
+
+  function centerYearButton(button, smoothScroll = true) {
+    if (!button || !yearNav) return;
+    const overflow = yearNav.scrollWidth - yearNav.clientWidth;
+    if (overflow <= 1) return;
+    const navRect = yearNav.getBoundingClientRect();
+    const buttonRect = button.getBoundingClientRect();
+    const target = yearNav.scrollLeft + (buttonRect.left - navRect.left) - (navRect.width - buttonRect.width) / 2;
+    yearNav.scrollTo({
+      left: clamp(target, 0, overflow),
+      behavior: smoothScroll ? 'smooth' : 'auto',
+    });
+  }
+
+  function scrollYearNav(direction) {
+    if (!yearNav) return;
+    const step = Math.max(120, yearNav.clientWidth * 0.7);
+    yearNav.scrollBy({ left: direction * step, behavior: 'smooth' });
+  }
+
+  yearPrev?.addEventListener('click', () => scrollYearNav(-1));
+  yearNext?.addEventListener('click', () => scrollYearNav(1));
+  yearNav.addEventListener('scroll', updateYearScrollButtons, { passive: true });
+  updateYearScrollButtons();
 
   const menuList = $('#menuList');
   menuList.innerHTML = CHAPTERS
@@ -816,6 +1101,521 @@ import '../../pencil-embed.js';
   }
 
   /* ------------------------------------------------------------------------
+     Иллюстрации обложки
+     ------------------------------------------------------------------------ */
+
+  function renderCoverFigures() {
+    const help = $('[data-cover-figure="help"]');
+    if (help) help.innerHTML = coverHelpTransistorFigure();
+    const start = $('[data-cover-figure="start"]');
+    if (start) start.innerHTML = coverStartFigure();
+  }
+
+  const HELP_NODES = [
+    {
+      id: 'web',
+      label: 'WEB',
+      sub: 'САЙТЫ · ПОРТАЛЫ',
+      side: 'left',
+      accent: '#6FE7F2',
+      tone: 'cyan',
+      x: 92,
+      y: 122,
+      route: 'M320 270 L242 270 L242 230 L226 230 L194 198 L194 122 L148 122',
+    },
+    {
+      id: 'cms',
+      label: 'CMS',
+      sub: 'КОНТЕНТ',
+      side: 'left',
+      accent: '#BCA4FF',
+      tone: 'lav',
+      x: 92,
+      y: 208,
+      route: 'M320 270 L242 270 L242 246 L220 246 L208 234 L208 208 L148 208',
+    },
+    {
+      id: 'design',
+      label: 'DESIGN',
+      sub: 'БРЕНДБУКИ · UI-КИТЫ',
+      side: 'left',
+      accent: '#FF7AD9',
+      tone: 'pink',
+      x: 92,
+      y: 294,
+      route: 'M320 270 L242 270 L242 310 L218 310 L202 294 L148 294',
+    },
+    {
+      id: 'social',
+      label: 'SOCIAL',
+      sub: 'КОНТЕНТ',
+      side: 'left',
+      accent: '#FF7AD9',
+      tone: 'pink',
+      x: 92,
+      y: 380,
+      route: 'M320 270 L242 270 L242 326 L214 326 L166 374 L166 380 L148 380',
+    },
+    {
+      id: 'android',
+      label: 'ANDROID',
+      sub: 'ПРИЛОЖЕНИЯ',
+      side: 'right',
+      accent: '#6FE7F2',
+      tone: 'cyan',
+      x: 548,
+      y: 122,
+      route: 'M320 270 L398 270 L398 230 L414 230 L446 198 L446 122 L492 122',
+    },
+    {
+      id: 'ios',
+      label: 'iOS',
+      sub: 'ПРИЛОЖЕНИЯ',
+      side: 'right',
+      accent: '#BCA4FF',
+      tone: 'lav',
+      x: 548,
+      y: 208,
+      route: 'M320 270 L398 270 L398 246 L420 246 L432 234 L432 208 L492 208',
+    },
+    {
+      id: 'telegram',
+      label: 'TELEGRAM',
+      sub: 'БОТЫ · МИНИ-АППЫ',
+      side: 'right',
+      accent: '#6FE7F2',
+      tone: 'cyan',
+      x: 548,
+      y: 294,
+      route: 'M320 270 L398 270 L398 310 L422 310 L438 294 L492 294',
+    },
+    {
+      id: 'llm',
+      label: 'LLM',
+      sub: 'ЧАТ-БОТЫ',
+      side: 'right',
+      accent: '#FF7AD9',
+      tone: 'pink',
+      x: 548,
+      y: 380,
+      route: 'M320 270 L398 270 L398 326 L426 326 L474 374 L474 380 L492 380',
+    },
+    {
+      id: 'frontend',
+      label: 'FRONTEND',
+      sub: 'ИНТЕРФЕЙСЫ',
+      side: 'top',
+      accent: '#BCA4FF',
+      tone: 'lav',
+      x: 205,
+      y: 54,
+      route: 'M320 270 L296 270 L296 192 L296 112 L257 73 L205 73',
+    },
+    {
+      id: 'backend',
+      label: 'BACKEND',
+      sub: 'СЕРВИСЫ · API',
+      side: 'top',
+      accent: '#6FE7F2',
+      tone: 'cyan',
+      x: 435,
+      y: 54,
+      route: 'M320 270 L344 270 L344 192 L344 112 L383 73 L435 73',
+    },
+    {
+      id: 'crm',
+      label: 'CRM',
+      sub: 'ПРОЦЕССЫ',
+      side: 'bottom',
+      accent: '#BCA4FF',
+      tone: 'lav',
+      x: 180,
+      y: 486,
+      route: 'M320 270 L296 270 L296 348 L296 386 L254 428 L254 467 L220 467',
+    },
+    {
+      id: 'ai',
+      label: 'AI',
+      sub: 'АВТОМАТИЗАЦИЯ',
+      side: 'bottom',
+      accent: '#FF7AD9',
+      tone: 'pink',
+      x: 320,
+      y: 496,
+      route: 'M320 270 L312 270 L312 348 L312 388 L320 396 L320 477',
+    },
+    {
+      id: 'analytics',
+      label: 'ANALYTICS',
+      sub: 'A/B-ТЕСТЫ',
+      side: 'bottom',
+      accent: '#6FE7F2',
+      tone: 'cyan',
+      x: 460,
+      y: 486,
+      route: 'M320 270 L344 270 L344 348 L344 386 L386 428 L386 467 L420 467',
+    },
+  ];
+
+  function helpChipPins() {
+    let pins = '';
+    for (let index = 0; index < 8; index += 1) {
+      const offset = -56 + index * 16;
+      pins += `
+        <rect x="-91" y="${offset - 2}" width="13" height="4" rx="2" fill="rgba(188,164,255,.26)"/>
+        <rect x="78" y="${offset - 2}" width="13" height="4" rx="2" fill="rgba(188,164,255,.26)"/>
+        <rect x="${offset - 2}" y="-91" width="4" height="13" rx="2" fill="rgba(188,164,255,.26)"/>
+        <rect x="${offset - 2}" y="78" width="4" height="13" rx="2" fill="rgba(188,164,255,.26)"/>`;
+    }
+    return pins;
+  }
+
+  function coverHelpFigure() {
+    const traces = HELP_NODES.map(
+      (node) =>
+        `<path class="help-trace" id="help-trace-${node.id}" d="${node.route}" fill="none" stroke="${node.accent}" stroke-opacity=".15" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>`
+    ).join('');
+    const trails = HELP_NODES.map(
+      (node) =>
+        `<path class="help-trail" id="help-trail-${node.id}" d="${node.route}" fill="none" stroke="${node.accent}" stroke-opacity=".9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>`
+    ).join('');
+    const signals = HELP_NODES.map(
+      (node) => `
+        <g class="help-signal" id="help-signal-${node.id}" opacity="0">
+          <circle r="8" fill="url(#help-glow-${node.tone})" opacity=".8"/>
+          <circle r="2.1" fill="#FFFFFF"/>
+        </g>`
+    ).join('');
+    const nodes = HELP_NODES.map((node) => {
+      const port =
+        node.side === 'left'
+          ? { x: 56, y: 0 }
+          : node.side === 'right'
+            ? { x: -56, y: 0 }
+            : node.side === 'top'
+              ? { x: 0, y: 19 }
+              : { x: 0, y: -19 };
+      return `
+        <g class="help-node" id="help-node-${node.id}" transform="translate(${node.x} ${node.y})">
+          <circle class="help-node-glow" r="48" fill="url(#help-glow-${node.tone})" opacity="0"/>
+          <circle class="help-node-ring" r="5" fill="none" stroke="${node.accent}" stroke-width="1" opacity="0"/>
+          <rect class="help-node-flash" x="-56" y="-19" width="112" height="38" rx="12" fill="${node.accent}" opacity="0"/>
+          <rect class="help-node-card" x="-56" y="-19" width="112" height="38" rx="12" fill="#0b0e18" fill-opacity=".92" stroke="${node.accent}" stroke-opacity=".24" stroke-width="1"/>
+          <circle class="help-node-port" cx="${port.x}" cy="${port.y}" r="2.2" fill="${node.accent}" fill-opacity=".55"/>
+          <circle class="help-node-dot" cx="-42" cy="0" r="3" fill="${node.accent}"/>
+          <text class="help-node-label" x="-30" y="-3">${node.label}</text>
+          <text class="help-node-sub" x="-30" y="10">${node.sub}</text>
+        </g>`;
+    }).join('');
+    return `
+      <div class="help-board">
+        <svg class="fig-svg help-svg" viewBox="0 0 640 540" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+          <defs>
+            <pattern id="help-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+              <path d="M32 0H0V32" fill="none" stroke="rgba(255,255,255,.034)" stroke-width="1"/>
+            </pattern>
+            <radialGradient id="help-halo" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#BCA4FF" stop-opacity=".14"/>
+              <stop offset="55%" stop-color="#BCA4FF" stop-opacity=".04"/>
+              <stop offset="100%" stop-color="#BCA4FF" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="help-chip-body" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1c1f2e"/>
+              <stop offset="55%" stop-color="#11141f"/>
+              <stop offset="100%" stop-color="#070a13"/>
+            </linearGradient>
+            <radialGradient id="help-core-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#DDD1FF" stop-opacity=".46"/>
+              <stop offset="42%" stop-color="#BCA4FF" stop-opacity=".2"/>
+              <stop offset="100%" stop-color="#BCA4FF" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="help-glow-cyan" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#6FE7F2" stop-opacity=".72"/>
+              <stop offset="45%" stop-color="#6FE7F2" stop-opacity=".18"/>
+              <stop offset="100%" stop-color="#6FE7F2" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="help-glow-lav" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#BCA4FF" stop-opacity=".72"/>
+              <stop offset="45%" stop-color="#BCA4FF" stop-opacity=".18"/>
+              <stop offset="100%" stop-color="#BCA4FF" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="help-glow-pink" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FF7AD9" stop-opacity=".68"/>
+              <stop offset="45%" stop-color="#FF7AD9" stop-opacity=".17"/>
+              <stop offset="100%" stop-color="#FF7AD9" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="640" height="540" fill="url(#help-grid)"/>
+          <circle cx="320" cy="270" r="228" fill="url(#help-halo)"/>
+          <ellipse cx="320" cy="270" rx="252" ry="182" fill="none" stroke="rgba(188,164,255,.055)" stroke-width="1" stroke-dasharray="2 10" transform="rotate(-13 320 270)"/>
+          <g fill="none" stroke="rgba(188,164,255,.16)" stroke-width="1">
+            <path d="M18 42V18h24"/>
+            <path d="M598 18h24v24"/>
+            <path d="M18 498v24h24"/>
+            <path d="M622 498v24h-24"/>
+          </g>
+          <circle cx="54" cy="484" r="2" fill="#6FE7F2" opacity=".55"/>
+          <circle cx="586" cy="484" r="1.7" fill="#FF7AD9" opacity=".5"/>
+          <circle cx="320" cy="516" r="1.6" fill="#BCA4FF" opacity=".55"/>
+          ${traces}
+          ${trails}
+          ${signals}
+          <g id="help-chip" transform="translate(320 270)">
+            <g id="help-chip-orbit">
+              <circle r="104" fill="none" stroke="rgba(188,164,255,.15)" stroke-width="1" stroke-dasharray="2 9"/>
+              <circle cx="104" cy="0" r="2.4" fill="#6FE7F2" opacity=".85"/>
+              <circle cx="-83" cy="-63" r="1.9" fill="#FF7AD9" opacity=".75"/>
+            </g>
+            <g class="help-pins">${helpChipPins()}</g>
+            <rect class="help-chip-body" x="-78" y="-78" width="156" height="156" rx="26" fill="url(#help-chip-body)" stroke="rgba(188,164,255,.5)" stroke-width="1.3"/>
+            <rect x="-66" y="-66" width="132" height="132" rx="20" fill="rgba(8,11,20,.76)" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <rect x="-53" y="-53" width="106" height="106" rx="15" fill="none" stroke="rgba(111,231,242,.14)" stroke-width="1"/>
+            <circle class="help-core-glow" r="40" fill="url(#help-core-glow)" opacity=".55"/>
+            <g transform="translate(0 -25)">
+              <rect x="-13" y="-13" width="26" height="26" rx="7" fill="rgba(188,164,255,.06)" stroke="rgba(188,164,255,.32)" stroke-width="1"/>
+              <path d="M-6 4v-8l6 5.2L6-4v8" fill="none" stroke="#BCA4FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <text y="14" text-anchor="middle" class="help-chip-title">ПРОЦЕССОР</text>
+            <text y="27" text-anchor="middle" class="help-chip-sub">ПОД КЛЮЧ</text>
+            <g class="help-leds" transform="translate(0 46)">
+              <rect class="help-led" x="-18" y="0" width="9" height="2.2" rx="1.1" fill="#6FE7F2" opacity=".6"/>
+              <rect class="help-led" x="-4" y="0" width="9" height="2.2" rx="1.1" fill="#BCA4FF" opacity=".6"/>
+              <rect class="help-led" x="10" y="0" width="9" height="2.2" rx="1.1" fill="#FF7AD9" opacity=".6"/>
+            </g>
+            <g fill="rgba(188,164,255,.42)">
+              <circle cx="-67" cy="-67" r="2"/>
+              <circle cx="67" cy="-67" r="2"/>
+              <circle cx="-67" cy="67" r="2"/>
+              <circle cx="67" cy="67" r="2"/>
+            </g>
+          </g>
+          ${nodes}
+          <text x="320" y="530" text-anchor="middle" class="help-caption">ПРОДУКТЫ · КОМАНДЫ · ПРОЦЕССЫ</text>
+        </svg>
+      </div>`;
+  }
+
+  function coverHelpTransistorFigure() {
+    const accents = ['#BCA4FF', '#6FE7F2', '#FF7AD9'];
+    const cells = [];
+    for (let row = 0; row < 11; row += 1) {
+      for (let col = 0; col < 11; col += 1) {
+        const x = -61 + col * 12.2;
+        const y = -61 + row * 12.2;
+        const accent = accents[(row + col) % accents.length];
+        cells.push(`
+          <g class="help-transistor" data-phase="${(row * 0.37 + col * 0.19).toFixed(2)}" transform="translate(${x.toFixed(1)} ${y.toFixed(1)})">
+            <path d="M-4.2 -4.2v8.4M0 -4.2v8.4" fill="none" stroke="${accent}" stroke-width="1" stroke-linecap="round"/>
+            <path d="M4.2 -4.2v2M4.2 2.2v2M-4.2 0h-2.4M4.2 0h2.4" fill="none" stroke="${accent}" stroke-opacity=".78" stroke-width=".9" stroke-linecap="round"/>
+          </g>`);
+      }
+    }
+
+    const pins = [];
+    for (let index = 0; index < 10; index += 1) {
+      const offset = -81 + index * 18;
+      pins.push(`
+        <rect class="help-pin" x="${offset - 2.2}" y="-109" width="4.4" height="14" rx="1.4"/>
+        <rect class="help-pin" x="${offset - 2.2}" y="95" width="4.4" height="14" rx="1.4"/>
+        <rect class="help-pin" x="-109" y="${offset - 2.2}" width="14" height="4.4" rx="1.4"/>
+        <rect class="help-pin" x="95" y="${offset - 2.2}" width="14" height="4.4" rx="1.4"/>`);
+    }
+
+    const tags = [
+      { x: 92, y: 120, label: 'WEB', sub: 'САЙТЫ', accent: '#6FE7F2' },
+      { x: 92, y: 206, label: 'CMS', sub: 'ПОРТАЛЫ · КОНТЕНТ', accent: '#BCA4FF' },
+      { x: 92, y: 292, label: 'DESIGN', sub: 'БРЕНДБУК · UI-КИТ', accent: '#FF7AD9' },
+      { x: 92, y: 378, label: 'SOCIAL', sub: 'КОНТЕНТ', accent: '#FF7AD9' },
+      { x: 548, y: 120, label: 'ANDROID', sub: 'ПРИЛОЖЕНИЯ', accent: '#6FE7F2' },
+      { x: 548, y: 206, label: 'iOS', sub: 'ПРИЛОЖЕНИЯ', accent: '#BCA4FF' },
+      { x: 548, y: 292, label: 'TELEGRAM', sub: 'БОТЫ · МИНИ-АППЫ', accent: '#6FE7F2' },
+      { x: 548, y: 378, label: 'LLM', sub: 'ЧАТ-БОТЫ', accent: '#FF7AD9' },
+      { x: 205, y: 54, label: 'FRONTEND', sub: 'ИНТЕРФЕЙСЫ', accent: '#BCA4FF' },
+      { x: 435, y: 54, label: 'BACKEND', sub: 'СЕРВИСЫ · API', accent: '#6FE7F2' },
+      { x: 180, y: 486, label: 'CRM', sub: 'ПРОЦЕССЫ', accent: '#BCA4FF' },
+      { x: 320, y: 486, label: 'AI', sub: 'АВТОМАТИЗАЦИЯ', accent: '#FF7AD9' },
+      { x: 460, y: 486, label: 'ANALYTICS', sub: 'A/B-ТЕСТЫ', accent: '#6FE7F2' },
+    ];
+    const labels = tags
+      .map(
+        (tag) => `
+          <g class="help-tag" transform="translate(${tag.x} ${tag.y})">
+            <rect class="help-tag-card" x="-56" y="-19" width="112" height="38" rx="11" fill="#0b0e18" fill-opacity=".92" stroke="${tag.accent}" stroke-opacity=".26"/>
+            <circle cx="-43" cy="0" r="3" fill="${tag.accent}"/>
+            <text class="help-node-label" x="-32" y="-3">${tag.label}</text>
+            <text class="help-node-sub" x="-32" y="10">${tag.sub}</text>
+          </g>`
+      )
+      .join('');
+    const traces = HELP_NODES.map(
+      (node) =>
+        `<path class="help-trace" id="help-trace-${node.id}" d="${node.route}" fill="none" stroke="${node.accent}" stroke-opacity=".18" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round"/>`
+    ).join('');
+    const trails = HELP_NODES.map(
+      (node) =>
+        `<path class="help-trail" id="help-trail-${node.id}" d="${node.route}" fill="none" stroke="${node.accent}" stroke-opacity=".9" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>`
+    ).join('');
+    const signals = HELP_NODES.map(
+      (node) => `
+        <g class="help-signal" id="help-signal-${node.id}" opacity="0">
+          <circle r="8" fill="url(#help-glow-${node.tone})" opacity=".8"/>
+          <circle r="2.1" fill="#FFFFFF"/>
+        </g>`
+    ).join('');
+
+    return `
+      <div class="help-board">
+        <svg class="fig-svg help-svg" viewBox="0 0 640 540" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
+          <defs>
+            <pattern id="help-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+              <path d="M32 0H0V32" fill="none" stroke="rgba(255,255,255,.034)" stroke-width="1"/>
+            </pattern>
+            <radialGradient id="help-halo" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#BCA4FF" stop-opacity=".16"/>
+              <stop offset="56%" stop-color="#BCA4FF" stop-opacity=".04"/>
+              <stop offset="100%" stop-color="#BCA4FF" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="help-chip-body" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1d2030"/>
+              <stop offset="52%" stop-color="#11141f"/>
+              <stop offset="100%" stop-color="#070a13"/>
+            </linearGradient>
+            <radialGradient id="help-core-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#DDD1FF" stop-opacity=".4"/>
+              <stop offset="44%" stop-color="#BCA4FF" stop-opacity=".16"/>
+              <stop offset="100%" stop-color="#BCA4FF" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="help-glow-cyan" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#6FE7F2" stop-opacity=".72"/>
+              <stop offset="45%" stop-color="#6FE7F2" stop-opacity=".18"/>
+              <stop offset="100%" stop-color="#6FE7F2" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="help-glow-lav" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#BCA4FF" stop-opacity=".72"/>
+              <stop offset="45%" stop-color="#BCA4FF" stop-opacity=".18"/>
+              <stop offset="100%" stop-color="#BCA4FF" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="help-glow-pink" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FF7AD9" stop-opacity=".68"/>
+              <stop offset="45%" stop-color="#FF7AD9" stop-opacity=".17"/>
+              <stop offset="100%" stop-color="#FF7AD9" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="640" height="540" fill="url(#help-grid)"/>
+          <circle cx="320" cy="270" r="236" fill="url(#help-halo)"/>
+          <ellipse id="help-orbit" cx="320" cy="270" rx="188" ry="172" fill="none" stroke="rgba(188,164,255,.07)" stroke-width="1" stroke-dasharray="2 10" transform="rotate(-13 320 270)"/>
+          <g fill="none" stroke="rgba(188,164,255,.16)" stroke-width="1">
+            <path d="M18 42V18h24"/>
+            <path d="M598 18h24v24"/>
+            <path d="M18 498v24h24"/>
+            <path d="M622 498v24h-24"/>
+          </g>
+          <g class="help-side" fill="rgba(188,164,255,.32)" stroke="rgba(188,164,255,.2)">
+            <rect x="58" y="106" width="28" height="10" rx="3"/>
+            <rect x="58" y="424" width="28" height="10" rx="3"/>
+            <rect x="554" y="106" width="28" height="10" rx="3"/>
+            <rect x="554" y="424" width="28" height="10" rx="3"/>
+            <circle cx="72" cy="196" r="5"/>
+            <circle cx="568" cy="344" r="5"/>
+          </g>
+          <g class="help-links">
+            ${traces}
+            ${trails}
+            ${signals}
+          </g>
+          ${labels}
+          <g transform="translate(320 270)">
+            <g fill="rgba(188,164,255,.42)">
+              ${pins.join('')}
+            </g>
+            <rect class="help-chip-body" x="-95" y="-95" width="190" height="190" rx="20" fill="url(#help-chip-body)" stroke="rgba(188,164,255,.5)" stroke-width="1.3"/>
+            <rect x="-84" y="-84" width="168" height="168" rx="13" fill="rgba(8,11,20,.72)" stroke="rgba(255,255,255,.08)"/>
+            <rect x="-72" y="-72" width="144" height="144" rx="9" fill="none" stroke="rgba(111,231,242,.14)"/>
+            <circle class="help-core-glow" r="76" fill="url(#help-core-glow)" opacity=".5"/>
+            <g class="help-matrix">${cells.join('')}</g>
+            <g fill="rgba(188,164,255,.42)">
+              <circle cx="-88" cy="-88" r="2"/>
+              <circle cx="88" cy="-88" r="2"/>
+              <circle cx="-88" cy="88" r="2"/>
+              <circle cx="88" cy="88" r="2"/>
+            </g>
+          </g>
+          <text x="320" y="530" text-anchor="middle" class="help-caption">ПРОДУКТЫ · КОМАНДЫ · ПРОЦЕССЫ</text>
+        </svg>
+      </div>`;
+  }
+
+  function coverStartFigure() {
+    const ticks = Array.from({ length: 12 }, (_, index) => {
+      const angle = (index / 12) * TAU - Math.PI / 2;
+      const outer = 70;
+      const inner = index % 3 === 0 ? 58 : 63;
+      const x1 = 320 + Math.cos(angle) * inner;
+      const y1 = 88 + Math.sin(angle) * inner;
+      const x2 = 320 + Math.cos(angle) * outer;
+      const y2 = 88 + Math.sin(angle) * outer;
+      return `<path d="M${x1.toFixed(1)} ${y1.toFixed(1)}L${x2.toFixed(1)} ${y2.toFixed(1)}" stroke="rgba(188,164,255,${index % 3 === 0 ? '.62' : '.28'})" stroke-width="${index % 3 === 0 ? 1.5 : 1}" stroke-linecap="round"/>`;
+    }).join('');
+    const cells = Array.from({ length: 4 }, (_, index) => `
+      <g class="start-drum-cell" data-digit="${index}" transform="translate(${-168 + index * 112} 0)">
+        <defs>
+          <clipPath id="start-drum-clip-${index}"><rect x="-46" y="-66" width="92" height="132" rx="12"/></clipPath>
+        </defs>
+        <rect x="-46" y="-66" width="92" height="132" rx="12" fill="#080b14" stroke="rgba(188,164,255,.24)"/>
+        <g clip-path="url(#start-drum-clip-${index})">
+          <text class="start-drum-old" x="0" y="32" text-anchor="middle" fill="#F7F5FF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="92" font-weight="600">${'2026'[index]}</text>
+          <text class="start-drum-new" x="0" y="32" text-anchor="middle" fill="#F7F5FF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="92" font-weight="600" opacity="0">${'2026'[index]}</text>
+        </g>
+        <rect x="-46" y="-66" width="92" height="132" rx="12" fill="url(#start-drum-shade)" pointer-events="none"/>
+        <path d="M-46 0h92" stroke="rgba(255,255,255,.055)"/>
+        <path d="M-46 -65.5h92M-46 65.5h92" stroke="rgba(188,164,255,.16)"/>
+      </g>`).join('');
+    return `
+      <div class="start-board">
+        ${sceneSvg(
+          'cover-start',
+          `
+          <circle cx="320" cy="88" r="74" fill="rgba(9,12,21,.72)" stroke="rgba(188,164,255,.38)" stroke-width="1.3"/>
+          <circle cx="320" cy="88" r="64" fill="none" stroke="rgba(255,255,255,.08)"/>
+          ${ticks}
+          <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" fill="rgba(188,164,255,.72)" text-anchor="middle">
+            <text x="320" y="35">12</text>
+            <text x="373" y="91">3</text>
+            <text x="320" y="147">6</text>
+            <text x="267" y="91">9</text>
+          </g>
+          <g id="start-hand-hour" transform="rotate(0 320 88)">
+            <path d="M320 88V58" stroke="#F7F5FF" stroke-width="4" stroke-linecap="round"/>
+          </g>
+          <g id="start-hand-minute" transform="rotate(0 320 88)">
+            <path d="M320 88V40" stroke="#BCA4FF" stroke-width="2.6" stroke-linecap="round"/>
+          </g>
+          <g id="start-hand-second" transform="rotate(0 320 88)">
+            <path d="M320 100V30" stroke="#6FE7F2" stroke-width="1.1" stroke-linecap="round"/>
+            <circle cy="30" r="2.2" fill="#6FE7F2"/>
+          </g>
+          <circle cx="320" cy="88" r="5" fill="#0b0e18" stroke="#BCA4FF" stroke-width="1.4"/>
+          <circle cx="320" cy="88" r="1.9" fill="#F7F5FF"/>
+          <path d="M320 166v18" stroke="rgba(188,164,255,.28)" stroke-dasharray="2 5"/>
+          <text x="320" y="204" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing="2.4" fill="rgba(188,164,255,.46)">ОБРАТНЫЙ ОТСЧЁТ · 2026 — 2006</text>
+          <g transform="translate(320 300)">
+            <rect x="-238" y="-88" width="476" height="176" rx="22" fill="rgba(9,12,21,.82)" stroke="rgba(111,231,242,.22)"/>
+            <rect x="-226" y="-76" width="452" height="152" rx="16" fill="none" stroke="rgba(188,164,255,.1)"/>
+            ${cells}
+            <path d="M-218 -36h-12M-218 36h-12M218 -36h12M218 36h12" stroke="rgba(188,164,255,.34)" stroke-width="1.4" stroke-linecap="round"/>
+          </g>
+          `,
+          `<linearGradient id="start-drum-shade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#070a13" stop-opacity=".94"/>
+            <stop offset="24%" stop-color="#070a13" stop-opacity="0"/>
+            <stop offset="76%" stop-color="#070a13" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#070a13" stop-opacity=".94"/>
+          </linearGradient>`
+        ).replace('class="fig-svg"', 'class="fig-svg start-svg"')}
+      </div>`;
+  }
+
+  /* ------------------------------------------------------------------------
      Статичные эпизоды 07–18
      ------------------------------------------------------------------------ */
 
@@ -845,6 +1645,14 @@ import '../../pencil-embed.js';
         return connectivityFigure();
       case '18':
         return globeFigure();
+      case '27':
+        return editorFigure();
+      case '28':
+        return catalogFigure();
+      case '29':
+        return componentsFigure();
+      case '30':
+        return expectationsFigure();
       default:
         return '';
     }
@@ -995,6 +1803,190 @@ import '../../pencil-embed.js';
     );
   }
 
+  function jqueryFigure() {
+    const random = mulberry32(0x10a4e);
+    let price = 168;
+    const candles = Array.from({ length: 18 }, (_, index) => {
+      const open = price;
+      const delta = (random() - 0.48) * 22;
+      price = clamp(open + delta, 74, 206);
+      const close = price;
+      const high = Math.min(68, Math.min(open, close) - 6 - random() * 10);
+      const low = Math.max(214, Math.max(open, close) + 6 + random() * 10);
+      return {
+        x: 76 + index * 17.2,
+        open,
+        close,
+        high,
+        low,
+        up: close <= open,
+      };
+    });
+    const cycleWidth = candles.length * 17.2;
+    const scrollCandles = [
+      ...candles,
+      ...candles.map((candle, index) => ({ ...candle, x: candle.x + cycleWidth, key: index + candles.length })),
+    ];
+    const candleMarkup = scrollCandles
+      .map((candle, index) => {
+        const color = candle.up ? '#58E6A4' : '#FF6F8B';
+        const top = Math.min(candle.open, candle.close);
+        const height = Math.max(2.5, Math.abs(candle.close - candle.open));
+        return `
+          <g class="fig10-candle" data-candle="${index}">
+            <path d="M${candle.x.toFixed(1)} ${candle.high.toFixed(1)}V${candle.low.toFixed(1)}" stroke="${color}" stroke-opacity=".6" stroke-width="1"/>
+            <rect x="${(candle.x - 4).toFixed(1)}" y="${top.toFixed(1)}" width="8" height="${height.toFixed(1)}" rx="1.4" fill="${color}" fill-opacity=".82"/>
+          </g>`;
+      })
+      .join('');
+    const last = candles[candles.length - 1];
+    return sceneSvg(
+      '10',
+      `
+      <g id="fig10-screen">
+        <rect x="40" y="20" width="560" height="220" rx="16" fill="#0d101a" stroke="rgba(188,164,255,.26)"/>
+        <path d="M40 48h560" stroke="rgba(255,255,255,.09)"/>
+        <circle cx="58" cy="34" r="3" fill="#FF6F8B"/>
+        <circle cx="70" cy="34" r="3" fill="#BCA4FF"/>
+        <circle cx="82" cy="34" r="3" fill="#6FE7F2"/>
+        <text x="108" y="38" class="svg-label-dim">INTERSELEKT · TRADE / BTC-USD</text>
+        <rect x="58" y="60" width="330" height="162" rx="10" fill="rgba(9,12,21,.72)" stroke="rgba(255,255,255,.06)"/>
+        <g stroke="rgba(255,255,255,.045)" stroke-width="1">
+          <path d="M58 96h330M58 132h330M58 168h330M58 204h330"/>
+          <path d="M100 60v162M158 60v162M216 60v162M274 60v162M332 60v162"/>
+        </g>
+        <g id="fig10-candles" clip-path="url(#fig10-chart-clip)">${candleMarkup}</g>
+        <path d="M58 216h330" stroke="rgba(255,255,255,.1)"/>
+        <circle id="fig10-price-dot" cx="${last.x.toFixed(1)}" cy="${last.close.toFixed(1)}" r="3.2" fill="#F7F5FF"/>
+        <g id="fig10-deal">
+          <rect x="404" y="58" width="178" height="170" rx="12" fill="rgba(9,12,21,.8)" stroke="rgba(188,164,255,.18)"/>
+          <text x="420" y="78" class="svg-label-dim">СДЕЛКА</text>
+          <text x="420" y="112" fill="#F7F5FF" font-family="Hanken Grotesk, Onest, sans-serif" font-size="30" font-weight="600">$10</text>
+          <text x="420" y="134" class="svg-label-dim">ДЛИТЕЛЬНОСТЬ</text>
+          <text x="420" y="157" fill="#F7F5FF" font-family="Hanken Grotesk, Onest, sans-serif" font-size="21" font-weight="600">1 минута</text>
+          <g id="fig10-up">
+            <rect class="fig10-btn-glow" x="420" y="172" width="66" height="38" rx="10" fill="#58E6A4" opacity=".16"/>
+            <rect x="420" y="172" width="66" height="38" rx="10" fill="rgba(88,230,164,.14)" stroke="#58E6A4" stroke-opacity=".7"/>
+            <text x="453" y="196" text-anchor="middle" fill="#7CF0BC" font-family="Hanken Grotesk, Onest, sans-serif" font-size="12" font-weight="700" letter-spacing=".08em">UP</text>
+          </g>
+          <g id="fig10-down">
+            <rect class="fig10-btn-glow" x="500" y="172" width="66" height="38" rx="10" fill="#FF6F8B" opacity=".16"/>
+            <rect x="500" y="172" width="66" height="38" rx="10" fill="rgba(255,111,139,.13)" stroke="#FF6F8B" stroke-opacity=".7"/>
+            <text x="533" y="196" text-anchor="middle" fill="#FF9EAE" font-family="Hanken Grotesk, Onest, sans-serif" font-size="12" font-weight="700" letter-spacing=".08em">DOWN</text>
+          </g>
+        </g>
+      </g>
+      <g id="fig10-code">
+        <rect x="40" y="252" width="560" height="150" rx="14" fill="#0b0e17" stroke="rgba(111,231,242,.18)"/>
+        <path d="M40 276h560" stroke="rgba(255,255,255,.07)"/>
+        <text x="58" y="270" class="svg-label-dim">JS · MODULE</text>
+        <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.6" fill="rgba(247,245,255,.72)">
+          <text x="58" y="296"><tspan fill="#BCA4FF">$(function</tspan> () {</text>
+          <text x="74" y="312"><tspan fill="#6FE7F2">$('#deal')</tspan>.on(<tspan fill="#FF9EAE">'click'</tspan>, <tspan fill="#FF9EAE">'.up'</tspan>, function () {</text>
+          <text x="90" y="328">openDeal(<tspan fill="#FF9EAE">'up'</tspan>, <tspan fill="#F7F5FF">10</tspan>, <tspan fill="#F7F5FF">60</tspan>);</text>
+          <text x="74" y="344">});</text>
+          <text x="74" y="360"><tspan fill="#6FE7F2">$('.down')</tspan>.on(<tspan fill="#FF9EAE">'click'</tspan>, function () {</text>
+          <text x="90" y="376">openDeal(<tspan fill="#FF9EAE">'down'</tspan>, <tspan fill="#F7F5FF">10</tspan>, <tspan fill="#F7F5FF">60</tspan>);</text>
+          <text x="74" y="392">});</text>
+        </g>
+        <rect id="fig10-cursor" x="176" y="318" width="1.6" height="11" fill="#BCA4FF"/>
+      </g>
+      `,
+      `<clipPath id="fig10-chart-clip"><rect x="58" y="60" width="330" height="162" rx="10"/></clipPath>`
+    );
+  }
+
+  function landfillFigure() {
+    return sceneSvg(
+      '11',
+      `
+      <g id="fig11-radiance">
+        <g opacity=".32" stroke="#BCA4FF" stroke-width="1">
+          <path d="M250 196 218 84M250 196 250 58M250 196 288 74M420 184 406 70M420 184 444 66M420 184 468 90"/>
+        </g>
+        <circle id="fig11-react-halo" cx="250" cy="196" r="84" fill="url(#fig11-glow-react)" opacity=".55"/>
+        <circle id="fig11-webpack-halo" cx="420" cy="184" r="72" fill="url(#fig11-glow-webpack)" opacity=".45"/>
+        <circle id="fig11-react-pulse" cx="250" cy="196" r="46" fill="none" stroke="#6FE7F2" stroke-width="1.1" opacity="0"/>
+        <circle id="fig11-webpack-pulse" cx="420" cy="184" r="40" fill="none" stroke="#BCA4FF" stroke-width="1.1" opacity="0"/>
+      </g>
+      <g id="fig11-monuments">
+        <g transform="translate(250 196)">
+          <rect x="-52" y="58" width="104" height="16" rx="4" fill="#1a1d28" stroke="rgba(188,164,255,.32)"/>
+          <rect x="-36" y="22" width="72" height="38" rx="6" fill="#141827" stroke="rgba(188,164,255,.24)"/>
+          <g id="fig11-react">
+            <ellipse rx="30" ry="11" fill="none" stroke="#6FE7F2" stroke-width="1.5"/>
+            <ellipse rx="30" ry="11" fill="none" stroke="#6FE7F2" stroke-width="1.5" transform="rotate(60)"/>
+            <ellipse rx="30" ry="11" fill="none" stroke="#6FE7F2" stroke-width="1.5" transform="rotate(120)"/>
+            <circle r="4" fill="#F7F5FF"/>
+          </g>
+          <text y="92" text-anchor="middle" class="svg-label">REACT</text>
+        </g>
+        <g transform="translate(420 184)">
+          <rect x="-44" y="58" width="88" height="15" rx="4" fill="#1a1d28" stroke="rgba(188,164,255,.3)"/>
+          <rect x="-30" y="24" width="60" height="36" rx="6" fill="#141827" stroke="rgba(188,164,255,.22)"/>
+          <g id="fig11-webpack" fill="none" stroke="#BCA4FF" stroke-width="1.4">
+            <path d="M0 -26 25 -12V14L0 28-25 14V-12Z"/>
+            <path d="M0 -26V0M25 -12 0 0M-25 -12 0 0M0 28V0M25 14 0 0M-25 14 0 0"/>
+          </g>
+          <text y="92" text-anchor="middle" class="svg-label">WEBPACK</text>
+        </g>
+      </g>
+      <path d="M32 392c52-58 118-60 168-82 58-25 111 3 160-17 57-23 111 5 176 48 27 18 50 32 72 51Z" fill="#0a0d16" stroke="rgba(188,164,255,.14)"/>
+      <path d="M68 384c46-30 92-34 138-46M300 326c36-8 68 2 104-8M452 332c38-8 70 8 100 24" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+      <g id="fig11-trash">
+        <g transform="translate(132 336) rotate(-18)">
+          <path d="M-12 -34h24v58c0 7-24 7-24 0Z" fill="rgba(111,231,242,.12)" stroke="rgba(111,231,242,.4)"/>
+          <path d="M-7 -42h14v8h-14Z" fill="rgba(188,164,255,.2)" stroke="rgba(188,164,255,.38)"/>
+          <rect x="-12" y="-14" width="24" height="18" rx="2" fill="rgba(9,12,21,.72)" stroke="rgba(255,255,255,.14)"/>
+          <text y="-2" text-anchor="middle" fill="rgba(247,245,255,.62)" font-family="ui-monospace, monospace" font-size="5.4" font-weight="700">GULP</text>
+        </g>
+        <g transform="translate(224 356) rotate(10)">
+          <ellipse cy="-19" rx="19" ry="6" fill="rgba(188,164,255,.18)" stroke="rgba(188,164,255,.4)"/>
+          <path d="M-19 -19v34c0 4 38 4 38 0v-34" fill="rgba(188,164,255,.09)" stroke="rgba(188,164,255,.32)"/>
+          <text y="5" text-anchor="middle" fill="rgba(247,245,255,.58)" font-family="ui-monospace, monospace" font-size="5.2" font-weight="700">JQUERY</text>
+        </g>
+        <g transform="translate(340 330)">
+          <rect x="-52" y="-36" width="104" height="68" rx="10" fill="#11141e" stroke="rgba(255,122,217,.32)"/>
+          <rect x="-44" y="-28" width="88" height="46" rx="5" fill="rgba(255,122,217,.06)" stroke="rgba(255,255,255,.08)"/>
+          <path d="M-26 -52 -12 -36M26 -52 12 -36" stroke="rgba(255,255,255,.24)" stroke-width="1.4"/>
+          <text y="2" text-anchor="middle" fill="rgba(247,245,255,.62)" font-family="ui-monospace, monospace" font-size="6.4" font-weight="700">BACKBONE</text>
+          <rect x="38" y="22" width="7" height="7" rx="2" fill="#FF7AD9"/>
+        </g>
+        <g transform="translate(470 352) rotate(-8)">
+          <rect x="-28" y="-20" width="56" height="40" rx="5" fill="rgba(111,231,242,.08)" stroke="rgba(111,231,242,.3)"/>
+          <rect x="-18" y="-10" width="26" height="14" rx="2" fill="none" stroke="rgba(255,255,255,.16)"/>
+          <text x="12" y="8" text-anchor="middle" fill="rgba(247,245,255,.5)" font-family="ui-monospace, monospace" font-size="4.6" font-weight="700">IE6</text>
+        </g>
+        <g transform="translate(544 368) rotate(12)">
+          <rect x="-32" y="-22" width="64" height="42" rx="4" fill="rgba(188,164,255,.07)" stroke="rgba(188,164,255,.24)"/>
+          <path d="M-20 -8h40M-20 2h28M-20 12h34" stroke="rgba(255,255,255,.16)" stroke-width="1"/>
+        </g>
+        <g transform="translate(388 368) rotate(6)">
+          <rect x="-26" y="-17" width="52" height="34" rx="4" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.16)"/>
+          <text y="3" text-anchor="middle" fill="rgba(247,245,255,.5)" font-family="ui-monospace, monospace" font-size="5" font-weight="700">BOWER</text>
+        </g>
+      </g>
+      <g id="fig11-smell" fill="none" stroke="rgba(188,164,255,.24)" stroke-width="1.2" stroke-linecap="round">
+        <path d="M188 322c-10-12 10-18 0-30s8-20-2-30"/>
+        <path d="M302 306c-9-11 9-16 0-27s7-18-2-27"/>
+        <path d="M500 328c-9-11 9-17 0-28s8-18-1-28"/>
+      </g>
+      `,
+      `
+        <radialGradient id="fig11-glow-react" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#6FE7F2" stop-opacity=".58"/>
+          <stop offset="48%" stop-color="#6FE7F2" stop-opacity=".16"/>
+          <stop offset="100%" stop-color="#6FE7F2" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="fig11-glow-webpack" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#BCA4FF" stop-opacity=".52"/>
+          <stop offset="52%" stop-color="#BCA4FF" stop-opacity=".14"/>
+          <stop offset="100%" stop-color="#BCA4FF" stop-opacity="0"/>
+        </radialGradient>
+      `
+    );
+  }
+
   function teamFigure() {
     const participants = [
       { angle: -2.75, radius: 1.0, accent: '#BCA4FF' },
@@ -1052,25 +2044,31 @@ import '../../pencil-embed.js';
       <g transform="translate(110 205)">
         <rect x="-72" y="-48" width="144" height="96" rx="20" fill="#181b25" stroke="rgba(188,164,255,.34)"/>
         <rect x="-48" y="-28" width="96" height="56" rx="9" fill="none" stroke="rgba(188,164,255,.35)"/>
-        <path d="M-36 -18h72M-36 -6h48" stroke="rgba(255,255,255,.25)" stroke-width="1.2"/>
+        <path class="fig12-code" d="M-36 -18h72M-36 -6h48" stroke="rgba(255,255,255,.25)" stroke-width="1.2"/>
         <text x="0" y="18" text-anchor="middle" class="svg-label">CLIENT</text>
       </g>
       <g transform="translate(320 205)">
-        <circle r="54" fill="#0b0e18" stroke="rgba(111,231,242,.32)" stroke-dasharray="2 6"/>
+        <circle id="fig12-ring" r="54" fill="#0b0e18" stroke="rgba(111,231,242,.32)" stroke-dasharray="2 6"/>
         <rect x="-57" y="-36" width="114" height="72" rx="18" fill="#11141e" stroke="rgba(111,231,242,.38)"/>
         <text x="0" y="-1" text-anchor="middle" class="svg-label">API</text>
         <path d="M-26 18h52" stroke="rgba(255,255,255,.2)" stroke-width="1.2"/>
       </g>
       <g transform="translate(530 205)">
         <rect x="-72" y="-48" width="144" height="96" rx="20" fill="#181b25" stroke="rgba(111,231,242,.3)"/>
-        <rect x="-38" y="-26" width="76" height="16" rx="5" fill="rgba(111,231,242,.08)" stroke="rgba(111,231,242,.28)"/>
-        <rect x="-38" y="0" width="76" height="16" rx="5" fill="rgba(111,231,242,.08)" stroke="rgba(111,231,242,.28)"/>
+        <rect class="fig12-rack" x="-38" y="-26" width="76" height="16" rx="5" fill="rgba(111,231,242,.08)" stroke="rgba(111,231,242,.28)"/>
+        <rect class="fig12-rack" x="-38" y="0" width="76" height="16" rx="5" fill="rgba(111,231,242,.08)" stroke="rgba(111,231,242,.28)"/>
         <text x="0" y="41" text-anchor="middle" class="svg-label">SERVER</text>
       </g>
-      <path d="M190 190h74" fill="none" stroke="rgba(188,164,255,.4)" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#fig-arrow-12)"/>
-      <path d="M254 222h-64" fill="none" stroke="rgba(111,231,242,.38)" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#fig-arrow-12c)"/>
-      <path d="M378 190h76" fill="none" stroke="rgba(188,164,255,.4)" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#fig-arrow-12)"/>
-      <path d="M454 222h-76" fill="none" stroke="rgba(111,231,242,.38)" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#fig-arrow-12c)"/>
+      <path class="fig12-flow" d="M190 190h74" fill="none" stroke="rgba(188,164,255,.4)" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#fig-arrow-12)"/>
+      <path class="fig12-flow" d="M254 222h-64" fill="none" stroke="rgba(111,231,242,.38)" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#fig-arrow-12c)"/>
+      <path class="fig12-flow" d="M378 190h76" fill="none" stroke="rgba(188,164,255,.4)" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#fig-arrow-12)"/>
+      <path class="fig12-flow" d="M454 222h-76" fill="none" stroke="rgba(111,231,242,.38)" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#fig-arrow-12c)"/>
+      <g id="fig12-packets" fill="#F7F5FF">
+        <circle class="fig12-packet" r="2.4"/>
+        <circle class="fig12-packet" r="2.4"/>
+        <circle class="fig12-packet" r="2.4"/>
+        <circle class="fig12-packet" r="2.4"/>
+      </g>
       <circle cx="226" cy="190" r="2.5" fill="#BCA4FF"/>
       <circle cx="414" cy="222" r="2.5" fill="#6FE7F2"/>
       <text x="110" y="282" text-anchor="middle" class="svg-label-dim">ИНТЕРФЕЙС</text>
@@ -1084,25 +2082,32 @@ import '../../pencil-embed.js';
     return sceneSvg(
       '13',
       `
-      <path d="M190 278c-39 0-68-25-68-59 0-31 23-55 57-59 10-42 49-72 94-72 50 0 91 34 99 80 33 1 60 24 60 57 0 32-28 53-66 53H190Z" fill="rgba(188,164,255,.055)" stroke="rgba(188,164,255,.42)" stroke-width="1.3"/>
-      <path d="M194 278c-22 0-40-13-40-30" fill="none" stroke="rgba(111,231,242,.2)" stroke-width="1"/>
-      <circle cx="320" cy="356" r="52" fill="none" stroke="rgba(111,231,242,.13)" stroke-dasharray="2 7"/>
-      <g transform="translate(212 225)">
+      <g id="fig13-cloud-group">
+        <path id="fig13-cloud" d="M190 278c-39 0-68-25-68-59 0-31 23-55 57-59 10-42 49-72 94-72 50 0 91 34 99 80 33 1 60 24 60 57 0 32-28 53-66 53H190Z" fill="rgba(188,164,255,.055)" stroke="rgba(188,164,255,.42)" stroke-width="1.3"/>
+        <path d="M194 278c-22 0-40-13-40-30" fill="none" stroke="rgba(111,231,242,.2)" stroke-width="1"/>
+      </g>
+      <circle id="fig13-ring" cx="320" cy="356" r="52" fill="none" stroke="rgba(111,231,242,.13)" stroke-dasharray="2 7"/>
+      <g class="fig13-app" transform="translate(212 225)">
         <rect x="-31" y="-24" width="62" height="48" rx="9" fill="#0b0e18" stroke="rgba(188,164,255,.35)"/>
         <path d="M-9 -12 12 0-9 12Z" fill="#BCA4FF"/>
       </g>
-      <g transform="translate(320 225)">
+      <g class="fig13-app" transform="translate(320 225)">
         <rect x="-31" y="-24" width="62" height="48" rx="9" fill="#0b0e18" stroke="rgba(111,231,242,.3)"/>
         <path d="M-14 -11h20l8 8v20h-28Z" fill="none" stroke="#6FE7F2" stroke-width="1.2" stroke-linejoin="round"/>
         <path d="M6 -3H-4v12h14" fill="none" stroke="rgba(111,231,242,.5)" stroke-width="1"/>
       </g>
-      <g transform="translate(428 225)">
+      <g class="fig13-app" transform="translate(428 225)">
         <rect x="-31" y="-24" width="62" height="48" rx="9" fill="#0b0e18" stroke="rgba(255,122,217,.28)"/>
         <rect x="-14" y="-10" width="28" height="22" rx="4" fill="none" stroke="#FF7AD9" stroke-width="1.2"/>
         <circle cx="-4" cy="-2" r="3" fill="#FF7AD9"/>
         <path d="m-12 10 9-8 7 6 5-4 4 6" fill="none" stroke="rgba(255,122,217,.6)" stroke-width="1"/>
       </g>
-      <path d="M320 118v-28m-6 10 6-10 6 10" fill="none" stroke="rgba(111,231,242,.5)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="fig13-arrow" d="M320 118v-28m-6 10 6-10 6 10" fill="none" stroke="rgba(111,231,242,.5)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <g id="fig13-pulses" fill="#6FE7F2">
+        <circle class="fig13-pulse" r="2"/>
+        <circle class="fig13-pulse" r="1.7"/>
+        <circle class="fig13-pulse" r="2.3"/>
+      </g>
       <text x="212" y="292" text-anchor="middle" class="svg-label-dim">ВИДЕО</text>
       <text x="320" y="292" text-anchor="middle" class="svg-label-dim">ФАЙЛЫ</text>
       <text x="428" y="292" text-anchor="middle" class="svg-label-dim">МЕДИА</text>
@@ -1115,8 +2120,8 @@ import '../../pencil-embed.js';
     return sceneSvg(
       '14',
       `
-      <path d="M196 82 108 54M444 82l80-30M196 312 108 356M444 312l80 56" fill="none" stroke="rgba(188,164,255,.18)" stroke-width="1" stroke-dasharray="3 5"/>
-      <g transform="translate(320 200)">
+      <path class="fig14-wire" d="M196 82 108 54M444 82l80-30M196 312 108 356M444 312l80 56" fill="none" stroke="rgba(188,164,255,.18)" stroke-width="1" stroke-dasharray="3 5"/>
+      <g id="fig14-shell" transform="translate(320 200)">
         <rect x="-160" y="-118" width="320" height="236" rx="17" fill="#10131d" stroke="rgba(188,164,255,.34)" stroke-width="1.1"/>
         <path d="M-160 -88h320" stroke="rgba(255,255,255,.12)"/>
         <circle cx="-141" cy="-103" r="3.5" fill="rgba(255,255,255,.35)"/>
@@ -1130,19 +2135,19 @@ import '../../pencil-embed.js';
         <rect x="-55" y="92" width="198" height="12" rx="4" fill="rgba(188,164,255,.06)"/>
         <text x="0" y="-100" text-anchor="middle" class="svg-label-dim">BACKBONE</text>
       </g>
-      <g transform="translate(86 52)">
+      <g class="fig14-node" transform="translate(86 52)">
         <rect x="-52" y="-17" width="104" height="34" rx="10" fill="#0b0e18" stroke="rgba(188,164,255,.28)"/>
         <text x="0" y="4" text-anchor="middle" class="svg-label-dim">ROUTER</text>
       </g>
-      <g transform="translate(552 52)">
+      <g class="fig14-node" transform="translate(552 52)">
         <rect x="-46" y="-17" width="92" height="34" rx="10" fill="#0b0e18" stroke="rgba(111,231,242,.26)"/>
         <text x="0" y="4" text-anchor="middle" class="svg-label-dim">VIEW</text>
       </g>
-      <g transform="translate(552 356)">
+      <g class="fig14-node" transform="translate(552 356)">
         <rect x="-50" y="-17" width="100" height="34" rx="10" fill="#0b0e18" stroke="rgba(188,164,255,.26)"/>
         <text x="0" y="4" text-anchor="middle" class="svg-label-dim">MODEL</text>
       </g>
-      <g transform="translate(86 356)">
+      <g class="fig14-node" transform="translate(86 356)">
         <rect x="-58" y="-17" width="116" height="34" rx="10" fill="#0b0e18" stroke="rgba(255,122,217,.22)"/>
         <text x="0" y="4" text-anchor="middle" class="svg-label-dim">COLLECTION</text>
       </g>
@@ -1160,33 +2165,37 @@ import '../../pencil-embed.js';
           <path d="M0 0 6 3 0 6" fill="none" stroke="rgba(188,164,255,.65)" stroke-width="1"/>
         </marker>
       </defs>
-      <g transform="translate(320 196)">
+      <g id="fig15-cms" transform="translate(320 196)">
         <rect x="-78" y="-52" width="156" height="104" rx="21" fill="#181b25" stroke="rgba(188,164,255,.42)" stroke-width="1.2"/>
         <path d="M-45 -18h34v34h-34zM11 -18h34v34H11z" fill="rgba(188,164,255,.06)" stroke="rgba(188,164,255,.28)"/>
         <path d="M-28 -1h60M-28 10h40" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
         <text x="0" y="36" text-anchor="middle" class="svg-label">CMS</text>
       </g>
-      <g transform="translate(116 196)">
+      <g class="fig15-side" transform="translate(116 196)">
         <rect x="-56" y="-32" width="112" height="64" rx="16" fill="#0d101a" stroke="rgba(111,231,242,.34)"/>
         <text x="0" y="4" text-anchor="middle" class="svg-label">PHP</text>
         <circle cx="38" cy="-19" r="3" fill="#6FE7F2"/>
       </g>
-      <g transform="translate(528 213)">
+      <g class="fig15-side" transform="translate(528 213)">
         <path d="M-46 -46c0-9 21-16 46-16s46 7 46 16v60c0 9-21 16-46 16s-46-7-46-16Z" fill="#0d101a" stroke="rgba(188,164,255,.34)"/>
         <ellipse cx="0" cy="-46" rx="46" ry="16" fill="rgba(188,164,255,.06)" stroke="rgba(188,164,255,.34)"/>
         <path d="M-46 -26c0 9 21 16 46 16s46-7 46-16" fill="none" stroke="rgba(188,164,255,.18)"/>
         <text x="0" y="17" text-anchor="middle" class="svg-label-dim">MSSQL</text>
       </g>
-      <path d="M172 196h60" fill="none" stroke="rgba(188,164,255,.32)" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#fig-arrow-15)"/>
-      <path d="M398 196h72" fill="none" stroke="rgba(188,164,255,.32)" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#fig-arrow-15)"/>
-      <g transform="translate(320 322)">
+      <path class="fig15-flow" d="M172 196h60" fill="none" stroke="rgba(188,164,255,.32)" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#fig-arrow-15)"/>
+      <path class="fig15-flow" d="M398 196h72" fill="none" stroke="rgba(188,164,255,.32)" stroke-width="1.1" stroke-dasharray="4 4" marker-end="url(#fig-arrow-15)"/>
+      <g id="fig15-plugins" transform="translate(320 322)">
         <path d="M-96 0h192" stroke="rgba(188,164,255,.14)" stroke-dasharray="2 6"/>
-        <g transform="translate(-66 0)"><rect x="-22" y="-19" width="44" height="38" rx="9" fill="#0b0e18" stroke="rgba(188,164,255,.28)"/><path d="M-5 -7h10v14H-5z" fill="none" stroke="#BCA4FF"/><path d="M5 0h12" stroke="#BCA4FF"/></g>
-        <g transform="translate(0 0)"><rect x="-22" y="-19" width="44" height="38" rx="9" fill="#0b0e18" stroke="rgba(111,231,242,.28)"/><path d="M-7 -6h14v12H-7z" fill="none" stroke="#6FE7F2"/></g>
-        <g transform="translate(66 0)"><rect x="-22" y="-19" width="44" height="38" rx="9" fill="#0b0e18" stroke="rgba(255,122,217,.24)"/><path d="M-5 -5h10v10H-5z" fill="none" stroke="#FF7AD9"/></g>
+        <g class="fig15-plugin" transform="translate(-66 0)"><rect x="-22" y="-19" width="44" height="38" rx="9" fill="#0b0e18" stroke="rgba(188,164,255,.28)"/><path d="M-5 -7h10v14H-5z" fill="none" stroke="#BCA4FF"/><path d="M5 0h12" stroke="#BCA4FF"/></g>
+        <g class="fig15-plugin" transform="translate(0 0)"><rect x="-22" y="-19" width="44" height="38" rx="9" fill="#0b0e18" stroke="rgba(111,231,242,.28)"/><path d="M-7 -6h14v12H-7z" fill="none" stroke="#6FE7F2"/></g>
+        <g class="fig15-plugin" transform="translate(66 0)"><rect x="-22" y="-19" width="44" height="38" rx="9" fill="#0b0e18" stroke="rgba(255,122,217,.24)"/><path d="M-5 -5h10v10H-5z" fill="none" stroke="#FF7AD9"/></g>
         <text x="0" y="43" text-anchor="middle" class="svg-label-dim">ПЛАГИНЫ</text>
       </g>
       <path d="M320 270v24" stroke="rgba(188,164,255,.2)" stroke-dasharray="2 5"/>
+      <g id="fig15-packets" fill="#F7F5FF">
+        <circle class="fig15-packet" r="2.2"/>
+        <circle class="fig15-packet" r="2"/>
+      </g>
       <text x="320" y="392" text-anchor="middle" class="svg-label-dim">PHP · CMS · MSSQL</text>
       `
     );
@@ -1204,7 +2213,7 @@ import '../../pencil-embed.js';
     const avatars = members
       .map(
         (member) => `
-        <g>
+        <g class="fig16-member">
           ${avatar(member.x, member.y, member.accent, 0.92)}
           <text x="${member.x}" y="${member.y + 47}" text-anchor="middle" class="svg-label-dim">${member.role}</text>
         </g>`
@@ -1231,26 +2240,26 @@ import '../../pencil-embed.js';
         <path d="M-19 -122h38" stroke="rgba(255,255,255,.22)" stroke-width="3" stroke-linecap="round"/>
         <circle cx="0" cy="118" r="4" fill="rgba(255,255,255,.3)"/>
         <text x="0" y="-48" text-anchor="middle" class="svg-label">T-MOBILE</text>
-        <circle cx="0" cy="36" r="42" fill="none" stroke="rgba(111,231,242,.24)" stroke-width="1"/>
-        <circle cx="0" cy="36" r="27" fill="none" stroke="rgba(111,231,242,.32)" stroke-width="1"/>
+        <circle class="fig17-ring" cx="0" cy="36" r="42" fill="none" stroke="rgba(111,231,242,.24)" stroke-width="1"/>
+        <circle class="fig17-ring" cx="0" cy="36" r="27" fill="none" stroke="rgba(111,231,242,.32)" stroke-width="1"/>
         <circle cx="0" cy="36" r="4" fill="#6FE7F2"/>
         <path d="M0 64v-10M0 8V-2" stroke="rgba(111,231,242,.42)" stroke-width="1"/>
       </g>
-      <g transform="translate(335 120)">
-        <path d="M20 68c0-28 14-48 36-54" fill="none" stroke="rgba(111,231,242,.44)" stroke-width="1.4" stroke-linecap="round"/>
-        <path d="M34 68c0-19 9-31 23-35" fill="none" stroke="rgba(111,231,242,.26)" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M47 68c0-10 5-17 13-19" fill="none" stroke="rgba(111,231,242,.18)" stroke-width="1" stroke-linecap="round"/>
+      <g id="fig17-waves" transform="translate(335 120)">
+        <path class="fig17-wave" d="M20 68c0-28 14-48 36-54" fill="none" stroke="rgba(111,231,242,.44)" stroke-width="1.4" stroke-linecap="round"/>
+        <path class="fig17-wave" d="M34 68c0-19 9-31 23-35" fill="none" stroke="rgba(111,231,242,.26)" stroke-width="1.2" stroke-linecap="round"/>
+        <path class="fig17-wave" d="M47 68c0-10 5-17 13-19" fill="none" stroke="rgba(111,231,242,.18)" stroke-width="1" stroke-linecap="round"/>
       </g>
-      <path d="M255 210h102" fill="none" stroke="rgba(188,164,255,.3)" stroke-width="1.2" stroke-dasharray="4 5"/>
-      <circle cx="279" cy="210" r="2.2" fill="#BCA4FF"/>
-      <circle cx="306" cy="210" r="2.2" fill="#6FE7F2"/>
-      <circle cx="333" cy="210" r="2.2" fill="#FF7AD9"/>
-      <g transform="translate(452 210)">
+      <path id="fig17-link" d="M255 210h102" fill="none" stroke="rgba(188,164,255,.3)" stroke-width="1.2" stroke-dasharray="4 5"/>
+      <circle class="fig17-dot" cx="279" cy="210" r="2.2" fill="#BCA4FF"/>
+      <circle class="fig17-dot" cx="306" cy="210" r="2.2" fill="#6FE7F2"/>
+      <circle class="fig17-dot" cx="333" cy="210" r="2.2" fill="#FF7AD9"/>
+      <g id="fig17-card" transform="translate(452 210)">
         <rect x="-76" y="-66" width="152" height="132" rx="22" fill="#181b25" stroke="rgba(188,164,255,.34)"/>
         <rect x="-58" y="-46" width="116" height="38" rx="8" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.08)"/>
         <text x="-24" y="-20" text-anchor="middle" class="svg-label">JS</text>
-        <path d="M-2 -30h42M-2 -20h30" stroke="rgba(255,255,255,.18)" stroke-width="1.2"/>
-        <path d="M-46 14h92M-46 28h64M-46 42h76" stroke="rgba(188,164,255,.16)" stroke-width="1.2" stroke-linecap="round"/>
+        <path class="fig17-code" d="M-2 -30h42M-2 -20h30" stroke="rgba(255,255,255,.18)" stroke-width="1.2"/>
+        <path class="fig17-code" d="M-46 14h92M-46 28h64M-46 42h76" stroke="rgba(188,164,255,.16)" stroke-width="1.2" stroke-linecap="round"/>
         <circle cx="54" cy="48" r="4" fill="#6FE7F2"/>
       </g>
       <path d="M386 -10v-14m-5 5 5-6 5 6M120 -28v-10m-4 4 4-5 4 5" stroke="rgba(111,231,242,.35)" stroke-width="1" fill="none"/>
@@ -1273,28 +2282,214 @@ import '../../pencil-embed.js';
         <clipPath id="fig-globe-clip-18"><circle cx="320" cy="205" r="107"/></clipPath>
       </defs>
       <circle cx="320" cy="205" r="107" fill="rgba(111,231,242,.045)" stroke="rgba(111,231,242,.42)" stroke-width="1.3"/>
-      <g clip-path="url(#fig-globe-clip-18)">
+      <g id="fig18-meridians" clip-path="url(#fig-globe-clip-18)">
         <ellipse cx="320" cy="205" rx="52" ry="107" fill="none" stroke="rgba(188,164,255,.18)"/>
         <ellipse cx="320" cy="205" rx="84" ry="107" fill="none" stroke="rgba(188,164,255,.12)"/>
-        <ellipse cx="320" cy="205" rx="107" ry="34" fill="none" stroke="rgba(188,164,255,.14)"/>
-        <ellipse cx="320" cy="205" rx="107" ry="70" fill="none" stroke="rgba(188,164,255,.1)"/>
+        <ellipse class="fig18-lat" cx="320" cy="205" rx="107" ry="34" fill="none" stroke="rgba(188,164,255,.14)"/>
+        <ellipse class="fig18-lat" cx="320" cy="205" rx="107" ry="70" fill="none" stroke="rgba(188,164,255,.1)"/>
         <path d="M213 205h214M320 98v214" stroke="rgba(188,164,255,.1)"/>
       </g>
-      <ellipse cx="320" cy="205" rx="178" ry="82" fill="none" stroke="rgba(188,164,255,.18)" stroke-dasharray="2 7" transform="rotate(-18 320 205)"/>
-      <path d="M268 150 Q330 90 414 170" fill="none" stroke="rgba(188,164,255,.55)" stroke-width="1.2" stroke-dasharray="4 4"/>
-      <path d="M268 150 Q260 225 236 282" fill="none" stroke="rgba(111,231,242,.45)" stroke-width="1.1" stroke-dasharray="4 4"/>
-      <path d="M236 282 Q340 340 382 268" fill="none" stroke="rgba(255,122,217,.38)" stroke-width="1.1" stroke-dasharray="4 4"/>
-      <path d="M382 268 Q420 218 414 170" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1" stroke-dasharray="4 4"/>
+      <ellipse id="fig18-orbit" cx="320" cy="205" rx="178" ry="82" fill="none" stroke="rgba(188,164,255,.18)" stroke-dasharray="2 7" transform="rotate(-18 320 205)"/>
+      <path class="fig18-route" d="M268 150 Q330 90 414 170" fill="none" stroke="rgba(188,164,255,.55)" stroke-width="1.2" stroke-dasharray="4 4"/>
+      <path class="fig18-route" d="M268 150 Q260 225 236 282" fill="none" stroke="rgba(111,231,242,.45)" stroke-width="1.1" stroke-dasharray="4 4"/>
+      <path class="fig18-route" d="M236 282 Q340 340 382 268" fill="none" stroke="rgba(255,122,217,.38)" stroke-width="1.1" stroke-dasharray="4 4"/>
+      <path class="fig18-route" d="M382 268 Q420 218 414 170" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1" stroke-dasharray="4 4"/>
       ${points
         .map(
           (point) => `
-          <circle cx="${point.x}" cy="${point.y}" r="7" fill="#0b0e18" stroke="${point.accent}" stroke-width="1.3"/>
-          <circle cx="${point.x}" cy="${point.y}" r="2.4" fill="${point.accent}"/>`
+          <g class="fig18-point">
+            <circle cx="${point.x}" cy="${point.y}" r="7" fill="#0b0e18" stroke="${point.accent}" stroke-width="1.3"/>
+            <circle cx="${point.x}" cy="${point.y}" r="2.4" fill="${point.accent}"/>
+          </g>`
         )
         .join('')}
       <circle cx="365" cy="115" r="2.2" fill="#6FE7F2"/>
       <circle cx="225" cy="180" r="1.8" fill="#BCA4FF"/>
       <text x="320" y="380" text-anchor="middle" class="svg-label-dim">МЕЖДУНАРОДНАЯ КОМАНДА</text>
+      `
+    );
+  }
+
+  function editorFigure() {
+    return sceneSvg(
+      '27',
+      `
+      <defs>
+        <marker id="fig-arrow-27" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0 0 6 3 0 6" fill="none" stroke="rgba(188,164,255,.62)" stroke-width="1"/>
+        </marker>
+      </defs>
+      <g id="fig27-editor" transform="translate(250 190)">
+        <rect x="-118" y="-96" width="236" height="192" rx="20" fill="#181b25" stroke="rgba(188,164,255,.42)" stroke-width="1.2"/>
+        <path d="M-118 -60h236" stroke="rgba(255,255,255,.1)"/>
+        <circle cx="-98" cy="-78" r="3" fill="#FF7AD9"/>
+        <circle cx="-86" cy="-78" r="3" fill="#BCA4FF"/>
+        <circle cx="-74" cy="-78" r="3" fill="#6FE7F2"/>
+        <g fill="none" stroke="rgba(188,164,255,.5)" stroke-width="1.3" stroke-linecap="round">
+          <path d="M-96 -42v16M-90 -42v16M-96 -34h6M-88 -34h6"/>
+          <path d="M-76 -42v16M-76 -42l6 8 6-8v16"/>
+          <path d="M-54 -42v10a6 6 0 0 0 12 0v-10"/>
+        </g>
+        <rect class="fig27-line" x="-104" y="-16" width="208" height="12" rx="4" fill="rgba(188,164,255,.12)"/>
+        <rect class="fig27-line" x="-104" y="4" width="164" height="8" rx="4" fill="rgba(255,255,255,.12)"/>
+        <rect class="fig27-line" x="-104" y="20" width="188" height="8" rx="4" fill="rgba(255,255,255,.09)"/>
+        <rect class="fig27-line" x="-104" y="36" width="124" height="8" rx="4" fill="rgba(255,255,255,.07)"/>
+        <rect x="-104" y="56" width="72" height="18" rx="9" fill="rgba(188,164,255,.16)" stroke="rgba(188,164,255,.34)"/>
+        <rect id="fig27-cursor" x="-8" y="36" width="2" height="9" fill="#BCA4FF"/>
+        <text x="0" y="86" text-anchor="middle" class="svg-label">WYSIWYG</text>
+      </g>
+      <path class="fig27-flow" d="M370 154h74M370 226h74" fill="none" stroke="rgba(188,164,255,.36)" stroke-width="1.2" stroke-dasharray="4 5" marker-end="url(#fig-arrow-27)"/>
+      <g class="fig27-export" transform="translate(506 138)">
+        <rect x="-62" y="-42" width="124" height="84" rx="16" fill="#0d101a" stroke="rgba(111,231,242,.4)"/>
+        <path d="M-30 -20h60M-30 -6h60M-30 8h38M-30 22h48" stroke="rgba(111,231,242,.3)" stroke-width="2" stroke-linecap="round"/>
+        <text x="0" y="54" text-anchor="middle" class="svg-label-dim">EXCEL</text>
+      </g>
+      <g class="fig27-export" transform="translate(506 250)">
+        <rect x="-62" y="-42" width="124" height="84" rx="16" fill="#0d101a" stroke="rgba(255,122,217,.36)"/>
+        <path d="M-34 -24h46l18 18v32h-64z" fill="none" stroke="rgba(255,122,217,.42)" stroke-width="1.3"/>
+        <path d="M12 -24v18h18M-22 2h34M-22 14h24" fill="none" stroke="rgba(255,122,217,.3)" stroke-width="1.1"/>
+        <text x="0" y="54" text-anchor="middle" class="svg-label-dim">WORD → HTML</text>
+      </g>
+      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">РЕДАКТОР · ПЛАГИНЫ ЭКСПОРТА</text>
+      `
+    );
+  }
+
+  function catalogFigure() {
+    const cards = Array.from({ length: 6 }, (_, index) => {
+      const x = 136 + (index % 3) * 74;
+      const y = 132 + Math.floor(index / 3) * 82;
+      return `
+        <g class="fig28-card" data-card="${index}" transform="translate(${x} ${y})">
+          <rect x="-31" y="-32" width="62" height="64" rx="12" fill="#0d101a" stroke="rgba(188,164,255,.26)"/>
+          <rect x="-21" y="-22" width="42" height="30" rx="6" fill="rgba(188,164,255,.08)" stroke="rgba(255,255,255,.08)"/>
+          <path d="M-19 10h38M-19 19h24" stroke="rgba(255,255,255,.18)" stroke-width="1.2" stroke-linecap="round"/>
+        </g>`;
+    }).join('');
+    const pipeline = [
+      { x: 8, y: -68, accent: '#BCA4FF' },
+      { x: 82, y: -68, accent: '#6FE7F2' },
+      { x: 8, y: 12, accent: '#FF7AD9' },
+      { x: 82, y: 12, accent: '#BCA4FF' },
+    ]
+      .map(
+        (item, index) => `
+        <g class="fig28-pipe" data-pipe="${index}" transform="translate(${item.x} ${item.y})">
+          <rect x="-44" y="-18" width="70" height="36" rx="10" fill="#0d101a" stroke="${item.accent}" stroke-opacity=".34"/>
+          <circle cx="-28" cy="0" r="5" fill="${item.accent}" fill-opacity=".34"/>
+          <path d="M-16 -4h26M-16 5h18" stroke="rgba(255,255,255,.2)" stroke-width="1.2" stroke-linecap="round"/>
+        </g>`
+      )
+      .join('');
+    return sceneSvg(
+      '28',
+      `
+      <rect x="98" y="68" width="244" height="254" rx="28" fill="rgba(188,164,255,.025)" stroke="rgba(188,164,255,.18)" stroke-dasharray="2 8"/>
+      ${cards}
+      <text x="220" y="98" text-anchor="middle" class="svg-label">КАТАЛОГ</text>
+      <path class="fig28-flow" d="M344 196h30" fill="none" stroke="rgba(188,164,255,.34)" stroke-width="1.2" stroke-dasharray="4 5"/>
+      <g id="fig28-crm" transform="translate(430 196)">
+        <rect x="-52" y="-128" width="196" height="256" rx="24" fill="#181b25" stroke="rgba(111,231,242,.34)" stroke-width="1.2"/>
+        <text x="0" y="-100" text-anchor="middle" class="svg-label">CRM</text>
+        <path d="M32 -92v196" stroke="rgba(255,255,255,.08)"/>
+        <path d="M64 -92v196" stroke="rgba(255,255,255,.08)"/>
+        <path d="M32 -60v132M64 -60v132" stroke="rgba(111,231,242,.16)" stroke-dasharray="2 5"/>
+        ${pipeline}
+        <text x="46" y="116" text-anchor="middle" class="svg-label-dim">EXTJS</text>
+      </g>
+      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">КАТАЛОГ ПРОДУКТОВ · CRM</text>
+      `
+    );
+  }
+
+  function componentsFigure() {
+    const swatches = ['#BCA4FF', '#6FE7F2', '#FF7AD9', '#F7F5FF']
+      .map(
+        (color, index) => `<rect class="fig29-swatch" data-swatch="${index}" x="${80 + index * 20}" y="86" width="14" height="14" rx="4" fill="${color}" fill-opacity=".7"/>`
+      )
+      .join('');
+    return sceneSvg(
+      '29',
+      `
+      <g id="fig29-window" transform="translate(320 190)">
+        <rect x="-188" y="-100" width="376" height="204" rx="24" fill="#181b25" stroke="rgba(188,164,255,.42)" stroke-width="1.2"/>
+        <path d="M-188 -64h376" stroke="rgba(255,255,255,.1)"/>
+        <circle cx="-166" cy="-82" r="3.2" fill="#FF7AD9"/>
+        <circle cx="-152" cy="-82" r="3.2" fill="#BCA4FF"/>
+        <circle cx="-138" cy="-82" r="3.2" fill="#6FE7F2"/>
+        <rect x="-128" y="-88" width="188" height="12" rx="6" fill="rgba(255,255,255,.05)"/>
+        <text x="76" y="-78" class="svg-label-dim">T-MOBILE</text>
+        <g transform="translate(-150 -30)">
+          <rect class="fig29-button" x="0" y="0" width="90" height="32" rx="10" fill="rgba(255,122,217,.16)" stroke="rgba(255,122,217,.36)"/>
+          <text x="45" y="21" text-anchor="middle" class="svg-label">КУПИТЬ</text>
+          <rect x="0" y="44" width="132" height="30" rx="9" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.12)"/>
+          <path class="fig29-input" d="M14 60h74" stroke="rgba(255,255,255,.2)" stroke-width="1.2"/>
+          <rect x="0" y="86" width="64" height="20" rx="6" fill="none" stroke="rgba(111,231,242,.34)"/>
+          <text x="32" y="100" text-anchor="middle" class="svg-label-dim">UI</text>
+          ${swatches}
+        </g>
+        <g class="fig29-card" transform="translate(32 -36)">
+          <rect x="0" y="0" width="134" height="104" rx="16" fill="#0d101a" stroke="rgba(188,164,255,.28)"/>
+          <rect x="12" y="12" width="110" height="44" rx="8" fill="rgba(188,164,255,.08)" stroke="rgba(255,255,255,.08)"/>
+          <path d="M12 68h72M12 82h48" stroke="rgba(255,255,255,.18)" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="112" cy="82" r="10" fill="rgba(111,231,242,.12)" stroke="rgba(111,231,242,.34)"/>
+          <path d="M108 82h8M112 78v8" stroke="#6FE7F2" stroke-width="1.4" stroke-linecap="round"/>
+        </g>
+      </g>
+      <g class="fig29-badge" transform="translate(116 318)">
+        <rect x="-48" y="-17" width="96" height="34" rx="12" fill="#0d101a" stroke="rgba(188,164,255,.3)"/>
+        <text x="0" y="4" text-anchor="middle" class="svg-label-dim">IE6+</text>
+      </g>
+      <g class="fig29-badge" transform="translate(320 318)">
+        <rect x="-58" y="-17" width="116" height="34" rx="12" fill="#0d101a" stroke="rgba(111,231,242,.3)"/>
+        <text x="0" y="4" text-anchor="middle" class="svg-label-dim">W3C</text>
+      </g>
+      <g class="fig29-badge" transform="translate(524 318)">
+        <rect x="-62" y="-17" width="124" height="34" rx="12" fill="#0d101a" stroke="rgba(255,122,217,.28)"/>
+        <text x="0" y="4" text-anchor="middle" class="svg-label-dim">A11Y 100%</text>
+      </g>
+      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">БИБЛИОТЕКА КОМПОНЕНТОВ</text>
+      `
+    );
+  }
+
+  function expectationsFigure() {
+    const rows = [
+      { y: -48, accent: '#6FE7F2', label: 'УДАЛЁНКА / ГИБРИД', icon: 'remote' },
+      { y: -14, accent: '#BCA4FF', label: 'ДОСТОЙНАЯ ОПЛАТА', icon: 'money' },
+      { y: 20, accent: '#FF7AD9', label: 'ГИБКИЙ ГРАФИК', icon: 'time' },
+      { y: 54, accent: '#6FE7F2', label: 'МИНИМУМ БЮРОКРАТИИ', icon: 'docs' },
+      { y: 88, accent: '#BCA4FF', label: 'ПЛАНИРОВАНИЕ И ПРИОРИТЕТЫ', icon: 'plan' },
+    ];
+    const icons = {
+      remote: '<path d="M-159 2l5-5 5 5M-158 2v5h8V2" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>',
+      money: '<circle cx="-154" cy="0" r="4.6" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M-156 -1.6h4M-156 1.6h4M-154 4v-8" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>',
+      time: '<circle cx="-154" cy="0" r="5" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="M-154 0v-3M-154 0h2.4" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>',
+      docs: '<path d="M-157 -4h5l2 2v6h-7z" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/><path d="M-156 -1h4M-156 2h4" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>',
+      plan: '<path d="M-158 -3.5h8M-158 .5h8M-158 4.5h5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/><path d="M-161 1.5l1.4 1.4 2.4-3" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>',
+    };
+    const rowsMarkup = rows
+      .map(
+        (row) => `
+        <g transform="translate(0 ${row.y})">
+          <rect x="-176" y="-15" width="352" height="30" rx="9" fill="rgba(255,255,255,.018)" stroke="rgba(255,255,255,.07)"/>
+          <circle cx="-154" cy="0" r="10" fill="${row.accent}" fill-opacity=".1" stroke="${row.accent}" stroke-opacity=".36"/>
+          <g style="color:${row.accent}">${icons[row.icon]}</g>
+          <text x="-134" y="4" class="svg-label-dim">${row.label}</text>
+          <path d="M148 -4l5 5 9-11" fill="none" stroke="${row.accent}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+        </g>`
+      )
+      .join('');
+    return sceneSvg(
+      '30',
+      `
+      <g transform="translate(320 196)">
+        <rect x="-198" y="-110" width="396" height="232" rx="24" fill="#181b25" stroke="rgba(188,164,255,.42)" stroke-width="1.2"/>
+        <rect x="-184" y="-96" width="368" height="204" rx="18" fill="rgba(8,11,20,.55)" stroke="rgba(255,255,255,.06)"/>
+        <text x="0" y="-78" text-anchor="middle" class="svg-label">ЧТО ВАЖНО</text>
+        ${rowsMarkup}
+      </g>
+      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">ОЖИДАНИЯ ОТ СЛЕДУЮЩЕЙ РОЛИ</text>
       `
     );
   }
@@ -1323,6 +2518,24 @@ import '../../pencil-embed.js';
         return teamScaleFigure();
       case '09':
         return marketsFigure();
+      case '10':
+        return jqueryFigure();
+      case '11':
+        return landfillFigure();
+      case '12':
+        return clientFigure();
+      case '13':
+        return cloudFigure();
+      case '14':
+        return skeletonFigure();
+      case '15':
+        return pluginsFigure();
+      case '16':
+        return sixFigure();
+      case '17':
+        return connectivityFigure();
+      case '18':
+        return globeFigure();
       case '19':
         return supportFigure();
       case '20':
@@ -1339,6 +2552,12 @@ import '../../pencil-embed.js';
         return tournamentFigure();
       case '26':
         return platformsFigure();
+      case '27':
+        return editorFigure();
+      case '28':
+        return catalogFigure();
+      case '29':
+        return componentsFigure();
       default:
         return '';
     }
@@ -1653,10 +2872,242 @@ import '../../pencil-embed.js';
     });
   }
 
+  /* --- Обложка · Процессор и направления ----------------------------------- */
+
+  function initHelpAnimation() {
+    const host = $('[data-cover-figure="help"]');
+    if (!host) return;
+    const svg = $('.help-svg', host);
+    if (!svg) return;
+
+    const random = mulberry32(20261119);
+    const nodes = HELP_NODES.map((meta) => {
+      const group = $(`#help-node-${meta.id}`, svg);
+      const path = $(`#help-trace-${meta.id}`, svg);
+      const trail = $(`#help-trail-${meta.id}`, svg);
+      const signal = $(`#help-signal-${meta.id}`, svg);
+      if (!group || !path || !trail || !signal) return null;
+      const length = path.getTotalLength();
+      const speed = 150 + random() * 55;
+      const flight = Math.max(0.9, length / speed);
+      const period = flight + 1.2 + random() * 2.2;
+      return {
+        group,
+        path,
+        trail,
+        signal,
+        length,
+        flight,
+        period,
+        offset: random() * period,
+        glow: $('.help-node-glow', group),
+        ring: $('.help-node-ring', group),
+        flash: $('.help-node-flash', group),
+        card: $('.help-node-card', group),
+        dot: $('.help-node-dot', group),
+        port: $('.help-node-port', group),
+      };
+    }).filter(Boolean);
+
+    const core = $('.help-core-glow', svg);
+    const orbit = $('#help-chip-orbit', svg);
+    const leds = $$('.help-led', svg);
+    const TRAIL = 38;
+    const GLOW = 0.9;
+
+    function draw(time) {
+      for (const node of nodes) {
+        const phase = ((time + node.offset) % node.period + node.period) % node.period;
+        if (phase <= node.flight) {
+          const progress = phase / node.flight;
+          const point = node.path.getPointAtLength(progress * node.length);
+          node.signal.setAttribute('transform', `translate(${point.x.toFixed(2)} ${point.y.toFixed(2)})`);
+          const fadeIn = smooth(progress / 0.08);
+          const fadeOut = 1 - smooth((progress - 0.9) / 0.1);
+          const opacity = Math.min(fadeIn, fadeOut);
+          node.signal.style.opacity = opacity.toFixed(3);
+          const head = progress * node.length;
+          const from = Math.max(0, head - TRAIL);
+          const visible = head - from;
+          node.trail.setAttribute('stroke-dasharray', `${visible.toFixed(2)} ${(node.length + TRAIL).toFixed(2)}`);
+          node.trail.setAttribute('stroke-dashoffset', (-from).toFixed(2));
+          node.trail.style.opacity = (opacity * 0.78).toFixed(3);
+        } else {
+          node.signal.style.opacity = '0';
+          node.trail.style.opacity = '0';
+        }
+
+        const sinceArrival = phase >= node.flight ? phase - node.flight : phase + (node.period - node.flight);
+        const glow = sinceArrival < GLOW ? Math.pow(1 - sinceArrival / GLOW, 2) : 0;
+        node.glow.setAttribute('opacity', (glow * 0.95).toFixed(3));
+        node.flash.setAttribute('opacity', (glow * 0.1).toFixed(3));
+        node.card.setAttribute('stroke-opacity', (0.24 + glow * 0.55).toFixed(3));
+        node.dot.setAttribute('r', (3 + glow * 1.8).toFixed(2));
+        node.port.setAttribute('fill-opacity', (0.55 + glow * 0.45).toFixed(3));
+        if (sinceArrival < 0.8) {
+          const ringLife = sinceArrival / 0.8;
+          node.ring.setAttribute('r', (5 + ringLife * 26).toFixed(2));
+          node.ring.setAttribute('opacity', ((1 - ringLife) * (1 - ringLife)).toFixed(3));
+        } else {
+          node.ring.setAttribute('opacity', '0');
+        }
+      }
+
+      const pulse = 0.5 + 0.5 * Math.sin(time * 2.2);
+      if (core) {
+        core.setAttribute('opacity', (0.48 + pulse * 0.34).toFixed(3));
+        core.setAttribute('r', (40 + pulse * 6).toFixed(2));
+      }
+      if (orbit) orbit.setAttribute('transform', `rotate(${((time * 4.5) % 360).toFixed(2)})`);
+      leds.forEach((led, index) => {
+        const value = 0.3 + 0.7 * Math.pow(0.5 + 0.5 * Math.sin(time * 3 + index * 1.7), 2);
+        led.setAttribute('opacity', value.toFixed(3));
+      });
+    }
+
+    registerAnimation('help', host, draw, { staticTime: 2.25 });
+  }
+
+  function initHelpTransistorAnimation() {
+    const host = $('[data-cover-figure="help"]');
+    if (!host) return;
+    const svg = $('.help-svg', host);
+    if (!svg) return;
+
+    const transistors = $$('.help-transistor', svg).map((element) => ({
+      element,
+      phase: Number(element.dataset.phase) || 0,
+    }));
+    const traces = $$('.help-trace', svg);
+    const pins = $$('.help-pin', svg);
+    const core = $('.help-core-glow', svg);
+    const orbit = $('#help-orbit', svg);
+    const random = mulberry32(20261120);
+    const signals = HELP_NODES.map((meta) => {
+      const path = $(`#help-trace-${meta.id}`, svg);
+      const trail = $(`#help-trail-${meta.id}`, svg);
+      const signal = $(`#help-signal-${meta.id}`, svg);
+      if (!path || !trail || !signal) return null;
+      const length = path.getTotalLength();
+      const speed = 138 + random() * 54;
+      const flight = Math.max(0.95, length / speed);
+      const period = flight + 1.4 + random() * 2.4;
+      return {
+        path,
+        trail,
+        signal,
+        length,
+        flight,
+        period,
+        offset: random() * period,
+      };
+    }).filter(Boolean);
+    const TRAIL = 42;
+
+    function draw(time) {
+      for (const transistor of transistors) {
+        const wave = 0.5 + 0.5 * Math.sin(time * 1.7 + transistor.phase * 3.2);
+        transistor.element.setAttribute('opacity', (0.16 + wave * 0.72).toFixed(3));
+      }
+      for (const node of signals) {
+        const phase = ((time + node.offset) % node.period + node.period) % node.period;
+        if (phase <= node.flight) {
+          const progress = phase / node.flight;
+          const point = node.path.getPointAtLength(progress * node.length);
+          node.signal.setAttribute('transform', `translate(${point.x.toFixed(2)} ${point.y.toFixed(2)})`);
+          const fadeIn = smooth(progress / 0.08);
+          const fadeOut = 1 - smooth((progress - 0.9) / 0.1);
+          const opacity = Math.min(fadeIn, fadeOut);
+          node.signal.style.opacity = opacity.toFixed(3);
+          const head = progress * node.length;
+          const from = Math.max(0, head - TRAIL);
+          const visible = head - from;
+          node.trail.setAttribute('stroke-dasharray', `${visible.toFixed(2)} ${(node.length + TRAIL).toFixed(2)}`);
+          node.trail.setAttribute('stroke-dashoffset', (-from).toFixed(2));
+          node.trail.style.opacity = (opacity * 0.7).toFixed(3);
+        } else {
+          node.signal.style.opacity = '0';
+          node.trail.style.opacity = '0';
+        }
+      }
+      traces.forEach((trace, index) => {
+        trace.setAttribute('stroke-dashoffset', (-time * (16 + index * 1.4)).toFixed(2));
+      });
+      pins.forEach((pin, index) => {
+        const wave = 0.5 + 0.5 * Math.sin(time * 2.4 + index * 0.35);
+        pin.setAttribute('opacity', (0.28 + wave * 0.5).toFixed(3));
+      });
+      if (core) {
+        const pulse = 0.5 + 0.5 * Math.sin(time * 1.4);
+        core.setAttribute('opacity', (0.32 + pulse * 0.34).toFixed(3));
+        core.setAttribute('r', (76 + pulse * 8).toFixed(2));
+      }
+      if (orbit) orbit.setAttribute('transform', `rotate(${(-13 + time * 2.4).toFixed(2)} 320 270)`);
+    }
+
+    registerAnimation('help', host, draw, { staticTime: 1.6 });
+  }
+
+  function initCoverStartAnimation() {
+    const host = $('[data-cover-figure="start"]');
+    if (!host) return;
+    const svg = $('.start-svg', host);
+    if (!svg) return;
+    const cells = $$('.start-drum-cell', svg);
+    const drums = cells.map((cell) => ({
+      old: $('.start-drum-old', cell),
+      next: $('.start-drum-new', cell),
+    }));
+    if (cells.length !== 4 || drums.some((drum) => !drum.old || !drum.next)) return;
+    const hour = $('#start-hand-hour', svg);
+    const minute = $('#start-hand-minute', svg);
+    const second = $('#start-hand-second', svg);
+
+    const STEP = 0.58;
+    const STEPS = 2026 - 2006;
+    const HOLD = 2.6;
+    const CYCLE = STEPS * STEP + HOLD;
+    const DISTANCE = 132;
+
+    function draw(time) {
+      if (hour) hour.setAttribute('transform', `rotate(${(-time * 7.5).toFixed(3)} 320 88)`);
+      if (minute) minute.setAttribute('transform', `rotate(${(-time * 90).toFixed(3)} 320 88)`);
+      if (second) second.setAttribute('transform', `rotate(${(-time * 240).toFixed(3)} 320 88)`);
+
+      const local = ((time % CYCLE) + CYCLE) % CYCLE;
+      const active = local < STEPS * STEP;
+      const step = Math.min(STEPS - 1, Math.floor(local / STEP));
+      const progress = active ? (local - step * STEP) / STEP : 1;
+      const eased = progress * progress * (3 - 2 * progress);
+      const current = String(2026 - step);
+      const next = active ? String(2025 - step) : current;
+
+      for (let digit = 0; digit < 4; digit += 1) {
+        const drum = drums[digit];
+        const from = current[digit];
+        const to = next[digit];
+        drum.old.textContent = from;
+        drum.next.textContent = to;
+        if (from === to) {
+          drum.old.setAttribute('transform', 'translate(0 0)');
+          drum.old.setAttribute('opacity', '1');
+          drum.next.setAttribute('opacity', '0');
+          continue;
+        }
+        drum.old.setAttribute('transform', `translate(0 ${(eased * DISTANCE).toFixed(2)})`);
+        drum.old.setAttribute('opacity', '1');
+        drum.next.setAttribute('opacity', '1');
+        drum.next.setAttribute('transform', `translate(0 ${((eased - 1) * DISTANCE).toFixed(2)})`);
+      }
+    }
+
+    registerAnimation('coverStart', host, draw, { staticTime: 4.1 });
+  }
+
   /* --- 00 · Система навыков ------------------------------------------------ */
 
   function initSkillsAnimation() {
-    const host = $('.skills-card');
+    const host = $('.skills-card[data-anim-host="skills"]');
     const stage = $('.skills-stage', host);
     const canvas = $('.skills-canvas', stage);
     if (!canvas) return;
@@ -3792,7 +5243,7 @@ import '../../pencil-embed.js';
     }, { staticTime, restartOnEnter: true });
   }
 
-  function initPlatformsAnimation() {
+  function initPlatformsAnimationLegacy() {
     const host = $('[data-figure-body="26"]');
     if (!host) return;
     const canvas = $('[data-platforms]', host);
@@ -4013,6 +5464,592 @@ import '../../pencil-embed.js';
     registerAnimation('fig26', host, draw, { staticTime: 2.6 });
   }
 
+  function initPlatformsPlanetsAnimation() {
+    const host = $('[data-figure-body="26"]');
+    if (!host) return;
+    const canvas = $('[data-platforms]', host);
+    if (!canvas) return;
+    const setup = setupCurrentCanvas(canvas);
+    if (!setup) return;
+    const { ctx, state, resize } = setup;
+
+    const random = mulberry32(0x26f17);
+    const dust = Array.from({ length: 34 }, () => ({
+      x: random() * 2 - 1,
+      y: random() * 2 - 1,
+      size: 0.5 + random(),
+      alpha: 0.06 + random() * 0.17,
+      phase: random() * TAU,
+    }));
+
+    function shade(hex, amount) {
+      const value = Number.parseInt(hex.slice(1), 16);
+      const target = amount < 0 ? 0 : 255;
+      const ratio = Math.abs(amount);
+      const channel = (shift) => {
+        const base = (value >> shift) & 255;
+        return Math.round(base + (target - base) * ratio);
+      };
+      return `rgb(${channel(16)}, ${channel(8)}, ${channel(0)})`;
+    }
+
+    const planets = [
+      {
+        platform: 'iOS',
+        color: '#2b2934',
+        accent: FIG_LAV,
+        icon: '#F7F5FF',
+        rx: 0.98,
+        ry: 0.4,
+        tilt: -0.3,
+        speed: 0.2,
+        phase: 0.4,
+      },
+      {
+        platform: 'Android',
+        color: '#3ddc84',
+        accent: '61, 220, 132',
+        icon: '#0b1a12',
+        rx: 0.84,
+        ry: 0.52,
+        tilt: 0.46,
+        speed: -0.25,
+        phase: 2.2,
+      },
+      {
+        platform: 'Telegram',
+        color: '#229ed9',
+        accent: FIG_CYAN,
+        icon: '#F7F5FF',
+        rx: 0.68,
+        ry: 0.62,
+        tilt: -0.1,
+        speed: 0.3,
+        phase: 4.3,
+      },
+    ];
+
+    function drawBrandIcon(platform, radius) {
+      ctx.save();
+      ctx.translate(0, 0);
+      if (platform === 'Android') {
+        ctx.fillStyle = '#F7F5FF';
+        ctx.beginPath();
+        ctx.arc(0, radius * 0.06, radius * 0.42, Math.PI, 0);
+        ctx.closePath();
+        ctx.fill();
+        ctx.strokeStyle = '#F7F5FF';
+        ctx.lineWidth = Math.max(1, radius * 0.055);
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(-radius * 0.24, -radius * 0.28);
+        ctx.lineTo(-radius * 0.36, -radius * 0.44);
+        ctx.moveTo(radius * 0.24, -radius * 0.28);
+        ctx.lineTo(radius * 0.36, -radius * 0.44);
+        ctx.stroke();
+        ctx.fillStyle = '#123524';
+        ctx.beginPath();
+        ctx.arc(-radius * 0.14, -radius * 0.1, radius * 0.05, 0, TAU);
+        ctx.arc(radius * 0.14, -radius * 0.1, radius * 0.05, 0, TAU);
+        ctx.fill();
+      } else if (platform === 'iOS') {
+        ctx.fillStyle = '#F7F5FF';
+        ctx.beginPath();
+        ctx.arc(-radius * 0.16, -radius * 0.02, radius * 0.25, 0, TAU);
+        ctx.arc(radius * 0.15, -radius * 0.02, radius * 0.25, 0, TAU);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(-radius * 0.38, radius * 0.06);
+        ctx.quadraticCurveTo(-radius * 0.26, radius * 0.44, 0, radius * 0.4);
+        ctx.quadraticCurveTo(radius * 0.26, radius * 0.44, radius * 0.38, radius * 0.06);
+        ctx.quadraticCurveTo(radius * 0.16, -radius * 0.02, 0, radius * 0.1);
+        ctx.quadraticCurveTo(-radius * 0.16, -radius * 0.02, -radius * 0.38, radius * 0.06);
+        ctx.fill();
+        ctx.fillStyle = '#2b2934';
+        ctx.beginPath();
+        ctx.arc(radius * 0.34, radius * 0.02, radius * 0.16, 0, TAU);
+        ctx.fill();
+        ctx.strokeStyle = '#F7F5FF';
+        ctx.lineWidth = Math.max(1, radius * 0.07);
+        ctx.beginPath();
+        ctx.moveTo(radius * 0.02, -radius * 0.28);
+        ctx.quadraticCurveTo(radius * 0.1, -radius * 0.46, radius * 0.28, -radius * 0.44);
+        ctx.stroke();
+      } else if (platform === 'Telegram') {
+        ctx.fillStyle = '#F7F5FF';
+        ctx.beginPath();
+        ctx.moveTo(-radius * 0.4, radius * 0.02);
+        ctx.lineTo(radius * 0.42, -radius * 0.32);
+        ctx.lineTo(radius * 0.18, radius * 0.38);
+        ctx.lineTo(radius * 0.02, radius * 0.16);
+        ctx.lineTo(-radius * 0.14, radius * 0.3);
+        ctx.lineTo(-radius * 0.4, radius * 0.02);
+        ctx.closePath();
+        ctx.fill();
+        ctx.fillStyle = '#1b7fb0';
+        ctx.beginPath();
+        ctx.moveTo(-radius * 0.02, radius * 0.06);
+        ctx.lineTo(radius * 0.28, -radius * 0.18);
+        ctx.lineTo(radius * 0.08, radius * 0.1);
+        ctx.closePath();
+        ctx.fill();
+      } else {
+        ctx.strokeStyle = '#F7F5FF';
+        ctx.lineWidth = Math.max(1, radius * 0.05);
+        ctx.beginPath();
+        ctx.arc(0, 0, radius * 0.34, 0, TAU);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(0, 0, radius * 0.14, radius * 0.34, 0, 0, TAU);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(0, 0, radius * 0.34, radius * 0.13, 0, 0, TAU);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function drawSphere(platform, color, accent, iconColor, x, y, radius, depth, labelAlpha) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.globalAlpha = 0.42 + depth * 0.58;
+
+      const glow = ctx.createRadialGradient(0, 0, radius * 0.2, 0, 0, radius * 2.1);
+      glow.addColorStop(0, figRgba(accent, 0.24 + depth * 0.14));
+      glow.addColorStop(0.55, figRgba(accent, 0.06));
+      glow.addColorStop(1, figRgba(accent, 0));
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(0, 0, radius * 2.1, 0, TAU);
+      ctx.fill();
+
+      const body = ctx.createRadialGradient(-radius * 0.38, -radius * 0.42, radius * 0.04, 0, 0, radius * 1.08);
+      body.addColorStop(0, shade(color, 0.62));
+      body.addColorStop(0.34, shade(color, 0.16));
+      body.addColorStop(0.68, color);
+      body.addColorStop(0.9, shade(color, -0.46));
+      body.addColorStop(1, shade(color, -0.72));
+      ctx.fillStyle = body;
+      ctx.beginPath();
+      ctx.arc(0, 0, radius, 0, TAU);
+      ctx.fill();
+
+      ctx.strokeStyle = figRgba(accent, 0.3 + depth * 0.35);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(0, 0, radius - 0.5, 0, TAU);
+      ctx.stroke();
+
+      ctx.save();
+      ctx.scale(radius / 46, radius / 46);
+      drawBrandIcon(platform, 46);
+      ctx.restore();
+
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.58 + depth * 0.3);
+      ctx.font = `${Math.max(7, radius * 0.2)}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(platform.toUpperCase(), 0, radius + Math.max(10, radius * 0.28));
+      ctx.restore();
+    }
+
+    function draw(time) {
+      resize();
+      const width = state.width;
+      const height = state.height;
+      if (width < 2 || height < 2) return;
+
+      ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+      ctx.clearRect(0, 0, width, height);
+      const cx = width * 0.5;
+      const cy = height * 0.48;
+      const radius = Math.min(width * 0.42, height * 0.44);
+      const basePlanet = Math.min(width, height) * 0.078;
+      const pulse = 0.5 + 0.5 * Math.sin(time * 0.65);
+
+      ctx.clearRect(0, 0, width, height);
+      ctx.globalCompositeOperation = 'lighter';
+      drawStarfield(ctx, width, height, dust, time, Math.max(width, height) * 0.55);
+
+      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+      ambient.addColorStop(0, figRgba(FIG_LAV, 0.12 + pulse * 0.04));
+      ambient.addColorStop(0.58, figRgba(FIG_LAV, 0.028));
+      ambient.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = ambient;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, TAU);
+      ctx.fill();
+
+      const pointAt = (planet, angle) => {
+        const ex = Math.cos(angle) * radius * planet.rx;
+        const ey = Math.sin(angle) * radius * planet.ry;
+        const cosTilt = Math.cos(planet.tilt);
+        const sinTilt = Math.sin(planet.tilt);
+        return {
+          x: cx + ex * cosTilt - ey * sinTilt,
+          y: cy + ex * sinTilt + ey * cosTilt,
+          depth: (Math.sin(angle) + 1) * 0.5,
+        };
+      };
+
+      for (const planet of planets) {
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(planet.tilt);
+        ctx.strokeStyle = figRgba(planet.accent, 0.14);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, radius * planet.rx, radius * planet.ry, 0, 0, TAU);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      const bodies = planets.map((planet) => {
+        const angle = time * planet.speed + planet.phase;
+        return { planet, angle, point: pointAt(planet, angle) };
+      });
+
+      ctx.globalCompositeOperation = 'lighter';
+      for (const { planet, angle, point } of bodies) {
+        for (let step = 1; step <= 9; step += 1) {
+          const a0 = angle - Math.sign(planet.speed) * (step - 1) * 0.035;
+          const a1 = angle - Math.sign(planet.speed) * step * 0.035;
+          const start = pointAt(planet, a0);
+          const end = pointAt(planet, a1);
+          ctx.strokeStyle = figRgba(planet.accent, 0.17 * (1 - step / 10));
+          ctx.lineWidth = 1.1;
+          ctx.beginPath();
+          ctx.moveTo(start.x, start.y);
+          ctx.lineTo(end.x, end.y);
+          ctx.stroke();
+        }
+      }
+      ctx.globalCompositeOperation = 'source-over';
+
+      for (const { planet, point } of bodies) {
+        if (point.depth >= 0.5) continue;
+        drawSphere(planet.platform, planet.color, planet.accent, planet.icon, point.x, point.y, basePlanet * (0.62 + point.depth * 0.72), point.depth);
+      }
+
+      const webRadius = basePlanet * 1.2;
+      const webGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, webRadius * 2.4);
+      webGlow.addColorStop(0, figRgba(FIG_CYAN, 0.24 + pulse * 0.08));
+      webGlow.addColorStop(0.5, figRgba(FIG_LAV, 0.08));
+      webGlow.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = webGlow;
+      ctx.beginPath();
+      ctx.arc(cx, cy, webRadius * 2.4, 0, TAU);
+      ctx.fill();
+      drawSphere('Web', '#155d68', FIG_CYAN, '#F7F5FF', cx, cy, webRadius, 1);
+
+      for (const { planet, point } of bodies) {
+        if (point.depth < 0.5) continue;
+        drawSphere(planet.platform, planet.color, planet.accent, planet.icon, point.x, point.y, basePlanet * (0.62 + point.depth * 0.72), point.depth);
+      }
+    }
+
+    registerAnimation('fig26', host, draw, { staticTime: 2.4 });
+  }
+
+  function initPlatformsAnimation() {
+    const host = $('[data-figure-body="26"]');
+    if (!host) return;
+    const canvas = $('[data-platforms]', host);
+    if (!canvas) return;
+    const setup = setupCurrentCanvas(canvas);
+    if (!setup) return;
+    const { ctx, state, resize } = setup;
+
+    const random = mulberry32(0x26ca4d);
+    const dust = Array.from({ length: 30 }, () => ({
+      x: random() * 2 - 1,
+      y: random() * 2 - 1,
+      size: 0.5 + random(),
+      alpha: 0.06 + random() * 0.16,
+      phase: random() * TAU,
+    }));
+
+    const PLATFORMS = [
+      { name: 'WEB', corner: 'W', accent: FIG_CYAN, icon: 'web' },
+      { name: 'iOS', corner: 'i', accent: FIG_LAV, icon: 'ios' },
+      { name: 'ANDROID', corner: 'A', accent: '88, 230, 164', icon: 'android' },
+      { name: 'TELEGRAM', corner: 'T', accent: '83, 184, 235', icon: 'telegram' },
+    ];
+
+    const CYCLE = 8.8;
+    const DEAL_START = 0.4;
+    const DEAL_STEP = 0.62;
+    const DEAL_TIME = 0.85;
+    const EXIT_START = 6.6;
+    const EXIT_TIME = 1.25;
+
+    let cycleIndex = -1;
+    let order = [0, 1, 2, 3];
+    let layout = [];
+
+    function shuffle(list, rnd) {
+      for (let index = list.length - 1; index > 0; index -= 1) {
+        const swap = Math.floor(rnd() * (index + 1));
+        [list[index], list[swap]] = [list[swap], list[index]];
+      }
+      return list;
+    }
+
+    function prepareCycle(index) {
+      const rnd = mulberry32(0x26ca4d ^ (index * 2654435761));
+      order = shuffle([0, 1, 2, 3], rnd);
+      layout = Array.from({ length: 4 }, (_, slot) => ({
+        dx: (slot - 1.5) * 0.94 + (rnd() - 0.5) * 0.2,
+        dy: (rnd() - 0.5) * 0.22,
+        rot: (rnd() - 0.5) * 0.24,
+      }));
+    }
+
+    function roundedRect(x, y, width, height, radius) {
+      const r = Math.min(radius, width * 0.5, height * 0.5);
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + width - r, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+      ctx.lineTo(x + width, y + height - r);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+      ctx.lineTo(x + r, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
+    function drawIcon(kind, size) {
+      const s = size;
+      ctx.save();
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      if (kind === 'web') {
+        ctx.strokeStyle = figRgba(FIG_WHITE, 0.92);
+        ctx.lineWidth = Math.max(1.1, s * 0.045);
+        ctx.beginPath();
+        ctx.arc(0, 0, s * 0.42, 0, TAU);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(0, 0, s * 0.18, s * 0.42, 0, 0, TAU);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.ellipse(0, 0, s * 0.42, s * 0.18, 0, 0, TAU);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(-s * 0.42, 0);
+        ctx.lineTo(s * 0.42, 0);
+        ctx.stroke();
+      } else if (kind === 'ios') {
+        ctx.strokeStyle = figRgba(FIG_WHITE, 0.92);
+        ctx.lineWidth = Math.max(1.1, s * 0.045);
+        roundedRect(-s * 0.27, -s * 0.44, s * 0.54, s * 0.88, s * 0.12);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(-s * 0.1, -s * 0.34);
+        ctx.lineTo(s * 0.1, -s * 0.34);
+        ctx.stroke();
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.92);
+        ctx.beginPath();
+        ctx.arc(0, s * 0.3, s * 0.035, 0, TAU);
+        ctx.fill();
+      } else if (kind === 'android') {
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.94);
+        ctx.beginPath();
+        ctx.arc(0, s * 0.08, s * 0.36, Math.PI, 0);
+        ctx.closePath();
+        ctx.fill();
+        ctx.strokeStyle = figRgba(FIG_WHITE, 0.94);
+        ctx.lineWidth = Math.max(1, s * 0.055);
+        ctx.beginPath();
+        ctx.moveTo(-s * 0.2, -s * 0.2);
+        ctx.lineTo(-s * 0.3, -s * 0.34);
+        ctx.moveTo(s * 0.2, -s * 0.2);
+        ctx.lineTo(s * 0.3, -s * 0.34);
+        ctx.stroke();
+        ctx.fillStyle = '#10131f';
+        ctx.beginPath();
+        ctx.arc(-s * 0.13, s * 0.02, s * 0.035, 0, TAU);
+        ctx.arc(s * 0.13, s * 0.02, s * 0.035, 0, TAU);
+        ctx.fill();
+      } else {
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.94);
+        ctx.beginPath();
+        ctx.moveTo(-s * 0.42, s * 0.02);
+        ctx.lineTo(s * 0.44, -s * 0.3);
+        ctx.lineTo(s * 0.18, s * 0.38);
+        ctx.lineTo(s * 0.02, s * 0.14);
+        ctx.closePath();
+        ctx.fill();
+        ctx.fillStyle = '#10131f';
+        ctx.beginPath();
+        ctx.moveTo(-s * 0.02, s * 0.08);
+        ctx.lineTo(s * 0.26, -s * 0.16);
+        ctx.lineTo(s * 0.1, s * 0.16);
+        ctx.closePath();
+        ctx.fill();
+      }
+      ctx.restore();
+    }
+
+    function drawCard(platform, x, y, rotation, scale, alpha, cardWidth, cardHeight) {
+      const cw = cardWidth;
+      const ch = cardHeight;
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rotation);
+      ctx.scale(scale, scale);
+      ctx.globalAlpha = alpha;
+
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+      ctx.shadowBlur = 22;
+      ctx.shadowOffsetY = 12;
+      const fill = ctx.createLinearGradient(-cw * 0.5, -ch * 0.5, cw * 0.5, ch * 0.5);
+      fill.addColorStop(0, '#1b1e2c');
+      fill.addColorStop(0.55, '#10131f');
+      fill.addColorStop(1, '#070a12');
+      roundedRect(-cw * 0.5, -ch * 0.5, cw, ch, 12);
+      ctx.fillStyle = fill;
+      ctx.fill();
+      ctx.shadowColor = 'transparent';
+
+      ctx.lineWidth = 1.3;
+      ctx.strokeStyle = figRgba(platform.accent, 0.62);
+      ctx.stroke();
+      roundedRect(-cw * 0.5 + 5, -ch * 0.5 + 5, cw - 10, ch - 10, 9);
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.07)';
+      ctx.stroke();
+
+      ctx.fillStyle = figRgba(platform.accent, 0.92);
+      ctx.font = `700 ${Math.max(9, cw * 0.11)}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'top';
+      ctx.fillText(platform.corner, -cw * 0.5 + 10, -ch * 0.5 + 9);
+      ctx.save();
+      ctx.translate(cw * 0.5 - 10, ch * 0.5 - 9);
+      ctx.rotate(Math.PI);
+      ctx.fillText(platform.corner, 0, 0);
+      ctx.restore();
+
+      ctx.strokeStyle = figRgba(platform.accent, 0.32);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(-cw * 0.5 + 10, -ch * 0.5 + 27);
+      ctx.lineTo(cw * 0.5 - 10, -ch * 0.5 + 27);
+      ctx.stroke();
+
+      ctx.save();
+      ctx.translate(0, -ch * 0.06);
+      drawIcon(platform.icon, cw * 0.26);
+      ctx.restore();
+
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.92);
+      ctx.font = `600 ${Math.max(8, cw * 0.085)}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(platform.name, 0, ch * 0.27);
+
+      ctx.strokeStyle = figRgba(platform.accent, 0.5);
+      ctx.beginPath();
+      ctx.moveTo(-cw * 0.18, ch * 0.34);
+      ctx.lineTo(cw * 0.18, ch * 0.34);
+      ctx.stroke();
+
+      ctx.fillStyle = figRgba(platform.accent, 0.7);
+      for (let dot = 0; dot < 3; dot += 1) {
+        ctx.beginPath();
+        ctx.arc((dot - 1) * cw * 0.08, ch * 0.4, 1.3, 0, TAU);
+        ctx.fill();
+      }
+      ctx.restore();
+    }
+
+    function drawDeck(cardWidth, cardHeight, alpha) {
+      const x = state.width * 0.86;
+      const y = state.height * 0.88;
+      for (let card = 2; card >= 0; card -= 1) {
+        ctx.save();
+        ctx.translate(x + card * 3, y - card * 4);
+        ctx.rotate(0.2 + card * 0.02);
+        ctx.globalAlpha = alpha * (0.4 + card * 0.14);
+        ctx.fillStyle = '#10131f';
+        ctx.strokeStyle = 'rgba(188, 164, 255, 0.24)';
+        ctx.lineWidth = 1;
+        roundedRect(-cardWidth * 0.34, -cardHeight * 0.34, cardWidth * 0.68, cardHeight * 0.68, 8);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    function draw(time) {
+      resize();
+      const width = state.width;
+      const height = state.height;
+      if (width < 2 || height < 2) return;
+
+      ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+      ctx.clearRect(0, 0, width, height);
+
+      const cx = width * 0.5;
+      const cy = height * 0.55;
+      const cardWidth = clamp(width * 0.2, 64, 128);
+      const cardHeight = cardWidth * 1.46;
+      const cycle = Math.floor(time / CYCLE);
+      const local = time - cycle * CYCLE;
+      if (cycle !== cycleIndex) {
+        cycleIndex = cycle;
+        prepareCycle(cycle);
+      }
+
+      const pulse = 0.5 + 0.5 * Math.sin(time * 0.7);
+      ctx.globalCompositeOperation = 'lighter';
+      drawStarfield(ctx, width, height, dust, time, Math.max(width, height) * 0.55);
+
+      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, width * 0.46);
+      ambient.addColorStop(0, figRgba(FIG_LAV, 0.1 + pulse * 0.04));
+      ambient.addColorStop(0.58, figRgba(FIG_LAV, 0.025));
+      ambient.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = ambient;
+      ctx.beginPath();
+      ctx.ellipse(cx, cy + height * 0.06, width * 0.46, height * 0.38, 0, 0, TAU);
+      ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
+
+      const exit = smooth((local - EXIT_START) / EXIT_TIME);
+      drawDeck(cardWidth, cardHeight, 1 - exit * 0.6);
+
+      for (let slot = 0; slot < 4; slot += 1) {
+        const start = DEAL_START + slot * DEAL_STEP;
+        const progress = clamp((local - start) / DEAL_TIME, 0, 1);
+        if (progress <= 0) continue;
+        const ease = easeOutCubic(progress);
+        const settle = Math.sin(progress * Math.PI) * (1 - progress) * 16;
+        const targetX = cx + layout[slot].dx * cardWidth;
+        const targetY = cy + layout[slot].dy * cardHeight;
+        const x = lerp(width * 0.86, targetX, ease);
+        const y = lerp(height * 0.9, targetY, ease) - settle;
+        const rotation = lerp(0.32, layout[slot].rot, ease);
+        const scale = lerp(0.62, 1, ease);
+        const alpha = Math.min(1, progress * 1.6) * (1 - exit);
+        if (alpha <= 0.01) continue;
+        drawCard(PLATFORMS[order[slot]], x, y + exit * 26, rotation, scale, alpha, cardWidth, cardHeight);
+      }
+
+      ctx.fillStyle = figRgba(FIG_WHITE, 0.32);
+      ctx.font = '600 7.5px ui-monospace, SFMono-Regular, Menlo, monospace';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('DEAL · СЛУЧАЙНЫЙ ПОРЯДОК', 24, height - 16);
+      ctx.textAlign = 'right';
+      ctx.fillText('WEB · iOS · ANDROID · TELEGRAM', width - 24, height - 16);
+    }
+
+    registerAnimation('fig26', host, draw, { staticTime: 5.8 });
+  }
+
   function initMarketsAnimation() {
     const host = $('[data-figure-body="09"]');
     if (!host) return;
@@ -4224,7 +6261,7 @@ import '../../pencil-embed.js';
     registerAnimation('fig09', host, draw, { staticTime: 2.4 });
   }
 
-  function initTeamScaleAnimation() {
+  function initTeamScaleAnimationLegacy() {
     const host = $('[data-figure-body="08"]');
     if (!host) return;
     const canvas = $('[data-team-scale]', host);
@@ -4369,6 +6406,239 @@ import '../../pencil-embed.js';
     registerAnimation('fig08', host, draw, { staticTime: 2.2 });
   }
 
+  function initTeamScaleAnimation() {
+    const host = $('[data-figure-body="08"]');
+    if (!host) return;
+    const canvas = $('[data-team-scale]', host);
+    if (!canvas) return;
+    const setup = setupCurrentCanvas(canvas);
+    if (!setup) return;
+    const { ctx, state, resize } = setup;
+
+    const random = mulberry32(0x08e17);
+    const dust = Array.from({ length: 30 }, () => ({
+      x: random() * 2 - 1,
+      y: random() * 2 - 1,
+      size: 0.5 + random(),
+      alpha: 0.06 + random() * 0.16,
+      phase: random() * TAU,
+    }));
+
+    const MEMES = [
+      { title: 'IT WORKS ON MY MACHINE', note: 'у меня работает', accent: FIG_CYAN, icon: 'laptop' },
+      { title: 'НЕ ТРОГАЙ', note: 'оно живое', accent: FIG_MAGENTA, icon: 'warning' },
+      { title: 'FIXED IN PROD', note: 'задеплоил в пятницу', accent: FIG_LAV, icon: 'rocket' },
+      { title: 'CSS ПОБЕДИЛ', note: 'центрирую div', accent: FIG_WHITE, icon: 'css' },
+      { title: 'NPM INSTALL', note: '1 пакет → 1 ГБ', accent: FIG_CYAN, icon: 'box' },
+      { title: 'FIGMA → ПРОД', note: 'почти так же', accent: FIG_MAGENTA, icon: 'split' },
+    ];
+
+    function roundedRect(x, y, width, height, radius) {
+      const r = Math.min(radius, width * 0.5, height * 0.5);
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + width - r, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+      ctx.lineTo(x + width, y + height - r);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+      ctx.lineTo(x + r, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+
+    function wrap(text, maxWidth) {
+      const words = text.split(' ');
+      const lines = [];
+      let line = '';
+      for (const word of words) {
+        const next = line ? `${line} ${word}` : word;
+        if (ctx.measureText(next).width > maxWidth && line) {
+          lines.push(line);
+          line = word;
+        } else {
+          line = next;
+        }
+      }
+      if (line) lines.push(line);
+      return lines;
+    }
+
+    function drawIcon(kind, x, y, size, accent, time) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      const s = size;
+      if (kind === 'laptop') {
+        ctx.strokeStyle = figRgba(accent, 0.85);
+        ctx.lineWidth = 1.4;
+        ctx.strokeRect(-s * 0.5, -s * 0.42, s, s * 0.62);
+        ctx.beginPath();
+        ctx.moveTo(-s * 0.64, s * 0.28);
+        ctx.lineTo(s * 0.64, s * 0.28);
+        ctx.stroke();
+        ctx.strokeStyle = figRgba(FIG_WHITE, 0.8);
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(-s * 0.18, -s * 0.02);
+        ctx.lineTo(-s * 0.02, s * 0.14);
+        ctx.lineTo(s * 0.3, -s * 0.22);
+        ctx.stroke();
+      } else if (kind === 'warning') {
+        ctx.fillStyle = figRgba(accent, 0.16);
+        ctx.strokeStyle = figRgba(accent, 0.85);
+        ctx.lineWidth = 1.4;
+        ctx.beginPath();
+        ctx.moveTo(0, -s * 0.56);
+        ctx.lineTo(s * 0.58, s * 0.42);
+        ctx.lineTo(-s * 0.58, s * 0.42);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.92);
+        ctx.font = `700 ${Math.round(s * 0.52)}px ui-monospace, monospace`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('!', 0, s * 0.05);
+      } else if (kind === 'rocket') {
+        ctx.fillStyle = figRgba(accent, 0.22);
+        ctx.strokeStyle = figRgba(accent, 0.86);
+        ctx.lineWidth = 1.4;
+        ctx.beginPath();
+        ctx.moveTo(0, -s * 0.58);
+        ctx.quadraticCurveTo(s * 0.4, -s * 0.1, s * 0.26, s * 0.4);
+        ctx.lineTo(-s * 0.26, s * 0.4);
+        ctx.quadraticCurveTo(-s * 0.4, -s * 0.1, 0, -s * 0.58);
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(0, -s * 0.1, s * 0.12, 0, TAU);
+        ctx.stroke();
+        ctx.strokeStyle = figRgba(FIG_CYAN, 0.7);
+        ctx.beginPath();
+        ctx.moveTo(-s * 0.12, s * 0.44);
+        ctx.lineTo(-s * 0.22, s * 0.62 + Math.sin(time * 8) * 2);
+        ctx.moveTo(s * 0.12, s * 0.44);
+        ctx.lineTo(s * 0.22, s * 0.62 + Math.cos(time * 8) * 2);
+        ctx.stroke();
+      } else if (kind === 'css') {
+        ctx.strokeStyle = figRgba(accent, 0.32);
+        ctx.lineWidth = 1;
+        ctx.strokeRect(-s * 0.56, -s * 0.48, s * 1.12, s * 0.98);
+        ctx.setLineDash([2, 3]);
+        ctx.beginPath();
+        ctx.moveTo(0, -s * 0.48);
+        ctx.lineTo(0, s * 0.5);
+        ctx.moveTo(-s * 0.56, 0);
+        ctx.lineTo(s * 0.56, 0);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = figRgba(FIG_MAGENTA, 0.7);
+        ctx.strokeStyle = figRgba(FIG_MAGENTA, 0.9);
+        ctx.fillRect(-s * 0.54, -s * 0.46, s * 0.22, s * 0.22);
+        ctx.strokeRect(-s * 0.54, -s * 0.46, s * 0.22, s * 0.22);
+      } else if (kind === 'box') {
+        ctx.strokeStyle = figRgba(accent, 0.88);
+        ctx.lineWidth = 1.3;
+        ctx.strokeRect(-s * 0.3, -s * 0.3, s * 0.6, s * 0.6);
+        ctx.beginPath();
+        ctx.moveTo(-s * 0.3, -s * 0.3);
+        ctx.lineTo(s * 0.56, -s * 0.58);
+        ctx.lineTo(s * 0.7, s * 0.18);
+        ctx.lineTo(s * 0.3, s * 0.3);
+        ctx.stroke();
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.8);
+        ctx.font = `${Math.round(s * 0.18)}px ui-monospace, monospace`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('node_modules', 0, s * 0.05);
+      } else {
+        ctx.strokeStyle = figRgba(accent, 0.7);
+        ctx.lineWidth = 1.2;
+        ctx.strokeRect(-s * 0.62, -s * 0.4, s * 0.58, s * 0.8);
+        ctx.strokeStyle = figRgba(FIG_WHITE, 0.32);
+        ctx.strokeRect(s * 0.04, -s * 0.4, s * 0.58, s * 0.8);
+        ctx.fillStyle = figRgba(accent, 0.28);
+        ctx.fillRect(-s * 0.54, -s * 0.28, s * 0.4, s * 0.16);
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.14);
+        ctx.fillRect(s * 0.12, -s * 0.08, s * 0.4, s * 0.16);
+      }
+      ctx.restore();
+    }
+
+    function draw(time) {
+      resize();
+      const width = state.width;
+      const height = state.height;
+      if (width < 2 || height < 2) return;
+
+      ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+      ctx.clearRect(0, 0, width, height);
+      ctx.globalCompositeOperation = 'lighter';
+      drawStarfield(ctx, width, height, dust, time, Math.max(width, height) * 0.55);
+      const ambient = ctx.createRadialGradient(width * 0.5, height * 0.5, 0, width * 0.5, height * 0.5, width * 0.6);
+      ambient.addColorStop(0, figRgba(FIG_LAV, 0.1));
+      ambient.addColorStop(0.6, figRgba(FIG_LAV, 0.025));
+      ambient.addColorStop(1, figRgba(FIG_LAV, 0));
+      ctx.fillStyle = ambient;
+      ctx.fillRect(0, 0, width, height);
+      ctx.globalCompositeOperation = 'source-over';
+
+      const compact = width < 620;
+      const cols = compact ? 2 : 3;
+      const rows = Math.ceil(MEMES.length / cols);
+      const pad = compact ? 14 : 24;
+      const gap = compact ? 10 : 16;
+      const cardWidth = (width - pad * 2 - gap * (cols - 1)) / cols;
+      const cardHeight = (height - pad * 2 - gap * (rows - 1)) / rows;
+      const titleSize = clamp(cardWidth * 0.07, 7, compact ? 9 : 11);
+      const noteSize = clamp(cardWidth * 0.052, 6, compact ? 7 : 8.5);
+
+      MEMES.forEach((item, index) => {
+        const col = index % cols;
+        const row = Math.floor(index / cols);
+        const x = pad + col * (cardWidth + gap);
+        const wave = Math.sin(time * 1.1 + index * 1.35);
+        const y = pad + row * (cardHeight + gap) + wave * 2;
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.fillStyle = 'rgba(10, 13, 22, 0.78)';
+        roundedRect(0, 0, cardWidth, cardHeight, compact ? 10 : 14);
+        ctx.fill();
+        ctx.strokeStyle = figRgba(item.accent, 0.24 + 0.12 * (0.5 + 0.5 * wave));
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        ctx.fillStyle = figRgba(item.accent, 0.62);
+        ctx.beginPath();
+        ctx.arc(12, 12, 2, 0, TAU);
+        ctx.fill();
+
+        drawIcon(item.icon, cardWidth * 0.5, cardHeight * 0.40, Math.min(cardWidth, cardHeight) * 0.42, item.accent, time + index);
+
+        ctx.font = `700 ${titleSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+        ctx.fillStyle = figRgba(item.accent, 0.92);
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        const titleLines = wrap(item.title, cardWidth - 18);
+        const lineHeight = titleSize * 1.28;
+        const titleTop = cardHeight * 0.7 - ((titleLines.length - 1) * lineHeight) / 2;
+        titleLines.forEach((line, lineIndex) => {
+          ctx.fillText(line, cardWidth * 0.5, titleTop + lineIndex * lineHeight);
+        });
+
+        ctx.font = `${noteSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.42);
+        ctx.fillText(item.note, cardWidth * 0.5, cardHeight - (compact ? 13 : 18));
+        ctx.restore();
+      });
+    }
+
+    registerAnimation('fig08', host, draw, { staticTime: 2.4 });
+  }
+
   function initCoreTeamsAnimation() {
     const host = $('[data-figure-body="07"]');
     if (!host) return;
@@ -4388,9 +6658,14 @@ import '../../pencil-embed.js';
     }));
 
     const teams = [
-      { label: 'PLATFORM', accent: FIG_LAV, phase: 0.3, speed: 0.2, rx: 1.0, ry: 0.52 },
       { label: 'WALLET', accent: FIG_CYAN, phase: 2.3, speed: -0.24, rx: 1.06, ry: 0.6 },
       { label: 'CHARTS', accent: FIG_MAGENTA, phase: 4.2, speed: 0.17, rx: 0.92, ry: 0.46 },
+    ];
+    const satellites = [
+      { label: 'STOCKS', accent: FIG_CYAN, phase: 0.6, speed: 0.13, rx: 1.22, ry: 0.82 },
+      { label: 'HELP CENTER', accent: FIG_LAV, phase: 2.4, speed: -0.11, rx: 1.3, ry: 0.92 },
+      { label: 'PROFILE', accent: FIG_MAGENTA, phase: 3.9, speed: 0.15, rx: 1.16, ry: 0.76 },
+      { label: 'TOURNAMENTS', accent: FIG_WHITE, phase: 5.3, speed: -0.09, rx: 1.34, ry: 0.88 },
     ];
 
     function roundedRect(x, y, width, height, radius) {
@@ -4503,48 +6778,54 @@ import '../../pencil-embed.js';
       ctx.fillText('AKMA', cx, cy - 5);
       ctx.fillStyle = figRgba(FIG_LAV, 0.66);
       ctx.font = `${compact ? 5.5 : 7}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-      ctx.fillText('CORE', cx, cy + 9);
+      ctx.fillText('PLATFORM', cx, cy + 9);
 
       ctx.globalCompositeOperation = 'source-over';
-      const barY = height * 0.88;
-      const barWidth = Math.min(width * 0.68, compact ? 230 : 340);
-      const barX = cx - barWidth * 0.5;
-      ctx.strokeStyle = figRgba(FIG_LAV, 0.24);
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(barX, barY);
-      ctx.lineTo(barX + barWidth, barY);
-      ctx.stroke();
-
-      const stages = ['FLUX', 'MOBX + TS'];
-      const stageGap = barWidth * 0.28;
-      const startX = cx - stageGap * 0.5;
-      stages.forEach((stage, index) => {
-        const x = startX + index * stageGap;
-        ctx.font = `${compact ? 5.5 : 8}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-        const widthValue = Math.max(compact ? 38 : 54, ctx.measureText(stage).width + (compact ? 12 : 18));
-        ctx.fillStyle = 'rgba(12, 15, 26, 0.92)';
-        roundedRect(x - widthValue * 0.5, barY - (compact ? 8 : 11), widthValue, compact ? 16 : 22, compact ? 8 : 11);
-        ctx.fill();
-        ctx.strokeStyle = figRgba(index === 0 ? FIG_WHITE : FIG_CYAN, 0.28);
+      for (const satellite of satellites) {
+        const angle = time * satellite.speed + satellite.phase;
+        const depth = 0.5 + 0.5 * Math.sin(angle);
+        const x = clamp(cx + Math.cos(angle) * radius * satellite.rx, 52, width - 52);
+        const y = cy + Math.sin(angle) * radius * satellite.ry;
+        const dx = x - cx;
+        const dy = y - cy;
+        const length = Math.max(1, Math.hypot(dx, dy));
+        ctx.strokeStyle = figRgba(satellite.accent, 0.14);
+        ctx.lineWidth = 1;
+        ctx.setLineDash([3, 5]);
+        ctx.beginPath();
+        ctx.moveTo(cx + (dx / length) * radius * 0.3, cy + (dy / length) * radius * 0.3);
+        ctx.lineTo(x, y);
         ctx.stroke();
-        ctx.fillStyle = figRgba(index === 0 ? FIG_WHITE : FIG_CYAN, 0.8);
+        ctx.setLineDash([]);
+
+        const travel = ((time * 0.24 + satellite.phase * 0.11) % 1 + 1) % 1;
+        ctx.fillStyle = figRgba(satellite.accent, 0.72);
+        ctx.beginPath();
+        ctx.arc(cx + dx * travel, cy + dy * travel, 1.5, 0, TAU);
+        ctx.fill();
+
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.font = `${compact ? 5.5 : 7.5}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+        const textWidth = ctx.measureText(satellite.label).width;
+        const pillWidth = textWidth + (compact ? 20 : 28);
+        const pillHeight = compact ? 14 : 18;
+        ctx.globalAlpha = 0.55 + depth * 0.45;
+        ctx.fillStyle = 'rgba(12, 15, 26, 0.9)';
+        roundedRect(-pillWidth * 0.5, -pillHeight * 0.5, pillWidth, pillHeight, pillHeight * 0.5);
+        ctx.fill();
+        ctx.strokeStyle = figRgba(satellite.accent, 0.32 + depth * 0.3);
+        ctx.stroke();
+        ctx.fillStyle = figRgba(satellite.accent, 0.9);
+        ctx.beginPath();
+        ctx.arc(-pillWidth * 0.5 + (compact ? 7 : 9), 0, compact ? 1.6 : 2, 0, TAU);
+        ctx.fill();
+        ctx.fillStyle = figRgba(FIG_WHITE, 0.76 + depth * 0.2);
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText(stage, x, barY);
-      });
-
-      const arrowProgress = ((time * 0.35) % 1 + 1) % 1;
-      const arrowX = startX + (stageGap * 0.55) * arrowProgress;
-      ctx.strokeStyle = figRgba(FIG_CYAN, 0.45);
-      ctx.beginPath();
-      ctx.moveTo(startX + 28, barY);
-      ctx.lineTo(startX + stageGap - 28, barY);
-      ctx.stroke();
-      ctx.fillStyle = figRgba(FIG_CYAN, 0.8);
-      ctx.beginPath();
-      ctx.arc(arrowX, barY, 2.2 + pulse * 1.2, 0, TAU);
-      ctx.fill();
+        ctx.fillText(satellite.label, compact ? 3 : 4, 0.5);
+        ctx.restore();
+      }
     }
 
     registerAnimation('fig07', host, draw, { staticTime: 2.6 });
@@ -5284,7 +7565,370 @@ import '../../pencil-embed.js';
     registerAnimation('fig06', body, draw, { staticTime: 0 });
   }
 
+  /* --- 10–18, 27–29 · Ранние главы --------------------------------------- */
+
+  function initJqueryFigureAnimation() {
+    const host = $('[data-figure-body="10"]');
+    if (!host) return;
+    const upGlow = $('#fig10-up .fig10-btn-glow', host);
+    const downGlow = $('#fig10-down .fig10-btn-glow', host);
+    const dot = $('#fig10-price-dot', host);
+    const cursor = $('#fig10-cursor', host);
+    const candles = $$('.fig10-candle', host);
+    const candlesGroup = $('#fig10-candles', host);
+    const scrollCycle = 18 * 17.2;
+
+    function draw(time) {
+      const pulse = 0.5 + 0.5 * Math.sin(time * 2.6);
+      if (upGlow) upGlow.setAttribute('opacity', (0.08 + pulse * 0.26).toFixed(3));
+      if (downGlow) downGlow.setAttribute('opacity', (0.08 + (1 - pulse) * 0.26).toFixed(3));
+      if (candlesGroup) {
+        const offset = (time * 26) % scrollCycle;
+        candlesGroup.setAttribute('transform', `translate(${(-offset).toFixed(2)} 0)`);
+      }
+      if (dot) {
+        const wobble = Math.sin(time * 1.6);
+        dot.setAttribute('cy', (168 + wobble * 18).toFixed(2));
+        dot.setAttribute('cx', (382 + Math.sin(time * 0.9) * 4).toFixed(2));
+      }
+      if (cursor) cursor.setAttribute('opacity', Math.sin(time * 5.6) > 0 ? '1' : '0.12');
+      candles.forEach((candle, index) => {
+        candle.setAttribute('opacity', (0.74 + 0.26 * Math.sin(time * 1.4 + index * 0.42)).toFixed(3));
+      });
+    }
+
+    registerAnimation('fig10', host, draw, { staticTime: 1.7 });
+  }
+
+  function initLandfillFigureAnimation() {
+    const host = $('[data-figure-body="11"]');
+    if (!host) return;
+    const react = $('#fig11-react', host);
+    const webpack = $('#fig11-webpack', host);
+    const radiance = $('#fig11-radiance', host);
+    const reactHalo = $('#fig11-react-halo', host);
+    const webpackHalo = $('#fig11-webpack-halo', host);
+    const reactPulse = $('#fig11-react-pulse', host);
+    const webpackPulse = $('#fig11-webpack-pulse', host);
+    const smell = $('#fig11-smell', host);
+    const trash = $('#fig11-trash', host);
+
+    function draw(time) {
+      const pulse = 0.5 + 0.5 * Math.sin(time * 1.7);
+      if (react) {
+        react.setAttribute('opacity', (0.72 + pulse * 0.28).toFixed(3));
+        react.setAttribute('transform', `rotate(${(Math.sin(time * 0.6) * 3).toFixed(2)})`);
+      }
+      if (webpack) {
+        webpack.setAttribute('opacity', (0.7 + (1 - pulse) * 0.3).toFixed(3));
+        webpack.setAttribute('transform', `rotate(${(-Math.sin(time * 0.55) * 3).toFixed(2)})`);
+      }
+      if (radiance) radiance.setAttribute('opacity', (0.42 + pulse * 0.5).toFixed(3));
+      if (reactHalo) {
+        const wave = 0.5 + 0.5 * Math.sin(time * 1.35);
+        reactHalo.setAttribute('opacity', (0.34 + wave * 0.42).toFixed(3));
+        reactHalo.setAttribute('r', (78 + wave * 14).toFixed(2));
+      }
+      if (webpackHalo) {
+        const wave = 0.5 + 0.5 * Math.sin(time * 1.15 + 1.8);
+        webpackHalo.setAttribute('opacity', (0.28 + wave * 0.38).toFixed(3));
+        webpackHalo.setAttribute('r', (66 + wave * 12).toFixed(2));
+      }
+      if (reactPulse) {
+        const wave = ((time * 0.42) % 1 + 1) % 1;
+        reactPulse.setAttribute('r', (44 + wave * 62).toFixed(2));
+        reactPulse.setAttribute('opacity', ((1 - wave) * 0.55).toFixed(3));
+      }
+      if (webpackPulse) {
+        const wave = ((time * 0.42 + 0.5) % 1 + 1) % 1;
+        webpackPulse.setAttribute('r', (38 + wave * 54).toFixed(2));
+        webpackPulse.setAttribute('opacity', ((1 - wave) * 0.5).toFixed(3));
+      }
+      if (smell) {
+        smell.setAttribute('transform', `translate(0 ${(Math.sin(time * 1.35) * 4).toFixed(2)})`);
+        smell.setAttribute('opacity', (0.4 + 0.6 * (0.5 + 0.5 * Math.sin(time * 1.1))).toFixed(3));
+      }
+      if (trash) trash.setAttribute('transform', `translate(0 ${(Math.sin(time * 0.8) * 1.2).toFixed(2)})`);
+    }
+
+    registerAnimation('fig11', host, draw, { staticTime: 1.9 });
+  }
+
+  function initClientFigureAnimation() {
+    const host = $('[data-figure-body="12"]');
+    if (!host) return;
+    const flows = $$('.fig12-flow', host);
+    const packets = $$('.fig12-packet', host);
+    const ring = $('#fig12-ring', host);
+    const racks = $$('.fig12-rack', host);
+    const routes = [
+      { x1: 190, x2: 264, y: 190 },
+      { x1: 254, x2: 190, y: 222 },
+      { x1: 378, x2: 454, y: 190 },
+      { x1: 454, x2: 378, y: 222 },
+    ];
+
+    function draw(time) {
+      flows.forEach((flow, index) => {
+        flow.setAttribute('stroke-dashoffset', (-(time * 26 + index * 8)).toFixed(2));
+      });
+      packets.forEach((packet, index) => {
+        const route = routes[index % routes.length];
+        const phase = ((time * 0.55 + index * 0.24) % 1 + 1) % 1;
+        packet.setAttribute('cx', (route.x1 + (route.x2 - route.x1) * phase).toFixed(2));
+        packet.setAttribute('cy', String(route.y));
+        packet.setAttribute('opacity', (0.25 + Math.sin(phase * Math.PI) * 0.75).toFixed(3));
+      });
+      if (ring) {
+        ring.setAttribute('stroke-dashoffset', (-time * 14).toFixed(2));
+        ring.setAttribute('opacity', (0.6 + 0.4 * Math.sin(time * 2.2)).toFixed(3));
+      }
+      racks.forEach((rack, index) => {
+        rack.setAttribute('opacity', (0.45 + 0.55 * (0.5 + 0.5 * Math.sin(time * 2.4 + index * 1.6))).toFixed(3));
+      });
+    }
+
+    registerAnimation('fig12', host, draw, { staticTime: 1.8 });
+  }
+
+  function initCloudFigureAnimation() {
+    const host = $('[data-figure-body="13"]');
+    if (!host) return;
+    const cloud = $('#fig13-cloud-group', host);
+    const ring = $('#fig13-ring', host);
+    const apps = $$('.fig13-app', host);
+    const arrow = $('#fig13-arrow', host);
+    const pulses = $$('.fig13-pulse', host);
+    const bases = apps.map((app) => {
+      const match = (app.getAttribute('transform') || '').match(/translate\(([-\d.]+) ([-\d.]+)\)/);
+      return match ? { x: Number(match[1]), y: Number(match[2]) } : { x: 320, y: 225 };
+    });
+
+    function draw(time) {
+      if (cloud) cloud.setAttribute('transform', `translate(0 ${(Math.sin(time * 1.2) * 3.6).toFixed(2)})`);
+      if (ring) ring.setAttribute('stroke-dashoffset', (-time * 12).toFixed(2));
+      apps.forEach((app, index) => {
+        const base = bases[index];
+        app.setAttribute('transform', `translate(${base.x} ${(base.y + Math.sin(time * 1.5 + index * 1.3) * 3).toFixed(2)})`);
+      });
+      if (arrow) {
+        const phase = (time * 0.55) % 1;
+        arrow.setAttribute('transform', `translate(0 ${(-phase * 26).toFixed(2)})`);
+        arrow.setAttribute('opacity', (0.3 + Math.sin(phase * Math.PI) * 0.7).toFixed(3));
+      }
+      pulses.forEach((pulse, index) => {
+        const phase = ((time * 0.34 + index * 0.26) % 1 + 1) % 1;
+        pulse.setAttribute('cx', (320 + Math.sin(index * 2.1) * 26).toFixed(2));
+        pulse.setAttribute('cy', (356 - phase * 128).toFixed(2));
+        pulse.setAttribute('opacity', (Math.sin(phase * Math.PI) * 0.55).toFixed(3));
+      });
+    }
+
+    registerAnimation('fig13', host, draw, { staticTime: 1.6 });
+  }
+
+  function initSkeletonFigureAnimation() {
+    const host = $('[data-figure-body="14"]');
+    if (!host) return;
+    const wires = $$('.fig14-wire', host);
+    const nodes = $$('.fig14-node', host);
+    const bases = nodes.map((node) => {
+      const match = (node.getAttribute('transform') || '').match(/translate\(([-\d.]+) ([-\d.]+)\)/);
+      return match ? { x: Number(match[1]), y: Number(match[2]) } : { x: 0, y: 0 };
+    });
+
+    function draw(time) {
+      wires.forEach((wire, index) => {
+        wire.setAttribute('stroke-dashoffset', (-(time * 18 + index * 5)).toFixed(2));
+      });
+      nodes.forEach((node, index) => {
+        const base = bases[index];
+        node.setAttribute('transform', `translate(${base.x} ${(base.y + Math.sin(time * 1.4 + index * 1.1) * 2.4).toFixed(2)})`);
+      });
+    }
+
+    registerAnimation('fig14', host, draw, { staticTime: 1.5 });
+  }
+
+  function initPluginsFigureAnimation() {
+    const host = $('[data-figure-body="15"]');
+    if (!host) return;
+    const flows = $$('.fig15-flow', host);
+    const plugins = $$('.fig15-plugin', host);
+    const packets = $$('.fig15-packet', host);
+    const cms = $('#fig15-cms', host);
+
+    function draw(time) {
+      flows.forEach((flow, index) => {
+        flow.setAttribute('stroke-dashoffset', (-(time * 24 + index * 9)).toFixed(2));
+      });
+      plugins.forEach((plugin, index) => {
+        plugin.setAttribute('opacity', (0.45 + 0.55 * (0.5 + 0.5 * Math.sin(time * 2 + index * 1.4))).toFixed(3));
+      });
+      packets.forEach((packet, index) => {
+        const phase = ((time * 0.5 + index * 0.5) % 1 + 1) % 1;
+        const from = index === 0 ? 172 : 398;
+        const to = index === 0 ? 232 : 470;
+        packet.setAttribute('cx', (from + (to - from) * phase).toFixed(2));
+        packet.setAttribute('cy', '196');
+        packet.setAttribute('opacity', (0.2 + Math.sin(phase * Math.PI) * 0.8).toFixed(3));
+      });
+      if (cms) cms.setAttribute('opacity', (0.72 + 0.28 * (0.5 + 0.5 * Math.sin(time * 1.8))).toFixed(3));
+    }
+
+    registerAnimation('fig15', host, draw, { staticTime: 1.7 });
+  }
+
+  function initSixFigureAnimation() {
+    const host = $('[data-figure-body="16"]');
+    if (!host) return;
+    const members = $$('.fig16-member', host);
+
+    function draw(time) {
+      members.forEach((member, index) => {
+        member.setAttribute('transform', `translate(0 ${(Math.sin(time * 1.4 + index * 0.9) * 3).toFixed(2)})`);
+        member.setAttribute('opacity', (0.6 + 0.4 * (0.5 + 0.5 * Math.sin(time * 1.8 + index * 0.7))).toFixed(3));
+      });
+    }
+
+    registerAnimation('fig16', host, draw, { staticTime: 1.4 });
+  }
+
+  function initConnectivityFigureAnimation() {
+    const host = $('[data-figure-body="17"]');
+    if (!host) return;
+    const waves = $$('.fig17-wave', host);
+    const dots = $$('.fig17-dot', host);
+    const link = $('#fig17-link', host);
+    const card = $('#fig17-card', host);
+    const rings = $$('.fig17-ring', host);
+
+    function draw(time) {
+      waves.forEach((wave, index) => {
+        wave.setAttribute('opacity', (0.18 + 0.82 * (0.5 + 0.5 * Math.sin(time * 2.4 - index * 0.8))).toFixed(3));
+      });
+      dots.forEach((dot, index) => {
+        dot.setAttribute('opacity', (0.2 + 0.8 * (0.5 + 0.5 * Math.sin(time * 3 + index * 1.4))).toFixed(3));
+      });
+      rings.forEach((ring, index) => {
+        ring.setAttribute('stroke-dashoffset', (-time * (10 + index * 6)).toFixed(2));
+      });
+      if (link) link.setAttribute('stroke-dashoffset', (-time * 20).toFixed(2));
+      if (card) card.setAttribute('transform', `translate(452 ${(210 + Math.sin(time * 1.2) * 2.4).toFixed(2)})`);
+    }
+
+    registerAnimation('fig17', host, draw, { staticTime: 1.5 });
+  }
+
+  function initGlobeFigureAnimation() {
+    const host = $('[data-figure-body="18"]');
+    if (!host) return;
+    const meridians = $('#fig18-meridians', host);
+    const orbit = $('#fig18-orbit', host);
+    const routes = $$('.fig18-route', host);
+    const points = $$('.fig18-point', host);
+    const latitudes = $$('.fig18-lat', host);
+
+    function draw(time) {
+      if (meridians) meridians.setAttribute('transform', `rotate(${(time * 5).toFixed(2)} 320 205)`);
+      if (orbit) orbit.setAttribute('stroke-dashoffset', (-time * 10).toFixed(2));
+      routes.forEach((route, index) => {
+        route.setAttribute('stroke-dashoffset', (-(time * 22 + index * 7)).toFixed(2));
+      });
+      points.forEach((point, index) => {
+        point.setAttribute('opacity', (0.55 + 0.45 * (0.5 + 0.5 * Math.sin(time * 2.2 + index * 1.2))).toFixed(3));
+      });
+      latitudes.forEach((lat, index) => {
+        lat.setAttribute('stroke-dashoffset', (-time * (8 + index * 5)).toFixed(2));
+      });
+    }
+
+    registerAnimation('fig18', host, draw, { staticTime: 1.6 });
+  }
+
+  function initEditorFigureAnimation() {
+    const host = $('[data-figure-body="27"]');
+    if (!host) return;
+    const cursor = $('#fig27-cursor', host);
+    const lines = $$('.fig27-line', host);
+    const flows = $$('.fig27-flow', host);
+    const exports = $$('.fig27-export', host);
+
+    function draw(time) {
+      if (cursor) {
+        const position = (Math.sin(time * 0.8) * 0.5 + 0.5) * 96 - 8;
+        cursor.setAttribute('x', position.toFixed(2));
+        cursor.setAttribute('opacity', Math.sin(time * 5.4) > 0 ? '1' : '0.1');
+      }
+      lines.forEach((line, index) => {
+        line.setAttribute('opacity', (0.42 + 0.58 * (0.5 + 0.5 * Math.sin(time * 1.6 - index * 0.55))).toFixed(3));
+      });
+      flows.forEach((flow, index) => {
+        flow.setAttribute('stroke-dashoffset', (-(time * 26 + index * 8)).toFixed(2));
+      });
+      exports.forEach((item, index) => {
+        item.setAttribute('opacity', (0.55 + 0.45 * (0.5 + 0.5 * Math.sin(time * 1.9 + index * 1.3))).toFixed(3));
+      });
+    }
+
+    registerAnimation('fig27', host, draw, { staticTime: 1.4 });
+  }
+
+  function initCatalogFigureAnimation() {
+    const host = $('[data-figure-body="28"]');
+    if (!host) return;
+    const cards = $$('.fig28-card', host);
+    const pipes = $$('.fig28-pipe', host);
+    const flow = $('.fig28-flow', host);
+    const bases = cards.map((card) => {
+      const match = (card.getAttribute('transform') || '').match(/translate\(([-\d.]+) ([-\d.]+)\)/);
+      return match ? { x: Number(match[1]), y: Number(match[2]) } : { x: 0, y: 0 };
+    });
+
+    function draw(time) {
+      cards.forEach((card, index) => {
+        const base = bases[index];
+        const wave = Math.sin(time * 1.5 - index * 0.65);
+        card.setAttribute('transform', `translate(${base.x} ${(base.y + wave * 2.8).toFixed(2)})`);
+        card.setAttribute('opacity', (0.5 + 0.5 * (0.5 + 0.5 * wave)).toFixed(3));
+      });
+      pipes.forEach((pipe, index) => {
+        pipe.setAttribute('opacity', (0.45 + 0.55 * (0.5 + 0.5 * Math.sin(time * 2 + index * 1.1))).toFixed(3));
+      });
+      if (flow) flow.setAttribute('stroke-dashoffset', (-time * 18).toFixed(2));
+    }
+
+    registerAnimation('fig28', host, draw, { staticTime: 1.5 });
+  }
+
+  function initComponentsFigureAnimation() {
+    const host = $('[data-figure-body="29"]');
+    if (!host) return;
+    const windowEl = $('#fig29-window', host);
+    const swatches = $$('.fig29-swatch', host);
+    const button = $('.fig29-button', host);
+    const card = $('.fig29-card', host);
+    const badges = $$('.fig29-badge', host);
+
+    function draw(time) {
+      if (windowEl) windowEl.setAttribute('transform', `translate(320 ${(190 + Math.sin(time * 1.1) * 2.6).toFixed(2)})`);
+      swatches.forEach((swatch, index) => {
+        swatch.setAttribute('opacity', (0.35 + 0.65 * (0.5 + 0.5 * Math.sin(time * 2.2 + index * 1.4))).toFixed(3));
+      });
+      if (button) button.setAttribute('opacity', (0.7 + 0.3 * (0.5 + 0.5 * Math.sin(time * 2.6))).toFixed(3));
+      if (card) card.setAttribute('opacity', (0.6 + 0.4 * (0.5 + 0.5 * Math.sin(time * 1.7 + 1))).toFixed(3));
+      badges.forEach((badge, index) => {
+        badge.setAttribute('opacity', (0.55 + 0.45 * (0.5 + 0.5 * Math.sin(time * 1.8 + index * 0.9))).toFixed(3));
+      });
+    }
+
+    registerAnimation('fig29', host, draw, { staticTime: 1.5 });
+  }
+
   function initAnimations() {
+    renderCoverFigures();
+    initHelpTransistorAnimation();
+    initCoverStartAnimation();
     initSkillsAnimation();
     initBrainAnimation();
     initConveyorAnimation();
@@ -5295,6 +7939,18 @@ import '../../pencil-embed.js';
     initCoreTeamsAnimation();
     initTeamScaleAnimation();
     initMarketsAnimation();
+    initJqueryFigureAnimation();
+    initLandfillFigureAnimation();
+    initClientFigureAnimation();
+    initCloudFigureAnimation();
+    initSkeletonFigureAnimation();
+    initPluginsFigureAnimation();
+    initSixFigureAnimation();
+    initConnectivityFigureAnimation();
+    initGlobeFigureAnimation();
+    initEditorFigureAnimation();
+    initCatalogFigureAnimation();
+    initComponentsFigureAnimation();
     initSupportAnimation();
     initMediaAnimation();
     initLanguageAnimation();
@@ -5626,7 +8282,7 @@ import '../../pencil-embed.js';
     let mode = 'vertical';
     let counter = '↕';
     let counterLabel = 'Вертикальная позиция';
-    let activeYear = null;
+    let activeYear = entry.focusYear ?? null;
 
     if (entry.kind === 'finale') {
       mode = 'final';
@@ -5637,35 +8293,40 @@ import '../../pencil-embed.js';
       const total = entry.chapter.episodes.length;
       counter = `${pad(episodeIndex + 1)} / ${pad(total)}`;
       counterLabel = `Эпизод ${episodeIndex + 1} из ${total}`;
-      activeYear = entry.chapter.id;
     }
 
-    const modeText = $('#modeText');
     if (hudCache.mode !== mode) {
       hudCache.mode = mode;
-      modeText.textContent =
-        mode === 'horizontal' ? 'Эпизоды по горизонтали' : mode === 'final' ? 'Конец маршрута' : 'Вертикальная орбита';
       body.classList.toggle('is-horizontal', mode === 'horizontal');
       body.classList.toggle('is-final', mode === 'final');
     }
 
     const counterEl = $('#counter');
-    if (hudCache.counter !== counter) {
-      hudCache.counter = counter;
-      counterEl.textContent = counter;
-      counterEl.classList.toggle('is-vertical', counter === '↕');
-    }
-    if (hudCache.counterLabel !== counterLabel) {
-      hudCache.counterLabel = counterLabel;
-      counterEl.setAttribute('aria-label', counterLabel);
+    if (counterEl) {
+      if (hudCache.counter !== counter) {
+        hudCache.counter = counter;
+        counterEl.textContent = counter;
+        counterEl.classList.toggle('is-vertical', counter === '↕');
+      }
+      if (hudCache.counterLabel !== counterLabel) {
+        hudCache.counterLabel = counterLabel;
+        counterEl.setAttribute('aria-label', counterLabel);
+      }
     }
 
     if (hudCache.year !== activeYear) {
       hudCache.year = activeYear;
+      let activeButton = null;
       $$('.year-btn', yearNav).forEach((button) => {
-        if (button.dataset.year === activeYear) button.setAttribute('aria-current', 'true');
-        else button.removeAttribute('aria-current');
+        if (button.dataset.year === activeYear) {
+          button.setAttribute('aria-current', 'true');
+          activeButton = button;
+        } else {
+          button.removeAttribute('aria-current');
+        }
       });
+      if (activeButton) centerYearButton(activeButton);
+      updateYearScrollButtons();
     }
 
     $('#progressFill').style.width = `${(clamp(t, 0, ROUTE_END) / ROUTE_END) * 100}%`;
@@ -5707,6 +8368,7 @@ import '../../pencil-embed.js';
     const previousActive = scene.activeIndex;
     const previousEpisode = scene.activeEpisode;
     scene.t = t;
+    if (!startBrake.armed && t < START_BRAKE_T - 0.9) startBrake.armed = true;
     const row = rowAt(t);
     scene.row = row;
     const activeIndex = clamp(Math.round(row), 0, ENTRIES.length - 1);
@@ -5781,7 +8443,7 @@ import '../../pencil-embed.js';
     if (reduceMotion && (force || previousActive !== activeIndex || previousEpisode !== activeEpisode)) {
       const activeAnim =
         activeEntry.kind === 'cover'
-          ? animations.get('skills')
+          ? animations.get(activeEntry.id === 'help' ? 'help' : 'skills')
           : activeEntry.kind === 'chapter'
             ? (() => {
                 const figure = activeEntry.chapter.episodes[activeEpisode]?.figure;
@@ -6023,8 +8685,21 @@ import '../../pencil-embed.js';
   });
 
   $('#finalHomeBtn').addEventListener('click', () => jumpToT(0));
-  $('#brandBtn').addEventListener('click', () => jumpToT(0));
   $('#homeBtn').addEventListener('click', () => jumpToT(0));
+
+  const profileDialog = $('#profileDialog');
+  const profileButton = $('#brandBtn');
+  if (profileDialog && profileButton && typeof profileDialog.showModal === 'function') {
+    profileButton.addEventListener('click', () => {
+      jumpToT(0);
+      if (!profileDialog.open) profileDialog.showModal();
+    });
+    const profileClose = $('#profileClose', profileDialog);
+    if (profileClose) profileClose.addEventListener('click', () => profileDialog.close());
+    profileDialog.addEventListener('click', (event) => {
+      if (event.target === profileDialog) profileDialog.close();
+    });
+  }
   $('#prevBtn').addEventListener('click', goPrevious);
   $('#nextBtn').addEventListener('click', goNext);
 
@@ -6041,6 +8716,48 @@ import '../../pencil-embed.js';
     return value;
   }
 
+  /*
+   * Мягкий тормоз на слайде «Начать путешествие»: докрутившийся до него жест
+   * останавливает барабан ровно на слайде, а следующий жест снова свободно
+   * прокручивает маршрут.
+   */
+  const startCoverEntry = ENTRIES.find((entry) => entry.kind === 'cover' && entry.id === 'start');
+  const START_BRAKE_T = startCoverEntry ? startCoverEntry.center : 0;
+  const startBrake = {
+    armed: true,
+    holdUntil: 0,
+    lastWheelAt: 0,
+  };
+
+  function onStartCover() {
+    return Math.abs(window.scrollY / scene.U - START_BRAKE_T) < 0.004;
+  }
+
+  function brakeAtStartCover(targetT) {
+    if (!startBrake.armed) return false;
+    const currentT = window.scrollY / scene.U;
+    if (currentT >= START_BRAKE_T || targetT < START_BRAKE_T) return false;
+    cancelScrollAnimation();
+    window.scrollTo(0, START_BRAKE_T * scene.U);
+    renderScene(true);
+    startBrake.armed = false;
+    const now = performance.now();
+    startBrake.lastWheelAt = now;
+    startBrake.holdUntil = now + 220;
+    return true;
+  }
+
+  function startBrakeBlocksWheel(dy) {
+    if (startBrake.armed || dy <= 0 || !onStartCover()) return false;
+    const now = performance.now();
+    if (now < startBrake.holdUntil || now - startBrake.lastWheelAt < 140) {
+      startBrake.lastWheelAt = now;
+      startBrake.holdUntil = Math.max(startBrake.holdUntil, now + 220);
+      return true;
+    }
+    return false;
+  }
+
   window.addEventListener(
     'wheel',
     (event) => {
@@ -6048,16 +8765,36 @@ import '../../pencil-embed.js';
       if (event.ctrlKey || event.metaKey) return;
       const dx = normalizedDelta(event.deltaX, event.deltaMode);
       const dy = normalizedDelta(event.deltaY, event.deltaMode);
-      if (Math.abs(dx) <= 1.15 * Math.abs(dy) || Math.abs(dx) < 0.5) return;
+      const horizontal = Math.abs(dx) > 1.15 * Math.abs(dy) && Math.abs(dx) >= 0.5;
+
+      if (!horizontal) {
+        if (startBrakeBlocksWheel(dy)) {
+          event.preventDefault();
+          return;
+        }
+        if (dy > 0 && brakeAtStartCover((window.scrollY + dy) / scene.U)) {
+          event.preventDefault();
+          return;
+        }
+        cancelScrollAnimation();
+        return;
+      }
+
+      const routeDelta = dx * ((1.05 * scene.U) / Math.max(1, scene.W));
+      if (startBrakeBlocksWheel(routeDelta)) {
+        event.preventDefault();
+        return;
+      }
+      if (routeDelta > 0 && brakeAtStartCover((window.scrollY + routeDelta) / scene.U)) {
+        event.preventDefault();
+        return;
+      }
       event.preventDefault();
       cancelScrollAnimation();
-      const routeDelta = dx * ((1.05 * scene.U) / Math.max(1, scene.W));
       window.scrollBy(0, routeDelta);
     },
     { passive: false }
   );
-
-  window.addEventListener('wheel', () => cancelScrollAnimation(), { passive: true });
 
   let touchState = null;
 
@@ -6112,7 +8849,20 @@ import '../../pencil-embed.js';
       const deltaX = touch.clientX - touchState.lastX;
       touchState.lastX = touch.clientX;
       touchState.lastY = touch.clientY;
-      if (deltaX) window.scrollBy(0, -deltaX * ((1.05 * scene.U) / Math.max(1, scene.W)));
+      if (deltaX) {
+        const routeDelta = -deltaX * ((1.05 * scene.U) / Math.max(1, scene.W));
+        if (routeDelta > 0) {
+          if (startBrakeBlocksWheel(routeDelta)) {
+            touchState.canceled = true;
+            return;
+          }
+          if (brakeAtStartCover((window.scrollY + routeDelta) / scene.U)) {
+            touchState.canceled = true;
+            return;
+          }
+        }
+        window.scrollBy(0, routeDelta);
+      }
     },
     { passive: false }
   );
@@ -6180,6 +8930,9 @@ import '../../pencil-embed.js';
       window.scrollTo(0, targetY);
       sky.resize(true);
       renderScene(true);
+      updateYearScrollButtons();
+      const activeYearButton = $('.year-btn[aria-current="true"]', yearNav);
+      if (activeYearButton) centerYearButton(activeYearButton, false);
       if (reduceMotion) {
         drawStaticAnimations();
         sky.draw(scene.t, performance.now(), true, true);
@@ -6217,7 +8970,7 @@ import '../../pencil-embed.js';
   let lastFrame = 0;
 
   function animationHostIsActive(anim) {
-    if (anim.id === 'skills') {
+    if (anim.id === 'skills' || anim.id === 'help' || anim.id === 'coverStart') {
       const stop = anim.host.closest('.stop');
       return Boolean(stop && stop.classList.contains('is-active'));
     }

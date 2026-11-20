@@ -3,3 +3,7 @@
 /.astro/
 /.review/comments.json
 /.review/
+.env
+.env.*.local
+.dev.vars
+.dev.vars.*

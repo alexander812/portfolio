@@ -16,14 +16,14 @@ check(await p.evaluate(()=>!document.querySelector('.skills-card .pause-btn')),'
 const scrollDuringPause=await p.evaluate(()=>scrollY);
 check(scrollDuringPause===0,'пауза не двигает маршрут',String(scrollDuringPause));
 // start button
-await p.evaluate(()=>window.scrollTo(0,0)); await p.waitForTimeout(100);
+await p.evaluate(()=>{const e=window.__orbits.getEntries()[2];window.scrollTo(0,e.center*window.__orbits.getState().U)}); await p.waitForTimeout(150);
 await p.click('#startBtn'); await p.waitForTimeout(1400);
 const startT=await p.evaluate(()=>window.__orbits.getState().t);
-check(Math.abs(startT-0.98)<0.02,'кнопка «Начать путешествие» ведёт к первому эпизоду',String(startT));
+check(Math.abs(startT-2.94)<0.02,'кнопка «Начать путешествие» ведёт к первому эпизоду',String(startT));
 // year nav 2006
 await p.click('[data-year="2006"]'); await p.waitForTimeout(250);
 const yearState=await p.evaluate(()=>{const s=window.__orbits.getState();return {t:s.t,c:s.counter,m:s.mode,y:s.activeYear}});
-check(Math.abs(yearState.t-46.13)<0.02 && yearState.c==='01 / 02' && yearState.y==='2006','навигация по годам ведёт к 2006 и /02',JSON.stringify(yearState));
+check(Math.abs(yearState.t-47.53)<0.02 && yearState.c==='01 / 04' && yearState.y==='2006','навигация по годам ведёт к 2006 и /04',JSON.stringify(yearState));
 // modifier arrows ignored
 const beforeMod=await p.evaluate(()=>window.__orbits.getState().t);
 await p.keyboard.down('Shift'); await p.keyboard.press('ArrowRight'); await p.keyboard.up('Shift'); await p.waitForTimeout(250);
@@ -65,7 +65,7 @@ const touch=await p.evaluate(async()=>{
 });
 check(touch.after>0,'горизонтальный touch-свайп продвигает маршрут',JSON.stringify(touch));
 // final home
-await p.evaluate(()=>window.__orbits.jumpToT(49.14)); await p.waitForTimeout(200);
+await p.evaluate(()=>window.__orbits.jumpToT(53.62)); await p.waitForTimeout(200);
 await p.click('#finalHomeBtn'); await p.waitForTimeout(200);
 const homeT=await p.evaluate(()=>window.__orbits.getState().t);
 check(homeT===0,'«К началу атласа» возвращает на обложку',String(homeT));

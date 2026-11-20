@@ -1,13 +1,13 @@
 <footer class="hud-bottom" id="hudBottom">
-  <div class="status-block">
-    <span class="mode-line">
-      <span class="mode-orb" id="modeOrb" aria-hidden="true"></span>
-      <span class="mode-text" id="modeText">Вертикальная орбита</span>
-    </span>
-    <output class="counter" id="counter" aria-label="Вертикальная позиция">↕</output>
+  <div class="year-nav-wrap">
+    <button class="year-scroll" id="yearPrev" type="button" aria-label="Предыдущие годы" title="Предыдущие годы">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.4 3.6 5.6 8l4.8 4.4" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </button>
+    <nav class="year-nav" id="yearNav" aria-label="Переход к главам по годам"></nav>
+    <button class="year-scroll" id="yearNext" type="button" aria-label="Следующие годы" title="Следующие годы">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 3.6 10.4 8l-4.8 4.4" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </button>
   </div>
-
-  <nav class="year-nav" id="yearNav" aria-label="Переход к главам по годам"></nav>
 
   <div class="nav-actions">
     <button class="round-btn home-btn" id="homeBtn" type="button" aria-label="К началу атласа" title="К началу атласа">

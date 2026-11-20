@@ -47,38 +47,41 @@ async function makePage(options = {}) {
     });
     const periods = [...document.querySelectorAll('.ep-period')].map((period) => period.textContent.trim());
     const events = [...document.querySelectorAll('.stop-event .event-text')].map((event) => event.textContent.trim());
-    const years = [...document.querySelectorAll('.stop-year .event-year')].map((year) => year.textContent.trim());
+    const years = [...document.querySelectorAll('.stop-year')].map((year) => year.getAttribute('aria-label')?.replace(/[^\d]/g, '') ?? '');
+    const yearNumbers = [...document.querySelectorAll('.stop-year .event-year')].map((year) => year.textContent.trim());
     const figureNumbers = [...document.querySelectorAll('.fig-number')].map((item) => item.textContent.replace(/[^0-9]/g, ''));
-    return { entries, stops, state, localCounts, periods, events, years, figureNumbers };
+    return { entries, stops, state, localCounts, periods, events, years, yearNumbers, figureNumbers };
   });
 
   const expectedCenters = [
-    0, 0.98, 5.11, 6.09, 6.72, 7.7, 12.88, 13.86, 14.49, 15.12, 15.75, 16.38, 17.36, 18.34, 21.42, 22.4,
-    23.38, 24.36, 25.34, 27.37, 28.35, 29.33, 29.96, 30.59, 31.22, 32.2, 35.28, 36.26, 37.24, 39.27, 40.25,
-    41.23, 42.21, 43.19, 44.17, 45.15, 46.13, 48.16, 49.14,
+    0, 0.98, 1.96, 2.94, 7.07, 8.05, 9.03, 9.66, 10.64, 15.82, 16.8, 17.43, 18.06, 18.69, 19.67, 20.65,
+    21.63, 24.71, 25.69, 26.67, 27.65, 29.68, 30.66, 31.64, 32.27, 32.9, 33.53, 34.51, 37.59, 38.57, 39.55,
+    42.63, 43.61, 44.59, 45.57, 46.55, 47.53, 51.66, 52.64, 53.62,
   ];
-  check(data.entries.length === 39, '39 позиций маршрута', String(data.entries.length));
-  check(data.stops.length === 39, '39 смысловых остановок', String(data.stops.length));
-  check(data.entries.filter((entry) => entry.kind === 'chapter').length === 7, '7 глав');
-  check(data.entries.filter((entry) => entry.kind === 'event').length === 16, '16 событий');
-  check(data.entries.filter((entry) => entry.kind === 'year').length === 14, '14 промежуточных лет');
-  check(data.entries.find((entry) => entry.kind === 'finale').center === 49.14, 'финал в 49.14U');
+  check(data.entries.length === 40, '40 позиций маршрута', String(data.entries.length));
+  check(data.stops.length === 46, '46 смысловых остановок', String(data.stops.length));
+  check(data.entries.filter((entry) => entry.kind === 'cover').length === 3, '3 слайда обложки');
+  check(data.entries.filter((entry) => entry.kind === 'chapter').length === 8, '8 глав');
+  check(data.entries.filter((entry) => entry.kind === 'event').length === 17, '17 событий');
+  check(data.entries.filter((entry) => entry.kind === 'year').length === 11, '11 промежуточных лет');
+  check(data.entries.find((entry) => entry.kind === 'finale').center === 53.62, 'финал в 53.62U');
   const maxDelta = Math.max(...data.entries.map((entry, index) => Math.abs(entry.center - expectedCenters[index])));
   check(maxDelta < 1e-6, 'все центры маршрута совпадают с таблицей 2.4', String(maxDelta));
 
-  check(data.localCounts.length === 21, '21 эпизод');
-  check(data.localCounts.filter((counter) => counter.endsWith('/ 04')).length === 4, '4 эпизода в главах по четыре');
+  check(data.localCounts.length === 25, '25 эпизодов');
+  check(data.localCounts.filter((counter) => counter.endsWith('/ 04')).length === 8, '8 эпизодов в главах по четыре');
   check(data.localCounts.filter((counter) => counter.endsWith('/ 05')).length === 5, '5 эпизодов в главе криптобиржи');
-  check(data.localCounts.filter((counter) => counter.endsWith('/ 03')).length === 6, '6 эпизодов в главах по три');
-  check(data.localCounts.filter((counter) => counter.endsWith('/ 02')).length === 6, '6 эпизодов в главах по два');
-  check(data.periods.length === 21 && data.periods.every(Boolean), 'период повторён на каждом эпизоде');
-  check(data.events.length === 16 && data.events.every(Boolean), '16 текстов событий');
-  check(data.years.length === 14, '14 промежуточных лет в DOM');
-  check(['2025', '2024', '2022', '2021', '2020', '2019', '2018', '2016', '2014', '2013', '2012', '2011', '2008', '2007'].every((year) => data.years.includes(year)), 'полный список промежуточных лет');
+  check(data.localCounts.filter((counter) => counter.endsWith('/ 03')).length === 9, '9 эпизодов в главах по три');
+  check(data.localCounts.filter((counter) => counter.endsWith('/ 02')).length === 2, '2 эпизода в главе по два');
+  check(data.periods.length === 25 && data.periods.every(Boolean), 'период повторён на каждом эпизоде');
+  check(data.events.length === 17 && data.events.every(Boolean), '17 текстов событий');
+  check(data.years.length === 11, '11 промежуточных лет в DOM');
+  check(['2025', '2024', '2022', '2021', '2020', '2019', '2016', '2014', '2013', '2012', '2011'].every((year) => data.years.includes(year)), 'полный список промежуточных лет');
+  check(data.yearNumbers.length === 11 && ['2018', '2008', '2007'].every((year) => !data.yearNumbers.includes(year)), 'годы перед событиями того же года не дублируются номером', data.yearNumbers.join(', '));
   const uniqueFigures = [...new Set(data.figureNumbers)].sort();
-  check(uniqueFigures.length === 10 && uniqueFigures[0] === '00' && uniqueFigures[9] === '18', 'видимые номера рисунков 00 и 10–18');
+  check(uniqueFigures.length === 1 && uniqueFigures[0] === '00', 'видимый номер рисунка только у обложки', data.figureNumbers.join(', '));
   check(data.state.U === 664, 'U = 664 при 1200×800', String(data.state.U));
-  check(data.state.maxScroll === 32629, 'максимальная прокрутка 32629', String(data.state.maxScroll));
+  check(data.state.maxScroll === 35604, 'максимальная прокрутка 35604', String(data.state.maxScroll));
 
   // Точная геометрия главы 2026.
   const geometry = await page.evaluate(async () => {
@@ -90,20 +93,20 @@ async function makePage(options = {}) {
       const rect = chapter.getBoundingClientRect();
       return { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2, width: rect.width, height: rect.height };
     };
-    window.scrollTo(0, 0.98 * state.U);
+    window.scrollTo(0, 2.94 * state.U);
     await wait();
     const center = centerOf();
     const opacity = getComputedStyle(chapter).opacity;
     const trackAtEntry = track.style.transform;
-    window.scrollTo(0, 0.98 * state.U + 40);
+    window.scrollTo(0, 2.94 * state.U + 40);
     await wait();
     const after40 = centerOf();
     const trackAfter40 = track.style.transform;
-    window.scrollTo(0, 4.13 * state.U);
+    window.scrollTo(0, 6.09 * state.U);
     await wait();
     const lastCenter = centerOf();
     const lastActive = chapter.querySelector('.episode:nth-child(4)').classList.contains('is-active');
-    window.scrollTo(0, 4.13 * state.U + 40);
+    window.scrollTo(0, 6.09 * state.U + 40);
     await wait();
     const afterLast40 = centerOf();
     const opacityAfter = getComputedStyle(chapter).opacity;
@@ -138,31 +141,31 @@ async function makePage(options = {}) {
   const hudCover = await page.evaluate(() => {
     window.scrollTo(0, 0);
     return new Promise((resolve) => requestAnimationFrame(() => resolve({
-      mode: document.querySelector('#modeText').textContent,
-      counter: document.querySelector('#counter').textContent,
+      status: Boolean(document.querySelector('.status-block')),
+      years: document.querySelectorAll('.year-btn').length,
       year: document.querySelector('.year-btn[aria-current="true"]')?.dataset.year ?? null,
       prev: document.querySelector('#prevBtn').disabled,
       next: document.querySelector('#nextBtn').disabled,
     })));
   });
-  check(hudCover.mode === 'Вертикальная орбита' && hudCover.counter === '↕', 'обложка: вертикальный режим и ↕', JSON.stringify(hudCover));
+  check(hudCover.status === false && hudCover.years === 8, 'на обложке нет статус-блока, все годы в навигации', JSON.stringify(hudCover));
   check(hudCover.prev === true && hudCover.next === false, 'на обложке стрелка назад недоступна');
 
   const hudFinale = await page.evaluate(() => {
-    window.scrollTo(0, 49.14 * window.__orbits.getState().U);
+    window.scrollTo(0, 53.62 * window.__orbits.getState().U);
     return new Promise((resolve) => requestAnimationFrame(() => resolve({
-      mode: document.querySelector('#modeText').textContent,
-      counter: document.querySelector('#counter').textContent,
+      status: Boolean(document.querySelector('.status-block')),
+      year: document.querySelector('.year-btn[aria-current="true"]')?.dataset.year ?? null,
       next: document.querySelector('#nextBtn').disabled,
       final: document.querySelector('.stop-finale').classList.contains('is-active'),
     })));
   });
-  check(hudFinale.mode === 'Конец маршрута' && hudFinale.counter === '07 / 07', 'финал: режим и 07 / 07', JSON.stringify(hudFinale));
+  check(hudFinale.status === false && hudFinale.year === null, 'финал: без статус-блока и без активного года', JSON.stringify(hudFinale));
   check(hudFinale.next === true && hudFinale.final === true, 'в финале стрелка вперёд недоступна');
 
   // Меню.
   const menu = await page.evaluate(async () => {
-    window.__orbits.jumpToT(18.34);
+    window.__orbits.jumpToT(20.3);
     const before = window.scrollY;
     window.__orbits.openMenu();
     await new Promise((resolve) => setTimeout(resolve, 80));
@@ -181,7 +184,7 @@ async function makePage(options = {}) {
       hidden: document.querySelector('#menuModal').hidden,
     };
   });
-  check(menu.items.length === 7 && menu.items[0].startsWith('2026') && menu.items[6].startsWith('2006'), 'меню: семь глав в обратной хронологии', menu.items.join(' | '));
+  check(menu.items.length === 8 && menu.items[0].startsWith('2026') && menu.items[6].startsWith('2006') && menu.items[7].startsWith('2027'), 'меню: восемь глав, включая ожидания', menu.items.join(' | '));
   check(menu.active === 'menuClose' && menu.inert, 'меню: фокус в диалоге, фон inert');
   check(menu.before === menu.after, 'меню: прокрутка не сбивается', `${menu.before} / ${menu.after}`);
   check(menu.focusReturned === 'menuBtn' && menu.hidden, 'меню: фокус возвращён, диалог скрыт');
@@ -200,7 +203,7 @@ async function makePage(options = {}) {
       firstEpisode: document.querySelector('.stop-chapter[data-chapter="2015"] .episode.is-active')?.dataset.episode,
     };
   });
-  check(near(selected.t, 25.34, 0.01) && selected.mode === 'horizontal' && selected.counter === '01 / 02', 'переход к 2015: первый эпизод и /02', JSON.stringify(selected));
+  check(near(selected.t, 27.65, 0.01) && selected.mode === 'horizontal' && selected.counter === '01 / 02', 'переход к 2015: первый эпизод и /02', JSON.stringify(selected));
   check(selected.activeYear === '2015' && selected.hidden && selected.firstEpisode === '0', 'переход к 2015 закрывает меню и отмечает год');
 
   // Стрелки.
@@ -209,7 +212,7 @@ async function makePage(options = {}) {
   await page.keyboard.press('ArrowRight');
   await page.waitForTimeout(1200);
   const arrowForward = await page.evaluate(() => window.__orbits.getState().t);
-  check(near(arrowForward, 0.98, 0.01), 'ArrowRight ведёт к первому эпизоду 2026', String(arrowForward));
+  check(near(arrowForward, 0.98, 0.01), 'ArrowRight ведёт ко второму слайду обложки', String(arrowForward));
   await page.keyboard.press('ArrowLeft');
   await page.waitForTimeout(1200);
   const arrowBack = await page.evaluate(() => window.__orbits.getState().t);
@@ -217,7 +220,7 @@ async function makePage(options = {}) {
 
   // Resize.
   const resizeState = await page.evaluate(async () => {
-    window.scrollTo(0, 25.34 * window.__orbits.getState().U + 350);
+    window.scrollTo(0, 27.65 * window.__orbits.getState().U + 350);
     await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     return window.__orbits.getState().t;
   });
@@ -241,7 +244,7 @@ async function makePage(options = {}) {
 // --------------------------------------------------------------------------
 {
   const { context, page, errors } = await makePage();
-  await page.evaluate(() => window.__orbits.jumpToT(2.03));
+  await page.evaluate(() => window.__orbits.jumpToT(5.88));
   await page.waitForTimeout(500);
   const present = await page.evaluate(() => {
     const chapter = document.querySelector('.stop-chapter[data-chapter="2026"]');
@@ -262,14 +265,14 @@ async function makePage(options = {}) {
   check(present.cards === 0 && present.controls === 0, 'в настоящем времени нет рамок, подписей и кнопок');
   check(present.canvases.every(Boolean), 'нарисованы две новые сцены настоящего времени');
   check(present.deckCards === 6, 'сцена изучения языков собрана из карточек', String(present.deckCards));
-  check(present.titles.join('|') === 'Свободное время|Между делом|Медиаплатформа|Изучаем языки', 'новые названия эпизодов', present.titles.join(' | '));
+  check(present.titles.join('|') === 'Свободное время|Медиаплатформа|Изучаем языки|Между делом', 'новые названия эпизодов', present.titles.join(' | '));
 
   const animBefore = await page.evaluate(() => window.__orbits.getAnimations().find((animation) => animation.id === 'fig19')?.time);
   await page.waitForTimeout(700);
   const animAfter = await page.evaluate(() => window.__orbits.getAnimations().find((animation) => animation.id === 'fig19')?.time);
   check(animAfter > animBefore, 'сцена поддержки живёт на активном эпизоде', `${animBefore} / ${animAfter}`);
 
-  await page.evaluate(() => window.__orbits.jumpToT(7.7));
+  await page.evaluate(() => window.__orbits.jumpToT(10.64));
   await page.waitForTimeout(500);
   const crypto = await page.evaluate(() => {
     const chapter = document.querySelector('.stop-chapter[data-chapter="2023"]');
@@ -315,11 +318,11 @@ async function makePage(options = {}) {
   check(reduced.class, 'reduce-motion класс включён');
   check(reduced.pauseCount === 0, 'в обновлённых главах нет кнопок паузы', String(reduced.pauseCount));
   const canvasBefore = await page.evaluate(() => document.querySelector('#bg-canvas').toDataURL());
-  await page.evaluate(() => window.__orbits.jumpToT(7.7));
+  await page.evaluate(() => window.__orbits.jumpToT(10.64));
   await page.waitForTimeout(400);
   const canvasAfter = await page.evaluate(() => document.querySelector('#bg-canvas').toDataURL());
   const reducedAfter = await page.evaluate(async () => {
-    window.scrollTo(0, 7 * window.__orbits.getState().U);
+    window.scrollTo(0, 9.94 * window.__orbits.getState().U);
     await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     return {
       time: window.__orbits.getAnimations().find((animation) => animation.id === 'fig01')?.time,
@@ -330,7 +333,7 @@ async function makePage(options = {}) {
   check(near(reduced.animationTime, reducedAfter.time, 0.001), 'автоматические рисунки остановлены', `${reduced.animationTime} / ${reducedAfter.time}`);
   check(reducedAfter.transform?.includes('rotateX(0rad)'), 'наклон барабана выключен', reducedAfter.transform);
 
-  await page.evaluate(() => window.__orbits.jumpToT(2.03));
+  await page.evaluate(() => window.__orbits.jumpToT(5.88));
   await page.waitForTimeout(250);
   const supportBefore = await page.evaluate(() => window.__orbits.getAnimations().find((animation) => animation.id === 'fig19')?.time);
   await page.waitForTimeout(500);
@@ -357,9 +360,9 @@ async function makePage(options = {}) {
   check(fallback.display === 'block' && fallback.app === 'none', 'без JS показан текстовый вариант', fallback.display);
   check(fallback.title === 'Орбиты опыта — от jQuery до ИИ' && fallback.lang === 'ru', 'title и lang корректны');
   check(fallback.text.includes('Для управления барабаном включите JavaScript.'), 'финальная фраза без JS');
-  check(fallback.text.includes('От jQuery до ИИ.'), 'без JS показан новый заголовок');
-  check(!fallback.text.includes('Александр Смирнов'), 'без JS имя не повторяется');
-  for (const name of ['Самостоятельная разработка', 'Криптобиржа', 'Akma', 'Интерселект', 'Страйдер', 'Маш Русланд', 'Старсофт Лабс · T-Mobile']) {
+  check(fallback.text.includes('Для кого этот сайт?'), 'без JS показан новый заголовок');
+  check(fallback.text.includes('Чем я могу помочь'), 'без JS показан блок услуг');
+  for (const name of ['Самостоятельная разработка', 'Криптобиржа', 'Akma', 'Интерселект', 'Страйдер', 'Маш Русланд', 'Старсофт Лабс · T-Mobile', 'Мои ожидания']) {
     check(fallback.text.includes(name), `без JS перечислена глава «${name}»`);
   }
   await context.close();

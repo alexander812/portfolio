@@ -1,5 +1,6 @@
 import { gsap, ScrollTrigger } from './globals';
 import './pages/atlas';
+import './contact';
 
 function initIntro(): void {
   const chrome = gsap.utils.toArray<HTMLElement>('.hud-top, .hud-bottom, .progress-rail');

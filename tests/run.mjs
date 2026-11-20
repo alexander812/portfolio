@@ -63,7 +63,7 @@ async function waitForServer() {
   throw new Error(`Astro preview did not start on ${baseUrl}\n${serverOutput}`);
 }
 
-const tests = ['e2e.mjs', 'interactions.mjs'];
+const tests = ['e2e.mjs', 'interactions.mjs', 'contact-ui.mjs'];
 
 try {
   await waitForServer();

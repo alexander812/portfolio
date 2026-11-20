@@ -1,12 +1,7 @@
 <header class="hud-top">
-  <button class="brand" id="brandBtn" type="button" aria-label="Александр Смирнов — вернуться к началу атласа" title="К началу атласа">
+  <button class="brand" id="brandBtn" type="button" aria-haspopup="dialog" aria-label="Александр Смирнов — открыть профиль" title="Профиль">
     <span class="brand-mark" aria-hidden="true">
-      <svg viewBox="0 0 44 44" fill="none">
-        <circle cx="22" cy="22" r="3.2" fill="currentColor"></circle>
-        <ellipse cx="22" cy="22" rx="17" ry="6.4" stroke="currentColor" stroke-opacity=".72" stroke-width="1.2" transform="rotate(-23 22 22)"></ellipse>
-        <ellipse cx="22" cy="22" rx="9.5" ry="17" stroke="currentColor" stroke-opacity=".38" stroke-width="1" transform="rotate(28 22 22)"></ellipse>
-        <circle cx="35.3" cy="13.7" r="1.7" fill="#6FE7F2"></circle>
-      </svg>
+      <img src="/images/aleksandr-smirnov.jpg" alt="" loading="eager" decoding="async" />
     </span>
     <span class="brand-copy">
       <span class="brand-name">Александр Смирнов</span>
@@ -15,10 +10,34 @@
   </button>
 
   <div class="hud-top-right">
-    <span class="atlas-caption">Атлас карьеры · 2006—2026</span>
+    <span class="atlas-caption">Атлас карьеры · 2006—2027</span>
+    <button class="contact-trigger" type="button" data-open-contact aria-label="Связаться" aria-haspopup="dialog" aria-controls="contactDialog"><span class="contact-trigger-label">Связаться</span><span aria-hidden="true">↗</span></button>
     <button class="menu-trigger" id="menuBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="menuModal">
       <span class="menu-glyph" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
       <span>Главы</span>
     </button>
   </div>
 </header>
+
+<dialog class="profile-dialog" id="profileDialog" aria-labelledby="profileName">
+  <button class="profile-dialog-close" id="profileClose" type="button" aria-label="Закрыть профиль" title="Закрыть">
+    <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg>
+  </button>
+  <figure class="profile-figure">
+    <img class="profile-photo" src="/images/aleksandr-smirnov.jpg" alt="Александр Смирнов" width="1122" height="1402" loading="eager" decoding="async" />
+    <figcaption class="profile-caption">
+      <span class="profile-eyebrow">Александр Смирнов</span>
+      <h2 class="profile-name" id="profileName">Senior frontend-разработчик</h2>
+      <dl class="profile-facts">
+        <div>
+          <dt>Год рождения</dt>
+          <dd>Октябрь, 1976</dd>
+        </div>
+        <div>
+          <dt>Место рождения</dt>
+          <dd>г. Ленинград</dd>
+        </div>
+      </dl>
+    </figcaption>
+  </figure>
+</dialog>
