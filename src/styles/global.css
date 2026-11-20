@@ -3675,7 +3675,8 @@ html.reduce-motion .scroll-line::after {
 /* Форма связи */
 
 .contact-trigger,
-.contact-cover-btn {
+.contact-cover-btn,
+.contact-submit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -3702,15 +3703,16 @@ html.reduce-motion .scroll-line::after {
 }
 
 .contact-trigger:hover,
-.contact-cover-btn:hover {
+.contact-cover-btn:hover,
+.contact-submit:not(:disabled):hover {
   background: rgba(188, 164, 255, 0.18);
   transform: translateY(-1px);
 }
 
 .contact-dialog {
   width: min(540px, calc(100vw - 24px));
-  max-height: min(92vh, 760px);
-  max-height: min(92dvh, 760px);
+  max-height: calc(100vh - 24px);
+  max-height: calc(100dvh - 24px);
   margin: auto;
   padding: 0;
   overflow: auto;
@@ -3728,12 +3730,12 @@ html.reduce-motion .scroll-line::after {
 
 .contact-dialog-inner {
   position: relative;
-  padding: clamp(25px, 5vw, 40px);
+  padding: clamp(20px, 4vw, 26px);
 }
 
 .contact-eyebrow {
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   color: var(--lav);
   font-size: 10px;
   font-weight: 650;
@@ -3742,16 +3744,15 @@ html.reduce-motion .scroll-line::after {
 }
 
 .contact-dialog h2 {
-  max-width: 10ch;
-  margin: 0 42px 14px 0;
-  font-size: clamp(32px, 6vw, 48px);
+  margin: 0 42px 10px 0;
+  font-size: clamp(32px, 5vw, 42px);
   font-weight: 600;
   letter-spacing: -0.05em;
   line-height: 0.98;
 }
 
 .contact-intro {
-  margin-bottom: 24px;
+  margin-bottom: 14px;
   color: var(--text-soft);
   font-size: 14px;
   line-height: 1.5;
@@ -3759,12 +3760,12 @@ html.reduce-motion .scroll-line::after {
 
 #contactForm {
   display: grid;
-  gap: 16px;
+  gap: 10px;
 }
 
 .contact-field {
   display: grid;
-  gap: 7px;
+  gap: 5px;
   color: var(--text-soft);
   font-size: 12px;
   font-weight: 550;
@@ -3778,7 +3779,7 @@ html.reduce-motion .scroll-line::after {
 .contact-field input,
 .contact-field textarea {
   width: 100%;
-  padding: 12px 14px;
+  padding: 10px 14px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 12px;
   outline: none;
@@ -3810,6 +3811,10 @@ html.reduce-motion .scroll-line::after {
   white-space: nowrap;
 }
 
+.contact-turnstile {
+  min-height: 72px;
+}
+
 .contact-status {
   min-height: 1.5em;
   color: var(--text-soft);
@@ -3817,22 +3822,20 @@ html.reduce-motion .scroll-line::after {
 }
 
 .contact-submit {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  min-height: 48px;
-  padding: 12px 18px;
-  border-radius: 12px;
-  color: #100a20;
-  background: var(--lav);
-  font-size: 13px;
-  font-weight: 700;
-  transition: filter 0.2s ease;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 18px;
 }
 
-.contact-submit:hover { filter: brightness(1.1); }
 .contact-submit:disabled { opacity: 0.65; cursor: wait; }
+
+@media (max-width: 600px) and (max-height: 700px) {
+  .contact-dialog-inner { padding: 16px 20px; }
+  .contact-dialog h2 { margin-bottom: 8px; }
+  .contact-intro { margin-bottom: 10px; }
+  #contactForm { gap: 8px; }
+  .contact-field textarea { height: 84px; }
+}
 
 @media (max-width: 390px) {
   .contact-trigger {
