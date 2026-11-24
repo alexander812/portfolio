@@ -8,19 +8,29 @@ import HomeStage from '../components/HomeStage.astro';
 import ProgressRail from '../components/ProgressRail.astro';
 import HomeLayout from '../layouts/HomeLayout.astro';
 import ContactDialog from '../components/ContactDialog.astro';
+import { defaultLocale, getMessages, locales } from '../i18n';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({
+    params: { locale: locale === defaultLocale ? undefined : locale },
+    props: { locale },
+  }));
+}
+
+const { locale } = Astro.props;
 ---
 
-<HomeLayout>
-  <a class="skip-link" href="#stage">К интерактивному атласу</a>
+<HomeLayout locale={locale}>
+  <a class="skip-link" href="#stage">{getMessages(locale).site.skipToAtlas}</a>
 
   <HomeSky />
   <ProgressRail />
-  <HomeHeader />
-  <HomeStage />
-  <HomeFooter />
-  <HomeMenu />
-  <HomeNojsFallback />
-  <ContactDialog />
+  <HomeHeader locale={locale} />
+  <HomeStage locale={locale} />
+  <HomeFooter locale={locale} />
+  <HomeMenu locale={locale} />
+  <HomeNojsFallback locale={locale} />
+  <ContactDialog locale={locale} />
 
   <div id="scrollSpacer" aria-hidden="true"></div>
 

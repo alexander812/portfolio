@@ -1,23 +1,34 @@
-<div class="stop stop-cover" data-cover="intro" data-index="0" role="group" aria-label="Обложка: Для кого этот сайт">
+---
+import { formatMessage, getMessages, type LocaleProps } from '../i18n';
+
+type Props = LocaleProps;
+
+const { locale } = Astro.props;
+const { cover, atlas } = getMessages(locale);
+---
+
+<div class="stop stop-cover" data-cover="intro" data-index="0" role="group" aria-label={cover.introLabel}>
   <div class="cover-shell">
     <div class="cover-grid">
       <div class="cover-copy">
-        <p class="cover-eyebrow">Интерактивный атлас карьеры</p>
+        <p class="cover-eyebrow">{cover.introEyebrow}</p>
         <h1 class="cover-title">
-          <span class="title-line">Для кого</span>
-          <span class="title-line">этот</span>
-          <span class="title-line title-accent">сайт?</span>
+          {cover.introTitle.map((line, index, lines) => (
+            <Fragment>{index > 0 && ' '}<span
+              class:list={['title-line', { 'title-accent': index === lines.length - 1 }]}
+            >{line}</span></Fragment>
+          ))}
         </h1>
-        <p class="cover-lead">Если у вас есть проект в области IT и вам нужен опытный специалист — добро пожаловать. Меня зовут Александр Смирнов. Мой первый проект, приложение для записи сэмплов, появился в 2004 году. В 2006 году моё увлечение стало профессией: я пришёл в известную аутсорс-компанию, которая стала для меня пропуском в IT-карьеру. Я пробовал себя в разных ролях: бэкендер, фронтендер, фулстекер, тимлид, вайбкодер. Но основная моя компетенция — фронтенд-разработка. При этом я всегда готов попробовать что-то новое.</p>
+        <p class="cover-lead">{cover.introLead}</p>
         <div class="cover-actions">
-          <button class="contact-cover-btn" type="button" data-open-contact>Обсудить проект <span aria-hidden="true">↗</span></button>
-          <span class="secondary-note"><span class="scroll-line" aria-hidden="true"></span>Прокрутите вниз</span>
+          <button class="contact-cover-btn" type="button" data-open-contact>{cover.discuss} <span aria-hidden="true">↗</span></button>
+          <span class="secondary-note"><span class="scroll-line" aria-hidden="true"></span>{cover.scroll}</span>
         </div>
       </div>
       <div class="cover-visual">
         <div class="skills-card" data-anim-host="skills">
-          <span class="sr-only fig-number">Рис. 00</span>
-          <div class="skills-stage" data-skills-stage role="img" aria-label="Тетрис собирает таблицу навыков: React, TypeScript, Effector, MobX, Webpack, Storybook, Astro JS, ChatGPT, Claude Code, Gemini, DeepSeek, iOS, Android, GitHub, GitLab, Docker, Python">
+          <span class="sr-only fig-number">{formatMessage(atlas.figureNumber, { number: '00' })}</span>
+          <div class="skills-stage" data-skills-stage role="img" aria-label={cover.skillsLabel}>
             <canvas class="skills-canvas" data-skills-canvas aria-hidden="true"></canvas>
           </div>
         </div>
@@ -26,50 +37,54 @@
   </div>
 </div>
 
-<div class="stop stop-cover is-hidden" data-cover="help" data-index="1" role="group" aria-label="Чем я могу помочь">
+<div class="stop stop-cover is-hidden" data-cover="help" data-index="1" role="group" aria-label={cover.helpLabel}>
   <div class="cover-shell">
     <div class="cover-grid">
       <div class="cover-copy">
-        <p class="cover-eyebrow">Продукты · команды · процессы</p>
+        <p class="cover-eyebrow">{cover.helpEyebrow}</p>
         <h2 class="cover-title">
-          <span class="title-line">Чем я</span>
-          <span class="title-line">могу</span>
-          <span class="title-line title-accent">помочь.</span>
+          {cover.helpTitle.map((line, index, lines) => (
+            <Fragment>{index > 0 && ' '}<span
+              class:list={['title-line', { 'title-accent': index === lines.length - 1 }]}
+            >{line}</span></Fragment>
+          ))}
         </h2>
-        <p class="cover-lead">Приложение, сайт, портал или CMS для Web, Android, iOS и Telegram; фронтенд и бэкенд; дизайн-система, брендбук и UI-кит для интерфейса в фирменном стиле; контент для соцсетей; чат-бот с LLM; CRM; аналитика и A/B-тесты; автоматизация процессов с ИИ.</p>
-        <p class="cover-lead">Человек должен заниматься творчеством, а любую рутину нужно автоматизировать.</p>
+        <p class="cover-lead">{cover.helpLead}</p>
+        <p class="cover-lead">{cover.helpNote}</p>
         <div class="cover-actions">
-          <span class="secondary-note"><span class="scroll-line" aria-hidden="true"></span>Прокрутите вниз</span>
+          <span class="secondary-note"><span class="scroll-line" aria-hidden="true"></span>{cover.scroll}</span>
         </div>
       </div>
       <div class="cover-visual">
-        <div class="skills-card cover-figure" data-cover-figure="help" role="img" aria-label="Процессор с множеством транзисторов"></div>
+        <div class="skills-card cover-figure" data-cover-figure="help" role="img" aria-label={cover.helpFigure}></div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="stop stop-cover is-hidden" data-cover="start" data-index="2" role="group" aria-label="Начало путешествия">
+<div class="stop stop-cover is-hidden" data-cover="start" data-index="2" role="group" aria-label={cover.startLabel}>
   <div class="cover-shell">
     <div class="cover-grid">
       <div class="cover-copy">
-        <p class="cover-eyebrow">От сегодняшнего дня — на 20 лет назад</p>
+        <p class="cover-eyebrow">{cover.startEyebrow}</p>
         <h2 class="cover-title">
-          <span class="title-line">Хотите узнать</span>
-          <span class="title-line">обо мне</span>
-          <span class="title-line title-accent">больше?</span>
+          {cover.startTitle.map((line, index, lines) => (
+            <Fragment>{index > 0 && ' '}<span
+              class:list={['title-line', { 'title-accent': index === lines.length - 1 }]}
+            >{line}</span></Fragment>
+          ))}
         </h2>
-        <p class="cover-lead">Далее вас ждёт путешествие от сегодняшнего дня и на 20 лет назад.</p>
-        <p class="cover-help">Прошу принять и простить тот факт, что большая часть проектов, над которыми я работал, защищена NDA: я не могу давать ссылки и разглашать некоторые детали.</p>
+        <p class="cover-lead">{cover.startLead}</p>
+        <p class="cover-help">{cover.startNote}</p>
         <div class="cover-actions">
           <button class="primary-btn" id="startBtn" type="button">
-            <span>Начать путешествие</span>
+            <span>{cover.startAction}</span>
             <span class="btn-orb" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h9M8.4 3.6 12.8 8l-4.4 4.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
           </button>
         </div>
       </div>
       <div class="cover-visual">
-        <div class="skills-card cover-figure" data-cover-figure="start" role="img" aria-label="Стрелочные часы с обратным ходом и табло, на котором переключаются годы с 2026 до 2006"></div>
+        <div class="skills-card cover-figure" data-cover-figure="start" role="img" aria-label={cover.startFigure}></div>
       </div>
     </div>
   </div>

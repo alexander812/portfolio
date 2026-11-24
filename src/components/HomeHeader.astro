@@ -1,45 +1,53 @@
 ---
+import { getMessages, type LocaleProps } from '../i18n';
+import LanguageSwitcher from './LanguageSwitcher.astro';
 const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+
+type Props = LocaleProps;
+
+const { locale } = Astro.props;
+const { site, profile, navigation } = getMessages(locale);
 ---
 
 <header class="hud-top">
-  <button class="brand" id="brandBtn" type="button" aria-haspopup="dialog" aria-label="Александр Смирнов — открыть профиль" title="Профиль">
+  <button class="brand" id="brandBtn" type="button" aria-haspopup="dialog" aria-label={profile.open} title={profile.label}>
     <span class="brand-mark" aria-hidden="true">
       <img src={`${base}images/aleksandr-smirnov.jpg`} alt="" loading="eager" decoding="async" />
     </span>
     <span class="brand-copy">
-      <span class="brand-name">Александр Смирнов</span>
+      <span class="brand-name">{profile.name}</span>
       <span class="brand-role">Web developer</span>
     </span>
   </button>
 
   <div class="hud-top-right">
-    <span class="atlas-caption">Атлас карьеры · 2006—2027</span>
-    <button class="contact-trigger" type="button" data-open-contact aria-label="Связаться" aria-haspopup="dialog" aria-controls="contactDialog"><span class="contact-trigger-label">Связаться</span><span aria-hidden="true">↗</span></button>
-    <button class="menu-trigger" id="menuBtn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="menuModal">
+    <span class="atlas-caption">{site.atlasCaption}</span>
+    <LanguageSwitcher locale={locale} />
+    <button class="contact-trigger" type="button" data-open-contact aria-label={site.contact} aria-haspopup="dialog" aria-controls="contactDialog"><span class="contact-trigger-label">{site.contact}</span><span aria-hidden="true">↗</span></button>
+    <button class="menu-trigger" id="menuBtn" type="button" aria-label={navigation.chapters} aria-haspopup="dialog" aria-expanded="false" aria-controls="menuModal">
       <span class="menu-glyph" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-      <span>Главы</span>
+      <span class="menu-trigger-label">{navigation.chapters}</span>
     </button>
   </div>
 </header>
 
 <dialog class="profile-dialog" id="profileDialog" aria-labelledby="profileName">
-  <button class="profile-dialog-close" id="profileClose" type="button" aria-label="Закрыть профиль" title="Закрыть">
+  <button class="profile-dialog-close" id="profileClose" type="button" aria-label={profile.close} title={site.close}>
     <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg>
   </button>
   <figure class="profile-figure">
-    <img class="profile-photo" src={`${base}images/aleksandr-smirnov.jpg`} alt="Александр Смирнов" width="1122" height="1402" loading="eager" decoding="async" />
+    <img class="profile-photo" src={`${base}images/aleksandr-smirnov.jpg`} alt={profile.name} width="1122" height="1402" loading="eager" decoding="async" />
     <figcaption class="profile-caption">
-      <span class="profile-eyebrow">Александр Смирнов</span>
-      <h2 class="profile-name" id="profileName">Senior frontend-разработчик</h2>
+      <span class="profile-eyebrow">{profile.name}</span>
+      <h2 class="profile-name" id="profileName">{profile.role}</h2>
       <dl class="profile-facts">
         <div>
-          <dt>Год рождения</dt>
-          <dd>Октябрь, 1976</dd>
+          <dt>{profile.birthDateLabel}</dt>
+          <dd>{profile.birthDate}</dd>
         </div>
         <div>
-          <dt>Место рождения</dt>
-          <dd>г. Ленинград</dd>
+          <dt>{profile.birthplaceLabel}</dt>
+          <dd>{profile.birthplace}</dd>
         </div>
       </dl>
     </figcaption>

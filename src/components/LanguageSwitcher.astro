@@ -1,0 +1,60 @@
+---
+import { getMessages, localePath, locales, type LocaleProps } from '../i18n';
+
+type Props = LocaleProps;
+
+const { locale } = Astro.props;
+const names = { en: 'English', ru: 'Русский' };
+---
+
+<nav class="language-switcher" aria-label={getMessages(locale).site.language}>
+  {locales.map((option) => (
+    <a
+      href={localePath(option)}
+      hreflang={option}
+      lang={option}
+      aria-label={names[option]}
+      aria-current={option === locale ? 'page' : undefined}
+      data-locale-choice={option}
+    >
+      {option.toUpperCase()}
+    </a>
+  ))}
+</nav>
+
+<style>
+  .language-switcher {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    width: fit-content;
+    gap: 2px;
+    padding: 2px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(27, 30, 41, 0.65);
+  }
+
+  a {
+    display: grid;
+    min-width: 32px;
+    min-height: 30px;
+    place-items: center;
+    border-radius: 999px;
+    color: var(--text-soft);
+    font-size: 10px;
+    font-weight: 650;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a[aria-current='page'] {
+    color: var(--lav-bright);
+    background: rgba(188, 164, 255, 0.15);
+  }
+
+  @media (max-width: 420px) {
+    a { min-width: 27px; }
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+import { defaultLocale, localePath, locales, type LocaleProps } from '../i18n';
+
+type Props = LocaleProps;
+
+const { locale } = Astro.props;
+const paths = Object.fromEntries(locales.map((option) => [option, localePath(option)]));
+---
+
+<script define:vars={{ locale, defaultLocale, locales, paths }}>
+  (() => {
+    const preferenceKey = 'portfolio.locale';
+    const current = new URL(window.location.href);
+
+    document.addEventListener('click', (event) => {
+      if (event.defaultPrevented || !(event.target instanceof Element)) return;
+      const link = event.target.closest('a[data-locale-choice]');
+      const choice = link?.dataset.localeChoice;
+      if (!locales.includes(choice)) return;
+
+      const destination = new URL(paths[choice], current);
+      destination.search = window.location.search;
+      destination.hash = window.location.hash;
+      if (destination.searchParams.has('lang')) destination.searchParams.delete('lang');
+      try {
+        localStorage.setItem(preferenceKey, choice);
+      } catch {
+        // Keep the explicit choice when storage is unavailable on the default route.
+        if (choice === defaultLocale) destination.searchParams.set('lang', choice);
+      }
+      link.href = destination.href;
+    });
+
+    if (locale !== defaultLocale || current.searchParams.get('lang') === defaultLocale) return;
+
+    let preferred;
+    try {
+      preferred = localStorage.getItem(preferenceKey);
+    } catch {
+      // Browser language detection also works without storage.
+    }
+    if (!locales.includes(preferred)) {
+      const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
+      preferred = languages
+        .map((language) => language?.toLowerCase().split('-')[0])
+        .find((language) => locales.includes(language));
+    }
+
+    if (preferred && preferred !== defaultLocale) {
+      window.location.replace(`${paths[preferred]}${current.search}${current.hash}`);
+    }
+  })();
+</script>

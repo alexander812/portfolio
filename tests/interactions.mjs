@@ -23,7 +23,7 @@ check(Math.abs(startT-2.94)<0.02,'кнопка «Начать путешеств
 // year nav 2006
 await p.click('[data-year="2006"]'); await p.waitForTimeout(250);
 const yearState=await p.evaluate(()=>{const s=window.__orbits.getState();return {t:s.t,c:s.counter,m:s.mode,y:s.activeYear}});
-check(Math.abs(yearState.t-47.53)<0.02 && yearState.c==='01 / 04' && yearState.y==='2006','навигация по годам ведёт к 2006 и /04',JSON.stringify(yearState));
+check(Math.abs(yearState.t-48.58)<0.02 && yearState.c==='01 / 04' && yearState.y==='2006','навигация по годам ведёт к 2006 и /04',JSON.stringify(yearState));
 // modifier arrows ignored
 const beforeMod=await p.evaluate(()=>window.__orbits.getState().t);
 await p.keyboard.down('Shift'); await p.keyboard.press('ArrowRight'); await p.keyboard.up('Shift'); await p.waitForTimeout(250);

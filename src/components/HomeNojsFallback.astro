@@ -1,64 +1,50 @@
 ---
+import { getMessages, type LocaleProps } from '../i18n';
 import HomeHobbies from './HomeHobbies.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+type Props = LocaleProps;
+
+const { locale } = Astro.props;
+const { cover, site, chapters, chapterSummaries } = getMessages(locale);
+const chapterYears = ['2026', '2023', '2017', '2015', '2010', '2009', '2006'] as const;
+const expectations = chapters.expectations;
 ---
 
 <div class="nojs-fallback" id="nojsFallback">
   <main class="nojs-wrap">
-    <p class="nojs-kicker">Интерактивный атлас карьеры</p>
-    <h1>Для кого этот сайт?</h1>
-    <p class="nojs-lead">Если у вас есть проект в области IT и вам нужен опытный специалист — добро пожаловать. Меня зовут Александр Смирнов. Мой первый проект, приложение для записи сэмплов, появился в 2004 году. В 2006 году моё увлечение стало профессией: я пришёл в известную аутсорс-компанию, которая стала для меня пропуском в IT-карьеру. Я пробовал себя в разных ролях: бэкендер, фронтендер, фулстекер, тимлид, вайбкодер. Но основная моя компетенция — фронтенд-разработка. При этом я всегда готов попробовать что-то новое.</p>
-    <p class="nojs-help">Чем я могу помочь: приложение, сайт, портал или CMS для Web, Android, iOS и Telegram; фронтенд и бэкенд; дизайн-система, брендбук и UI-кит для интерфейса в фирменном стиле; контент для соцсетей; чат-бот с LLM; CRM; аналитика и A/B-тесты; автоматизация процессов с ИИ.</p>
-    <p class="nojs-help">Человек должен заниматься творчеством, а любую рутину нужно автоматизировать.</p>
-    <p class="nojs-meta">2006 — 2027 · Восемь глав · 25 эпизодов</p>
+    <div class="nojs-language"><LanguageSwitcher locale={locale} /></div>
+    <p class="nojs-kicker">{cover.introEyebrow}</p>
+    <h1>{cover.introTitle.join(' ')}</h1>
+    <p class="nojs-lead">{cover.introLead}</p>
+    <p class="nojs-help">{cover.helpLabel}: {cover.helpLead}</p>
+    <p class="nojs-help">{cover.helpNote}</p>
+    <p class="nojs-meta">2006 — 2027 · {site.scope}</p>
     <div class="nojs-chapters">
+      {chapterYears.map((year) => (
+        <section>
+          <h2>{year} · {chapters[year].title}</h2>
+          <p class="nojs-period">{chapters[year].period}</p>
+          <p>{chapterSummaries[year]}</p>
+        </section>
+      ))}
+      <HomeHobbies locale={locale} fallback />
       <section>
-        <h2>2026 · Самостоятельная разработка</h2>
-        <p class="nojs-period">Май 2026 — сейчас</p>
-        <p>ИИ-инструменты, поддержка небольших проектов, медиаплатформа для НКО и приложение для изучения языков.</p>
-      </section>
-      <section>
-        <h2>2023 · Криптобиржа</h2>
-        <p class="nojs-period">Декабрь 2023 — май 2026</p>
-        <p>Сильная команда, торговые агенты и сигналы на ИИ, эксперименты с механиками и турниры-хакатоны.</p>
-      </section>
-      <section>
-        <h2>2017 · Akma</h2>
-        <p class="nojs-period">Апрель 2017 — декабрь 2023</p>
-        <p>Трейдинговая платформа Akma: CFD, Stocks, Forex и Options, команда фронтенда около 20 разработчиков, ядро платформы, MobX и TypeScript.</p>
-      </section>
-      <section>
-        <h2>2015 · Интерселект</h2>
-        <p class="nojs-period">Август 2015 — март 2017</p>
-        <p>Финтех и бинарные опционы: MVP на jQuery за неделю, рост команды, переход с Backbone на React.</p>
-      </section>
-      <section>
-        <h2>2010 · Страйдер</h2>
-        <p class="nojs-period">Октябрь 2010 — июль 2015</p>
-        <p>Fullstack-разработка, сервис загрузки и просмотра видео, облачный файловый сервис, Backbone.</p>
-      </section>
-      <section>
-        <h2>2009 · Маш Русланд</h2>
-        <p class="nojs-period">Март 2009 — июль 2010</p>
-        <p>CMS и плагины на PHP и MSSQL для программного обеспечения государственных учреждений Германии. WYSIWYG-редактор и экспорт Excel и Word в HTML.</p>
-      </section>
-      <section>
-        <h2>2006 · Старсофт Лабс · T-Mobile</h2>
-        <p class="nojs-period">Декабрь 2006 — январь 2009</p>
-        <p>JavaScript и фронтенд проекта T-Mobile. Библиотека компонентов для электронного магазина с поддержкой IE6, accessibility и валидацией W3C. Каталог продуктов и CRM на ExtJS.</p>
-      </section>
-      <HomeHobbies fallback />
-      <section>
-        <h2>2027 · Мои ожидания</h2>
-        <p class="nojs-period">Пожелания к следующей роли</p>
+        <h2>2027 · {expectations.title}</h2>
+        <p class="nojs-period">{expectations.period}</p>
         <ul class="nojs-list">
-          <li>Удалённый или гибридный режим.</li>
-          <li>Достойная оплата.</li>
-          <li>Гибкость по времени: можно отлучиться по необходимости и доделать работу позже.</li>
-          <li>Минимум бюрократии.</li>
-          <li>Нормальное планирование и расстановка приоритетов.</li>
+          {expectations.episodes['01'].bullets.map((bullet) => <li>{bullet}</li>)}
         </ul>
       </section>
     </div>
-    <p class="nojs-final">Для управления барабаном включите JavaScript.</p>
+    <p class="nojs-final">{site.noJsHint}</p>
   </main>
 </div>
+
+<style>
+  .nojs-language {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 18px;
+  }
+</style>

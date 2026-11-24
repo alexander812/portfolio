@@ -1,36 +1,42 @@
 ---
+import { getMessages, type LocaleProps } from '../i18n';
 const apiUrl = import.meta.env.PUBLIC_CONTACT_API_URL || '';
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
+
+type Props = LocaleProps;
+
+const { locale } = Astro.props;
+const { site, contact } = getMessages(locale);
 ---
 
 <dialog class="contact-dialog" id="contactDialog" aria-labelledby="contactTitle" aria-describedby="contactIntro">
   <div class="contact-dialog-inner">
-    <button class="profile-dialog-close" id="contactClose" type="button" aria-label="Закрыть форму" title="Закрыть">
+    <button class="profile-dialog-close" id="contactClose" type="button" aria-label={contact.close} title={site.close}>
       <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg>
     </button>
-    <span class="contact-eyebrow">Сообщение через сайт</span>
-    <h2 id="contactTitle">Давайте обсудим проект.</h2>
-    <p class="contact-intro" id="contactIntro">Напишите о задаче и оставьте удобный способ связи. Сообщение придёт мне в Telegram, ваш контакт не будет опубликован.</p>
+    <span class="contact-eyebrow">{contact.eyebrow}</span>
+    <h2 id="contactTitle">{contact.title}</h2>
+    <p class="contact-intro" id="contactIntro">{contact.intro}</p>
     <form id="contactForm" action={apiUrl || '#'} method="post">
       <label class="contact-field">
-        <span>Как к вам обращаться</span>
-        <input name="name" type="text" autocomplete="name" maxlength="80" placeholder="Имя или компания" />
+        <span>{contact.name}</span>
+        <input name="name" type="text" autocomplete="name" maxlength="80" placeholder={contact.namePlaceholder} />
       </label>
       <label class="contact-field">
-        <span>Как вам ответить <em>*</em></span>
-        <input name="replyTo" type="text" autocomplete="email" maxlength="200" required placeholder="Email, Telegram или другой контакт" />
+        <span>{contact.replyTo} <em>*</em></span>
+        <input name="replyTo" type="text" autocomplete="email" maxlength="200" required placeholder={contact.replyToPlaceholder} />
       </label>
       <label class="contact-field">
-        <span>Ваше сообщение <em>*</em></span>
-        <textarea name="message" rows="4" minlength="10" maxlength="3000" required placeholder="Расскажите о вакансии или проекте"></textarea>
+        <span>{contact.message} <em>*</em></span>
+        <textarea name="message" rows="4" minlength="10" maxlength="3000" required placeholder={contact.messagePlaceholder}></textarea>
       </label>
       <div class="contact-trap" aria-hidden="true">
-        <label>Сайт <input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
+        <label>{contact.website} <input name="website" type="text" tabindex="-1" autocomplete="off" /></label>
       </div>
       {turnstileSiteKey && <div class="contact-turnstile" id="contactTurnstile" data-sitekey={turnstileSiteKey}></div>}
       <p class="contact-status" id="contactStatus" role="status" aria-live="polite"></p>
-      <button class="contact-submit" id="contactSubmit" type="submit">Отправить сообщение <span aria-hidden="true">↗</span></button>
+      <button class="contact-submit" id="contactSubmit" type="submit">{contact.send} <span aria-hidden="true">↗</span></button>
     </form>
-    <p class="contact-alternative">Или напишите напрямую: <a href="mailto:a.s.smirnoff@gmail.com">a.s.smirnoff@gmail.com</a></p>
+    <p class="contact-alternative">{contact.email} <a href="mailto:a.s.smirnoff@gmail.com">a.s.smirnoff@gmail.com</a></p>
   </div>
 </dialog>

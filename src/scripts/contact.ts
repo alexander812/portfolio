@@ -1,8 +1,11 @@
-export {};
+import { getLocale, getMessages, type Locale } from '../i18n';
+
+const locale = getLocale(document.documentElement.lang);
+const { contact } = getMessages(locale);
 
 interface TurnstileWindow extends Window {
   turnstile?: {
-    render: (container: HTMLElement, options: { sitekey: string; action: string; theme: string }) => string;
+    render: (container: HTMLElement, options: { sitekey: string; action: string; theme: string; language: Locale }) => string;
     getResponse: (widgetId: string) => string;
     reset: (widgetId: string) => void;
   };
@@ -41,6 +44,7 @@ if (dialog && form && contactStatus && submit) {
           sitekey: widget.dataset.sitekey,
           action: 'contact',
           theme: 'dark',
+          language: locale,
         });
         resolve();
       };
@@ -63,7 +67,7 @@ if (dialog && form && contactStatus && submit) {
       dialog.showModal();
       dialog.querySelector<HTMLInputElement>('[name="name"]')?.focus();
       void ensureWidget().catch(() => {
-        contactStatus.textContent = 'Не удалось загрузить проверку. Попробуйте открыть форму позже.';
+        contactStatus.textContent = contact.widgetFailed;
       });
     });
   });
@@ -87,19 +91,19 @@ if (dialog && form && contactStatus && submit) {
 
     const apiUrl = form.getAttribute('action');
     if (!apiUrl || apiUrl === '#') {
-      contactStatus.textContent = 'Форма пока не подключена. Попробуйте позже.';
+      contactStatus.textContent = contact.unavailable;
       return;
     }
 
     const data = new FormData(form);
     const token = widgetId ? turnstileWindow.turnstile?.getResponse(widgetId) : '';
     if (!token) {
-      contactStatus.textContent = 'Подождите, пока завершится проверка, и попробуйте ещё раз.';
+      contactStatus.textContent = contact.waitingForVerification;
       return;
     }
 
     submit.disabled = true;
-    contactStatus.textContent = 'Отправляем сообщение…';
+    contactStatus.textContent = contact.sending;
 
     try {
       const response = await fetch(apiUrl, {
@@ -116,19 +120,19 @@ if (dialog && form && contactStatus && submit) {
 
       if (!response.ok) {
         contactStatus.textContent = response.status === 429
-          ? 'Слишком много запросов. Попробуйте позже.'
+          ? contact.rateLimited
           : response.status === 403
-            ? 'Проверка не прошла. Попробуйте ещё раз.'
-            : 'Не удалось отправить сообщение. Попробуйте позже.';
+            ? contact.verificationFailed
+            : contact.sendFailed;
         if (widgetId) turnstileWindow.turnstile?.reset(widgetId);
         return;
       }
 
       form.reset();
       if (widgetId) turnstileWindow.turnstile?.reset(widgetId);
-      contactStatus.textContent = 'Сообщение отправлено. Спасибо!';
+      contactStatus.textContent = contact.sent;
     } catch {
-      contactStatus.textContent = 'Нет связи с сервером. Проверьте интернет и попробуйте ещё раз.';
+      contactStatus.textContent = contact.networkError;
       if (widgetId) turnstileWindow.turnstile?.reset(widgetId);
     } finally {
       submit.disabled = false;

@@ -11,12 +11,12 @@ const browser = await chromium.launch({ executablePath, headless: true });
 const baseUrl = process.env.BASE_URL ?? 'http://localhost:4321';
 
 try {
-  for (const width of [1200, 375]) {
-    const page = await browser.newPage({ viewport: { width, height: 800 } });
+  for (const { width, locale } of [{ width: 1200, locale: 'ru' }, { width: 375, locale: 'en' }]) {
+    const page = await browser.newPage({ viewport: { width, height: 800 }, locale });
     const requests = [];
     await page.route('https://challenges.cloudflare.com/turnstile/v0/api.js*', (route) => route.fulfill({
       contentType: 'application/javascript',
-      body: 'window.turnstile={render(){return "test-widget"},getResponse(){return "test-token"},reset(){}};',
+      body: 'window.turnstile={render(element, options){element.dataset.language=options.language;return "test-widget"},getResponse(){return "test-token"},reset(){}};',
     }));
     await page.route('**/contact', (route) => {
       if (route.request().method() === 'POST') requests.push(JSON.parse(route.request().postData()));
@@ -31,7 +31,8 @@ try {
         body: route.request().method() === 'OPTIONS' ? '' : '{"ok":true}',
       });
     });
-    await page.goto(baseUrl);
+    await page.goto(locale === 'ru' ? `${baseUrl.replace(/\/$/, '')}/ru` : baseUrl);
+    assert.equal(await page.locator('html').getAttribute('lang'), locale);
     const trigger = page.locator('.contact-trigger');
     await trigger.click();
     const dialog = page.locator('#contactDialog');
@@ -52,11 +53,19 @@ try {
 
     await page.locator('[name="replyTo"]').fill('recruiter@example.com');
     await page.locator('[name="message"]').fill('Хотим обсудить работу над проектом.');
+    const configured = (await page.locator('#contactForm').getAttribute('action')) !== '#';
+    if (configured) {
+      await page.locator(`#contactTurnstile[data-language="${locale}"]`).waitFor();
+    }
     await page.locator('#contactSubmit').click();
-    if ((await page.locator('#contactForm').getAttribute('action')) === '#') {
-      await page.locator('#contactStatus').getByText('Форма пока не подключена. Попробуйте позже.').waitFor();
+    if (!configured) {
+      const status = locale === 'ru'
+        ? 'Форма пока не подключена. Попробуйте позже.'
+        : 'The form is currently unavailable. Try again later.';
+      await page.locator('#contactStatus').getByText(status).waitFor();
     } else {
-      await page.locator('#contactStatus').getByText('Сообщение отправлено. Спасибо!').waitFor();
+      const status = locale === 'ru' ? 'Сообщение отправлено. Спасибо!' : 'Message sent. Thank you!';
+      await page.locator('#contactStatus').getByText(status).waitFor();
       assert.equal(requests.length, 1);
       assert.equal(requests[0].replyTo, 'recruiter@example.com');
       assert.equal(requests[0].turnstileToken, 'test-token');

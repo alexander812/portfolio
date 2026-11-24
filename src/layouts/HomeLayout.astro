@@ -1,30 +1,31 @@
 ---
 import '../styles/global.css';
+import LocalePreference from '../components/LocalePreference.astro';
+import { basePath, defaultLocale, getMessages, localePath, locales, type LocaleProps } from '../i18n';
 
-interface Props {
-  description?: string;
-  title?: string;
-}
+type Props = LocaleProps;
 
-const {
-  description = 'Интерактивный атлас карьеры фронтенд-разработчика: от jQuery до ИИ, 2006–2027. Восемь глав и 25 эпизодов.',
-  title = 'Орбиты опыта — от jQuery до ИИ',
-} = Astro.props;
-const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const { locale } = Astro.props;
+const { title, description } = getMessages(locale).site;
+const absoluteLocaleUrl = (option: Props['locale']) => new URL(localePath(option), Astro.site ?? Astro.url);
 ---
 
 <!doctype html>
-<html lang="ru" class="no-js">
+<html lang={locale} class="no-js">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <LocalePreference locale={locale} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={absoluteLocaleUrl(locale)} />
+    {locales.map((option) => <link rel="alternate" hreflang={option} href={absoluteLocaleUrl(option)} />)}
+    <link rel="alternate" hreflang="x-default" href={absoluteLocaleUrl(defaultLocale)} />
     <meta name="theme-color" content="#00030E" />
     <meta name="color-scheme" content="dark" />
-    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
-    <link rel="preload" href={`${base}fonts/hanken-latin.woff2`} as="font" type="font/woff2" crossorigin="anonymous" />
-    <link rel="preload" href={`${base}fonts/onest-cyrillic.woff2`} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="icon" type="image/svg+xml" href={`${basePath}/favicon.svg`} />
+    <link rel="preload" href={`${basePath}/fonts/hanken-latin.woff2`} as="font" type="font/woff2" crossorigin="anonymous" />
+    {locale === 'ru' && <link rel="preload" href={`${basePath}/fonts/onest-cyrillic.woff2`} as="font" type="font/woff2" crossorigin="anonymous" />}
     <noscript>
       <style is:inline>
         #sky, #app, .hud-top, .hud-bottom, .progress-rail, .modal, .skip-link { display: none !important; }

@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://alexander812.github.io',
   base: '/portfolio',
-  trailingSlash: 'never',
+  trailingSlash: 'ignore',
   build: {
     assetsInlineLimit: 0,
   },

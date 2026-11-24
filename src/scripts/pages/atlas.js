@@ -1,4 +1,5 @@
 import { gsap } from '../globals';
+import { basePath, formatMessage, getLocale, getMessages } from '../../i18n';
 import '../../pencil-embed.js';
 import dogeIcon from '../../assets/crypto/doge.svg?url';
 import shibIcon from '../../assets/crypto/shib.svg?url';
@@ -18,11 +19,15 @@ import londonPalaceSketch from '../../assets/backdrops/london-palace.svg?url';
 import tMobileLogo from '../../assets/brands/t-mobile.svg?url';
 import webStackLogos from '../../assets/brands/web-stack.svg?url';
 
+const pinNoteScreenshot = `${basePath}/images/pin-note-demo.png`;
+
 (() => {
   'use strict';
 
   const html = document.documentElement;
   const body = document.body;
+  const messages = getMessages(getLocale(html.lang));
+  const { atlas, cover, figures, navigation, site } = messages;
   html.classList.remove('no-js');
   document.getElementById('stage')?.setAttribute('role', 'main');
 
@@ -72,409 +77,114 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: '2026',
       year: 2026,
-      title: 'Самостоятельная разработка',
-      period: 'Май 2026 — сейчас',
       tone: 'rgba(188, 164, 255, 0.1)',
       episodes: [
-        {
-          number: '01',
-          title: 'Свободное время',
-          text: 'В найме его было много — и многое откладывалось на потом. Теперь его не хватает. Ирония. Спасибо AI: ручной код занимает не больше 15% времени. Остальное — постановка задачи, архитектура, проверка и доведение до результата.',
-          skills: ['AI-инструменты', 'Frontend'],
-          figure: '01',
-          bare: true,
-        },
-        {
-          number: '02',
-          title: 'Медиаплатформа',
-          text: 'Разрабатываю медиаплатформу для некоммерческой организации: блог и каталог статей, комментарии, закрытые и открытые материалы, headless CMS для авторов, административная система и CRM.',
-          skills: ['Headless CMS', 'CRM'],
-          figure: '20',
-          bare: true,
-        },
-        {
-          number: '03',
-          title: 'Изучаем языки',
-          text: 'Самая свежая работа — приложение для изучения языков. Несколько механик помогают учить слова и фразы. Импульсом стал сын: он учит английский в школе.',
-          skills: ['Пет-проект', 'Изучение языков'],
-          figure: '21',
-          bare: true,
-          link: 'https://lexi.casa/',
-        },
-        {
-          number: '04',
-          title: 'Между делом',
-          text: 'Несколько небольших проектов, которые не отнимают много времени. Обновить, проверить, починить — пауза для смены ритма.',
-          skills: ['Поддержка', 'Frontend'],
-          figure: '19',
-          bare: true,
-        },
+        { number: '01', figure: '01', bare: true },
+        { number: '02', figure: '20', bare: true },
+        { number: '03', figure: '21', bare: true, link: 'https://lexi.casa/' },
+        { number: '04', figure: '31', bare: true, link: 'https://github.com/alexander812/pin-note' },
+        { number: '05', figure: '19', bare: true },
       ],
     },
     {
       id: '2023',
       year: 2023,
-      title: 'Криптобиржа',
-      period: 'Декабрь 2023 — май 2026',
       tone: 'rgba(111, 231, 242, 0.075)',
       episodes: [
-        {
-          number: '01',
-          title: 'Команда',
-          text: 'Небольшая, но очень сплочённая команда. Самый профессиональный коллектив, в котором мне довелось работать. Моя позиция — Senior Developer.',
-          skills: ['Senior', 'Команда'],
-          figure: '22',
-          bare: true,
-        },
-        {
-          number: '02',
-          title: 'iOS, Android + телега',
-          text: 'Мы разрабатывали и поддерживали приложение под разные платформы. А именно Web, iOS, Android и Telegram. С помощью файла конфигурации набор фич в приложениях мог быть разный.',
-          skills: ['Web', 'iOS', 'Android', 'Telegram'],
-          figure: '26',
-          bare: true,
-        },
-        {
-          number: '03',
-          title: 'Ставка на ИИ',
-          text: 'Помимо стандартных инструментов торговли — ставка на искусственный интеллект. Развивали торговых агентов и сигналы ещё до того, как это стало трендом в индустрии.',
-          skills: ['AI-агенты', 'Сигналы'],
-          figure: '23',
-          bare: true,
-        },
-        {
-          number: '04',
-          title: 'Скорость ракеты',
-          text: 'Команда успевала делать в три раза больше, чем на моём предыдущем проекте. Постоянно экспериментировали с механиками: от профессиональных биржевых инструментов до игровых сценариев.',
-          skills: ['Торговые механики', 'Эксперименты'],
-          figure: '24',
-          bare: true,
-        },
-        {
-          number: '05',
-          title: 'Турниры',
-          text: 'Периодически устраивали турниры для пользователей — как правило, в формате хакатона. Действовать приходилось быстро и креативно. Здесь же AI в кодинге окончательно стал обыденной реальностью.',
-          skills: ['Турниры', 'Хакатоны', 'AI в коде'],
-          figure: '25',
-          bare: true,
-        },
+        { number: '01', figure: '22', bare: true },
+        { number: '02', figure: '26', bare: true },
+        { number: '03', figure: '23', bare: true },
+        { number: '04', figure: '24', bare: true },
+        { number: '05', figure: '25', bare: true },
       ],
     },
     {
       id: '2017',
       year: 2017,
-      title: 'Akma',
-      period: 'Апрель 2017 — декабрь 2023',
       tone: 'rgba(188, 164, 255, 0.09)',
       episodes: [
-        {
-          number: '01',
-          title: 'Платформа для трейдинга',
-          text: 'Akma — очень крупный проект с миллионами пользователей. Здесь были реализованы торговые механики, CFD, Stocks, Forex и Options. Продукт работал только с зарубежными клиентами.',
-          skills: ['Трейдинг', 'CFD', 'Stocks', 'Forex', 'Options'],
-          figure: '09',
-          bare: true,
-        },
-        {
-          number: '02',
-          title: 'Команда и процессы',
-          text: 'Пришёл на проект как тим лид фронтенда и синьор разработчик. В команде было около 20 разработчиков. Отвечал за архитектурные решения, набирал новых людей, организовывал командные синки и выездные сессии. В компании ежегодно проходили хакатоны — я всегда участвовал, борьба была нешуточная, но и награды тоже.',
-          skills: ['Team Lead', 'Senior', 'Архитектура', 'Найм', 'Хакатоны'],
-          figure: '08',
-          bare: true,
-        },
-        {
-          number: '03',
-          title: 'Ядро и другие команды',
-          text: 'На проекте было много команд. Я работал в команде «Платформа», которая отвечала за ядро проекта. На время переходил в другие команды: поднимал фронтенд криптокошелька и интегрировал торговые графики. Изначально проект писался на Flux и JavaScript, позже работу с состоянием перевели на MobX и TypeScript.',
-          skills: ['Платформа', 'Криптокошелёк', 'Графики', 'Flux → MobX', 'TypeScript'],
-          figure: '07',
-          bare: true,
-        },
+        { number: '01', figure: '09', bare: true },
+        { number: '02', figure: '08', bare: true },
+        { number: '03', figure: '07', bare: true },
       ],
     },
     {
       id: '2015',
       year: 2015,
-      title: 'Интерселект',
-      period: 'Август 2015 — март 2017',
       tone: 'rgba(111, 231, 242, 0.07)',
       episodes: [
-        {
-          number: '01',
-          title: 'MVP на jQuery',
-          text: 'Интерселект — финтех-платформа бинарных опционов, очень популярная механика в те годы. Я пришёл в проект, когда в нём было около 10 человек. Первую версию собрали на jQuery за неделю как быстрое MVP, для проверки гипотезы.',
-          skills: ['Финтех', 'Бинарные опционы', 'jQuery', 'MVP'],
-          figure: '10',
-          bare: true,
-        },
-        {
-          number: '02',
-          title: 'Backbone → React',
-          text: 'Когда платформа начала приносить прибыль, её переписали на Backbone. За несколько лет команда выросла примерно в 10 раз. Я стал тимлидом четырёх фронтенд-разработчиков: занимался архитектурой, наймом, синками и встречами. Следующим этапом стал масштабный рефакторинг с Backbone на React.',
-          skills: ['Backbone', 'React', 'Тимлид', 'Рефакторинг'],
-          figure: '11',
-          bare: true,
-        },
+        { number: '01', figure: '10', bare: true },
+        { number: '02', figure: '11', bare: true },
       ],
     },
     {
       id: '2010',
       year: 2010,
-      title: 'Страйдер',
-      period: 'Октябрь 2010 — июль 2015',
       tone: 'rgba(188, 164, 255, 0.075)',
       episodes: [
-        {
-          number: '01',
-          title: 'По обе стороны API',
-          text: 'Работал fullstack-разработчиком: делал и бэкенд, и фронтенд. Участвовал в разных проектах компании, связывая интерфейс с серверной частью.',
-          skills: ['Fullstack', 'Backend', 'Frontend'],
-          figure: '12',
-          bare: true,
-        },
-        {
-          number: '02',
-          title: 'Видео и облако',
-          text: 'Среди проектов — сервис загрузки и просмотра видео и облачный файловый сервис. Работал с пользовательским интерфейсом и логикой на сервере.',
-          skills: ['Видео', 'Файлы', 'Облачные сервисы'],
-          figure: '13',
-          bare: true,
-        },
-        {
-          number: '03',
-          title: 'Структура интерфейса',
-          text: 'Внедрял в проект новый на тот момент Backbone. Фронтенд становился самостоятельным приложением со своей структурой.',
-          skills: ['JavaScript', 'Backbone'],
-          figure: '14',
-          bare: true,
-        },
+        { number: '01', figure: '12', bare: true },
+        { number: '02', figure: '13', bare: true },
+        { number: '03', figure: '14', bare: true },
       ],
     },
     {
       id: '2009',
       year: 2009,
-      title: 'Маш Русланд',
-      period: 'Март 2009 — июль 2010',
       tone: 'rgba(111, 231, 242, 0.065)',
       episodes: [
-        {
-          number: '01',
-          title: 'На стороне сервера',
-          text: 'Писал CMS и плагины на PHP для программного обеспечения государственных учреждений Германии. За хранение данных отвечал MSSQL.',
-          skills: ['PHP', 'MSSQL', 'CMS'],
-          figure: '15',
-          bare: true,
-        },
-        {
-          number: '02',
-          title: 'Общий язык команды',
-          text: 'В команде было шесть человек: два бэкендера, два фронтендера, тестировщик и продакт. Работал одним из двух бэкенд-разработчиков.',
-          skills: ['Backend', 'Взаимодействие', 'Команда'],
-          figure: '16',
-          bare: true,
-        },
-        {
-          number: '03',
-          title: 'Редактор и экспорт',
-          text: 'Разрабатывал с нуля редактор WYSIWYG, плагины экспорта Excel и документов Word в HTML.',
-          skills: ['WYSIWYG', 'PHP', 'Экспорт'],
-          figure: '27',
-          bare: true,
-        },
+        { number: '01', figure: '15', bare: true },
+        { number: '02', figure: '16', bare: true },
+        { number: '03', figure: '27', bare: true },
       ],
     },
     {
       id: '2006',
       year: 2006,
-      title: 'Старсофт Лабс · T-Mobile',
-      period: 'Декабрь 2006 — январь 2009',
       tone: 'rgba(188, 164, 255, 0.08)',
       episodes: [
-        {
-          number: '01',
-          title: 'Первый опыт в JS',
-          text: 'Работал над проектом для T-Mobile и отвечал за JavaScript. Здесь начинается коммерческий опыт, отражённый в этом атласе.',
-          skills: ['JavaScript', 'Frontend', 'T-Mobile'],
-          figure: '17',
-          bare: true,
-        },
-        {
-          number: '02',
-          title: 'За пределами кода',
-          text: 'На второй год работы стал тимлидом команды. Неоднократно ездил в зарубежные командировки для обмена опытом.',
-          skills: ['Тимлид', 'Международная команда'],
-          figure: '18',
-          bare: true,
-        },
-        {
-          number: '03',
-          title: 'Каталог и CRM',
-          text: 'Разрабатывал каталог продуктов и CRM на базе ExtJS.',
-          skills: ['ExtJS', 'CRM', 'Каталог'],
-          figure: '28',
-          bare: true,
-        },
-        {
-          number: '04',
-          title: 'Библиотека компонентов',
-          text: 'Создавал библиотеку компонентов для электронного магазина T-Mobile. Поддерживал браузеры начиная с IE6, обеспечивал 100% accessibility и валидацию W3C.',
-          skills: ['UI-кит', 'IE6', 'Accessibility', 'W3C'],
-          figure: '29',
-          bare: true,
-        },
+        { number: '01', figure: '17', bare: true },
+        { number: '02', figure: '18', bare: true },
+        { number: '03', figure: '28', bare: true },
+        { number: '04', figure: '29', bare: true },
       ],
     },
     {
       id: 'expectations',
       year: 2027,
-      title: 'Мои ожидания',
-      period: 'Пожелания к следующей роли',
       tone: 'rgba(255, 122, 217, 0.075)',
       episodes: [
-        {
-          number: '01',
-          title: 'Мои ожидания',
-          text: 'Каким я вижу следующее место работы.',
-          bullets: [
-            'Удалённый или гибридный режим.',
-            'Достойная оплата.',
-            'Гибкость по времени: можно отлучиться по необходимости и доделать работу позже.',
-            'Минимум бюрократии.',
-            'Нормальное планирование и расстановка приоритетов.',
-          ],
-          skills: ['Remote', 'Гибкий график', 'Оплата', 'Процессы'],
-          figure: '30',
-          bare: true,
-        },
+        { number: '01', figure: '30', bare: true },
       ],
     },
-  ];
+  ].map((chapter) => {
+    const { title, period, episodes } = messages.chapters[chapter.id];
+    return {
+      ...chapter,
+      title,
+      period,
+      episodes: chapter.episodes.map((episode) => ({ ...episode, ...episodes[episode.number] })),
+    };
+  });
 
   const EVENTS = [
-    {
-      id: '2026-05',
-      year: 2026,
-      month: 'Май',
-      type: 'Завершение',
-      company: 'Space307',
-      text: 'Завершил проект криптобиржи и работу в Space307.',
-    },
-    {
-      id: '2026-03',
-      year: 2026,
-      month: 'Март',
-      type: 'Запуск',
-      company: 'Space307',
-      text: 'Подключение DCA-торговых агентов. Перпы.',
-    },
-    {
-      id: '2023-12',
-      year: 2023,
-      month: 'Декабрь',
-      type: 'Переход',
-      text: 'Завершил работу над Akma. Перешёл в проект криптобиржи.',
-    },
-    {
-      id: '2018-06',
-      year: 2018,
-      month: 'Июнь',
-      type: 'Выставка',
-      text: 'Mobile World Congress Shanghai в Шанхае. Первое знакомство с искусственным интеллектом — технологиями машинного зрения.',
-    },
-    {
-      id: '2018-04-ams',
-      year: 2018,
-      month: 'Апрель',
-      type: 'Конференция',
-      text: 'React Amsterdam 2018. Удалось пообщаться с создателем MobX.',
-    },
-    {
-      id: '2017-04',
-      year: 2017,
-      month: 'Апрель',
-      type: 'Начало',
-      company: 'Space307',
-      text: 'Присоединился к Space307. Начал работу над платформой Akma.',
-    },
-    {
-      id: '2017-03',
-      year: 2017,
-      month: 'Март',
-      type: 'Завершение',
-      text: 'Завершил работу в Интерселект.',
-    },
-    {
-      id: '2015-08',
-      year: 2015,
-      month: 'Август',
-      type: 'Начало',
-      text: 'Начал работу в Интерселект: платформа бинарных опционов, первый MVP на jQuery.',
-    },
-    {
-      id: '2015-07',
-      year: 2015,
-      month: 'Июль',
-      type: 'Завершение',
-      text: 'Завершил работу fullstack-разработчиком в Страйдере.',
-    },
-    {
-      id: '2010-10',
-      year: 2010,
-      month: 'Октябрь',
-      type: 'Начало',
-      text: 'Присоединился к Страйдеру как fullstack-разработчик.',
-    },
-    {
-      id: '2010-07',
-      year: 2010,
-      month: 'Июль',
-      type: 'Завершение',
-      text: 'Завершил работу бэкенд-разработчиком в Маш Русланд.',
-    },
-    {
-      id: '2009-03',
-      year: 2009,
-      month: 'Март',
-      type: 'Начало',
-      text: 'Начал работу в Маш Русланд: CMS и плагины на PHP и MSSQL.',
-    },
-    {
-      id: '2009-01',
-      year: 2009,
-      month: 'Январь',
-      type: 'Завершение',
-      text: 'Завершил работу в Старсофт Лабс на тот момент уже Exigen Services и над проектом T-Mobile.',
-    },
-    {
-      id: '2008-06',
-      year: 2008,
-      month: 'Июнь',
-      type: 'Конференция',
-      text: 'Конференция @media (AtMedia) в Лондоне. Джон Резиг рассказывал о создании библиотеки jQuery.',
-    },
-    {
-      id: '2008-03',
-      year: 2008,
-      month: 'Март',
-      type: 'Командировка',
-      text: 'Командировка и обучение в лондонском офисе T-Mobile.',
-    },
-    {
-      id: '2007-06',
-      year: 2007,
-      month: 'Июнь',
-      type: 'Стажировка',
-      text: 'Стажировка по направлению веб-разработки в Лондоне.',
-    },
-    {
-      id: '2006-12',
-      year: 2006,
-      month: 'Декабрь',
-      type: 'Начало',
-      text: 'Начал работу в Старсофт Лабс. JavaScript и фронтенд проекта T-Mobile.',
-    },
-  ];
+    { id: '2026-05', year: 2026 },
+    { id: '2026-03', year: 2026 },
+    { id: '2023-12', year: 2023 },
+    { id: '2018-06', year: 2018 },
+    { id: '2018-04-ams', year: 2018 },
+    { id: '2017-04', year: 2017 },
+    { id: '2017-03', year: 2017 },
+    { id: '2015-08', year: 2015 },
+    { id: '2015-07', year: 2015 },
+    { id: '2010-10', year: 2010 },
+    { id: '2010-07', year: 2010 },
+    { id: '2009-03', year: 2009 },
+    { id: '2009-01', year: 2009 },
+    { id: '2008-06', year: 2008 },
+    { id: '2008-03', year: 2008 },
+    { id: '2007-06', year: 2007 },
+    { id: '2006-12', year: 2006 },
+  ].map((event) => ({ ...event, ...messages.events[event.id] }));
 
   const ROUTE_PLAN = [
     'chapter:2026',
@@ -516,39 +226,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     'chapter:expectations',
   ];
 
-  const FIGURES = {
-    '00': { topic: 'Система навыков', kind: 'skills' },
-    '01': { topic: 'Нейросеть', kind: 'brain' },
-    '02': { topic: 'Конвейер заказов', kind: 'conveyor' },
-    '03': { topic: 'Карточка слова', kind: 'deck' },
-    '04': { topic: 'Свечной график', kind: 'chart' },
-    '05': { topic: 'Торговля и переводы', kind: 'transfers' },
-    '06': { topic: 'Поединок', kind: 'duel' },
-    '07': { topic: 'Ядро и команды', kind: 'layers' },
-    '08': { topic: 'Команда фронтенда', kind: 'constellation' },
-    '09': { topic: 'Торговые рынки', kind: 'products' },
-    '10': { topic: 'Эволюция платформы', kind: 'dataflow' },
-    '11': { topic: 'Сборка команды', kind: 'team' },
-    '12': { topic: 'Клиент и сервер', kind: 'client' },
-    '13': { topic: 'Облачная медиатека', kind: 'cloud' },
-    '14': { topic: 'Каркас приложения', kind: 'skeleton' },
-    '15': { topic: 'Система и плагины', kind: 'plugins' },
-    '16': { topic: 'Шесть участников', kind: 'six' },
-    '17': { topic: 'Интерфейс связи', kind: 'connectivity' },
-    '18': { topic: 'Обмен опытом', kind: 'globe' },
-    '19': { topic: 'Проекты на поддержке', kind: 'orbits' },
-    '20': { topic: 'Медиаплатформа', kind: 'media' },
-    '21': { topic: 'Изучение языков', kind: 'language' },
-    '22': { topic: 'Команда', kind: 'team' },
-    '23': { topic: 'Агенты и сигналы', kind: 'signals' },
-    '24': { topic: 'Три скорости', kind: 'mechanics' },
-    '25': { topic: 'Турниры', kind: 'tournament' },
-    '26': { topic: 'Кроссплатформенные приложения', kind: 'platforms' },
-    '27': { topic: 'Редактор и экспорт', kind: 'editor' },
-    '28': { topic: 'Каталог и CRM', kind: 'catalog' },
-    '29': { topic: 'Библиотека компонентов', kind: 'components' },
-    '30': { topic: 'Ожидания от работы', kind: 'expectations' },
-  };
+  const FIGURE_TOPICS = messages.figureTopics;
 
   const ANIMATED_FIGURES = new Set([
     '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18',
@@ -558,20 +236,6 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
   const chapterById = new Map(CHAPTERS.map((chapter) => [chapter.id, chapter]));
   const eventById = new Map(EVENTS.map((event) => [event.id, event]));
 
-  const YEAR_NOTES = {
-    2025: 'Внедрение AI-агентов. Мемкоины и предикшн-блоки. Партнёрка.',
-    2024: 'Графики, торговые сигналы и CFD. Битва за LTV пользователей.',
-    2022: 'Интеграция графиков на С++. Битва за ретеншн пользователей.',
-    2021: 'Начали рефакторинг и переход на архитектуру, ориентированную на фичи. Для этого запустили на прод новый фреймворк, который позволял декларативно описывать набор фичей в приложении.',
-    2020: 'Закончили переезд платформы на MobX.',
-    2019: 'Грянул COVID, и мы все перешли на удалёнку. Создавали сотни A/B-тестов, проверяли гипотезы и воронки конверсии.',
-    2016: 'Разработка Forex-механики.',
-    2014: 'Развивали проект видео-платформы, создали партнёрскую программу.',
-    2013: 'Запускали видео-сервис: SPA-приложение и кастомный видеоплеер с рекламными интеграциями.',
-    2012: 'Занимался рекламными интеграциями на страницах, аналитикой и системой показа по результатам продаж в автоматическом режиме.',
-    2011: 'Переписал приложение по обмену файлами с MPA на SPA. Распутывал спагетти на PHP.',
-  };
-
   /* ------------------------------------------------------------------------
      Маршрут
      ------------------------------------------------------------------------ */
@@ -579,9 +243,9 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
   const hobbiesEl = $('#hobbies');
   const hobbiesTitle = hobbiesEl?.querySelector('h2')?.textContent.trim();
   const planItems = [
-    { kind: 'cover', id: 'intro', label: 'Обложка: Для кого этот сайт' },
-    { kind: 'cover', id: 'help', label: 'Чем я могу помочь' },
-    { kind: 'cover', id: 'start', label: 'Начало путешествия' },
+    { kind: 'cover', id: 'intro', label: cover.introLabel },
+    { kind: 'cover', id: 'help', label: cover.helpLabel },
+    { kind: 'cover', id: 'start', label: cover.startLabel },
   ];
 
   for (const token of ROUTE_PLAN) {
@@ -661,7 +325,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       });
     }
   }
-  STOPS.push({ t: ENTRIES[ENTRIES.length - 1].center, kind: 'finale', label: 'Финал' });
+  STOPS.push({ t: ENTRIES[ENTRIES.length - 1].center, kind: 'finale', label: atlas.finale });
   STOPS.sort((a, b) => a.t - b.t);
 
   const ROUTE_END = ENTRIES[ENTRIES.length - 1].center;
@@ -687,45 +351,46 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       .replaceAll('"', '&quot;');
   }
 
-  function pauseIcon(label) {
+  function pauseIcon() {
     return `
       <svg class="icon-pause" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.8" width="2.6" height="8.4" rx=".7" fill="currentColor"/><rect x="7.4" y="1.8" width="2.6" height="8.4" rx=".7" fill="currentColor"/></svg>
       <svg class="icon-play" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.2 1.8 10 6l-6.8 4.2V1.8Z" fill="currentColor"/></svg>
-      <span class="pause-label">Пауза</span>`;
+      <span class="pause-label">${escapeHtml(atlas.pause)}</span>`;
   }
 
   function pauseButton(animId, label) {
-    return `<button class="pause-btn" type="button" data-anim="${animId}" aria-label="Пауза: ${escapeHtml(label)}" aria-pressed="false" title="Пауза">${pauseIcon(label)}</button>`;
+    return `<button class="pause-btn" type="button" data-anim="${animId}" aria-label="${escapeHtml(atlas.pause)}: ${escapeHtml(label)}" aria-pressed="false" title="${escapeHtml(atlas.pause)}">${pauseIcon()}</button>`;
   }
 
   function figureShell(figureNumber, body, options = {}) {
-    const figure = FIGURES[figureNumber];
+    const topic = FIGURE_TOPICS[figureNumber];
+    const caption = formatMessage(atlas.figureCaption, { number: figureNumber, topic });
     if (options.bare) {
       return `
       <div class="figure-bare" data-figure-body="${figureNumber}">
         ${body}
       </div>
-      <figcaption class="sr-only">Рисунок ${figureNumber}. ${escapeHtml(figure.topic)}.</figcaption>`;
+      <figcaption class="sr-only">${escapeHtml(caption)}</figcaption>`;
     }
     const animated = Boolean(options.animId);
     return `
       <div class="figure-card">
         <div class="fig-head">
           <div class="fig-title">
-            <span class="fig-number">Рис. ${figureNumber}</span>
+            <span class="fig-number">${escapeHtml(formatMessage(atlas.figureNumber, { number: figureNumber }))}</span>
             <span class="fig-divider" aria-hidden="true"></span>
-            <span class="fig-topic">${escapeHtml(figure.topic)}</span>
+            <span class="fig-topic">${escapeHtml(topic)}</span>
           </div>
           <div class="fig-tools">
-            <span class="fig-status${animated ? '' : ' is-static'}">${animated ? 'Анимация' : 'Схема'}</span>
-            ${animated ? pauseButton(options.animId, figure.topic) : ''}
+            <span class="fig-status${animated ? '' : ' is-static'}">${escapeHtml(animated ? atlas.animation : atlas.diagram)}</span>
+            ${animated ? pauseButton(options.animId, topic) : ''}
           </div>
         </div>
         <div class="fig-body" data-figure-body="${figureNumber}">
           ${body}
         </div>
       </div>
-      <figcaption class="sr-only">Рисунок ${figureNumber}. ${escapeHtml(figure.topic)}.</figcaption>`;
+      <figcaption class="sr-only">${escapeHtml(caption)}</figcaption>`;
   }
 
   function renderEpisode(chapter, episode, episodeIndex) {
@@ -740,7 +405,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       : '';
     const projectLink = episode.link
       ? `<a class="ep-project-link" href="${escapeHtml(episode.link)}" target="_blank" rel="noopener noreferrer">
-          <span>Перейти на проект</span>
+          <span>${escapeHtml(atlas.projectLink)}</span>
           <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 10 10 4M5.2 4H10v4.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>`
       : '';
@@ -762,7 +427,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
               <h2>${escapeHtml(episode.title)}</h2>
               <p>${escapeHtml(episode.text)}</p>
               ${bullets}
-              <ul class="skills" aria-label="Навыки">${skills}</ul>
+              <ul class="skills" aria-label="${escapeHtml(atlas.skills)}">${skills}</ul>
               ${projectLink}
             </div>
             <figure class="ep-figure">
@@ -815,8 +480,9 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
   const SPACE307_LOGO_PATH = 'M105.26 93.9831L76.485 65.466C74.876 63.8826 72.8182 63.0096 70.714 63H50.6501L32.5773 63.0004C30.4786 63.0134 28.3794 63.8053 26.7747 65.3845L21.2163 70.8937C19.5964 72.4959 19.5977 75.094 21.2172 76.6967L27.078 82.505C28.6984 84.1077 31.3599 84.1328 32.9802 82.5301L39.8358 75.7359L48.6758 66.9751C50.2953 65.3728 52.883 65.3733 54.5025 66.9759L83.4528 95.6664C85.0617 97.2502 87.2685 97.9423 89.3727 97.9515H109.437L127.553 97.951C129.652 97.9377 131.792 97.1859 133.397 95.6066L138.766 90.2855C140.493 88.5767 140.346 86.0442 138.726 84.4416L132.865 78.6328C131.246 77.0314 128.623 77.0502 127.004 78.647L120.324 85.2669L111.543 93.9693C109.923 95.5715 106.879 95.5853 105.26 93.9831Z';
   const SPACE307_LOGO = `<svg class="event-company-logo" viewBox="0 0 160 160" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="${SPACE307_LOGO_PATH}" fill="currentColor"/></svg>`;
 
-  function eventBackdropShell(content, variant = '') {
-    return `<div class="event-backdrop${variant ? ` event-backdrop--${variant}` : ''}" aria-hidden="true"><svg viewBox="0 0 640 420" preserveAspectRatio="xMidYMax slice" focusable="false">${content}</svg></div>`;
+  // Crop empty space above the artwork before centering it within the card.
+  function eventBackdropShell(content, variant = '', centeredViewBox = '') {
+    return `<div class="event-backdrop${variant ? ` event-backdrop--${variant}` : ''}" aria-hidden="true"><svg viewBox="${centeredViewBox || '0 0 640 420'}" preserveAspectRatio="${centeredViewBox ? 'xMidYMid meet' : 'xMidYMax slice'}" focusable="false">${content}</svg></div>`;
   }
 
   // City scenes use the full card height so their landmarks remain visible on wide cards.
@@ -843,9 +509,9 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <circle cx="320" cy="210" r="154" stroke-dasharray="2 12"/>
         <path d="M124 210h392" stroke-dasharray="2 14"/>
       </g>
-      <g transform="translate(320 352) scale(2.35) translate(-80 -80)" fill="rgba(188,164,255,.11)">
+      <g transform="translate(320 210) scale(2.35) translate(-80 -80)" fill="rgba(188,164,255,.11)">
         <path fill-rule="evenodd" clip-rule="evenodd" d="${SPACE307_LOGO_PATH}"/>
-      </g>`);
+      </g>`, '', '0 0 640 420');
   }
 
   function covidBackdrop() {
@@ -872,7 +538,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
           <circle cx="${(virus.x - virus.radius * 0.4).toFixed(1)}" cy="${(virus.y + virus.radius * 0.34).toFixed(1)}" r="1.8" fill="rgba(110,231,160,.28)" stroke="none"/>
         </g>`;
     }).join('');
-    return eventBackdropShell(`<g fill="rgba(110,231,160,.03)" stroke="rgba(110,231,160,.3)" stroke-width="1.8" stroke-linecap="round">${shapes}</g>`);
+    return eventBackdropShell(`<g fill="rgba(110,231,160,.03)" stroke="rgba(110,231,160,.3)" stroke-width="1.8" stroke-linecap="round">${shapes}</g>`, '', '0 216 640 228');
   }
 
   function shanghaiBackdrop() {
@@ -1009,7 +675,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       ${backdropCoin(584, 348, 42, 'WIF', wifIcon, '255,122,217')}
       <g fill="none" stroke="rgba(247,196,84,.1)" stroke-width="1">
         <path d="M122 286h22M132 276v20M282 266h18M291 257v18M526 266h16M534 258v16"/>
-      </g>`, 'crypto');
+      </g>`, 'crypto', '0 250 640 176');
   }
 
   function cryptoAssetsBackdrop() {
@@ -1023,7 +689,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       <g fill="none" stroke="rgba(111,231,242,.09)" stroke-width="1">
         <path d="M128 294h18M137 285v18M500 294h18M509 285v18"/>
         <path d="M270 286l14-14 14 14M576 290l12-12 12 12"/>
-      </g>`, 'crypto');
+      </g>`, 'crypto', '0 264 640 162');
   }
 
   function chartsBackdrop() {
@@ -1060,7 +726,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       </g>
       <g fill="rgba(188,164,255,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".14em">
         <text x="42" y="276">BAR</text><text x="248" y="276">LINE</text><text x="442" y="276">CANDLE</text>
-      </g>`);
+      </g>`, '', '0 260 640 144');
   }
 
   function agentSignalsBackdrop() {
@@ -1140,7 +806,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       <g fill="none" stroke="rgba(188,164,255,.12)" stroke-width="1">
         <path d="M124 350v-22M124 338h10M134 338v-14M144 324v-18"/>
         <path d="M492 340v-26M492 326h10M502 326v-16M512 310v-20"/>
-      </g>`);
+      </g>`, '', '0 278 640 128');
   }
 
   function videoHostingBackdrop() {
@@ -1179,7 +845,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       <g fill="none" stroke="rgba(188,164,255,.11)" stroke-width="1.2">
         <path d="M292 306h-12v48h12M310 306h12v48h-12" />
         <path d="M132 300h-10v34h10M148 300h10v34h-10" />
-      </g>`, 280, 'xMidYMax meet');
+      </g>`, 280, 'xMidYMid meet');
   }
 
   function videoAdsBackdrop() {
@@ -1221,7 +887,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     return cityBackdropShell(`
       ${spbSkyline(36, 408, 1.25, '188,164,255')}
       ${spbSkyline(312, 412, 0.9, '111,231,242')}
-      <text x="566" y="404" text-anchor="middle" fill="rgba(111,231,242,.09)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".2em">САНКТ-ПЕТЕРБУРГ</text>`, 180);
+      <text x="566" y="404" text-anchor="middle" fill="rgba(111,231,242,.09)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".2em">${escapeHtml(figures.petersburg)}</text>`, 180);
   }
 
   function germanExitBackdrop() {
@@ -1264,7 +930,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       <g fill="none" stroke="rgba(247,196,84,.16)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 6">
         <path d="M248 348c42-42 86-42 126 0M364 336l10 12-10 12"/>
       </g>
-      <text x="86" y="398" text-anchor="middle" fill="rgba(188,164,255,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".18em">СПБ</text>
+      <text x="86" y="398" text-anchor="middle" fill="rgba(188,164,255,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".18em">${escapeHtml(figures.petersburgShort)}</text>
       <text x="472" y="400" text-anchor="middle" fill="rgba(111,231,242,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".18em">LONDON</text>`, 180);
   }
 
@@ -1327,16 +993,16 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
   }
 
   function renderYear(entry) {
-    const note = YEAR_NOTES[entry.year] || `По орбите к ${entry.nextChapter} году`;
+    const note = messages.yearNotes[entry.year] ?? formatMessage(atlas.orbitToYear, { year: entry.nextChapter });
+    const yearLabel = formatMessage(atlas.year, { year: entry.year });
     return `
-      <section class="stop stop-year" data-index="${entry.index}" aria-label="${entry.year} год">
+      <section class="stop stop-year" data-index="${entry.index}" aria-label="${escapeHtml(yearLabel)}">
         <div class="event-shell">
           <div class="event-card year-event-card">
             ${entry.year === 2019 ? covidBackdrop() : yearBackdrop(entry.year)}
             <div class="event-year" aria-hidden="true">${entry.year}</div>
             <div class="event-body">
-              <div class="event-kicker">Хронология</div>
-              <h2 class="sr-only">${entry.year} год</h2>
+              <h2 class="sr-only">${escapeHtml(yearLabel)}</h2>
               <p class="event-text year-note">${escapeHtml(note)}</p>
             </div>
           </div>
@@ -1350,15 +1016,15 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       return `<span class="orbit-dot" style="left:${(50 + Math.cos(angle) * 49).toFixed(2)}%;top:${(50 + Math.sin(angle) * 46).toFixed(2)}%"></span>`;
     }).join('');
     return `
-      <section class="stop stop-finale" data-index="${entry.index}" aria-label="Финал: Полный оборот">
+      <section class="stop stop-finale" data-index="${entry.index}" aria-label="${escapeHtml(atlas.finaleLabel)}">
         <div class="finale-shell">
           <div class="finale-orbit" aria-hidden="true">${dots}</div>
           <div class="finale-content">
-            <div class="finale-eyebrow">Начало пути</div>
-            <h2 class="finale-title">Полный оборот.</h2>
-            <div class="finale-meta"><span class="meta-strong">2006 — 2027</span> · Восемь глав · 25 эпизодов</div>
+            <div class="finale-eyebrow">${escapeHtml(atlas.finaleEyebrow)}</div>
+            <h2 class="finale-title">${escapeHtml(atlas.finaleTitle)}</h2>
+            <div class="finale-meta"><span class="meta-strong">2006 — 2027</span> · ${escapeHtml(site.scope)}</div>
             <button class="primary-btn" id="finalHomeBtn" type="button">
-              <span>К началу атласа</span>
+              <span>${escapeHtml(site.backToAtlasStart)}</span>
               <span class="btn-orb" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h9M8.4 3.6 12.8 8l-4.4 4.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </button>
           </div>
@@ -1399,7 +1065,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
 
   const yearNav = $('#yearNav');
   yearNav.innerHTML = CHAPTERS.map(
-    (chapter) => `<button class="year-btn" type="button" data-year="${chapter.id}" aria-label="Перейти к главе ${chapter.year}: ${escapeHtml(chapter.title)}">${chapter.year}</button>`
+    (chapter) => `<button class="year-btn" type="button" data-year="${chapter.id}" aria-label="${escapeHtml(formatMessage(navigation.chapterLink, { year: chapter.year, title: chapter.title }))}">${chapter.year}</button>`
   ).join('');
 
   const yearNavWrap = $('.year-nav-wrap');
@@ -1505,7 +1171,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: 'web',
       label: 'WEB',
-      sub: 'САЙТЫ · ПОРТАЛЫ',
+      sub: figures.sitesAndPortals,
       side: 'left',
       accent: '#6FE7F2',
       tone: 'cyan',
@@ -1516,7 +1182,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: 'cms',
       label: 'CMS',
-      sub: 'КОНТЕНТ',
+      sub: figures.content,
       side: 'left',
       accent: '#BCA4FF',
       tone: 'lav',
@@ -1527,7 +1193,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: 'design',
       label: 'DESIGN',
-      sub: 'БРЕНДБУКИ · UI-КИТЫ',
+      sub: figures.brandAndUi,
       side: 'left',
       accent: '#FF7AD9',
       tone: 'pink',
@@ -1538,7 +1204,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: 'social',
       label: 'SOCIAL',
-      sub: 'КОНТЕНТ',
+      sub: figures.content,
       side: 'left',
       accent: '#FF7AD9',
       tone: 'pink',
@@ -1549,7 +1215,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: 'android',
       label: 'ANDROID',
-      sub: 'ПРИЛОЖЕНИЯ',
+      sub: figures.apps,
       side: 'right',
       accent: '#6FE7F2',
       tone: 'cyan',
@@ -1560,7 +1226,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: 'ios',
       label: 'iOS',
-      sub: 'ПРИЛОЖЕНИЯ',
+      sub: figures.apps,
       side: 'right',
       accent: '#BCA4FF',
       tone: 'lav',
@@ -1571,7 +1237,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: 'telegram',
       label: 'TELEGRAM',
-      sub: 'БОТЫ · МИНИ-АППЫ',
+      sub: figures.botsAndMiniApps,
       side: 'right',
       accent: '#6FE7F2',
       tone: 'cyan',
@@ -1582,7 +1248,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: 'llm',
       label: 'LLM',
-      sub: 'ЧАТ-БОТЫ',
+      sub: figures.chatbots,
       side: 'right',
       accent: '#FF7AD9',
       tone: 'pink',
@@ -1593,7 +1259,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: 'frontend',
       label: 'FRONTEND',
-      sub: 'ИНТЕРФЕЙСЫ',
+      sub: figures.interfaces,
       side: 'top',
       accent: '#BCA4FF',
       tone: 'lav',
@@ -1604,7 +1270,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: 'backend',
       label: 'BACKEND',
-      sub: 'СЕРВИСЫ · API',
+      sub: figures.services,
       side: 'top',
       accent: '#6FE7F2',
       tone: 'cyan',
@@ -1615,7 +1281,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: 'crm',
       label: 'CRM',
-      sub: 'ПРОЦЕССЫ',
+      sub: figures.workflows,
       side: 'bottom',
       accent: '#BCA4FF',
       tone: 'lav',
@@ -1626,7 +1292,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: 'ai',
       label: 'AI',
-      sub: 'АВТОМАТИЗАЦИЯ',
+      sub: figures.automation,
       side: 'bottom',
       accent: '#FF7AD9',
       tone: 'pink',
@@ -1637,7 +1303,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     {
       id: 'analytics',
       label: 'ANALYTICS',
-      sub: 'A/B-ТЕСТЫ',
+      sub: figures.abTests,
       side: 'bottom',
       accent: '#6FE7F2',
       tone: 'cyan',
@@ -1765,8 +1431,8 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
               <rect x="-13" y="-13" width="26" height="26" rx="7" fill="rgba(188,164,255,.06)" stroke="rgba(188,164,255,.32)" stroke-width="1"/>
               <path d="M-6 4v-8l6 5.2L6-4v8" fill="none" stroke="#BCA4FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </g>
-            <text y="14" text-anchor="middle" class="help-chip-title">ПРОЦЕССОР</text>
-            <text y="27" text-anchor="middle" class="help-chip-sub">ПОД КЛЮЧ</text>
+            <text y="14" text-anchor="middle" class="help-chip-title">${escapeHtml(figures.processor)}</text>
+            <text y="27" text-anchor="middle" class="help-chip-sub">${escapeHtml(figures.turnkey)}</text>
             <g class="help-leds" transform="translate(0 46)">
               <rect class="help-led" x="-18" y="0" width="9" height="2.2" rx="1.1" fill="#6FE7F2" opacity=".6"/>
               <rect class="help-led" x="-4" y="0" width="9" height="2.2" rx="1.1" fill="#BCA4FF" opacity=".6"/>
@@ -1780,7 +1446,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
             </g>
           </g>
           ${nodes}
-          <text x="320" y="530" text-anchor="middle" class="help-caption">ПРОДУКТЫ · КОМАНДЫ · ПРОЦЕССЫ</text>
+          <text x="320" y="530" text-anchor="middle" class="help-caption">${escapeHtml(figures.helpCaption)}</text>
         </svg>
       </div>`;
   }
@@ -1812,19 +1478,19 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     }
 
     const tags = [
-      { x: 92, y: 120, label: 'WEB', sub: 'САЙТЫ', accent: '#6FE7F2' },
-      { x: 92, y: 206, label: 'CMS', sub: 'ПОРТАЛЫ · КОНТЕНТ', accent: '#BCA4FF' },
-      { x: 92, y: 292, label: 'DESIGN', sub: 'БРЕНДБУК · UI-КИТ', accent: '#FF7AD9' },
-      { x: 92, y: 378, label: 'SOCIAL', sub: 'КОНТЕНТ', accent: '#FF7AD9' },
-      { x: 548, y: 120, label: 'ANDROID', sub: 'ПРИЛОЖЕНИЯ', accent: '#6FE7F2' },
-      { x: 548, y: 206, label: 'iOS', sub: 'ПРИЛОЖЕНИЯ', accent: '#BCA4FF' },
-      { x: 548, y: 292, label: 'TELEGRAM', sub: 'БОТЫ · МИНИ-АППЫ', accent: '#6FE7F2' },
-      { x: 548, y: 378, label: 'LLM', sub: 'ЧАТ-БОТЫ', accent: '#FF7AD9' },
-      { x: 205, y: 54, label: 'FRONTEND', sub: 'ИНТЕРФЕЙСЫ', accent: '#BCA4FF' },
-      { x: 435, y: 54, label: 'BACKEND', sub: 'СЕРВИСЫ · API', accent: '#6FE7F2' },
-      { x: 180, y: 486, label: 'CRM', sub: 'ПРОЦЕССЫ', accent: '#BCA4FF' },
-      { x: 320, y: 486, label: 'AI', sub: 'АВТОМАТИЗАЦИЯ', accent: '#FF7AD9' },
-      { x: 460, y: 486, label: 'ANALYTICS', sub: 'A/B-ТЕСТЫ', accent: '#6FE7F2' },
+      { x: 92, y: 120, label: 'WEB', sub: figures.sites, accent: '#6FE7F2' },
+      { x: 92, y: 206, label: 'CMS', sub: figures.portalsAndContent, accent: '#BCA4FF' },
+      { x: 92, y: 292, label: 'DESIGN', sub: figures.designSubtitle, accent: '#FF7AD9' },
+      { x: 92, y: 378, label: 'SOCIAL', sub: figures.content, accent: '#FF7AD9' },
+      { x: 548, y: 120, label: 'ANDROID', sub: figures.apps, accent: '#6FE7F2' },
+      { x: 548, y: 206, label: 'iOS', sub: figures.apps, accent: '#BCA4FF' },
+      { x: 548, y: 292, label: 'TELEGRAM', sub: figures.botsAndMiniApps, accent: '#6FE7F2' },
+      { x: 548, y: 378, label: 'LLM', sub: figures.chatbots, accent: '#FF7AD9' },
+      { x: 205, y: 54, label: 'FRONTEND', sub: figures.interfaces, accent: '#BCA4FF' },
+      { x: 435, y: 54, label: 'BACKEND', sub: figures.services, accent: '#6FE7F2' },
+      { x: 180, y: 486, label: 'CRM', sub: figures.workflows, accent: '#BCA4FF' },
+      { x: 320, y: 486, label: 'AI', sub: figures.automation, accent: '#FF7AD9' },
+      { x: 460, y: 486, label: 'ANALYTICS', sub: figures.abTests, accent: '#6FE7F2' },
     ];
     const labels = tags
       .map(
@@ -1930,7 +1596,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
               <circle cx="88" cy="88" r="2"/>
             </g>
           </g>
-          <text x="320" y="530" text-anchor="middle" class="help-caption">ПРОДУКТЫ · КОМАНДЫ · ПРОЦЕССЫ</text>
+          <text x="320" y="530" text-anchor="middle" class="help-caption">${escapeHtml(figures.helpCaption)}</text>
         </svg>
       </div>`;
   }
@@ -1987,7 +1653,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
           <circle cx="320" cy="88" r="5" fill="#0b0e18" stroke="#BCA4FF" stroke-width="1.4"/>
           <circle cx="320" cy="88" r="1.9" fill="#F7F5FF"/>
           <path d="M320 166v18" stroke="rgba(188,164,255,.28)" stroke-dasharray="2 5"/>
-          <text x="320" y="204" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing="2.4" fill="rgba(188,164,255,.46)">ОБРАТНЫЙ ОТСЧЁТ · 2026 — 2006</text>
+          <text x="320" y="204" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing="2.4" fill="rgba(188,164,255,.46)">${escapeHtml(figures.countdown)}</text>
           <g transform="translate(320 300)">
             <rect x="-238" y="-88" width="476" height="176" rx="22" fill="rgba(9,12,21,.82)" stroke="rgba(111,231,242,.22)"/>
             <rect x="-226" y="-76" width="452" height="152" rx="16" fill="none" stroke="rgba(188,164,255,.1)"/>
@@ -2006,7 +1672,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
   }
 
   /* ------------------------------------------------------------------------
-     Статичные эпизоды 07–18
+     Статичные иллюстрации
      ------------------------------------------------------------------------ */
 
   function staticFigure(number) {
@@ -2043,6 +1709,10 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         return componentsFigure();
       case '30':
         return expectationsFigure();
+      case '31':
+        return `<a class="episode-screenshot-link" href="${pinNoteScreenshot}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(figures.openPinNoteScreenshot)}">
+          <img class="episode-screenshot" src="${pinNoteScreenshot}" width="1600" height="1050" alt="${escapeHtml(figures.pinNoteScreenshotAlt)}" decoding="async" loading="lazy">
+        </a>`;
       default:
         return '';
     }
@@ -2056,9 +1726,9 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <rect x="-206" y="-96" width="412" height="66" rx="17" fill="#1a1d28" stroke="rgba(188,164,255,.36)" stroke-width="1.2"/>
         <rect x="-226" y="-20" width="452" height="68" rx="17" fill="#11141e" stroke="rgba(255,255,255,.13)" stroke-width="1"/>
         <rect x="-246" y="58" width="492" height="68" rx="17" fill="#090c15" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
-        <text x="-172" y="-56" class="svg-label">ИНТЕРФЕЙС</text>
-        <text x="-192" y="21" class="svg-label-dim">СОСТОЯНИЕ</text>
-        <text x="-212" y="99" class="svg-label-dim">ДАННЫЕ</text>
+        <text x="-172" y="-56" class="svg-label">${escapeHtml(figures.interface)}</text>
+        <text x="-192" y="21" class="svg-label-dim">${escapeHtml(figures.state)}</text>
+        <text x="-212" y="99" class="svg-label-dim">${escapeHtml(figures.data)}</text>
         <path d="M116 -28v6M116 48v8M116 126v8" fill="none" stroke="rgba(188,164,255,.32)" stroke-width="1" stroke-dasharray="2 5"/>
         <circle cx="116" cy="-32" r="4" fill="#BCA4FF"/>
         <circle cx="116" cy="44" r="4" fill="#BCA4FF" fill-opacity=".72"/>
@@ -2070,7 +1740,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <circle cx="-98" cy="92" r="3" fill="#6FE7F2" fill-opacity=".7"/>
         <path d="M-166 -44h18M-150 -50v12M-150 -44h-16" stroke="rgba(188,164,255,.36)" stroke-width="1" fill="none"/>
       </g>
-      <text x="320" y="365" text-anchor="middle" class="svg-label-dim">АРХИТЕКТУРА ПЛАТФОРМЫ</text>
+      <text x="320" y="365" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.architecture)}</text>
       `
     );
   }
@@ -2115,7 +1785,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       <circle cx="320" cy="205" r="42" fill="#0b0e18" stroke="rgba(188,164,255,.45)" stroke-width="1"/>
       <circle cx="320" cy="205" r="52" fill="none" stroke="rgba(188,164,255,.15)" stroke-width="1" stroke-dasharray="2 6"/>
       <text x="320" y="212" text-anchor="middle" fill="#F7F5FF" font-family="Hanken Grotesk, Onest, sans-serif" font-size="27" font-weight="600">20</text>
-      <text x="320" y="369" text-anchor="middle" class="svg-label-dim">ФРОНТЕНД-КОМАНДА</text>
+      <text x="320" y="369" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.frontendTeam)}</text>
       `
     );
   }
@@ -2135,7 +1805,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <path d="M-63 18 L-43 2 L-23 10 L-3 -14 L17 -2 L37 -22 L57 6" fill="none" stroke="#BCA4FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
         <circle cx="57" cy="6" r="3.2" fill="#6FE7F2"/>
         <text x="0" y="-19" text-anchor="middle" class="svg-label">AKMA</text>
-        <text x="0" y="39" text-anchor="middle" class="svg-label-dim">ТРЕЙДИНГОВАЯ ПЛАТФОРМА</text>
+        <text x="0" y="39" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.tradingPlatform)}</text>
       </g>
       <g transform="translate(118 92)">
         <rect x="-86" y="-30" width="172" height="60" rx="16" fill="#0d101a" stroke="rgba(111,231,242,.34)"/>
@@ -2153,7 +1823,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <path d="M-55 8 V-4M-48 8 V0M-41 8 V-8" stroke="#FF7AD9" stroke-width="1.4" stroke-linecap="round"/>
         <text x="34" y="4" text-anchor="middle" class="svg-label">OPTIONS</text>
       </g>
-      <text x="320" y="392" text-anchor="middle" class="svg-label-dim">ТОРГОВЫЕ МЕХАНИКИ · МЕЖДУНАРОДНЫЕ КЛИЕНТЫ</text>
+      <text x="320" y="392" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.tradingMechanics)}</text>
       `
     );
   }
@@ -2172,23 +1842,23 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       <g transform="translate(110 190)">
         <rect x="-80" y="-38" width="160" height="76" rx="18" fill="#0d101a" stroke="rgba(111,231,242,.4)"/>
         <text x="0" y="-4" text-anchor="middle" class="svg-label">JQUERY</text>
-        <text x="0" y="17" text-anchor="middle" class="svg-label-dim">MVP ЗА НЕДЕЛЮ</text>
+        <text x="0" y="17" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.mvp)}</text>
       </g>
       <g transform="translate(320 190)">
         <rect x="-80" y="-38" width="160" height="76" rx="18" fill="#181b25" stroke="rgba(188,164,255,.48)"/>
         <text x="0" y="-4" text-anchor="middle" class="svg-label">BACKBONE</text>
-        <text x="0" y="17" text-anchor="middle" class="svg-label-dim">РОСТ И ПРИБЫЛЬ</text>
+        <text x="0" y="17" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.growth)}</text>
       </g>
       <g transform="translate(530 190)">
         <rect x="-80" y="-38" width="160" height="76" rx="18" fill="#11141e" stroke="rgba(255,122,217,.38)"/>
         <text x="0" y="-4" text-anchor="middle" class="svg-label">REACT</text>
-        <text x="0" y="17" text-anchor="middle" class="svg-label-dim">РЕФАКТОРИНГ</text>
+        <text x="0" y="17" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.refactoring)}</text>
       </g>
       <circle cx="110" cy="142" r="3.5" fill="#6FE7F2"/>
       <circle cx="320" cy="142" r="3.5" fill="#BCA4FF"/>
       <circle cx="530" cy="142" r="3.5" fill="#FF7AD9"/>
       <path d="M110 142v10M320 142v10M530 142v10" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
-      <text x="320" y="342" text-anchor="middle" class="svg-label-dim">ЭВОЛЮЦИЯ ПЛАТФОРМЫ · 2015—2017</text>
+      <text x="320" y="342" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.platformEvolution)}</text>
       `
     );
   }
@@ -2245,10 +1915,10 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <path d="M58 216h330" stroke="rgba(255,255,255,.1)"/>
         <g id="fig10-deal">
           <rect x="404" y="58" width="178" height="170" rx="12" fill="rgba(9,12,21,.8)" stroke="rgba(188,164,255,.18)"/>
-          <text x="420" y="78" class="svg-label-dim">СДЕЛКА</text>
+          <text x="420" y="78" class="svg-label-dim">${escapeHtml(figures.trade)}</text>
           <text x="420" y="112" fill="#F7F5FF" font-family="Hanken Grotesk, Onest, sans-serif" font-size="30" font-weight="600">$10</text>
-          <text x="420" y="134" class="svg-label-dim">ДЛИТЕЛЬНОСТЬ</text>
-          <text x="420" y="157" fill="#F7F5FF" font-family="Hanken Grotesk, Onest, sans-serif" font-size="21" font-weight="600">1 минута</text>
+          <text x="420" y="134" class="svg-label-dim">${escapeHtml(figures.duration)}</text>
+          <text x="420" y="157" fill="#F7F5FF" font-family="Hanken Grotesk, Onest, sans-serif" font-size="21" font-weight="600">${escapeHtml(figures.minute)}</text>
           <g id="fig10-up">
             <rect class="fig10-btn-glow" x="420" y="172" width="66" height="38" rx="10" fill="#58E6A4" opacity=".16"/>
             <rect x="420" y="172" width="66" height="38" rx="10" fill="rgba(88,230,164,.14)" stroke="#58E6A4" stroke-opacity=".7"/>
@@ -2406,10 +2076,10 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <path d="M-34 -11h68M-34 0h42M-34 11h55" stroke="rgba(255,255,255,.2)" stroke-width="1.4" stroke-linecap="round"/>
         <circle cx="55" cy="-16" r="4" fill="#BCA4FF"/>
         <circle cx="44" cy="3" r="3" fill="#6FE7F2"/>
-        <text x="0" y="30" text-anchor="middle" class="svg-label-dim">НОВЫЙ ПРОЕКТ</text>
+        <text x="0" y="30" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.newProject)}</text>
       </g>
       <path d="M92 90v12M86 96h12M542 102v12M536 108h12M96 330v10M91 335h10" stroke="rgba(111,231,242,.42)" stroke-width="1"/>
-      <text x="320" y="382" text-anchor="middle" class="svg-label-dim">СБОРКА КОМАНДЫ</text>
+      <text x="320" y="382" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.teamBuilding)}</text>
       `
     );
   }
@@ -2456,9 +2126,9 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       </g>
       <circle cx="226" cy="190" r="2.5" fill="#BCA4FF"/>
       <circle cx="414" cy="222" r="2.5" fill="#6FE7F2"/>
-      <text x="110" y="282" text-anchor="middle" class="svg-label-dim">ИНТЕРФЕЙС</text>
-      <text x="530" y="282" text-anchor="middle" class="svg-label-dim">ЛОГИКА</text>
-      <text x="320" y="370" text-anchor="middle" class="svg-label-dim">FULLSTACK · ОБЕ СТОРОНЫ</text>
+      <text x="110" y="282" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.interface)}</text>
+      <text x="530" y="282" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.logic)}</text>
+      <text x="320" y="370" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.fullStack)}</text>
       `
     );
   }
@@ -2493,10 +2163,10 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <circle class="fig13-pulse" r="1.7"/>
         <circle class="fig13-pulse" r="2.3"/>
       </g>
-      <text x="212" y="292" text-anchor="middle" class="svg-label-dim">ВИДЕО</text>
-      <text x="320" y="292" text-anchor="middle" class="svg-label-dim">ФАЙЛЫ</text>
-      <text x="428" y="292" text-anchor="middle" class="svg-label-dim">МЕДИА</text>
-      <text x="320" y="376" text-anchor="middle" class="svg-label-dim">ОБЛАЧНАЯ МЕДИАТЕКА</text>
+      <text x="212" y="292" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.video)}</text>
+      <text x="320" y="292" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.files)}</text>
+      <text x="428" y="292" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.media)}</text>
+      <text x="320" y="376" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.cloudLibrary)}</text>
       `
     );
   }
@@ -2536,7 +2206,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <rect x="-58" y="-17" width="116" height="34" rx="10" fill="#0b0e18" stroke="rgba(255,122,217,.22)"/>
         <text x="0" y="4" text-anchor="middle" class="svg-label-dim">COLLECTION</text>
       </g>
-      <text x="320" y="388" text-anchor="middle" class="svg-label-dim">СТРУКТУРА ИНТЕРФЕЙСА</text>
+      <text x="320" y="388" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.interfaceStructure)}</text>
       `
     );
   }
@@ -2574,7 +2244,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <g class="fig15-plugin" transform="translate(-66 0)"><rect x="-22" y="-19" width="44" height="38" rx="9" fill="#0b0e18" stroke="rgba(188,164,255,.28)"/><path d="M-5 -7h10v14H-5z" fill="none" stroke="#BCA4FF"/><path d="M5 0h12" stroke="#BCA4FF"/></g>
         <g class="fig15-plugin" transform="translate(0 0)"><rect x="-22" y="-19" width="44" height="38" rx="9" fill="#0b0e18" stroke="rgba(111,231,242,.28)"/><path d="M-7 -6h14v12H-7z" fill="none" stroke="#6FE7F2"/></g>
         <g class="fig15-plugin" transform="translate(66 0)"><rect x="-22" y="-19" width="44" height="38" rx="9" fill="#0b0e18" stroke="rgba(255,122,217,.24)"/><path d="M-5 -5h10v10H-5z" fill="none" stroke="#FF7AD9"/></g>
-        <text x="0" y="43" text-anchor="middle" class="svg-label-dim">ПЛАГИНЫ</text>
+        <text x="0" y="43" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.plugins)}</text>
       </g>
       <path d="M320 270v24" stroke="rgba(188,164,255,.2)" stroke-dasharray="2 5"/>
       <g id="fig15-packets" fill="#F7F5FF">
@@ -2610,7 +2280,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       <rect x="118" y="58" width="404" height="304" rx="34" fill="rgba(188,164,255,.025)" stroke="rgba(188,164,255,.14)" stroke-dasharray="2 8"/>
       <path d="M190 171h260M190 241h260" stroke="rgba(255,255,255,.07)"/>
       ${avatars}
-      <text x="320" y="382" text-anchor="middle" class="svg-label-dim">ШЕСТЬ УЧАСТНИКОВ</text>
+      <text x="320" y="382" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.sixMembers)}</text>
       `
     );
   }
@@ -2648,7 +2318,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <circle cx="54" cy="48" r="4" fill="#6FE7F2"/>
       </g>
       <path d="M386 -10v-14m-5 5 5-6 5 6M120 -28v-10m-4 4 4-5 4 5" stroke="rgba(111,231,242,.35)" stroke-width="1" fill="none"/>
-      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">ФРОНТЕНД · JAVASCRIPT</text>
+      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.frontendJs)}</text>
       `,
       `<filter id="fig17-logo-white"><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/></filter>`
     );
@@ -2691,7 +2361,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         .join('')}
       <circle cx="365" cy="115" r="2.2" fill="#6FE7F2"/>
       <circle cx="225" cy="180" r="1.8" fill="#BCA4FF"/>
-      <text x="320" y="380" text-anchor="middle" class="svg-label-dim">МЕЖДУНАРОДНАЯ КОМАНДА</text>
+      <text x="320" y="380" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.internationalTeam)}</text>
       `
     );
   }
@@ -2736,7 +2406,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <path d="M12 -24v18h18M-22 2h34M-22 14h24" fill="none" stroke="rgba(255,122,217,.3)" stroke-width="1.1"/>
         <text x="0" y="54" text-anchor="middle" class="svg-label-dim">WORD → HTML</text>
       </g>
-      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">РЕДАКТОР · ПЛАГИНЫ ЭКСПОРТА</text>
+      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.editorAndExport)}</text>
       `
     );
   }
@@ -2772,7 +2442,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       `
       <rect x="98" y="68" width="244" height="254" rx="28" fill="rgba(188,164,255,.025)" stroke="rgba(188,164,255,.18)" stroke-dasharray="2 8"/>
       ${cards}
-      <text x="220" y="98" text-anchor="middle" class="svg-label">КАТАЛОГ</text>
+      <text x="220" y="98" text-anchor="middle" class="svg-label">${escapeHtml(figures.catalog)}</text>
       <path class="fig28-flow" d="M344 196h30" fill="none" stroke="rgba(188,164,255,.34)" stroke-width="1.2" stroke-dasharray="4 5"/>
       <g id="fig28-crm" transform="translate(430 196)">
         <rect x="-52" y="-128" width="196" height="256" rx="24" fill="#181b25" stroke="rgba(111,231,242,.34)" stroke-width="1.2"/>
@@ -2783,7 +2453,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         ${pipeline}
         <text x="46" y="116" text-anchor="middle" class="svg-label-dim">EXTJS</text>
       </g>
-      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">КАТАЛОГ ПРОДУКТОВ · CRM</text>
+      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.catalogCrm)}</text>
       `
     );
   }
@@ -2807,7 +2477,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <text x="76" y="-78" class="svg-label-dim">T-MOBILE</text>
         <g transform="translate(-150 -30)">
           <rect class="fig29-button" x="0" y="0" width="90" height="32" rx="10" fill="rgba(255,122,217,.16)" stroke="rgba(255,122,217,.36)"/>
-          <text x="45" y="21" text-anchor="middle" class="svg-label">КУПИТЬ</text>
+          <text x="45" y="21" text-anchor="middle" class="svg-label">${escapeHtml(figures.buy)}</text>
           <rect x="0" y="44" width="132" height="30" rx="9" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.12)"/>
           <path class="fig29-input" d="M14 60h74" stroke="rgba(255,255,255,.2)" stroke-width="1.2"/>
           <rect x="0" y="86" width="64" height="20" rx="6" fill="none" stroke="rgba(111,231,242,.34)"/>
@@ -2834,18 +2504,18 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <rect x="-62" y="-17" width="124" height="34" rx="12" fill="#0d101a" stroke="rgba(255,122,217,.28)"/>
         <text x="0" y="4" text-anchor="middle" class="svg-label-dim">A11Y 100%</text>
       </g>
-      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">БИБЛИОТЕКА КОМПОНЕНТОВ</text>
+      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.componentLibrary)}</text>
       `
     );
   }
 
   function expectationsFigure() {
     const rows = [
-      { y: -48, accent: '#6FE7F2', label: 'УДАЛЁНКА / ГИБРИД', icon: 'remote' },
-      { y: -14, accent: '#BCA4FF', label: 'ДОСТОЙНАЯ ОПЛАТА', icon: 'money' },
-      { y: 20, accent: '#FF7AD9', label: 'ГИБКИЙ ГРАФИК', icon: 'time' },
-      { y: 54, accent: '#6FE7F2', label: 'МИНИМУМ БЮРОКРАТИИ', icon: 'docs' },
-      { y: 88, accent: '#BCA4FF', label: 'ПЛАНИРОВАНИЕ И ПРИОРИТЕТЫ', icon: 'plan' },
+      { y: -48, accent: '#6FE7F2', label: figures.remote, icon: 'remote' },
+      { y: -14, accent: '#BCA4FF', label: figures.pay, icon: 'money' },
+      { y: 20, accent: '#FF7AD9', label: figures.flexibility, icon: 'time' },
+      { y: 54, accent: '#6FE7F2', label: figures.bureaucracy, icon: 'docs' },
+      { y: 88, accent: '#BCA4FF', label: figures.planning, icon: 'plan' },
     ];
     const icons = {
       remote: '<path d="M-159 2l5-5 5 5M-158 2v5h8V2" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>',
@@ -2872,10 +2542,10 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       <g transform="translate(320 196)">
         <rect x="-198" y="-110" width="396" height="232" rx="24" fill="#181b25" stroke="rgba(188,164,255,.42)" stroke-width="1.2"/>
         <rect x="-184" y="-96" width="368" height="204" rx="18" fill="rgba(8,11,20,.55)" stroke="rgba(255,255,255,.06)"/>
-        <text x="0" y="-78" text-anchor="middle" class="svg-label">ЧТО ВАЖНО</text>
+        <text x="0" y="-78" text-anchor="middle" class="svg-label">${escapeHtml(figures.whatMatters)}</text>
         ${rowsMarkup}
       </g>
-      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">ОЖИДАНИЯ ОТ СЛЕДУЮЩЕЙ РОЛИ</text>
+      <text x="320" y="384" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.nextRole)}</text>
       `
     );
   }
@@ -3004,7 +2674,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
 
   function coreTeamsFigure() {
     return `
-      <div class="fig-dom current-figure" role="img" aria-label="Солнечная система: ядро проекта — солнце, JavaScript, Flux, MobX и TypeScript — планеты на орбитах.">
+      <div class="fig-dom current-figure" role="img" aria-label="${escapeHtml(atlas.coreTeamsLabel)}">
         <canvas class="fig-canvas current-canvas" data-core-teams aria-hidden="true"></canvas>
       </div>`;
   }
@@ -3053,9 +2723,9 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       <g id="fig02-status" transform="translate(502 64)">
         <rect x="-80" y="-18" width="160" height="36" rx="11" fill="rgba(9,12,21,.7)" stroke="rgba(188,164,255,.2)"/>
         <circle cx="-58" cy="0" r="3" fill="#6FE7F2"/>
-        <text x="8" y="3" text-anchor="middle" class="svg-label-dim">4 ЗАКАЗА В ПОТОКЕ</text>
+        <text x="8" y="3" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.ordersInFlow)}</text>
       </g>
-      <text x="320" y="374" text-anchor="middle" class="svg-label-dim">КОНВЕЙЕР ЗАКАЗОВ · ЦИКЛ 12 С</text>
+      <text x="320" y="374" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.conveyor)}</text>
       `
     );
   }
@@ -3064,10 +2734,10 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     return `
       <div class="fig-dom">
         <div class="deck-wrap">
-          <div class="deck" data-deck role="group" aria-label="Колода карточек для изучения языка: слово и перевод">
+          <div class="deck" data-deck role="group" aria-label="${escapeHtml(atlas.deckLabel)}">
             <span class="sr-only" data-deck-live aria-live="polite"></span>
           </div>
-          ${options.next === false ? '' : `<button class="deck-next" type="button" aria-label="Следующее слово" title="Следующее слово">
+          ${options.next === false ? '' : `<button class="deck-next" type="button" aria-label="${escapeHtml(atlas.nextWord)}" title="${escapeHtml(atlas.nextWord)}">
             <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7h9M7.8 3.2 11.6 7l-3.8 3.8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>`}
         </div>
@@ -3078,7 +2748,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     return `
       <div class="fig-dom">
         <canvas class="fig-canvas" data-chart aria-hidden="true"></canvas>
-        <div class="chart-head" aria-hidden="true"><span class="chart-pair">BTC / USDT</span><span class="chart-demo">ДЕМО · 1 МИН</span></div>
+        <div class="chart-head" aria-hidden="true"><span class="chart-pair">BTC / USDT</span><span class="chart-demo">${escapeHtml(figures.chartDemo)}</span></div>
       </div>`;
   }
 
@@ -3099,7 +2769,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <rect x="-42" y="-21" width="84" height="52" rx="12" fill="rgba(188,164,255,.055)" stroke="rgba(188,164,255,.26)"/>
         <path d="M-42 -21v-9a12 12 0 0 1 12-12h60a12 12 0 0 1 12 12v9" fill="none" stroke="rgba(188,164,255,.32)"/>
         <circle cx="0" cy="5" r="6" fill="#BCA4FF"/>
-        <text x="0" y="53" text-anchor="middle" class="svg-label-dim">КОШЕЛЁК</text>
+        <text x="0" y="53" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.wallet)}</text>
         <circle cx="44" cy="-62" r="3" fill="#6FE7F2"/>
       </g>
       <g transform="translate(546 210)">
@@ -3107,12 +2777,12 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <path d="M-36 -42h72M-36 -23h48M-36 -4h58" stroke="rgba(255,255,255,.15)" stroke-width="1.2" stroke-linecap="round"/>
         <rect x="-36" y="24" width="72" height="20" rx="5" fill="rgba(111,231,242,.08)" stroke="rgba(111,231,242,.22)"/>
         <circle cx="46" cy="-66" r="3" fill="#BCA4FF"/>
-        <text x="0" y="64" text-anchor="middle" class="svg-label-dim">ТЕРМИНАЛ</text>
+        <text x="0" y="64" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.terminal)}</text>
       </g>
       <path id="fig05-path-in" d="M158 190 C 250 82, 388 82, 480 190" fill="none" stroke="rgba(188,164,255,.26)" stroke-width="1.2" stroke-dasharray="4 5" marker-end="url(#fig-transfer-arrow)"/>
       <path id="fig05-path-out" d="M480 248 C 388 356, 250 356, 158 248" fill="none" stroke="rgba(111,231,242,.24)" stroke-width="1.2" stroke-dasharray="4 5" marker-end="url(#fig-transfer-arrow-cyan)"/>
-      <text x="320" y="96" text-anchor="middle" class="svg-label">ВВОД</text>
-      <text x="320" y="354" text-anchor="middle" class="svg-label">ВЫВОД</text>
+      <text x="320" y="96" text-anchor="middle" class="svg-label">${escapeHtml(figures.deposit)}</text>
+      <text x="320" y="354" text-anchor="middle" class="svg-label">${escapeHtml(figures.withdrawal)}</text>
       <g transform="translate(248 126)">
         <rect x="-54" y="-5" width="108" height="4" rx="2" fill="rgba(255,255,255,.08)"/>
         <rect id="fig05-bar-in" x="-54" y="-5" width="0" height="4" rx="2" fill="#BCA4FF"/>
@@ -3130,7 +2800,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         <text x="0" y="4" text-anchor="middle" fill="#08131a" font-family="Hanken Grotesk, sans-serif" font-size="17" font-weight="700">$</text>
       </g>
       <circle cx="320" cy="210" r="44" fill="none" stroke="rgba(255,255,255,.07)" stroke-dasharray="2 6"/>
-      <text x="320" y="390" text-anchor="middle" class="svg-label-dim">ВВОД И ВЫВОД · НЕПРЕРЫВНО</text>
+      <text x="320" y="390" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.continuousTransfers)}</text>
       `
     );
   }
@@ -3181,9 +2851,9 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       ${knightMarkup('fig06-knightR', '#6FE7F2')}
       <g id="fig06-sparks" transform="translate(320 158)" opacity="0">${sparks}<circle r="4" fill="rgba(255,255,255,.85)"/></g>
       <g transform="translate(320 54)">
-        <text x="0" y="0" text-anchor="middle" class="svg-label-dim">ПОЕДИНОК · ТУРНИРНЫЙ РЕЖИМ</text>
+        <text x="0" y="0" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.tournamentDuel)}</text>
       </g>
-      <text x="320" y="390" text-anchor="middle" class="svg-label-dim">ОБМЕН · 2.7 С · ЦИКЛ 5.4 С</text>
+      <text x="320" y="390" text-anchor="middle" class="svg-label-dim">${escapeHtml(figures.exchangeCycle)}</text>
       `
     );
   }
@@ -3233,11 +2903,12 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
 
   function updatePauseButton(button, anim, topic) {
     const paused = anim.paused;
+    const action = paused ? atlas.resume : atlas.pause;
     button.setAttribute('aria-pressed', String(paused));
-    button.setAttribute('aria-label', `${paused ? 'Продолжить' : 'Пауза'}: ${topic}`);
-    button.title = paused ? 'Продолжить' : 'Пауза';
+    button.setAttribute('aria-label', `${action}: ${topic}`);
+    button.title = action;
     const label = $('.pause-label', button);
-    if (label) label.textContent = paused ? 'Продолжить' : 'Пауза';
+    if (label) label.textContent = action;
   }
 
   function bindPauseButtons() {
@@ -3253,7 +2924,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
           anim.lastDraw = 0;
         }
         const figureNumber = id === 'skills' ? '00' : id.replace('fig', '');
-        updatePauseButton(button, anim, FIGURES[figureNumber] ? FIGURES[figureNumber].topic : 'рисунок');
+        updatePauseButton(button, anim, FIGURE_TOPICS[figureNumber] ?? atlas.figure);
       });
     });
   }
@@ -5397,8 +5068,8 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         ctx.restore();
       };
 
-      drawMessage('AI-агент открыл три сделки в Long', FIG_CYAN, messageAlpha(0.2, 3.2));
-      drawMessage('AI-агент открыл сделку в Short', FIG_LAV, messageAlpha(7.2, 10.5));
+      drawMessage(figures.agentLong, FIG_CYAN, messageAlpha(0.2, 3.2));
+      drawMessage(figures.agentShort, FIG_LAV, messageAlpha(7.2, 10.5));
 
       ctx.globalCompositeOperation = 'source-over';
     }
@@ -6428,7 +6099,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       ctx.font = '600 7.5px ui-monospace, SFMono-Regular, Menlo, monospace';
       ctx.textAlign = 'left';
       ctx.textBaseline = 'middle';
-      ctx.fillText('DEAL · СЛУЧАЙНЫЙ ПОРЯДОК', 24, height - 16);
+      ctx.fillText(figures.randomDeal, 24, height - 16);
       ctx.textAlign = 'right';
       ctx.fillText('WEB · iOS · ANDROID · TELEGRAM', width - 24, height - 16);
     }
@@ -6811,12 +6482,12 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     }));
 
     const MEMES = [
-      { title: 'IT WORKS ON MY MACHINE', note: 'у меня работает', accent: FIG_CYAN, icon: 'laptop' },
-      { title: 'НЕ ТРОГАЙ', note: 'оно живое', accent: FIG_MAGENTA, icon: 'warning' },
-      { title: 'FIXED IN PROD', note: 'задеплоил в пятницу', accent: FIG_LAV, icon: 'rocket' },
-      { title: 'CSS ПОБЕДИЛ', note: 'центрирую div', accent: FIG_WHITE, icon: 'css' },
-      { title: 'NPM INSTALL', note: '1 пакет → 1 ГБ', accent: FIG_CYAN, icon: 'box' },
-      { title: 'FIGMA → ПРОД', note: 'почти так же', accent: FIG_MAGENTA, icon: 'split' },
+      { title: 'IT WORKS ON MY MACHINE', note: figures.worksOnMyMachine, accent: FIG_CYAN, icon: 'laptop' },
+      { title: figures.doNotTouch, note: figures.stillRunning, accent: FIG_MAGENTA, icon: 'warning' },
+      { title: 'FIXED IN PROD', note: figures.fridayDeploy, accent: FIG_LAV, icon: 'rocket' },
+      { title: figures.cssWins, note: figures.centeringDiv, accent: FIG_WHITE, icon: 'css' },
+      { title: 'NPM INSTALL', note: figures.packageSize, accent: FIG_CYAN, icon: 'box' },
+      { title: figures.figmaToProd, note: figures.closeEnough, accent: FIG_MAGENTA, icon: 'split' },
     ];
 
     function roundedRect(x, y, width, height, radius) {
@@ -6979,6 +6650,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       const gap = compact ? 10 : 16;
       const cardWidth = (width - pad * 2 - gap * (cols - 1)) / cols;
       const cardHeight = (height - pad * 2 - gap * (rows - 1)) / rows;
+      const showLabels = cardHeight >= 100;
       const titleSize = clamp(cardWidth * 0.07, 7, compact ? 9 : 11);
       const noteSize = clamp(cardWidth * 0.052, 6, compact ? 7 : 8.5);
 
@@ -7002,22 +6674,24 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         ctx.arc(12, 12, 2, 0, TAU);
         ctx.fill();
 
-        drawIcon(item.icon, cardWidth * 0.5, cardHeight * 0.40, Math.min(cardWidth, cardHeight) * 0.42, item.accent, time + index);
+        drawIcon(item.icon, cardWidth * 0.5, cardHeight * (showLabels ? 0.40 : 0.5), Math.min(cardWidth, cardHeight) * 0.42, item.accent, time + index);
 
-        ctx.font = `700 ${titleSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-        ctx.fillStyle = figRgba(item.accent, 0.92);
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        const titleLines = wrap(item.title, cardWidth - 18);
-        const lineHeight = titleSize * 1.28;
-        const titleTop = cardHeight * 0.7 - ((titleLines.length - 1) * lineHeight) / 2;
-        titleLines.forEach((line, lineIndex) => {
-          ctx.fillText(line, cardWidth * 0.5, titleTop + lineIndex * lineHeight);
-        });
+        if (showLabels) {
+          ctx.font = `700 ${titleSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+          ctx.fillStyle = figRgba(item.accent, 0.92);
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          const titleLines = wrap(item.title, cardWidth - 18);
+          const lineHeight = titleSize * 1.28;
+          const titleTop = cardHeight * 0.7 - ((titleLines.length - 1) * lineHeight) / 2;
+          titleLines.forEach((line, lineIndex) => {
+            ctx.fillText(line, cardWidth * 0.5, titleTop + lineIndex * lineHeight);
+          });
 
-        ctx.font = `${noteSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-        ctx.fillStyle = figRgba(FIG_WHITE, 0.42);
-        ctx.fillText(item.note, cardWidth * 0.5, cardHeight - (compact ? 13 : 18));
+          ctx.font = `${noteSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+          ctx.fillStyle = figRgba(FIG_WHITE, 0.42);
+          ctx.fillText(item.note, cardWidth * 0.5, cardHeight - (compact ? 13 : 18));
+        }
         ctx.restore();
       });
     }
@@ -7044,10 +6718,10 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     }));
 
     const planets = [
-      { label: 'JavaScript', accent: '247, 211, 92', phase: 3.7, speed: 0.16, orbit: 0.38, size: 8 },
-      { label: 'Flux', accent: FIG_CYAN, phase: 5.5, speed: 0.12, orbit: 0.59, size: 10 },
-      { label: 'MobX', accent: '240, 154, 104', phase: 2.2, speed: 0.085, orbit: 0.8, size: 12 },
-      { label: 'TypeScript', accent: '105, 164, 255', phase: 0.4, speed: 0.06, orbit: 1, size: 14 },
+      { label: figures.walletTeam, accent: '247, 211, 92', phase: 3.7, speed: 0.16, orbit: 0.38, size: 8 },
+      { label: figures.supportTeam, accent: FIG_CYAN, phase: 5.5, speed: 0.12, orbit: 0.59, size: 10 },
+      { label: figures.gamificationTeam, accent: '240, 154, 104', phase: 2.2, speed: 0.085, orbit: 0.8, size: 12 },
+      { label: figures.learningTeam, accent: '105, 164, 255', phase: 0.4, speed: 0.06, orbit: 1, size: 14, ring: true },
     ];
 
     function overlap(a, b) {
@@ -7132,7 +6806,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       ctx.textBaseline = 'middle';
       ctx.fillStyle = '#6b351c';
       ctx.font = `700 ${compact ? 14 : 16}px "Hanken Grotesk", sans-serif`;
-      ctx.fillText('ЯДРО', cx, cy + 1);
+      ctx.fillText(figures.core, cx, cy + 1);
 
       for (const body of bodies) {
         const { x, y, radius, accent } = body;
@@ -7147,7 +6821,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         ctx.strokeStyle = figRgba(accent, 0.6);
         ctx.lineWidth = 1;
         ctx.stroke();
-        if (body.label === 'TypeScript') {
+        if (body.ring) {
           ctx.strokeStyle = figRgba(accent, 0.65);
           ctx.beginPath();
           ctx.ellipse(x, y, radius * 1.8, radius * 0.5, -0.4, 0, TAU);
@@ -7313,8 +6987,8 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
   function deckCardMarkup(word) {
     return `<svg class="deck-card-svg" viewBox="0 0 200 256" aria-hidden="true" focusable="false">
       ${WORD_ICONS[word.icon] ? WORD_ICONS[word.icon]('a') : ''}
-      <text x="100" y="192" text-anchor="middle" class="wd word-nl">${escapeHtml(word.en)}</text>
-      <text x="100" y="226" text-anchor="middle" class="wt word-ru">${escapeHtml(word.ru)}</text>
+      <text x="100" y="192" text-anchor="middle" class="wd word-nl" lang="en">${escapeHtml(word.en)}</text>
+      <text x="100" y="226" text-anchor="middle" class="wt word-ru" lang="ru">${escapeHtml(word.ru)}</text>
     </svg>`;
   }
 
@@ -7396,7 +7070,8 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
 
     function announceDeckWord() {
       if (!deckLive) return;
-      deckLive.textContent = `Слово ${WORDS[idx].en}, перевод ${WORDS[idx].ru}.`;
+      const { en, ru } = WORDS[idx];
+      deckLive.textContent = formatMessage(atlas.deckAnnouncement, { english: en, russian: ru });
     }
 
     function advance(count = 1) {
@@ -7767,7 +7442,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
         { offset: WINDOW - 1, label: '−15' },
         { offset: 10, label: '−10' },
         { offset: 5, label: '−5' },
-        { offset: 0, label: 'сейчас' },
+        { offset: 0, label: atlas.now },
       ];
       timeLabels.forEach(({ offset, label }) => {
         const x = currentX - offset * step;
@@ -8675,18 +8350,18 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
   function updateHud(entry, episodeIndex, t) {
     let mode = 'vertical';
     let counter = '↕';
-    let counterLabel = 'Вертикальная позиция';
+    let counterLabel = navigation.verticalPosition;
     let activeYear = entry.focusYear ?? null;
 
     if (entry.kind === 'finale') {
       mode = 'final';
       counter = `${pad(CHAPTERS.length)} / ${pad(CHAPTERS.length)}`;
-      counterLabel = `Финал, глава ${CHAPTERS.length} из ${CHAPTERS.length}`;
+      counterLabel = formatMessage(navigation.finalePosition, { current: CHAPTERS.length, total: CHAPTERS.length });
     } else if (entry.kind === 'chapter') {
       mode = 'horizontal';
       const total = entry.chapter.episodes.length;
       counter = `${pad(episodeIndex + 1)} / ${pad(total)}`;
-      counterLabel = `Эпизод ${episodeIndex + 1} из ${total}`;
+      counterLabel = formatMessage(navigation.episodePosition, { current: episodeIndex + 1, total });
     }
 
     if (hudCache.mode !== mode) {
@@ -8748,10 +8423,12 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
     const nextButton = $('#nextBtn');
     prevButton.disabled = !backward;
     nextButton.disabled = !forward;
-    prevButton.setAttribute('aria-label', backward ? `Назад: ${backward.label}` : 'Предыдущая остановка недоступна');
-    nextButton.setAttribute('aria-label', forward ? `Вперёд: ${forward.label}` : 'Следующая остановка недоступна');
-    prevButton.title = backward ? `Назад: ${backward.label}` : 'Начало маршрута';
-    nextButton.title = forward ? `Вперёд: ${forward.label}` : 'Конец маршрута';
+    const previousLabel = backward && formatMessage(navigation.backward, { stop: backward.label });
+    const nextLabel = forward && formatMessage(navigation.forward, { stop: forward.label });
+    prevButton.setAttribute('aria-label', previousLabel || navigation.previousUnavailable);
+    nextButton.setAttribute('aria-label', nextLabel || navigation.nextUnavailable);
+    prevButton.title = previousLabel || navigation.routeStart;
+    nextButton.title = nextLabel || navigation.routeEnd;
     scene.backward = backward;
     scene.forward = forward;
   }
@@ -8907,6 +8584,10 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       ease: 'power2.inOut',
       overwrite: true,
       onUpdate: () => {
+        if (isModalOpen()) {
+          cancelScrollAnimation();
+          return;
+        }
         window.scrollTo(0, proxy.y);
       },
       onComplete: () => {
@@ -8919,9 +8600,9 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
 
   function scheduleHorizontalSnap() {
     window.clearTimeout(horizontalSnapTimer);
-    if (scrollTween || modalOpen || touchState || document.hidden) return;
+    if (scrollTween || isModalOpen() || touchState || document.hidden) return;
     horizontalSnapTimer = window.setTimeout(() => {
-      if (scrollTween || modalOpen || touchState || document.hidden) return;
+      if (scrollTween || isModalOpen() || touchState || document.hidden) return;
       const t = window.scrollY / scene.U;
       const entry = chapterEntries.find((chapter) => chapter.span > 0 && t >= chapter.center && t <= chapter.center + chapter.span);
       if (!entry) return;
@@ -8967,6 +8648,10 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
   const modal = $('#menuModal');
   const dialog = $('.dialog', modal);
   const menuButton = $('#menuBtn');
+
+  function isModalOpen() {
+    return modalOpen || Boolean($('dialog[open]'));
+  }
 
   function focusableInDialog() {
     return $$('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])', dialog).filter(
@@ -9088,6 +8773,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
       }
       return;
     }
+    if (isModalOpen()) return;
     if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
     const tag = event.target instanceof Element ? event.target.tagName : '';
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (event.target instanceof Element && event.target.isContentEditable)) return;
@@ -9173,7 +8859,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
   window.addEventListener(
     'wheel',
     (event) => {
-      if (modalOpen) return;
+      if (isModalOpen()) return;
       if (event.ctrlKey || event.metaKey) return;
       const dx = normalizedDelta(event.deltaX, event.deltaMode);
       const dy = normalizedDelta(event.deltaY, event.deltaMode);
@@ -9203,13 +8889,17 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
   let touchState = null;
 
   function touchTargetIsReserved(target) {
-    return target instanceof Element && Boolean(target.closest('[data-deck], button, a, input, textarea, select, .modal'));
+    const controls = '[data-deck], button, a:not(.episode-screenshot-link), input, textarea, select, .modal';
+    return target instanceof Element && Boolean(target.closest(controls));
   }
 
   window.addEventListener(
     'touchstart',
     (event) => {
-      if (modalOpen) return;
+      if (isModalOpen()) {
+        touchState = null;
+        return;
+      }
       if (event.touches.length !== 1) {
         touchState = null;
         return;
@@ -9232,7 +8922,7 @@ import webStackLogos from '../../assets/brands/web-stack.svg?url';
   window.addEventListener(
     'touchmove',
     (event) => {
-      if (!touchState || event.touches.length !== 1) return;
+      if (isModalOpen() || !touchState || event.touches.length !== 1) return;
       const touch = event.touches[0];
       const dx = touch.clientX - touchState.startX;
       const dy = touch.clientY - touchState.startY;

@@ -1,22 +1,31 @@
+---
+import { getMessages, type LocaleProps } from '../i18n';
+
+type Props = LocaleProps;
+
+const { locale } = Astro.props;
+const { site, navigation } = getMessages(locale);
+---
+
 <footer class="hud-bottom" id="hudBottom">
   <div class="year-nav-wrap">
-    <button class="year-scroll" id="yearPrev" type="button" aria-label="Предыдущие годы" title="Предыдущие годы">
+    <button class="year-scroll" id="yearPrev" type="button" aria-label={navigation.previousYears} title={navigation.previousYears}>
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.4 3.6 5.6 8l4.8 4.4" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path></svg>
     </button>
-    <nav class="year-nav" id="yearNav" aria-label="Переход к главам по годам"></nav>
-    <button class="year-scroll" id="yearNext" type="button" aria-label="Следующие годы" title="Следующие годы">
+    <nav class="year-nav" id="yearNav" aria-label={navigation.byYear}></nav>
+    <button class="year-scroll" id="yearNext" type="button" aria-label={navigation.nextYears} title={navigation.nextYears}>
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 3.6 10.4 8l-4.8 4.4" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"></path></svg>
     </button>
   </div>
 
   <div class="nav-actions">
-    <button class="round-btn home-btn" id="homeBtn" type="button" aria-label="К началу атласа" title="К началу атласа">
+    <button class="round-btn home-btn" id="homeBtn" type="button" aria-label={site.backToAtlasStart} title={site.backToAtlasStart}>
       <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.6 3.4 8.3v8.1h5v-5h3.2v5h5V8.3L10 2.6Z" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"></path></svg>
     </button>
-    <button class="round-btn arrow-btn" id="prevBtn" type="button" aria-label="Предыдущая остановка" title="Предыдущая остановка">
+    <button class="round-btn arrow-btn" id="prevBtn" type="button" aria-label={navigation.previousStop} title={navigation.previousStop}>
       <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.6 4.2 6.8 10l5.8 5.8M7 10h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
     </button>
-    <button class="round-btn arrow-btn" id="nextBtn" type="button" aria-label="Следующая остановка" title="Следующая остановка">
+    <button class="round-btn arrow-btn" id="nextBtn" type="button" aria-label={navigation.nextStop} title={navigation.nextStop}>
       <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.4 4.2 13.2 10l-5.8 5.8M13 10H5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
     </button>
   </div>

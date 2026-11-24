@@ -8,6 +8,8 @@ const executablePath = join(
 );
 const baseUrl = process.env.BASE_URL ?? 'http://localhost:4321';
 const baseOrigin = new URL(baseUrl).origin;
+const englishUrl = `${baseUrl.replace(/\/$/, '')}/`;
+const russianUrl = `${englishUrl}ru`;
 const browser = await chromium.launch({ executablePath, headless: true });
 const failures = [];
 let checks = 0;
@@ -27,7 +29,7 @@ async function makePage(options = {}) {
   });
   page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
   page.on('request', (request) => requests.push(request.url()));
-  await page.goto(baseUrl);
+  await page.goto(russianUrl);
   await page.waitForTimeout(450);
   return { context, page, errors, requests };
 }
@@ -54,26 +56,26 @@ async function makePage(options = {}) {
   });
 
   const expectedCenters = [
-    0, 0.98, 1.96, 2.94, 7.07, 8.05, 9.03, 9.66, 10.64, 15.82, 16.8, 17.43, 18.06, 18.69, 19.67, 20.65,
-    21.63, 24.71, 25.69, 26.67, 27.65, 29.68, 30.66, 31.64, 32.27, 32.9, 33.53, 34.51, 37.59, 38.57, 39.55,
-    42.63, 43.61, 44.59, 45.57, 46.55, 47.53, 51.66, 52.64, 53.62, 54.6,
+    0, 0.98, 1.96, 2.94, 8.12, 9.1, 10.08, 10.71, 11.69, 16.87, 17.85, 18.48, 19.11, 19.74, 20.72, 21.7,
+    22.68, 25.76, 26.74, 27.72, 28.7, 30.73, 31.71, 32.69, 33.32, 33.95, 34.58, 35.56, 38.64, 39.62, 40.6,
+    43.68, 44.66, 45.64, 46.62, 47.6, 48.58, 52.71, 53.69, 54.67, 55.65,
   ];
   check(data.entries.length === 41, '41 позиция маршрута', String(data.entries.length));
-  check(data.stops.length === 47, '47 смысловых остановок', String(data.stops.length));
+  check(data.stops.length === 48, '48 смысловых остановок', String(data.stops.length));
   check(data.entries.filter((entry) => entry.kind === 'cover').length === 3, '3 слайда обложки');
   check(data.entries.filter((entry) => entry.kind === 'chapter').length === 8, '8 глав');
   check(data.entries.filter((entry) => entry.kind === 'event').length === 17, '17 событий');
   check(data.entries.filter((entry) => entry.kind === 'year').length === 11, '11 промежуточных лет');
-  check(data.entries.find((entry) => entry.kind === 'finale').center === 54.6, 'финал в 54.6U');
+  check(data.entries.find((entry) => entry.kind === 'finale').center === 55.65, 'финал в 55.65U');
   const maxDelta = Math.max(...data.entries.map((entry, index) => Math.abs(entry.center - expectedCenters[index])));
   check(maxDelta < 1e-6, 'все центры маршрута на ожидаемых позициях', String(maxDelta));
 
-  check(data.localCounts.length === 25, '25 эпизодов');
-  check(data.localCounts.filter((counter) => counter.endsWith('/ 04')).length === 8, '8 эпизодов в главах по четыре');
-  check(data.localCounts.filter((counter) => counter.endsWith('/ 05')).length === 5, '5 эпизодов в главе криптобиржи');
+  check(data.localCounts.length === 26, '26 эпизодов');
+  check(data.localCounts.filter((counter) => counter.endsWith('/ 04')).length === 4, '4 эпизода в главе по четыре');
+  check(data.localCounts.filter((counter) => counter.endsWith('/ 05')).length === 10, '10 эпизодов в главах по пять');
   check(data.localCounts.filter((counter) => counter.endsWith('/ 03')).length === 9, '9 эпизодов в главах по три');
   check(data.localCounts.filter((counter) => counter.endsWith('/ 02')).length === 2, '2 эпизода в главе по два');
-  check(data.periods.length === 25 && data.periods.every(Boolean), 'период повторён на каждом эпизоде');
+  check(data.periods.length === 26 && data.periods.every(Boolean), 'период повторён на каждом эпизоде');
   check(data.events.length === 17 && data.events.every(Boolean), '17 текстов событий');
   check(data.years.length === 11, '11 промежуточных лет в DOM');
   check(['2025', '2024', '2022', '2021', '2020', '2019', '2016', '2014', '2013', '2012', '2011'].every((year) => data.years.includes(year)), 'полный список промежуточных лет');
@@ -81,7 +83,7 @@ async function makePage(options = {}) {
   const uniqueFigures = [...new Set(data.figureNumbers)].sort();
   check(uniqueFigures.length === 1 && uniqueFigures[0] === '00', 'видимый номер рисунка только у обложки', data.figureNumbers.join(', '));
   check(data.state.U === 664, 'U = 664 при 1200×800', String(data.state.U));
-  check(data.state.maxScroll === 36255, 'максимальная прокрутка 36255', String(data.state.maxScroll));
+  check(data.state.maxScroll === 36952, 'максимальная прокрутка 36952', String(data.state.maxScroll));
 
   // Точная геометрия главы 2026.
   const geometry = await page.evaluate(async () => {
@@ -102,11 +104,11 @@ async function makePage(options = {}) {
     await wait();
     const after40 = centerOf();
     const trackAfter40 = track.style.transform;
-    window.scrollTo(0, 6.09 * state.U);
+    window.scrollTo(0, 7.14 * state.U);
     await wait();
     const lastCenter = centerOf();
-    const lastActive = chapter.querySelector('.episode:nth-child(4)').classList.contains('is-active');
-    window.scrollTo(0, 6.09 * state.U + 40);
+    const lastActive = chapter.querySelector('.episode:last-child').classList.contains('is-active');
+    window.scrollTo(0, 7.14 * state.U + 40);
     await wait();
     const afterLast40 = centerOf();
     const opacityAfter = getComputedStyle(chapter).opacity;
@@ -204,7 +206,7 @@ async function makePage(options = {}) {
       firstEpisode: document.querySelector('.stop-chapter[data-chapter="2015"] .episode.is-active')?.dataset.episode,
     };
   });
-  check(near(selected.t, 27.65, 0.01) && selected.mode === 'horizontal' && selected.counter === '01 / 02', 'переход к 2015: первый эпизод и /02', JSON.stringify(selected));
+  check(near(selected.t, 28.7, 0.01) && selected.mode === 'horizontal' && selected.counter === '01 / 02', 'переход к 2015: первый эпизод и /02', JSON.stringify(selected));
   check(selected.activeYear === '2015' && selected.hidden && selected.firstEpisode === '0', 'переход к 2015 закрывает меню и отмечает год');
 
   await page.locator('#menuBtn').click();
@@ -235,7 +237,7 @@ async function makePage(options = {}) {
 
   // Resize.
   const resizeState = await page.evaluate(async () => {
-    window.scrollTo(0, 27.65 * window.__orbits.getState().U + 350);
+    window.scrollTo(0, 28.7 * window.__orbits.getState().U + 350);
     await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     return window.__orbits.getState().t;
   });
@@ -273,12 +275,32 @@ async function makePage(options = {}) {
 }
 
 // --------------------------------------------------------------------------
-// Настоящее время: четыре эпизода без рамок и кнопок
+// Настоящее время: пять эпизодов без рамок и кнопок управления иллюстрацией
 // --------------------------------------------------------------------------
 {
   const { context, page, errors } = await makePage();
-  await page.evaluate(() => window.__orbits.jumpToT(5.88));
-  await page.waitForTimeout(500);
+  await page.evaluate(() => window.__orbits.jumpToT(5.04));
+  await page.keyboard.press('ArrowRight');
+  const pinNote = page.locator('.episode[data-figure="31"].is-active');
+  const screenshotLink = pinNote.getByRole('link', { name: 'Открыть полноразмерный скриншот PinNote в новой вкладке' });
+  const screenshot = await screenshotLink.locator('img').evaluate(async (image) => {
+    await image.decode();
+    return { url: image.currentSrc, width: image.naturalWidth };
+  });
+  check(screenshot.width === 1600, 'скриншот PinNote загружается на четвёртом эпизоде');
+  const [fullScreenshot] = await Promise.all([page.waitForEvent('popup'), screenshotLink.click()]);
+  await fullScreenshot.waitForLoadState();
+  const fullImage = await fullScreenshot.evaluate(async () => {
+    const image = document.images[0];
+    if (document.contentType !== 'image/png' || !image) return null;
+    await image.decode();
+    return { width: image.naturalWidth, height: image.naturalHeight };
+  });
+  check(fullScreenshot.url() === screenshot.url && fullImage?.width === 1600 && fullImage.height === 1050,
+    'клик открывает исходный PNG PinNote в новой вкладке', `${fullScreenshot.url()} ${JSON.stringify(fullImage)}`);
+  await fullScreenshot.close();
+  check(await pinNote.count() === 1, 'атлас остаётся на слайде PinNote');
+  check(await pinNote.locator('.ep-project-link').getAttribute('href') === 'https://github.com/alexander812/pin-note', 'ссылка PinNote ведёт в репозиторий');
   const present = await page.evaluate(() => {
     const chapter = document.querySelector('.stop-chapter[data-chapter="2026"]');
     const episodes = [...chapter.querySelectorAll('.episode')];
@@ -293,19 +315,20 @@ async function makePage(options = {}) {
       figureBare: chapter.querySelectorAll('.figure-bare').length,
     };
   });
-  check(present.episodes === 4, 'в настоящем времени четыре эпизода', String(present.episodes));
-  check(present.bare && present.figureBare === 4, 'все четыре иллюстрации без карточек');
+  check(present.episodes === 5, 'в настоящем времени пять эпизодов', String(present.episodes));
+  check(present.bare && present.figureBare === 5, 'все пять иллюстраций без карточек');
   check(present.cards === 0 && present.controls === 0, 'в настоящем времени нет рамок, подписей и кнопок');
   check(present.canvases.every(Boolean), 'нарисованы две новые сцены настоящего времени');
   check(present.deckCards === 6, 'сцена изучения языков собрана из карточек', String(present.deckCards));
-  check(present.titles.join('|') === 'Свободное время|Медиаплатформа|Изучаем языки|Между делом', 'новые названия эпизодов', present.titles.join(' | '));
+  check(present.titles.join('|') === 'Свободное время|Медиаплатформа|Изучаем языки|PinNote|Между делом', 'PinNote стоит предпоследним в главе', present.titles.join(' | '));
 
+  await page.evaluate(() => window.__orbits.jumpToT(7.14));
   const animBefore = await page.evaluate(() => window.__orbits.getAnimations().find((animation) => animation.id === 'fig19')?.time);
   await page.waitForTimeout(700);
   const animAfter = await page.evaluate(() => window.__orbits.getAnimations().find((animation) => animation.id === 'fig19')?.time);
   check(animAfter > animBefore, 'сцена поддержки живёт на активном эпизоде', `${animBefore} / ${animAfter}`);
 
-  await page.evaluate(() => window.__orbits.jumpToT(10.64));
+  await page.evaluate(() => window.__orbits.jumpToT(11.69));
   await page.waitForTimeout(500);
   const crypto = await page.evaluate(() => {
     const chapter = document.querySelector('.stop-chapter[data-chapter="2023"]');
@@ -351,11 +374,11 @@ async function makePage(options = {}) {
   check(reduced.class, 'reduce-motion класс включён');
   check(reduced.pauseCount === 0, 'в обновлённых главах нет кнопок паузы', String(reduced.pauseCount));
   const canvasBefore = await page.evaluate(() => document.querySelector('#bg-canvas').toDataURL());
-  await page.evaluate(() => window.__orbits.jumpToT(10.64));
+  await page.evaluate(() => window.__orbits.jumpToT(11.69));
   await page.waitForTimeout(400);
   const canvasAfter = await page.evaluate(() => document.querySelector('#bg-canvas').toDataURL());
   const reducedAfter = await page.evaluate(async () => {
-    window.scrollTo(0, 9.94 * window.__orbits.getState().U);
+    window.scrollTo(0, 10.99 * window.__orbits.getState().U);
     await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     return {
       time: window.__orbits.getAnimations().find((animation) => animation.id === 'fig01')?.time,
@@ -366,7 +389,7 @@ async function makePage(options = {}) {
   check(near(reduced.animationTime, reducedAfter.time, 0.001), 'автоматические рисунки остановлены', `${reduced.animationTime} / ${reducedAfter.time}`);
   check(reducedAfter.transform?.includes('rotateX(0rad)'), 'наклон барабана выключен', reducedAfter.transform);
 
-  await page.evaluate(() => window.__orbits.jumpToT(5.88));
+  await page.evaluate(() => window.__orbits.jumpToT(7.14));
   await page.waitForTimeout(250);
   const supportBefore = await page.evaluate(() => window.__orbits.getAnimations().find((animation) => animation.id === 'fig19')?.time);
   await page.waitForTimeout(500);
@@ -384,12 +407,12 @@ async function makePage(options = {}) {
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.route(baseUrl, async (route) => {
+  await page.route(russianUrl, async (route) => {
     const response = await route.fetch();
     const markup = await response.text();
     await route.fulfill({ response, body: markup.replace(/<section id="hobbies"[^>]*>[\s\S]*?<\/section>/, '') });
   });
-  await page.goto(baseUrl);
+  await page.goto(russianUrl);
   const olderPage = await page.evaluate(() => ({
     chapters: document.querySelectorAll('.stop-chapter').length,
     years: document.querySelectorAll('.year-btn').length,
@@ -409,7 +432,7 @@ async function makePage(options = {}) {
 {
   const context = await browser.newContext({ viewport: { width: 1200, height: 800 }, javaScriptEnabled: false });
   const page = await context.newPage();
-  await page.goto(baseUrl);
+  await page.goto(russianUrl);
   const fallback = await page.evaluate(() => ({
     display: getComputedStyle(document.querySelector('.nojs-fallback')).display,
     text: document.querySelector('.nojs-fallback').innerText,
@@ -426,6 +449,73 @@ async function makePage(options = {}) {
   for (const name of ['Самостоятельная разработка', 'Криптобиржа', 'Akma', 'Интерселект', 'Страйдер', 'Маш Русланд', 'Старсофт Лабс · T-Mobile', 'Мои ожидания']) {
     check(fallback.text.includes(name), `без JS перечислена глава «${name}»`);
   }
+  await page.locator('#nojsFallback [hreflang="en"]').click();
+  check(await page.locator('#nojsFallback h1').innerText() === 'Who is this site for?', 'без JS можно открыть английскую версию');
+  check(await page.locator('#nojsFallback .nojs-chapters section').count() === 9, 'в английской текстовой версии восемь глав и увлечения');
+  await context.close();
+}
+
+// --------------------------------------------------------------------------
+// Язык браузера, ручной выбор и работа переключателя на узком экране
+// --------------------------------------------------------------------------
+{
+  const context = await browser.newContext({ viewport: { width: 320, height: 720 }, locale: 'fr-CA' });
+  const page = await context.newPage();
+  const language = () => page.locator('html').getAttribute('lang');
+
+  await page.goto(englishUrl);
+  check(await language() === 'en', 'для неподдерживаемого языка браузера выбран английский');
+  const coverTitle = await page.locator('#stage h1').textContent();
+  check(coverTitle.trim().replace(/\s+/g, ' ') === 'Who is this site for?', 'в заголовке обложки сохраняются пробелы');
+  check(await page.locator('.episode h2').count() === 26, 'в английском атласе 26 эпизодов');
+  check(await page.locator('.episode[data-figure="31"] figcaption').innerText() === 'Figure 31. Website review in PinNote.', 'английская подпись к скриншоту PinNote');
+  check(await page.locator('.stop-event .event-text').count() === 17, 'в английском атласе 17 событий');
+  check(await page.locator('.episode[data-figure="01"] figcaption').innerText() === 'Figure 01. Neural network.', 'английская подпись относится к нужному рисунку');
+  const russianInEnglish = await page.locator('#stage').evaluate((stage) => {
+    const copy = stage.cloneNode(true);
+    copy.querySelectorAll('[lang="ru"]').forEach((element) => element.remove());
+    return [copy.textContent, ...[...copy.querySelectorAll('[aria-label]')].map((element) => element.getAttribute('aria-label'))]
+      .some((text) => /[А-Яа-яЁё]/.test(text));
+  });
+  check(!russianInEnglish, 'в английских сценах весь текст переведён, карточки слов остаются двуязычными');
+
+  await page.addInitScript(() => Object.defineProperty(navigator, 'languages', {
+    get: () => ['fr-CA', 'ru-RU', 'en-US'],
+  }));
+  await page.goto(`${englishUrl}?source=test#stage`);
+  await page.waitForURL(`${russianUrl}?source=test#stage`);
+  check(await language() === 'ru', 'выбирается первый поддерживаемый язык браузера');
+  const switcher = page.locator('.hud-top .language-switcher');
+  const bounds = await switcher.boundingBox();
+  check(bounds && bounds.x >= 0 && bounds.x + bounds.width <= 320, 'переключатель помещается на экране 320px');
+  check(await switcher.locator('[aria-current="page"]').getAttribute('hreflang') === 'ru', 'в шапке отмечен текущий язык');
+
+  await switcher.locator('[hreflang="en"]').click();
+  await page.waitForURL(`${englishUrl}?source=test#stage`);
+  check(await language() === 'en', 'ручной выбор английского сохраняет параметры и фрагмент ссылки');
+  await page.goto(englishUrl);
+  check(await language() === 'en', 'сохранённый выбор имеет приоритет над языком браузера');
+
+  await page.goto(russianUrl);
+  check(await language() === 'ru', 'явный адрес русской версии открывается при сохранённом английском');
+  await page.goto(englishUrl);
+  await page.locator('.hud-top [hreflang="ru"]').click();
+  await page.waitForURL(russianUrl);
+  check(await page.evaluate(() => localStorage.getItem('portfolio.locale')) === 'ru', 'ручной выбор русского тоже сохраняется');
+  await context.close();
+}
+
+{
+  const context = await browser.newContext({ locale: 'ru-RU' });
+  const page = await context.newPage();
+  await page.addInitScript(() => Object.defineProperty(window, 'localStorage', {
+    get() { throw new DOMException('Storage unavailable', 'SecurityError'); },
+  }));
+  await page.goto(englishUrl);
+  await page.waitForURL(russianUrl);
+  await page.locator('.hud-top [hreflang="en"]').click();
+  await page.waitForURL(`${englishUrl}?lang=en`);
+  check(await page.locator('html').getAttribute('lang') === 'en', 'ручной выбор работает без доступа к хранилищу');
   await context.close();
 }
 

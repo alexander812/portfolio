@@ -1,0 +1,666 @@
+{
+  "site": {
+    "title": "Orbits of Experience — from jQuery to AI",
+    "description": "An interactive atlas of a frontend developer’s career, from jQuery to AI, 2006–2027. Eight chapters and 26 episodes.",
+    "language": "Site language",
+    "skipToAtlas": "Skip to the interactive atlas",
+    "atlasLabel": "Interactive career atlas “Orbits of Experience”",
+    "atlasHint": "Scroll down, swipe horizontally, or press the left and right arrow keys to explore. Use the Chapters button to open the chapter list.",
+    "atlasCaption": "Career atlas · 2006—2027",
+    "scope": "Eight chapters · 26 episodes",
+    "close": "Close",
+    "contact": "Contact",
+    "backToStart": "Back to the start",
+    "backToAtlasStart": "Back to the start of the atlas",
+    "noJsHint": "Enable JavaScript to explore the interactive atlas."
+  },
+  "profile": {
+    "name": "Aleksandr Smirnov",
+    "label": "Profile",
+    "open": "Aleksandr Smirnov — open profile",
+    "close": "Close profile",
+    "role": "Senior frontend developer",
+    "birthDateLabel": "Date of birth",
+    "birthDate": "October 1976",
+    "birthplaceLabel": "Place of birth",
+    "birthplace": "Leningrad"
+  },
+  "navigation": {
+    "chapters": "Chapters",
+    "menuLabel": "Explore the atlas",
+    "menuTitle": "Atlas chapters.",
+    "menuHint": "Choose a chapter or section. Each chapter opens at its first episode.",
+    "closeMenu": "Close chapter list",
+    "previousYears": "Previous years",
+    "nextYears": "Next years",
+    "byYear": "Jump to a chapter by year",
+    "previousStop": "Previous stop",
+    "nextStop": "Next stop",
+    "previousUnavailable": "Previous stop unavailable",
+    "nextUnavailable": "Next stop unavailable",
+    "routeStart": "Start of the route",
+    "routeEnd": "End of the route",
+    "backward": "Back: {stop}",
+    "forward": "Next: {stop}",
+    "chapterLink": "Go to the {year} chapter: {title}",
+    "verticalPosition": "Vertical position",
+    "finalePosition": "Finale, chapter {current} of {total}",
+    "episodePosition": "Episode {current} of {total}"
+  },
+  "cover": {
+    "introLabel": "Cover: Who is this site for?",
+    "introEyebrow": "Interactive career atlas",
+    "introTitle": [
+      "Who is",
+      "this site",
+      "for?"
+    ],
+    "introLead": "If you have a technology project and need an experienced developer, welcome. I’m Aleksandr Smirnov. I built my first project, an app for recording audio samples, in 2004. In 2006, my hobby became a profession when I joined a well-known software outsourcing company. Since then, I’ve worked in backend, frontend and full-stack development, led teams, and tried vibe coding. Frontend development is my specialty, and I’m always up for trying something new.",
+    "discuss": "Discuss a project",
+    "scroll": "Scroll down",
+    "skillsLabel": "Falling blocks assemble a skills grid: React, TypeScript, Effector, MobX, Webpack, Storybook, Astro JS, ChatGPT, Claude Code, Gemini, DeepSeek, iOS, Android, GitHub, GitLab, Docker, Python",
+    "helpLabel": "How I can help",
+    "helpEyebrow": "Products · teams · workflows",
+    "helpTitle": [
+      "How I",
+      "can",
+      "help."
+    ],
+    "helpLead": "I build apps, sites, portals and content management systems for the web, Android, iOS and Telegram. I can help with frontend and backend development, design systems, brand guidelines, UI kits, social media content, LLM-powered chatbots, CRM, analytics, A/B testing and AI workflow automation.",
+    "helpNote": "Automate routine work so people have more time to create.",
+    "helpFigure": "A processor with an array of transistors",
+    "startLabel": "Start of the journey",
+    "startEyebrow": "From today to 20 years ago",
+    "startTitle": [
+      "Want to",
+      "know",
+      "more?"
+    ],
+    "startLead": "The atlas traces my career back 20 years, starting with what I’m doing today.",
+    "startNote": "Most of the projects I’ve worked on are covered by NDAs, so I can share only certain details and links.",
+    "startAction": "Start the journey",
+    "startFigure": "An analog clock runs backward as a display counts down from 2026 to 2006"
+  },
+  "hobbies": {
+    "title": "What I do away from the screen",
+    "imageAlt": "A paddleboarder on a mountain lake surrounded by pines",
+    "paragraphs": [
+      "I love being outdoors, hiking in the mountains and paddling on rivers and lakes. I have a few paddleboards and boats and have covered dozens of kilometers on them.",
+      "In the warmer months, I live in the countryside and go biking and riding my enduro motorcycle.",
+      "I’m interested in history. I sometimes read history books, but I mostly listen to lectures. I can listen for hours while exercising or out on a walk.",
+      "I’ve spent my life learning and enjoy talking and sharing what I know with people who are curious about a wide range of subjects."
+    ]
+  },
+  "contact": {
+    "close": "Close contact form",
+    "eyebrow": "Contact form",
+    "title": "Let’s discuss your project.",
+    "intro": "Tell me what you’re working on and how I can reach you. Your message goes to my Telegram, and your contact details stay private.",
+    "name": "Your name",
+    "namePlaceholder": "Name or company",
+    "replyTo": "How can I reach you?",
+    "replyToPlaceholder": "Email, Telegram or another way to reach you",
+    "message": "Your message",
+    "messagePlaceholder": "Tell me about the project or role",
+    "website": "Website",
+    "send": "Send message",
+    "email": "Or email me directly at",
+    "widgetFailed": "Verification couldn’t load. Try opening the form again later.",
+    "unavailable": "The form is currently unavailable. Try again later.",
+    "waitingForVerification": "Wait for verification to finish, then try again.",
+    "sending": "Sending your message…",
+    "rateLimited": "Too many requests. Try again later.",
+    "verificationFailed": "Verification failed. Try again.",
+    "sendFailed": "Your message couldn’t be sent. Try again later.",
+    "sent": "Message sent. Thank you!",
+    "networkError": "Couldn’t connect to the server. Check your connection and try again."
+  },
+  "atlas": {
+    "skills": "Skills",
+    "projectLink": "Visit the project",
+    "year": "{year}",
+    "orbitToYear": "On to {year}",
+    "finale": "Finale",
+    "finaleLabel": "Finale: Full circle",
+    "finaleEyebrow": "Back where it began",
+    "finaleTitle": "Full circle.",
+    "pause": "Pause",
+    "resume": "Resume",
+    "figure": "figure",
+    "figureNumber": "Fig. {number}",
+    "figureCaption": "Figure {number}. {topic}.",
+    "animation": "Animation",
+    "diagram": "Diagram",
+    "deckLabel": "Language flashcards with a word and its translation",
+    "nextWord": "Next word",
+    "deckAnnouncement": "Word {english}, Russian translation {russian}.",
+    "coreTeamsLabel": "Solar system diagram: the project core is the sun, with Wallet, Support Center, Gamification and Learning orbiting around it.",
+    "now": "now"
+  },
+  "figures": {
+    "petersburg": "ST. PETERSBURG",
+    "petersburgShort": "SPB",
+    "sitesAndPortals": "SITES · PORTALS",
+    "sites": "WEBSITES",
+    "content": "CONTENT",
+    "portalsAndContent": "PORTALS · CONTENT",
+    "brandAndUi": "BRAND GUIDES · UI KITS",
+    "designSubtitle": "BRAND GUIDE · UI KIT",
+    "apps": "APPS",
+    "botsAndMiniApps": "BOTS · MINI APPS",
+    "chatbots": "CHATBOTS",
+    "interfaces": "INTERFACES",
+    "services": "SERVICES · API",
+    "workflows": "WORKFLOWS",
+    "automation": "AUTOMATION",
+    "abTests": "A/B TESTS",
+    "processor": "PROCESSOR",
+    "turnkey": "TURNKEY",
+    "helpCaption": "PRODUCTS · TEAMS · WORKFLOWS",
+    "countdown": "COUNTDOWN · 2026 — 2006",
+    "interface": "INTERFACE",
+    "state": "STATE",
+    "data": "DATA",
+    "architecture": "PLATFORM ARCHITECTURE",
+    "frontendTeam": "FRONTEND TEAM",
+    "tradingPlatform": "TRADING PLATFORM",
+    "tradingMechanics": "TRADING FEATURES · INTERNATIONAL CLIENTS",
+    "mvp": "MVP IN A WEEK",
+    "growth": "GROWTH AND PROFIT",
+    "refactoring": "REFACTORING",
+    "platformEvolution": "PLATFORM EVOLUTION · 2015—2017",
+    "trade": "TRADE",
+    "duration": "DURATION",
+    "minute": "1 minute",
+    "newProject": "NEW PROJECT",
+    "teamBuilding": "BUILDING THE TEAM",
+    "logic": "LOGIC",
+    "fullStack": "FULL STACK · CLIENT AND SERVER",
+    "video": "VIDEO",
+    "files": "FILES",
+    "media": "MEDIA",
+    "cloudLibrary": "CLOUD MEDIA LIBRARY",
+    "interfaceStructure": "INTERFACE STRUCTURE",
+    "plugins": "PLUGINS",
+    "sixMembers": "SIX TEAM MEMBERS",
+    "frontendJs": "FRONTEND · JAVASCRIPT",
+    "internationalTeam": "INTERNATIONAL TEAM",
+    "editorAndExport": "EDITOR · EXPORT PLUGINS",
+    "catalog": "CATALOG",
+    "catalogCrm": "PRODUCT CATALOG · CRM",
+    "buy": "BUY",
+    "componentLibrary": "COMPONENT LIBRARY",
+    "remote": "REMOTE / HYBRID",
+    "pay": "FAIR PAY",
+    "flexibility": "FLEXIBLE HOURS",
+    "bureaucracy": "MINIMAL BUREAUCRACY",
+    "planning": "PLANNING AND PRIORITIES",
+    "whatMatters": "WHAT MATTERS",
+    "nextRole": "WHAT I LOOK FOR IN MY NEXT ROLE",
+    "ordersInFlow": "4 ORDERS IN PROGRESS",
+    "conveyor": "ORDER CONVEYOR · 12 S CYCLE",
+    "chartDemo": "DEMO · 1 MIN",
+    "wallet": "WALLET",
+    "terminal": "TERMINAL",
+    "deposit": "DEPOSIT",
+    "withdrawal": "WITHDRAWAL",
+    "continuousTransfers": "CONTINUOUS DEPOSITS AND WITHDRAWALS",
+    "tournamentDuel": "DUEL · TOURNAMENT MODE",
+    "exchangeCycle": "EXCHANGE · 2.7 S · 5.4 S CYCLE",
+    "agentLong": "AI agent opened three long positions",
+    "agentShort": "AI agent opened a short position",
+    "randomDeal": "DEAL · SHUFFLED ORDER",
+    "worksOnMyMachine": "must be your setup",
+    "doNotTouch": "DON’T TOUCH",
+    "stillRunning": "it’s still running",
+    "fridayDeploy": "deployed on Friday",
+    "cssWins": "CSS WINS",
+    "centeringDiv": "centering a div",
+    "packageSize": "1 package → 1 GB",
+    "figmaToProd": "FIGMA → PROD",
+    "closeEnough": "close enough",
+    "walletTeam": "Wallet",
+    "supportTeam": "Support Center",
+    "gamificationTeam": "Gamification",
+    "learningTeam": "Learning",
+    "pinNoteScreenshotAlt": "PinNote demo showing feedback pins on the page and a conversation with the agent in the side panel.",
+    "openPinNoteScreenshot": "Open the full-size PinNote screenshot in a new tab",
+    "core": "CORE"
+  },
+  "chapterSummaries": {
+    "2026": "AI tools, maintenance for small projects, a media platform for a nonprofit, and a language-learning app. PinNote sends feedback on page elements to an AI coding agent.",
+    "2023": "A strong team, AI-powered trading agents and signals, experiments with trading features, and hackathon-style tournaments.",
+    "2017": "Akma was a trading platform for CFDs, stocks, forex and options. I worked on its core with a frontend team of around 20 developers, using MobX and TypeScript.",
+    "2015": "Fintech and binary options. We built a jQuery MVP in a week, grew the team and moved from Backbone to React.",
+    "2010": "Full-stack development on a video upload and playback service, a cloud file service, and a Backbone frontend.",
+    "2009": "A PHP and Microsoft SQL Server CMS and plugins for German government agencies, a WYSIWYG editor, and tools to export Excel and Word documents to HTML.",
+    "2006": "JavaScript and frontend development for T-Mobile, including an accessible, W3C-compliant component library with IE6 support, and a product catalog and CRM built with ExtJS."
+  },
+  "chapters": {
+    "2026": {
+      "title": "Independent development",
+      "period": "May 2026 — present",
+      "episodes": {
+        "01": {
+          "title": "Free time",
+          "text": "When I worked full-time, I had plenty of free time and kept putting things off. Now I’m short on it. The irony is that thanks to AI, writing code by hand takes up at most 15% of my time. The rest goes into defining the problem, designing the architecture, checking the work and seeing it through.",
+          "skills": [
+            "AI tools",
+            "Frontend"
+          ]
+        },
+        "02": {
+          "title": "Media platform",
+          "text": "I’m building a media platform for a nonprofit. It includes a blog, an article catalog, comments, public and restricted content, a headless CMS for authors, an admin system and a CRM.",
+          "skills": [
+            "Headless CMS",
+            "CRM"
+          ]
+        },
+        "03": {
+          "title": "Learning languages",
+          "text": "My latest project is a language-learning app with several ways to practice words and phrases. My son, who is learning English at school, inspired me to build it.",
+          "skills": [
+            "Personal project",
+            "Language learning"
+          ]
+        },
+        "04": {
+          "title": "PinNote",
+          "text": "I built a local tool for reviewing websites. Leave a comment on any page element and PinNote sends it to an AI coding agent with the element’s DOM context. You can approve the fix in the same panel.",
+          "skills": [
+            "Node.js",
+            "DOM",
+            "AI agents"
+          ]
+        },
+        "05": {
+          "title": "Between projects",
+          "text": "I maintain a few small projects that take up little of my time. An update, a check or a fix gives me a welcome change of pace.",
+          "skills": [
+            "Maintenance",
+            "Frontend"
+          ]
+        }
+      }
+    },
+    "2023": {
+      "title": "Crypto exchange",
+      "period": "December 2023 — May 2026",
+      "episodes": {
+        "01": {
+          "title": "The team",
+          "text": "I was a senior developer on a small, close-knit team. It was the most professional group I’ve worked with.",
+          "skills": [
+            "Senior",
+            "Teamwork"
+          ]
+        },
+        "02": {
+          "title": "iOS, Android and Telegram",
+          "text": "We developed and maintained the app for the web, iOS, Android and Telegram. A configuration file let us enable different features on each platform.",
+          "skills": [
+            "Web",
+            "iOS",
+            "Android",
+            "Telegram"
+          ]
+        },
+        "03": {
+          "title": "A bet on AI",
+          "text": "Alongside standard trading tools, we invested in AI. We developed trading agents and signals before they became a trend in the industry.",
+          "skills": [
+            "AI agents",
+            "Trading signals"
+          ]
+        },
+        "04": {
+          "title": "Moving at rocket speed",
+          "text": "We got three times as much done as on my previous project. We kept experimenting with features, from professional trading tools to game-like experiences.",
+          "skills": [
+            "Trading features",
+            "Experimentation"
+          ]
+        },
+        "05": {
+          "title": "Tournaments",
+          "text": "We held tournaments for users from time to time, usually building them in a hackathon format. We had to move quickly and think creatively. It was also the project where AI-assisted coding became part of everyday work.",
+          "skills": [
+            "Tournaments",
+            "Hackathons",
+            "AI-assisted coding"
+          ]
+        }
+      }
+    },
+    "2017": {
+      "title": "Akma",
+      "period": "April 2017 — December 2023",
+      "episodes": {
+        "01": {
+          "title": "Trading platform",
+          "text": "Akma was a large trading platform with millions of users. It offered CFDs, stocks, forex and options and served international clients exclusively.",
+          "skills": [
+            "Trading",
+            "CFD",
+            "Stocks",
+            "Forex",
+            "Options"
+          ]
+        },
+        "02": {
+          "title": "Team and processes",
+          "text": "I joined as a frontend team lead and senior developer. The team had around 20 developers. I made architecture decisions, hired developers and organized team syncs and offsites. The company held a hackathon every year, and I entered every time. The competition was fierce, and the prizes were worth it.",
+          "skills": [
+            "Team Lead",
+            "Senior",
+            "Architecture",
+            "Hiring",
+            "Hackathons"
+          ]
+        },
+        "03": {
+          "title": "Platform core and other teams",
+          "text": "I worked on the Platform team, which owned the project’s core. I also spent time with other teams building the frontend for a crypto wallet and integrating trading charts. We started with Flux and JavaScript and later moved state management to MobX and TypeScript.",
+          "skills": [
+            "Platform",
+            "Crypto wallet",
+            "Charts",
+            "Flux → MobX",
+            "TypeScript"
+          ]
+        }
+      }
+    },
+    "2015": {
+      "title": "Interselect",
+      "period": "August 2015 — March 2017",
+      "episodes": {
+        "01": {
+          "title": "A jQuery MVP",
+          "text": "Interselect was a fintech platform for binary options, a popular product at the time. I joined when the team had about 10 people. We built the first version with jQuery in a week to test the idea.",
+          "skills": [
+            "Fintech",
+            "Binary options",
+            "jQuery",
+            "MVP"
+          ]
+        },
+        "02": {
+          "title": "Backbone → React",
+          "text": "Once the platform turned a profit, we rewrote it with Backbone. The team grew roughly tenfold over a few years. I led four frontend developers and handled architecture, hiring and team meetings. Next came a major migration from Backbone to React.",
+          "skills": [
+            "Backbone",
+            "React",
+            "Team Lead",
+            "Refactoring"
+          ]
+        }
+      }
+    },
+    "2010": {
+      "title": "Strider",
+      "period": "October 2010 — July 2015",
+      "episodes": {
+        "01": {
+          "title": "On both sides of the API",
+          "text": "I worked as a full-stack developer on several projects, building frontend and backend features and connecting the two.",
+          "skills": [
+            "Fullstack",
+            "Backend",
+            "Frontend"
+          ]
+        },
+        "02": {
+          "title": "Video and cloud storage",
+          "text": "I worked on a video upload and playback service and a cloud file service, building both user interfaces and server-side logic.",
+          "skills": [
+            "Video",
+            "Files",
+            "Cloud services"
+          ]
+        },
+        "03": {
+          "title": "Structuring the frontend",
+          "text": "I introduced Backbone, a new library at the time. The frontend became a standalone application with its own structure.",
+          "skills": [
+            "JavaScript",
+            "Backbone"
+          ]
+        }
+      }
+    },
+    "2009": {
+      "title": "Mach Russland",
+      "period": "March 2009 — July 2010",
+      "episodes": {
+        "01": {
+          "title": "On the server side",
+          "text": "I built a CMS and PHP plugins for software used by German government agencies. We stored the data in Microsoft SQL Server.",
+          "skills": [
+            "PHP",
+            "MSSQL",
+            "CMS"
+          ]
+        },
+        "02": {
+          "title": "Working as a team",
+          "text": "We were a team of six: two backend developers, two frontend developers, a tester and a product manager. I was one of the backend developers.",
+          "skills": [
+            "Backend",
+            "Collaboration",
+            "Teamwork"
+          ]
+        },
+        "03": {
+          "title": "Editor and export tools",
+          "text": "I built a WYSIWYG editor from scratch and wrote plugins to export Excel and Word documents to HTML.",
+          "skills": [
+            "WYSIWYG",
+            "PHP",
+            "Export"
+          ]
+        }
+      }
+    },
+    "2006": {
+      "title": "StarSoft Labs · T-Mobile",
+      "period": "December 2006 — January 2009",
+      "episodes": {
+        "01": {
+          "title": "My first JavaScript role",
+          "text": "I worked on a T-Mobile project and was responsible for JavaScript. This was the start of the professional experience covered in this atlas.",
+          "skills": [
+            "JavaScript",
+            "Frontend",
+            "T-Mobile"
+          ]
+        },
+        "02": {
+          "title": "Beyond the code",
+          "text": "I became a team lead in my second year and traveled abroad several times to learn from colleagues and share what we knew.",
+          "skills": [
+            "Team Lead",
+            "International team"
+          ]
+        },
+        "03": {
+          "title": "Catalog and CRM",
+          "text": "I built a product catalog and CRM using ExtJS.",
+          "skills": [
+            "ExtJS",
+            "CRM",
+            "Catalog"
+          ]
+        },
+        "04": {
+          "title": "Component library",
+          "text": "I created a component library for the T-Mobile online store. It supported browsers going back to IE6 and met all accessibility requirements and W3C validation checks.",
+          "skills": [
+            "UI kit",
+            "IE6",
+            "Accessibility",
+            "W3C"
+          ]
+        }
+      }
+    },
+    "expectations": {
+      "title": "What I’m looking for",
+      "period": "What matters in my next role",
+      "episodes": {
+        "01": {
+          "title": "What I’m looking for",
+          "text": "Here’s what I’d like in my next role.",
+          "skills": [
+            "Remote",
+            "Flexible hours",
+            "Pay",
+            "Processes"
+          ],
+          "bullets": [
+            "Remote or hybrid work.",
+            "Fair pay.",
+            "Flexible hours so I can step away when needed and finish the work later.",
+            "Minimal bureaucracy.",
+            "Clear planning and priorities."
+          ]
+        }
+      }
+    }
+  },
+  "events": {
+    "2026-05": {
+      "month": "May",
+      "type": "Wrap-up",
+      "text": "Wrapped up my work on the crypto exchange and left Space307."
+    },
+    "2026-03": {
+      "month": "March",
+      "type": "Launch",
+      "text": "Integrated dollar-cost averaging (DCA) trading bots and added perpetual futures."
+    },
+    "2023-12": {
+      "month": "December",
+      "type": "Transition",
+      "text": "Wrapped up my work on Akma and moved to the crypto exchange project."
+    },
+    "2018-06": {
+      "month": "June",
+      "type": "Trade show",
+      "text": "Attended Mobile World Congress Shanghai, where computer vision gave me my first look at AI."
+    },
+    "2018-04-ams": {
+      "month": "April",
+      "type": "Conference",
+      "text": "Attended React Amsterdam 2018 and got to speak with the creator of MobX."
+    },
+    "2017-04": {
+      "month": "April",
+      "type": "New role",
+      "text": "Joined Space307 and started working on the Akma platform."
+    },
+    "2017-03": {
+      "month": "March",
+      "type": "Wrap-up",
+      "text": "Left Interselect."
+    },
+    "2015-08": {
+      "month": "August",
+      "type": "New role",
+      "text": "Joined Interselect to work on a binary options platform. The first MVP used jQuery."
+    },
+    "2015-07": {
+      "month": "July",
+      "type": "Wrap-up",
+      "text": "Finished my work as a full-stack developer at Strider."
+    },
+    "2010-10": {
+      "month": "October",
+      "type": "New role",
+      "text": "Joined Strider as a full-stack developer."
+    },
+    "2010-07": {
+      "month": "July",
+      "type": "Wrap-up",
+      "text": "Finished my work as a backend developer at Mach Russland."
+    },
+    "2009-03": {
+      "month": "March",
+      "type": "New role",
+      "text": "Joined Mach Russland to work on a CMS and plugins using PHP and Microsoft SQL Server."
+    },
+    "2009-01": {
+      "month": "January",
+      "type": "Wrap-up",
+      "text": "Finished the T-Mobile project and left StarSoft Labs, by then part of Exigen Services."
+    },
+    "2008-06": {
+      "month": "June",
+      "type": "Conference",
+      "text": "Attended the @media conference in London, where John Resig spoke about creating jQuery."
+    },
+    "2008-03": {
+      "month": "March",
+      "type": "Business trip",
+      "text": "Visited the T-Mobile office in London for work and training."
+    },
+    "2007-06": {
+      "month": "June",
+      "type": "Internship",
+      "text": "Completed a web development internship in London."
+    },
+    "2006-12": {
+      "month": "December",
+      "type": "New role",
+      "text": "Joined StarSoft Labs to work on JavaScript and the frontend for T-Mobile."
+    }
+  },
+  "figureTopics": {
+    "00": "Skills grid",
+    "01": "Neural network",
+    "02": "Order conveyor",
+    "03": "Word flashcard",
+    "04": "Candlestick chart",
+    "05": "Trades and transfers",
+    "06": "Duel",
+    "07": "Platform core and teams",
+    "08": "Frontend team",
+    "09": "Trading markets",
+    "10": "Platform evolution",
+    "11": "Building the team",
+    "12": "Client and server",
+    "13": "Cloud media library",
+    "14": "Application structure",
+    "15": "System and plugins",
+    "16": "Six team members",
+    "17": "Telecom interface",
+    "18": "Sharing knowledge",
+    "19": "Projects in maintenance",
+    "20": "Media platform",
+    "21": "Language learning",
+    "22": "The team",
+    "23": "Agents and signals",
+    "24": "Three speeds",
+    "25": "Tournaments",
+    "26": "Cross-platform apps",
+    "27": "Editor and export",
+    "28": "Catalog and CRM",
+    "29": "Component library",
+    "30": "What I look for in a role",
+    "31": "Website review in PinNote"
+  },
+  "yearNotes": {
+    "2025": "Introduced AI agents, memecoins, prediction widgets and an affiliate program.",
+    "2024": "Worked on charts, trading signals and CFDs, with a focus on increasing customer lifetime value.",
+    "2022": "Integrated C++ charts and worked on improving user retention.",
+    "2021": "Started refactoring toward a feature-oriented architecture. We shipped a new framework that let us define the features available in the app declaratively.",
+    "2020": "Finished moving the platform to MobX.",
+    "2019": "When COVID hit, we all switched to remote work. We ran hundreds of A/B tests to test hypotheses and measure conversion funnels.",
+    "2016": "Developed forex trading features.",
+    "2014": "Expanded the video platform and created an affiliate program.",
+    "2013": "Launched a video service with a single-page app and a custom video player with ad integrations.",
+    "2012": "Integrated ads into pages, worked on analytics and built a system that automatically adjusted ad delivery based on sales.",
+    "2011": "Rebuilt the file-sharing app as a single-page application and untangled the PHP code along the way."
+  }
+}

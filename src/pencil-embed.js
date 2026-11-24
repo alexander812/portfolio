@@ -93,7 +93,7 @@ if (currentScript) {
   const canvas=document.createElement('canvas');
   Object.assign(canvas.style,{display:'block',width:'100%',height:'100%',boxSizing:'border-box'});
   canvas.setAttribute('role','img');
-  canvas.setAttribute('aria-label',label||'Анимация рисунка');
+  canvas.setAttribute('aria-label',label||(document.documentElement.lang==='en'?'Drawing animation':'Анимация рисунка'));
   container.append(canvas);
   createPencilDrawing(canvas,{color,showPencil:pencil==='true',fitContainer:true});
  }
