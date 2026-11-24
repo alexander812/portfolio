@@ -1,0 +1,129 @@
+---
+interface Props {
+  fallback?: boolean;
+}
+
+const { fallback = false } = Astro.props;
+const sectionId = fallback ? 'hobbies-fallback' : 'hobbies';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<section
+  id={sectionId}
+  class={fallback ? 'hobbies-fallback' : 'stop hobbies-stop is-hidden'}
+  aria-labelledby={`${sectionId}-title`}
+>
+  <div class={fallback ? undefined : 'hobbies-scroll'} tabindex={fallback ? undefined : '0'}>
+    <div class="hobbies-layout">
+      <h2 id={`${sectionId}-title`}>Как я отдыхаю от компьютера</h2>
+      <img
+        class="hobbies-illustration"
+        src={`${base}/images/hobbies-mountain-lake.webp`}
+        width="1200"
+        height="800"
+        loading="lazy"
+        decoding="async"
+        alt="Сапбордист на горном озере среди сосен"
+      />
+      <div class="hobbies-copy">
+        <p>Я фанат природы, люблю горные походы и сплавы по рекам и озёрам. У меня несколько сапов и лодок, на которых я прошёл не один десяток километров.</p>
+        <p>В тёплое время года я живу в загородном доме. Там люблю погонять на велике и мотоцикле эндуро.</p>
+        <p>Я увлекаюсь историей. Иногда читаю историческую литературу, а чаще слушаю лекции. Могу слушать их часами, совмещая это занятие со спортом или прогулкой.</p>
+        <p>Я всю жизнь учусь и люблю людей с широким кругозором, с которыми интересно поговорить и обменяться знаниями.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hobbies-stop {
+    height: 100%;
+  }
+
+  .hobbies-scroll {
+    position: absolute;
+    inset: calc(var(--hud-top) + 2vh) 0 calc(var(--hud-bottom) + 2vh);
+    display: flex;
+    overflow-y: auto;
+    padding-inline: clamp(18px, 4.6vw, 68px);
+  }
+
+  .hobbies-scroll:focus-visible {
+    outline-offset: -3px;
+  }
+
+  .hobbies-layout {
+    display: grid;
+    gap: 16px;
+  }
+
+  .hobbies-copy {
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .hobbies-illustration {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line-lav);
+    border-radius: var(--r-lg);
+    object-fit: cover;
+  }
+
+  .hobbies-stop .hobbies-layout {
+    width: min(100%, 1244px);
+    margin: auto;
+    grid-template-areas: "title illustration" "copy illustration";
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(24px, 4.4vw, 66px);
+  }
+
+  .hobbies-stop h2 {
+    grid-area: title;
+    color: var(--white);
+    font-size: clamp(2rem, 4.35vw, 4rem);
+    font-weight: 580;
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  .hobbies-stop .hobbies-copy {
+    grid-area: copy;
+    align-self: start;
+    max-width: 56ch;
+    color: var(--text-soft);
+    font-size: clamp(1rem, 1.3vw, 1.125rem);
+    line-height: 1.5;
+  }
+
+  .hobbies-stop .hobbies-illustration {
+    grid-area: illustration;
+    align-self: center;
+    max-height: 62vh;
+  }
+
+  .hobbies-fallback .hobbies-illustration {
+    width: min(100%, 38rem);
+  }
+
+  @media (max-width: 720px) {
+    .hobbies-stop .hobbies-layout {
+      grid-template-areas: "title" "illustration" "copy";
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: auto;
+    }
+
+    .hobbies-stop h2 {
+      font-size: clamp(1.75rem, 7.5vw, 2.65rem);
+      text-wrap: normal;
+    }
+
+    .hobbies-stop .hobbies-illustration {
+      max-height: min(26vh, 220px);
+      border-radius: var(--r-md);
+    }
+  }
+</style>

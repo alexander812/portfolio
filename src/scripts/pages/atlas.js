@@ -1,5 +1,22 @@
 import { gsap } from '../globals';
 import '../../pencil-embed.js';
+import dogeIcon from '../../assets/crypto/doge.svg?url';
+import shibIcon from '../../assets/crypto/shib.svg?url';
+import pepeIcon from '../../assets/crypto/pepe.svg?url';
+import bonkIcon from '../../assets/crypto/bonk.svg?url';
+import wifIcon from '../../assets/crypto/wif.svg?url';
+import btcIcon from '../../assets/crypto/btc.svg?url';
+import ethIcon from '../../assets/crypto/eth.svg?url';
+import solIcon from '../../assets/crypto/sol.svg?url';
+import usdtIcon from '../../assets/crypto/usdt.svg?url';
+import bnbIcon from '../../assets/crypto/bnb.svg?url';
+import amsterdamSketch from '../../assets/backdrops/amsterdam.svg?url';
+import petersburgSketch from '../../assets/backdrops/petersburg.svg?url';
+import londonSketch from '../../assets/backdrops/london.svg?url';
+import petersburgBankSketch from '../../assets/backdrops/petersburg-bank.svg?url';
+import londonPalaceSketch from '../../assets/backdrops/london-palace.svg?url';
+import tMobileLogo from '../../assets/brands/t-mobile.svg?url';
+import webStackLogos from '../../assets/brands/web-stack.svg?url';
 
 (() => {
   'use strict';
@@ -161,7 +178,7 @@ import '../../pencil-embed.js';
         {
           number: '02',
           title: 'Команда и процессы',
-          text: 'Пришёл на проект Team Lead фронтенда и Senior Developer. В команде было около 20 разработчиков. Отвечал за архитектурные решения, набирал новых людей, организовывал командные синки и выездные сессии. В компании ежегодно проходили хакатоны — я всегда участвовал, борьба была нешуточная, но и награды тоже.',
+          text: 'Пришёл на проект как тим лид фронтенда и синьор разработчик. В команде было около 20 разработчиков. Отвечал за архитектурные решения, набирал новых людей, организовывал командные синки и выездные сессии. В компании ежегодно проходили хакатоны — я всегда участвовал, борьба была нешуточная, но и награды тоже.',
           skills: ['Team Lead', 'Senior', 'Архитектура', 'Найм', 'Хакатоны'],
           figure: '08',
           bare: true,
@@ -427,7 +444,7 @@ import '../../pencil-embed.js';
       year: 2009,
       month: 'Январь',
       type: 'Завершение',
-      text: 'Завершил работу в Старсофт Лабс над проектом T-Mobile.',
+      text: 'Завершил работу в Старсофт Лабс на тот момент уже Exigen Services и над проектом T-Mobile.',
     },
     {
       id: '2008-06',
@@ -495,6 +512,7 @@ import '../../pencil-embed.js';
     'event:2007-06',
     'chapter:2006',
     'event:2006-12',
+    'hobbies',
     'chapter:expectations',
   ];
 
@@ -558,6 +576,8 @@ import '../../pencil-embed.js';
      Маршрут
      ------------------------------------------------------------------------ */
 
+  const hobbiesEl = $('#hobbies');
+  const hobbiesTitle = hobbiesEl?.querySelector('h2')?.textContent.trim();
   const planItems = [
     { kind: 'cover', id: 'intro', label: 'Обложка: Для кого этот сайт' },
     { kind: 'cover', id: 'help', label: 'Чем я могу помочь' },
@@ -569,6 +589,9 @@ import '../../pencil-embed.js';
     if (kind === 'chapter') planItems.push({ kind, id, chapter: chapterById.get(id) });
     else if (kind === 'event') planItems.push({ kind, id, event: eventById.get(id) });
     else if (kind === 'year') planItems.push({ kind, year: Number(id) });
+    else if (kind === 'hobbies' && hobbiesTitle) {
+      planItems.push({ kind, id: hobbiesEl.id, label: hobbiesTitle, el: hobbiesEl });
+    }
   }
   planItems.push({ kind: 'finale' });
 
@@ -628,6 +651,8 @@ import '../../pencil-embed.js';
           label: `${entry.chapter.year} · ${episode.title}`,
         });
       });
+    } else if (entry.kind === 'hobbies') {
+      STOPS.push({ t: entry.center, kind: entry.kind, label: entry.label });
     } else if (entry.kind === 'event') {
       STOPS.push({
         t: entry.center,
@@ -640,6 +665,7 @@ import '../../pencil-embed.js';
   STOPS.sort((a, b) => a.t - b.t);
 
   const ROUTE_END = ENTRIES[ENTRIES.length - 1].center;
+  const hobbiesEntry = ENTRIES.find((entry) => entry.kind === 'hobbies');
 
   const CHAPTER_ENTRY = new Map();
   for (const entry of ENTRIES) {
@@ -789,8 +815,25 @@ import '../../pencil-embed.js';
   const SPACE307_LOGO_PATH = 'M105.26 93.9831L76.485 65.466C74.876 63.8826 72.8182 63.0096 70.714 63H50.6501L32.5773 63.0004C30.4786 63.0134 28.3794 63.8053 26.7747 65.3845L21.2163 70.8937C19.5964 72.4959 19.5977 75.094 21.2172 76.6967L27.078 82.505C28.6984 84.1077 31.3599 84.1328 32.9802 82.5301L39.8358 75.7359L48.6758 66.9751C50.2953 65.3728 52.883 65.3733 54.5025 66.9759L83.4528 95.6664C85.0617 97.2502 87.2685 97.9423 89.3727 97.9515H109.437L127.553 97.951C129.652 97.9377 131.792 97.1859 133.397 95.6066L138.766 90.2855C140.493 88.5767 140.346 86.0442 138.726 84.4416L132.865 78.6328C131.246 77.0314 128.623 77.0502 127.004 78.647L120.324 85.2669L111.543 93.9693C109.923 95.5715 106.879 95.5853 105.26 93.9831Z';
   const SPACE307_LOGO = `<svg class="event-company-logo" viewBox="0 0 160 160" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="${SPACE307_LOGO_PATH}" fill="currentColor"/></svg>`;
 
-  function eventBackdropShell(content) {
-    return `<div class="event-backdrop" aria-hidden="true"><svg viewBox="0 0 640 420" preserveAspectRatio="xMidYMax slice" focusable="false">${content}</svg></div>`;
+  function eventBackdropShell(content, variant = '') {
+    return `<div class="event-backdrop${variant ? ` event-backdrop--${variant}` : ''}" aria-hidden="true"><svg viewBox="0 0 640 420" preserveAspectRatio="xMidYMax slice" focusable="false">${content}</svg></div>`;
+  }
+
+  // City scenes use the full card height so their landmarks remain visible on wide cards.
+  function cityBackdropShell(content, top, aspectRatio = 'none') {
+    return `<div class="event-backdrop" aria-hidden="true"><svg viewBox="0 ${top} 640 ${420 - top}" preserveAspectRatio="${aspectRatio}" focusable="false">${content}</svg></div>`;
+  }
+
+  function cityPhotoBackdrop(sketch, city) {
+    const branded = city !== 'amsterdam';
+    const extension = city === 'london' ? londonPalaceSketch : petersburgBankSketch;
+    const flank = `<div class="event-city-extension" style="background-image: url(&quot;${escapeHtml(extension)}&quot;)"></div>`;
+    return `<div class="event-backdrop event-backdrop--city-photo" aria-hidden="true">
+      ${city === 'amsterdam'
+        ? `<div class="event-city-repeat" style="background-image: url(&quot;${escapeHtml(sketch)}&quot;)"></div>`
+        : `${flank}<img class="event-city-sketch" src="${sketch}" alt="" decoding="async"/>${city === 'petersburg' ? flank : ''}`}
+      ${branded ? `<img class="event-brand-sketch${city === 'london' ? ' event-brand-sketch--small' : ''}" src="${tMobileLogo}" alt="" decoding="async"/>` : ''}
+    </div>`;
   }
 
   function space307Backdrop() {
@@ -833,142 +876,107 @@ import '../../pencil-embed.js';
   }
 
   function shanghaiBackdrop() {
-    const blocks = [
-      { x: 38, y: 286, w: 34, h: 92 },
-      { x: 78, y: 252, w: 26, h: 126 },
-      { x: 110, y: 306, w: 42, h: 72 },
-      { x: 158, y: 292, w: 20, h: 86 },
-      { x: 228, y: 270, w: 30, h: 108 },
-      { x: 264, y: 300, w: 34, h: 78 },
-      { x: 366, y: 292, w: 30, h: 86 },
-      { x: 402, y: 262, w: 26, h: 116 },
-      { x: 456, y: 304, w: 38, h: 74 },
-      { x: 500, y: 282, w: 28, h: 96 },
-      { x: 534, y: 312, w: 48, h: 66 },
-      { x: 588, y: 296, w: 24, h: 82 },
-    ]
-      .map((block) => `<rect x="${block.x}" y="${block.y}" width="${block.w}" height="${block.h}" rx="2"/>`)
-      .join('');
-    const towerWindows = Array.from({ length: 7 }, (_, row) => {
-      const y = 300 + row * 8;
-      return `<path d="M285 ${y}h26M352 ${y}h26"/>`;
+    // Trace the supplied Pudong photo: Pearl, World Financial Center, Jin Mao, Shanghai Tower.
+    const floors = Array.from({ length: 23 }, (_, index) => {
+      const y = 174 + index * 8;
+      return `<path d="M312 ${y}l29 15M414 ${y - 42}q13 7 28 2"/>`;
     }).join('');
-    return eventBackdropShell(`
-      <g fill="rgba(111,231,242,.022)" stroke="rgba(111,231,242,.14)" stroke-width="1.1" stroke-linejoin="round">
-        ${blocks}
-        <path d="M166 378v-46h68v46"/>
-        <path d="M186 332v-24h28v24"/>
-        <circle cx="200" cy="294" r="22"/>
-        <circle cx="200" cy="238" r="14"/>
-        <circle cx="200" cy="196" r="7"/>
-        <path d="M200 332v-16M200 272v-20M200 224v-18M200 189v-34"/>
-        <path d="M178 348h44M172 360h56"/>
-        <path d="M302 378c4-70 9-146 16-190 5-28 13-52 22-70"/>
-        <path d="M354 378c-4-64-7-136-12-184-4-34-9-62-16-74"/>
-        <path d="M318 188c8-4 20-4 28 0M310 240c12-6 30-6 42 0M306 292c16-8 38-8 54 0M304 326c18-9 42-9 60 0"/>
-        ${towerWindows}
-        <path d="M392 378l7-172h38l7 172"/>
-        <path d="M404 206h30M409 212c0 20 18 20 18 0"/>
-        <path d="M396 352h50M399 326h44M402 300h38"/>
-        <path d="M470 378v-62h28v62M474 316v-36h20v36M478 280v-28h12v28M482 252v-22h4v22M484 230v-28"/>
-        <path d="M468 348h32M472 330h26M476 306h18"/>
-      </g>`);
+    return cityBackdropShell(`
+      <g fill="none" stroke="rgba(111,231,242,.27)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 401V305l31-10v106m-30-94 29-8M54 405v-73q14-15 29 0v73m-22-77v-5h14v5M87 406v-55h27v55M132 405V311l9-13h7v14h14v93"/>
+        <path d="M164 405v-90h14v-9h7v-8h9v8h8v9h15v90m-40-105q13-31 27 0m-14-22v-6M204 304v-7q14-4 26 0v107"/>
+        <path d="M253 305V180m26 0v125M258 304V182m16 0v122M260 139v-31m12 31v-31M264 88V59h4v29M266 59V8"/>
+        <ellipse cx="266" cy="98" rx="8" ry="10"/>
+        <path d="M243 161c0-32 47-32 47 0s-47 32-47 0ZM239 332c0-33 55-33 55 0s-55 33-55 0Z"/>
+        <path d="M245 153q21 15 43 0m-44 11q22 13 44 0M241 323q26 15 51 0m-51 15q26 14 51 0M252 354l-23 45h8l23-42m17-2 25 44h-9l-24-42M262 359l-4 38h16l-5-38"/>
+        <path d="M309 305V148l35 22v137m-30-149 24 16v14l-24-17ZM314 183v119m25-108v108"/>
+        <path d="M351 384V263h4v-15h5v-8h5v-5h7v5h5v8h4v15h4v121m-18-149v-9m-13 42 27-9m-27 24 28-9m-28 25 28-10m-28 26 28-9m-28 26 28-9m-28 25 28-9"/>
+        <path d="M409 321c-2-79 3-155 10-219 1-16 6-27 11-35 26 14 25 47 23 82l-1 172M430 67c-2 53 16 95 13 147s-16 77-12 106M420 99c16 7 23 16 32 29M416 151q18 16 37 9m-40 49q19 16 39 7m-42 54q21 8 42-2"/>
+        <path d="M303 408V319h16v-9h22v17h16v81m43-1v-57h9v-13h16v13h9v57m12-32v-66h15v5h13v50M450 402v-23c0-47 74-47 74 0v23Zm73 0v-37h90v37m-82-2v-27q4-8 8 0v27m8 0v-27q4-8 8 0v27m8 0v-27q4-8 8 0v27m8 0v-27q4-8 8 0v27m8 0v-27q4-8 8 0v27"/>
+        <path d="M7 412c69-6 112 3 171-2s99-5 155-1 103-3 157-1 86 5 143-1"/>
+        <g stroke-opacity=".48" stroke-width=".55">
+          ${floors}
+          <path d="M12 316l24-7m-24 15 24-7m-24 15 24-7m-24 15 24-7m-24 15 24-7m-24 15 24-7M170 324h43m-43 9h43m-43 9h43m-43 9h43m-43 9h43m-43 9h43m-43 9h43m-43 9h43M256 189l18 15-18 8 18 15-18 8 18 15-18 8 18 15-18 8 18 15M249 145l34 28m-39-18 36 24m-35 139 43 26m-46-16 42 24M454 378h65m-66 8h67m-64 9h61m-31-43c-18 11-23 28-17 49m17-49v49m0-49c18 11 23 28 17 49"/>
+          <path d="M10 402l29-1m204-241c-2-32 49-34 49 0M238 333c0-35 58-35 58 0M307 303V146l38 23M407 319c-1-86 4-181 13-219M451 404c-5-29 5-48 35-53"/>
+        </g>
+      </g>`, 0, 'xMaxYMax meet');
   }
 
   function amsterdamBackdrop() {
-    const houseWidths = [58, 66, 52, 62, 56, 70, 54, 60];
-    let cursor = 46;
-    const houses = houseWidths
-      .map((width, index) => {
-        const height = 116 + ((index * 17) % 42);
-        const top = 378 - height;
-        const x = cursor;
-        cursor += width + 6;
-        const gable = index % 3;
-        const roof =
-          gable === 0
-            ? `M${x} ${top + 24}L${x + width / 2} ${top}L${x + width} ${top + 24}`
-            : gable === 1
-              ? `M${x} ${top + 24}C${x + 6} ${top + 18} ${x + width * 0.24} ${top + 2} ${x + width / 2} ${top}C${x + width * 0.76} ${top + 2} ${x + width - 6} ${top + 18} ${x + width} ${top + 24}`
-              : `M${x} ${top + 24}h8v-8h10V${top}h${width - 36}v8h10v8h8`;
-        const windows = Array.from({ length: 6 }, (_, cell) => {
-          const col = cell % 2;
-          const row = Math.floor(cell / 2);
-          const wx = x + 11 + col * (width - 33);
-          const wy = top + 36 + row * 28;
-          return `<rect x="${wx}" y="${wy}" width="12" height="17" rx="1"/>`;
-        }).join('');
-        return `
-          <g>
-            <path d="M${x} 378V${top + 24}H${x + width}V378Z"/>
-            <path d="${roof}"/>
-            ${windows}
-            <path d="M${x + width / 2 - 6} 378v-24h12v24"/>
-          </g>`;
-      })
-      .join('');
-    return eventBackdropShell(`
-      <g transform="translate(0 36)" fill="rgba(188,164,255,.018)" stroke="rgba(188,164,255,.13)" stroke-width="1.1" stroke-linejoin="round">
-        ${houses}
-        <path d="M28 378h584"/>
-        <path d="M34 394h572" stroke-dasharray="2 10"/>
-        <path d="M74 394c0-12 18-18 28-6M520 390c8-12 26-10 30 2" stroke="rgba(111,231,242,.1)"/>
-      </g>`);
+    return cityPhotoBackdrop(amsterdamSketch, 'amsterdam');
   }
 
-  function backdropCoin(x, y, radius, label, symbol, accent = '188,164,255') {
+  function backdropCoin(x, y, radius, label, icon, accent = '188,164,255') {
     return `
-      <g transform="translate(${x} ${y})">
-        <circle r="${radius}" fill="rgba(${accent},.035)" stroke="rgba(${accent},.16)" stroke-width="1.2"/>
-        <circle r="${(radius * 0.78).toFixed(1)}" fill="none" stroke="rgba(${accent},.08)" stroke-dasharray="2 7"/>
-        <text y="${(radius * 0.24).toFixed(1)}" text-anchor="middle" fill="rgba(${accent},.17)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="${Math.max(15, radius * 0.56).toFixed(1)}" font-weight="700">${symbol}</text>
-        <text y="${(radius + 15).toFixed(1)}" text-anchor="middle" fill="rgba(${accent},.11)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" letter-spacing=".1em">${label}</text>
+      <g transform="translate(${x} ${y})" opacity=".32">
+        <circle r="${radius}" fill="rgba(${accent},.025)" stroke="rgba(${accent},.14)" stroke-width="1.1"/>
+        <image href="${icon}" x="${(-radius * 0.88).toFixed(1)}" y="${(-radius * 0.88).toFixed(1)}" width="${(radius * 1.76).toFixed(1)}" height="${(radius * 1.76).toFixed(1)}" preserveAspectRatio="xMidYMid meet"/>
+        <text y="${(radius + 15).toFixed(1)}" text-anchor="middle" fill="rgba(${accent},.38)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="8.5" letter-spacing=".1em">${label}</text>
       </g>`;
   }
 
   function spbSkyline(x, y, scale, accent) {
     return `
-      <g transform="translate(${x} ${y}) scale(${scale})" fill="none" stroke="rgba(${accent},.15)" stroke-width="1.2" stroke-linejoin="round">
-        <path d="M0 0h260"/>
-        <path d="M8 0v-42h28v42M12 -42l10-14 10 14M18 -56v-8h12v8"/>
-        <path d="M52 0v-58h20v58M56 -58l6-12 6 12"/>
-        <path d="M80 0v-74l8-62 8 62v74"/>
-        <circle cx="88" cy="-142" r="4"/>
-        <path d="M106 0v-28c0-20 14-32 34-32s34 12 34 32v28"/>
-        <path d="M116 -48v-14M164 -48v-14M140 -62v-8"/>
-        <path d="M188 0v-50h30v50M194 -50l9-12 9 12"/>
-        <path d="M228 0v-34h24v34M232 -34l6-10 6 10"/>
-        <path d="M0 -3h260" stroke-dasharray="2 8" stroke-opacity=".55"/>
-        <path d="M-8 8c20-10 40-10 60 0s40 10 60 0 40-10 60 0 40 10 60 0 40-10 60 0" stroke-opacity=".5"/>
+      <g transform="translate(${x} ${y}) scale(${scale})" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <g stroke="rgba(${accent},.29)" stroke-width="1.35">
+          <path d="M-8 -17c45-3 93-2 135 0m10-1c45-3 86-2 131 1"/>
+          <path d="M5 -17v-38h23v38m-19-38 8-12 8 12m-8-12v-15m26 65v-50h34v50m-34-50 17-11 17 11"/>
+          <path d="M82 -17v-65h27v65m-30-65h33m-28-8h23m-23 8 5-8m18 8-5-8m-15 0 9-52 9 52m-9-52v-19m-3 0 3-8 3 8"/>
+          <path d="M117 -17v-38h35v38m-35-38 17-10 18 10m-26 10h17"/>
+          <path d="M159 -17v-62h83v62m-83-62h83m-76 0 7-14h54l8 14m-53-14c0-27 13-45 26-45s26 18 26 45m-26-45v-18m-8 0h16m-8 0v-12"/>
+          <path d="M152 -17v-47h7m83 0h11v47m-97-55 8-14m83 14-8-14"/>
+          <path d="M261 -17v-42h29v42m-25-42 11-15 10 15m-10-15v-14"/>
+          <path d="M-7 -7c37-8 66-7 103-2 34 5 68 5 104-2 39-8 69-6 103 1"/>
+          <path d="M-8 0c47-7 95-6 141 2m46-1c44-7 84-7 126 0" stroke-width=".8"/>
+        </g>
+        <g stroke="rgba(${accent},.17)" stroke-width=".8">
+          <path d="M11-45h11m-11 12h11m29-25h7m5 0h7m-19 14h7m5 0h7m-19 13h7m5 0h7"/>
+          <path d="M89-70h14m-14 11h14m-14 11h14m-14 11h14m-14 11h14m-54-31 6 5m17-5-6 5"/>
+          <path d="M123-43h7m7 0h7m-21 13h7m7 0h7m29-42h65m-64-10h63m-54-26c3-10 11-17 21-20m22 20c-3-10-11-17-21-20"/>
+          <path d="M172-59v38m12-38v38m12-38v38m12-38v38m12-38v38m12-38v38m-67-33h73m-73 13h73"/>
+          <path d="M268-47h15m-15 11h15m-15 11h15m-269 11h55m24 0h39m19 0h88m15 0h35"/>
+          <path d="M7 9c35-5 58-5 87 0m65 5c31-6 65-6 99 0m-220 7 42-2m142 1 52-3" stroke-dasharray="21 7 3 8"/>
+        </g>
+        <g stroke="rgba(111,231,242,.15)" stroke-width="1.05">
+          <path d="M-10 -17c32 6 54 14 80 14 25 0 47-15 73-15 26 0 46 15 69 15 27 0 54-13 94-15"/>
+          <path d="M-8 13c48-7 86-7 121 0m38 7c54-8 93-7 150-1" stroke-dasharray="24 9 5 13"/>
+        </g>
       </g>`;
   }
 
   function londonSkyline(x, y, scale, accent) {
     return `
-      <g transform="translate(${x} ${y}) scale(${scale})" fill="none" stroke="rgba(${accent},.15)" stroke-width="1.2" stroke-linejoin="round">
-        <path d="M0 0h280"/>
-        <path d="M8 0v-116h44v116M8 -116h44M30 -116v-24M30 -140v-12"/>
-        <path d="M8 -126l22-16 22 16"/>
-        <circle cx="30" cy="-92" r="14"/>
-        <path d="M30 -92v-8M30 -92h8"/>
-        <path d="M56 0v-52h80v52M58 -52h76"/>
-        <path d="M72 -18v-24M86 -18v-24M100 -18v-24M114 -18v-24M128 -18v-24"/>
-        <path d="M150 0v-64h22v64M161 -64l-7-16h34l-7 16M161 -16v-28h0"/>
-        <path d="M198 0v-64h22v64M209 -64l-7-16h34l-7 16M209 -16v-28h0"/>
-        <path d="M172 -48c10 8 24 8 34 0M150 -40c20 12 62 12 82 0" stroke-dasharray="2 5" stroke-opacity=".65"/>
-        <circle cx="252" cy="-52" r="34" stroke-dasharray="2 6"/>
-        <path d="M252 -86v68M218 -52h68M228 -76l48 48M276 -76l-48 48" stroke-opacity=".55"/>
-        <path d="M0 -3h280" stroke-dasharray="2 8" stroke-opacity=".5"/>
+      <g transform="translate(${x} ${y}) scale(${scale})" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <g stroke="rgba(${accent},.3)" stroke-width="1.35">
+          <path d="M-5 -15h282M5 -15v-99h42v99m-42-99 5-8h32l5 8m-37-8 4-11h24l4 11m-28-11 12-18 12 18m-12-18v-17"/>
+          <path d="M8 -94h36m-36 28h36m-36 29h36m-27-102h18m-15-8h12"/>
+          <circle cx="26" cy="-95" r="11"/><path d="M26-95v-7m0 7 5 3"/>
+          <path d="M50 -15v-60h126v60m-126-60 9-9h108l9 9m-118-9 9-11h92l8 11m-104-11 5-11h82l7 11"/>
+          <path d="M58-75v60m12-60v60m13-60v60m13-60v60m13-60v60m13-60v60m13-60v60m13-60v60m13-60v60m13-60v60"/>
+          <path d="M71-95v-15l5-12 5 12v15m37 0v-15l5-12 5 12v15m30 0v-15l5-12 5 12v15"/>
+          <path d="M180 -15v-36h27v36m-27-36 13-13 14 13m-14-13v-15m6 64v-51"/>
+          <circle cx="246" cy="-72" r="43"/><circle cx="246" cy="-72" r="3"/>
+          <path d="M246-115v86m-43-43h86m-73-31 61 62m0-62-61 62m30 12v14m-31 0v-21m62 21v-21"/>
+          <path d="M-7 -1c46-12 90-13 132-5s86 7 132-3m-265 8c40 3 79 8 118 8s82-8 129-9 53-1 67 2"/>
+        </g>
+        <g stroke="rgba(${accent},.17)" stroke-width=".8">
+          <path d="M11-60h29m-29 5h29m-29 5h29m-29 5h29m-29 5h29m-29 5h29m-29 5h29"/>
+          <path d="M61-67h106m-106 9h106m-106 9h106m-106 9h106m-106 9h106m-106 9h106"/>
+          <path d="M67-89h92m-89-14h12m35 0h12m29 0h12m-129 89h136"/>
+          <path d="M219-107c-6 4-10 9-13 15m67-17c6 4 10 9 13 15m-94 44 10 1m87 1 9-2"/>
+          <path d="M-7 11c35-4 62-4 90 0m23 5c38-5 68-5 101 0m28 2 53-4" stroke-dasharray="21 8 4 9"/>
+        </g>
+        <g stroke="rgba(188,164,255,.15)" stroke-width="1.05">
+          <path d="M-8 -12c24-2 43-3 64-2 20 2 43 13 65 13 22 0 39-14 58-14 19 0 40 14 60 14 22 0 42-9 66-12"/>
+          <path d="M-6 19c40-7 70-7 99 0m45 6c50-7 91-7 141-3" stroke-dasharray="23 8 5 11"/>
+        </g>
       </g>`;
   }
 
   function tMobileMark(x, y, scale) {
-    return `
-      <g transform="translate(${x} ${y}) scale(${scale})" fill="none" stroke="rgba(226,0,116,.2)" stroke-width="1.4" stroke-linejoin="round">
-        <rect x="-52" y="-52" width="104" height="104" rx="20" fill="rgba(226,0,116,.035)"/>
-        <path d="M-30 -31h60v16h-22v47h-16v-47h-22z" fill="rgba(226,0,116,.09)" stroke="none"/>
-        <text y="76" text-anchor="middle" fill="rgba(226,0,116,.14)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing=".12em" stroke="none">T-MOBILE</text>
-      </g>`;
+    return `<g transform="translate(${x} ${y}) scale(${scale})" opacity=".2">
+      <image href="${tMobileLogo}" x="-70" y="-12" width="140" height="24" preserveAspectRatio="xMidYMid meet"/>
+    </g>`;
   }
 
   function germanFlag(x, y, width, rotate = -6) {
@@ -994,56 +1002,129 @@ import '../../pencil-embed.js';
   function memeCoinsBackdrop() {
     return eventBackdropShell(`
       <path d="M18 398 112 356 196 374 286 318 366 334 456 292 548 308 616 276" fill="none" stroke="rgba(247,196,84,.1)" stroke-width="1.2" stroke-dasharray="4 6"/>
-      ${backdropCoin(96, 344, 52, 'DOGE', 'Ð', '247,196,84')}
-      ${backdropCoin(224, 314, 40, 'SHIB', 'S', '255,150,90')}
-      ${backdropCoin(350, 352, 56, 'PEPE', 'P', '110,231,160')}
-      ${backdropCoin(474, 312, 36, 'BONK', 'B', '255,206,84')}
-      ${backdropCoin(584, 348, 42, 'WIF', 'W', '255,122,217')}
+      ${backdropCoin(96, 344, 52, 'DOGE', dogeIcon, '247,196,84')}
+      ${backdropCoin(224, 314, 40, 'SHIB', shibIcon, '255,150,90')}
+      ${backdropCoin(350, 352, 56, 'PEPE', pepeIcon, '110,231,160')}
+      ${backdropCoin(474, 312, 36, 'BONK', bonkIcon, '255,206,84')}
+      ${backdropCoin(584, 348, 42, 'WIF', wifIcon, '255,122,217')}
       <g fill="none" stroke="rgba(247,196,84,.1)" stroke-width="1">
         <path d="M122 286h22M132 276v20M282 266h18M291 257v18M526 266h16M534 258v16"/>
-      </g>`);
+      </g>`, 'crypto');
   }
 
   function cryptoAssetsBackdrop() {
     return eventBackdropShell(`
       <path d="M22 402 114 366 200 384 286 330 372 348 456 306 548 320 618 286" fill="none" stroke="rgba(111,231,242,.1)" stroke-width="1.2" stroke-dasharray="3 6"/>
-      ${backdropCoin(88, 350, 42, 'BTC', '₿', '247,196,84')}
-      ${backdropCoin(208, 326, 34, 'ETH', 'Ξ', '188,164,255')}
-      ${backdropCoin(326, 360, 46, 'SOL', 'S', '110,231,160')}
-      ${backdropCoin(448, 326, 32, 'USDT', '₮', '111,231,242')}
-      ${backdropCoin(556, 354, 38, 'BNB', 'B', '255,206,84')}
+      ${backdropCoin(88, 350, 42, 'BTC', btcIcon, '247,196,84')}
+      ${backdropCoin(208, 326, 34, 'ETH', ethIcon, '188,164,255')}
+      ${backdropCoin(326, 360, 46, 'SOL', solIcon, '110,231,160')}
+      ${backdropCoin(448, 326, 32, 'USDT', usdtIcon, '111,231,242')}
+      ${backdropCoin(556, 354, 38, 'BNB', bnbIcon, '255,206,84')}
       <g fill="none" stroke="rgba(111,231,242,.09)" stroke-width="1">
         <path d="M128 294h18M137 285v18M500 294h18M509 285v18"/>
         <path d="M270 286l14-14 14 14M576 290l12-12 12 12"/>
+      </g>`, 'crypto');
+  }
+
+  function chartsBackdrop() {
+    return eventBackdropShell(`
+      <defs>
+        <linearGradient id="year-2022-line-fill" x1="0" y1="0" x2="0" y2="1">
+          <stop stop-color="#6fe7f2" stop-opacity=".14"/>
+          <stop offset="1" stop-color="#6fe7f2" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="rgba(111,231,242,.07)" stroke-width="1">
+        <path d="M36 394h174m-174 0V282m0 80h174m-174-32h174m-174-32h174"/>
+        <path d="M242 394h162m-162 0V282m0 80h162m-162-32h162m-162-32h162"/>
+        <path d="M436 394h172m-172 0V282m0 80h172m-172-32h172m-172-32h172"/>
+      </g>
+      <path d="M248 376C260 376 263 357 278 364S300 374 313 341 335 365 348 327 370 348 383 311 395 301 404 292V394H248Z" fill="url(#year-2022-line-fill)"/>
+      <g fill="none" stroke="rgba(111,231,242,.18)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M248 376C260 376 263 357 278 364S300 374 313 341 335 365 348 327 370 348 383 311 395 301 404 292"/>
+      </g>
+      <g fill="rgba(188,164,255,.09)" stroke="rgba(188,164,255,.14)" stroke-width="1">
+        <rect x="48" y="348" width="14" height="46" rx="2"/><rect x="71" y="327" width="14" height="67" rx="2"/>
+        <rect x="94" y="355" width="14" height="39" rx="2"/><rect x="117" y="307" width="14" height="87" rx="2"/>
+        <rect x="140" y="334" width="14" height="60" rx="2"/><rect x="163" y="290" width="14" height="104" rx="2"/>
+      </g>
+      <g stroke-width="1.3">
+        <g fill="rgba(248,113,113,.1)" stroke="rgba(248,113,113,.2)">
+          <path d="M454 322v58m60-67v68m60-83v68"/>
+          <path d="M448 341h12v23h-12zM508 333h12v28h-12zM568 317h12v31h-12z"/>
+        </g>
+        <g fill="rgba(74,222,128,.1)" stroke="rgba(74,222,128,.2)">
+          <path d="M484 297v68m60-75v57m60-57v59"/>
+          <path d="M478 315h12v30h-12zM538 307h12v23h-12zM598 300h12v28h-12z"/>
+        </g>
+      </g>
+      <g fill="rgba(188,164,255,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".14em">
+        <text x="42" y="276">BAR</text><text x="248" y="276">LINE</text><text x="442" y="276">CANDLE</text>
       </g>`);
   }
 
+  function agentSignalsBackdrop() {
+    const candles = Array.from({ length: 24 }, (_, index) => {
+      const x = 28 + index * 25;
+      const y = 366 - index * 2.4 + Math.sin(index * 1.1) * 20;
+      const rising = index % 3 !== 0;
+      return `<g stroke="rgba(${rising ? '110,231,160' : '248,113,113'},.22)" fill="rgba(${rising ? '110,231,160' : '248,113,113'},.1)">
+        <path d="M${x} ${y - 12}v40"/><rect x="${x - 4}" y="${y}" width="8" height="16"/>
+      </g>`;
+    }).join('');
+    return cityBackdropShell(`
+      <g fill="none" stroke="rgba(111,231,242,.07)" stroke-width="1">
+        <path d="M16 290h608M16 326h608M16 362h608M16 398h608M80 278v130m120-130v130m120-130v130m120-130v130m120-130v130"/>
+      </g>
+      <g stroke-width="1.1">${candles}</g>
+      <path d="M20 386C76 390 88 336 132 354S205 368 248 337 300 362 352 318 414 345 466 307 544 324 620 284" fill="none" stroke="rgba(188,164,255,.25)" stroke-width="1.6"/>
+      <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" text-anchor="middle">
+        <g fill="rgba(110,231,160,.33)" stroke="rgba(110,231,160,.26)">
+          <path d="m126 376 6-9 6 9ZM346 346l6-9 6 9Z"/>
+          <path d="M132 378v12m220-42v12" fill="none" stroke-dasharray="2 3"/>
+          <text x="132" y="403" stroke="none">AI BUY</text><text x="352" y="373" stroke="none">AI BUY</text>
+        </g>
+        <g fill="rgba(248,113,113,.3)" stroke="rgba(248,113,113,.24)">
+          <path d="m242 304 6 9 6-9ZM554 272l6 9 6-9Z"/>
+          <path d="M248 300v-12m312-20v-10" fill="none" stroke-dasharray="2 3"/>
+          <text x="248" y="282" stroke="none">AI SELL</text><text x="560" y="251" stroke="none">AI SELL</text>
+        </g>
+      </g>`, 240, 'xMidYMid meet');
+  }
+
   function refactorBackdrop() {
+    const lines = [
+      ["import { features } from './features';"],
+      ['var unusedCache = {};', 4, 11, 'no-unused-vars'],
+      ['export async function loadFeature(name) {'],
+      ['  if (name == null) return false;', 11, 2, 'eqeqeq'],
+      ['  const config = featureRegistry[name];', 17, 15, 'no-undef'],
+      ['  debugger;', 2, 8, 'no-debugger'],
+      ['  console.log(config);', 2, 11, 'no-console'],
+      ['  const data = await fetch(config.url);'],
+      ['  if (data.status = 200) {', 18, 1, 'no-cond-assign'],
+      ['    var result = JSON.parse(data);', 4, 3, 'no-var'],
+      ['    result.items.map(async (item) => {'],
+      ['      updateStore(item, missingId);', 24, 9, 'no-undef'],
+      ['      return item.enabled == true;', 26, 2, 'eqeqeq'],
+      ['    });'],
+      ['    return result;;', 18, 1, 'no-extra-semi'],
+      ['  }'],
+      ['  throw new Error("Feature unavailable");'],
+      ['}'],
+    ];
+    const code = lines.map(([text, start, length, rule], index) => {
+      const y = 180 + index * 13;
+      const x = 48 + (start || 0) * 5.4;
+      const squiggle = rule ? Array.from({ length: Math.ceil(length * 5.4 / 4) }, () => 'l2-2 2 2').join('') : '';
+      return `<text x="20" y="${y}" fill="rgba(188,164,255,.1)">${index + 1}</text>
+        <text x="48" y="${y}">${escapeHtml(text)}</text>
+        ${rule ? `<path d="M${x} ${y + 3}${squiggle}" fill="none" stroke="rgba(248,113,113,.3)" stroke-width=".8"/>
+          <text x="400" y="${y}" fill="rgba(248,113,113,.2)">× ${rule}</text>` : ''}`;
+    }).join('');
     return eventBackdropShell(`
-      <g fill="none" stroke="rgba(255,122,217,.12)" stroke-width="1.2" stroke-linecap="round">
-        <path d="M28 408c36-58 54 26 82-26s44 48 76-6 50 30 82-16 58 24 86-14"/>
-        <path d="M46 378c24-18 38 16 60-4s34 20 56 0"/>
-      </g>
-      <g transform="translate(420 352)" fill="none" stroke="rgba(111,231,242,.16)" stroke-width="1.2" stroke-linejoin="round">
-        <rect x="-92" y="-82" width="184" height="26" rx="6" fill="rgba(111,231,242,.03)"/>
-        <rect x="-92" y="-48" width="184" height="26" rx="6" fill="rgba(188,164,255,.03)"/>
-        <rect x="-92" y="-14" width="184" height="26" rx="6" fill="rgba(111,231,242,.03)"/>
-        <rect x="-92" y="20" width="184" height="26" rx="6" fill="rgba(188,164,255,.03)"/>
-        <path d="M-78 -69h96M-78 -35h64M-78 -1h112M-78 33h80" stroke-opacity=".65"/>
-        <path d="M108 -69h32M108 -35h56M108 -1h24M108 33h46" stroke-dasharray="2 4" stroke-opacity=".6"/>
-      </g>
-      <g transform="translate(320 348)" fill="none" stroke="rgba(188,164,255,.18)" stroke-width="1.2">
-        <path d="M-38 -42h-14v84h14M38 -42h14v84H38"/>
-        <path d="M-18 -16h36M-18 0h28M-18 16h34" stroke-opacity=".6"/>
-      </g>
-      <g transform="translate(270 396)" fill="none" stroke="rgba(247,196,84,.14)" stroke-width="1.2">
-        <circle r="24"/>
-        <circle r="9"/>
-        ${Array.from({ length: 8 }, (_, index) => {
-          const angle = (index / 8) * TAU;
-          return `<path d="M${(Math.cos(angle) * 25).toFixed(1)} ${(Math.sin(angle) * 25).toFixed(1)}L${(Math.cos(angle) * 34).toFixed(1)} ${(Math.sin(angle) * 34).toFixed(1)}"/>`;
-        }).join('')}
-      </g>`);
+      <path d="M39 166V414m348-248v248" stroke="rgba(188,164,255,.07)" fill="none"/>
+      <g fill="rgba(111,231,242,.14)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" xml:space="preserve">${code}</g>`);
   }
 
   function forexBackdrop() {
@@ -1063,37 +1144,42 @@ import '../../pencil-embed.js';
   }
 
   function videoHostingBackdrop() {
-    const holes = Array.from({ length: 8 }, (_, index) => `<rect x="${-102 + index * 26}" y="-54" width="12" height="5" rx="2"/><rect x="${-102 + index * 26}" y="49" width="12" height="5" rx="2"/>`).join('');
-    return eventBackdropShell(`
-      <g transform="translate(412 350)" fill="none" stroke="rgba(111,231,242,.16)" stroke-width="1.3" stroke-linejoin="round">
-        <rect x="-124" y="-60" width="248" height="120" rx="14" fill="rgba(111,231,242,.03)"/>
-        <path d="M-18 -24 34 0-18 24Z" fill="rgba(111,231,242,.06)"/>
-        ${holes}
+    const thumbnails = [0, 1, 2, 3].map((index) => {
+      const x = 66 + (index % 2) * 69;
+      const y = 293 + Math.floor(index / 2) * 46;
+      return `<path d="M${x} ${y}l58 1-1 29-57-1ZM${x + 23} ${y + 8}l12 7-12 7ZM${x} ${y + 35}l44 1m-44 5 30-1"/>`;
+    }).join('');
+    return cityBackdropShell(`
+      <g fill="none" stroke="rgba(210,211,224,.23)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M25 253 211 255 209 397 23 395ZM27 256l182 1m-184 17 185 2M40 263l17 1m16 0 107 1m-143 21 13 1m-13 11 13-1m-13 12 13 1m-13 11 12 1"/>
+        ${thumbnails}
+        <path d="M223 237 487 239 485 405 221 403ZM226 241l258 1m-261 17 263 1M237 250l19 1m17-1 131 1M236 273l155 1-1 86-156-2ZM296 296l29 19-29 18ZM239 348l142 1m-138-4v8m-7 17 124 1m-124 8 92 1m-91 12 138 1"/>
+        <path d="M404 274l66 1-1 34-65-1Zm1 44 64 1-1 34-64-1Zm0 44 64 1-1 34-64-1ZM430 282l12 9-12 8m1 26 12 9-12 8m0 27 12 9-12 8"/>
+        <path d="M512 254q-5 0-5 7l-1 133q0 8 7 8l79 1q7 0 7-8l1-133q0-7-7-7ZM511 274l84 1m-54-11 26 1M517 286l72 1-1 42-72-1ZM545 296l17 12-17 10ZM518 340l58 1m-58 7 41 1M517 363l30 1-1 20-30-1Zm38 1 32 1-1 20-32-1M545 393l17 1"/>
       </g>
-      <g transform="translate(174 344)" fill="none" stroke="rgba(188,164,255,.16)" stroke-width="1.3" stroke-linejoin="round">
-        <path d="M-44 20c-18 0-30-11-30-25 0-13 10-23 24-25 5-18 20-30 40-30 21 0 38 14 42 34 14 0 25 10 25 24 0 13-12 22-28 22Z"/>
-        <path d="M0 34V-16M-10 -4 0-16 10-4" stroke-linecap="round"/>
-      </g>
-      <text x="412" y="406" text-anchor="middle" fill="rgba(111,231,242,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing=".18em">VIDEO HOSTING</text>`);
+      <g fill="none" stroke="rgba(210,211,224,.1)" stroke-width=".65" stroke-linecap="round">
+        <path d="m21 251 193 2-3 147-190-3Zm199-17 270 3-2 171-269-3Zm290 18 93 1-2 153-97-2"/>
+        <path d="m239 281 12-6m-12 13 25-13m-25 21 39-21m-40 29 52-29m-52 36 63-35m103 8 17-9m-17 16 30-16m-30 23 42-23m-397 36 17-9m-17 17 30-17m39 53 15-8m-15 16 29-16m352-46 17-9m-17 17 30-17"/>
+      </g>`, 226, 'xMidYMid meet');
   }
 
   function languagesBackdrop() {
-    return eventBackdropShell(`
+    return cityBackdropShell(`
       <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="700" text-anchor="middle">
         <text x="62" y="382" font-size="36" fill="rgba(188,164,255,.13)">PHP</text>
         <text x="192" y="350" font-size="24" fill="rgba(247,196,84,.13)">JavaScript</text>
         <text x="344" y="388" font-size="30" fill="rgba(255,150,90,.13)">HTML</text>
         <text x="454" y="350" font-size="30" fill="rgba(111,231,242,.13)">CSS</text>
-        <text x="562" y="390" font-size="24" fill="rgba(110,231,160,.13)">MySQL</text>
+        <text x="562" y="402" font-size="24" fill="rgba(110,231,160,.13)">MySQL</text>
       </g>
       <g transform="translate(562 342)" fill="none" stroke="rgba(110,231,160,.17)" stroke-width="1.2">
         <ellipse rx="34" ry="10"/>
-        <path d="M-34 0v28c0 6 68 6 68 0V0M-34 14c0 6 68 6 68 0"/>
+        <path d="M-34 0v28a34 10 0 0 0 68 0V0M-34 14a34 10 0 0 0 68 0"/>
       </g>
       <g fill="none" stroke="rgba(188,164,255,.11)" stroke-width="1.2">
         <path d="M292 306h-12v48h12M310 306h12v48h-12" />
         <path d="M132 300h-10v34h10M148 300h10v34h-10" />
-      </g>`);
+      </g>`, 280, 'xMidYMax meet');
   }
 
   function videoAdsBackdrop() {
@@ -1115,35 +1201,27 @@ import '../../pencil-embed.js';
   }
 
   function fileExchangeBackdrop() {
-    return eventBackdropShell(`
-      <g transform="translate(96 356)" fill="none" stroke="rgba(188,164,255,.16)" stroke-width="1.2" stroke-linejoin="round">
-        <rect x="-44" y="-40" width="76" height="58" rx="6" fill="rgba(188,164,255,.03)"/>
-        <rect x="-34" y="-52" width="76" height="58" rx="6" fill="rgba(188,164,255,.02)"/>
-        <path d="M-24 -18h42M-24 -4h30M-24 10h36" stroke-opacity=".6"/>
-        <text y="38" text-anchor="middle" fill="rgba(188,164,255,.11)" font-family="ui-monospace, monospace" font-size="10" stroke="none">MPA</text>
-      </g>
-      <g transform="translate(252 356)" fill="none" stroke="rgba(111,231,242,.16)" stroke-width="1.2" stroke-linejoin="round">
-        <rect x="-42" y="-38" width="84" height="66" rx="8" fill="rgba(111,231,242,.03)"/>
-        <path d="M-42 -24h84M-30 -12h54M-30 4h36M-30 18h48" stroke-opacity=".6"/>
-        <text y="46" text-anchor="middle" fill="rgba(111,231,242,.11)" font-family="ui-monospace, monospace" font-size="10" stroke="none">SPA</text>
-      </g>
-      <g fill="none" stroke="rgba(111,231,242,.14)" stroke-width="1.3" stroke-linecap="round">
-        <path d="M142 318h64M196 308l10 10-10 10"/>
-        <path d="M214 388h-64M160 378l-10 10 10 10"/>
-      </g>
-      <g transform="translate(430 352)" fill="none" stroke="rgba(255,122,217,.14)" stroke-width="1.2" stroke-linejoin="round">
-        <text x="-66" y="-26" fill="rgba(255,122,217,.13)" font-family="ui-monospace, monospace" font-size="22" stroke="none">&lt;?php</text>
-        <path d="M-42 8h-12v42h12M64 8h12v42H64"/>
-        <path d="M34 58c-30-12 4-26-14-42s10-18-6-30"/>
-      </g>`);
+    const snippets = [
+      { language: 'JavaScript', bad: 'if (ready = true) {', fix: 'if (ready === true) {', lines: ['  renderFiles();', '}'] },
+      { language: 'PHP', bad: 'if ($file = null) {', fix: 'if ($file === null) {', lines: ['  return false;', '}'] },
+      { language: 'MySQL', bad: 'WHERE user_id = NULL', fix: 'WHERE user_id IS NULL', lines: ['ORDER BY created_at', 'LIMIT 20;'] },
+    ];
+    return cityBackdropShell(snippets.map(({ language, bad, fix, lines }, index) => `
+      <g transform="translate(${24 + index * 208} 274)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" xml:space="preserve">
+        <path d="M0 0h184v130H0ZM0 23h184" fill="rgba(188,164,255,.02)" stroke="rgba(188,164,255,.12)"/>
+        <text x="12" y="16" fill="rgba(188,164,255,.26)">${language}</text>
+        <text x="10" y="47" fill="rgba(248,113,113,.24)">− ${escapeHtml(bad)}</text>
+        <path d="M20 44h${bad.length * 5.4}" stroke="rgba(248,113,113,.3)" stroke-width=".7"/>
+        <text x="10" y="71" fill="rgba(110,231,160,.27)">+ ${escapeHtml(fix)}</text>
+        ${lines.map((line, lineIndex) => `<text x="20" y="${91 + lineIndex * 17}" fill="rgba(111,231,242,.18)">${escapeHtml(line)}</text>`).join('')}
+      </g>`).join(''), 264, 'xMidYMid meet');
   }
 
   function spbStriderBackdrop() {
-    return eventBackdropShell(`
+    return cityBackdropShell(`
       ${spbSkyline(36, 408, 1.25, '188,164,255')}
       ${spbSkyline(312, 412, 0.9, '111,231,242')}
-      <text x="566" y="386" text-anchor="middle" fill="rgba(188,164,255,.09)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" font-weight="700" letter-spacing=".14em">STRIDER</text>
-      <text x="566" y="404" text-anchor="middle" fill="rgba(111,231,242,.09)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".2em">САНКТ-ПЕТЕРБУРГ</text>`);
+      <text x="566" y="404" text-anchor="middle" fill="rgba(111,231,242,.09)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".2em">САНКТ-ПЕТЕРБУРГ</text>`, 180);
   }
 
   function germanExitBackdrop() {
@@ -1158,18 +1236,11 @@ import '../../pencil-embed.js';
   }
 
   function germanCmsBackdrop() {
-    return eventBackdropShell(`
-      ${germanFlag(500, 322, 220, -5)}
-      ${brandenburgGate(520, 408, 1.1, '188,164,255')}
-      <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="700" text-anchor="middle">
-        <text x="90" y="410" font-size="22" fill="rgba(188,164,255,.14)">CMS</text>
-        <text x="220" y="410" font-size="24" fill="rgba(111,231,242,.14)">PHP</text>
-        <text x="360" y="410" font-size="20" fill="rgba(110,231,160,.14)">MySQL</text>
-      </g>
-      <g transform="translate(510 394)" fill="none" stroke="rgba(110,231,160,.16)" stroke-width="1.1">
-        <ellipse rx="26" ry="8"/>
-        <path d="M-26 0v18c0 5 52 5 52 0V0M-26 9c0 5 52 5 52 0"/>
-      </g>`);
+    return `<div class="event-backdrop event-tech-stack" aria-hidden="true">
+      ${['php', 'javascript', 'html5', 'css3', 'mssql', 'java'].map((logo) => `
+        <svg viewBox="0 0 128 128" focusable="false"><use href="${webStackLogos}#${logo}"/></svg>
+      `).join('')}
+    </div>`;
   }
 
   function tMobileExitBackdrop() {
@@ -1183,29 +1254,22 @@ import '../../pencil-embed.js';
   }
 
   function londonTMobileBackdrop() {
-    return eventBackdropShell(`
-      ${londonSkyline(24, 410, 1.14, '111,231,242')}
-      ${tMobileMark(544, 352, 1.1)}
-      <text x="150" y="404" text-anchor="middle" fill="rgba(111,231,242,.09)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing=".2em">LONDON</text>`);
+    return cityPhotoBackdrop(londonSketch, 'london');
   }
 
   function spbLondonBackdrop() {
-    return eventBackdropShell(`
+    return cityBackdropShell(`
       ${spbSkyline(20, 406, 0.82, '188,164,255')}
       ${londonSkyline(356, 408, 0.82, '111,231,242')}
       <g fill="none" stroke="rgba(247,196,84,.16)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 6">
         <path d="M248 348c42-42 86-42 126 0M364 336l10 12-10 12"/>
       </g>
       <text x="86" y="398" text-anchor="middle" fill="rgba(188,164,255,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".18em">СПБ</text>
-      <text x="472" y="400" text-anchor="middle" fill="rgba(111,231,242,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".18em">LONDON</text>`);
+      <text x="472" y="400" text-anchor="middle" fill="rgba(111,231,242,.1)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9" letter-spacing=".18em">LONDON</text>`, 180);
   }
 
   function spbTMobileBackdrop() {
-    return eventBackdropShell(`
-      ${spbSkyline(24, 410, 1.12, '188,164,255')}
-      ${tMobileMark(544, 350, 1.2)}
-      <text x="150" y="402" text-anchor="middle" fill="rgba(188,164,255,.09)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" letter-spacing=".2em">САНКТ-ПЕТЕРБУРГ</text>
-      <path d="M314 344h108M408 334l12 10-12 10" fill="none" stroke="rgba(226,0,116,.14)" stroke-width="1.3" stroke-linecap="round"/>`);
+    return cityPhotoBackdrop(petersburgSketch, 'petersburg');
   }
 
   function eventBackdrop(eventId) {
@@ -1214,22 +1278,19 @@ import '../../pencil-embed.js';
     if (eventId === '2018-04-ams') return amsterdamBackdrop();
     if (eventId === '2023-12') return cryptoAssetsBackdrop();
     if (eventId === '2015-07') return languagesBackdrop();
-    if (eventId === '2010-10') return spbStriderBackdrop();
-    if (eventId === '2010-07') return germanExitBackdrop();
     if (eventId === '2009-03') return germanCmsBackdrop();
-    if (eventId === '2009-01') return tMobileExitBackdrop();
     if (eventId === '2008-03') return londonTMobileBackdrop();
-    if (eventId === '2007-06') return spbLondonBackdrop();
     if (eventId === '2006-12') return spbTMobileBackdrop();
     return '';
   }
 
   function yearBackdrop(year) {
     if (year === 2025) return memeCoinsBackdrop();
+    if (year === 2024) return agentSignalsBackdrop();
+    if (year === 2022) return chartsBackdrop();
     if (year === 2021) return refactorBackdrop();
     if (year === 2016) return forexBackdrop();
     if (year === 2014) return videoHostingBackdrop();
-    if (year === 2013) return videoAdsBackdrop();
     if (year === 2011) return fileExchangeBackdrop();
     return '';
   }
@@ -1242,6 +1303,16 @@ import '../../pencil-embed.js';
     return `
       <section class="stop stop-event" data-index="${entry.index}" aria-label="${escapeHtml(`${event.year}, ${event.month} · ${event.type}`)}">
         <div class="event-shell">
+          ${event.id === '2018-06' ? `<svg class="event-flight" viewBox="0 0 320 180" fill="none" aria-hidden="true" focusable="false">
+            <g stroke="rgba(188,164,255,.3)" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 165C42 167 64 145 103 134" stroke-dasharray="3 7"/>
+              <g transform="translate(122 95) rotate(-18)">
+                <path d="M-28-5 100-7Q119-6 126 0 119 6 100 7L-28 5-52 22-64 22-54 0-64-22-52-22Z" fill="rgba(188,164,255,.035)" stroke-width="1.4"/>
+                <path d="m10-6-34-54h16L52-6M10 6l-34 54h16L52 6M-46-3h142m-133 7 12 9m-12-17 12-9M98-6l7 6-7 6"/>
+                <path d="M22-26h16v9H27m-5 43h16v-9H27"/>
+              </g>
+            </g>
+          </svg>` : ''}
           <div class="event-card">
             ${eventBackdrop(event.id)}
             <div class="event-year">${event.year}</div>
@@ -1301,6 +1372,11 @@ import '../../pencil-embed.js';
     if (entry.kind === 'cover') {
       entry.el = coverEls.get(entry.id);
       if (!entry.el) throw new Error(`Missing server-rendered cover: ${entry.id}`);
+      continue;
+    }
+    if (entry.kind === 'hobbies') {
+      entry.el.dataset.index = entry.index;
+      drum.appendChild(entry.el);
       continue;
     }
     let markup = '';
@@ -1363,15 +1439,18 @@ import '../../pencil-embed.js';
   updateYearScrollButtons();
 
   const menuList = $('#menuList');
-  menuList.innerHTML = CHAPTERS
-    .map(
-      (chapter) => `
-        <button class="menu-item" type="button" data-menu-year="${chapter.id}">
-          <span class="menu-year">${chapter.year}</span>
-          <span class="menu-name">${escapeHtml(chapter.title)}</span>
+  menuList.innerHTML = ENTRIES
+    .filter((entry) => entry.kind === 'chapter' || entry.kind === 'hobbies')
+    .map((entry) => {
+      const { chapter } = entry;
+      const target = chapter ? `data-menu-year="${chapter.id}"` : 'data-menu-hobbies';
+      return `
+        <button class="menu-item" type="button" ${target}>
+          <span class="menu-year">${chapter?.year ?? ''}</span>
+          <span class="menu-name">${escapeHtml(chapter?.title ?? entry.label)}</span>
           <span class="menu-arrow" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6h7M6.2 2.8 9.4 6 6.2 9.2" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </button>`
-    )
+        </button>`;
+    })
     .join('');
 
   /* ------------------------------------------------------------------------
@@ -2114,43 +2193,36 @@ import '../../pencil-embed.js';
     );
   }
 
-  function jqueryFigure() {
-    const random = mulberry32(0x10a4e);
-    let price = 168;
-    const candles = Array.from({ length: 18 }, (_, index) => {
-      const open = price;
-      const delta = (random() - 0.48) * 22;
-      price = clamp(open + delta, 74, 206);
-      const close = price;
-      const high = Math.min(68, Math.min(open, close) - 6 - random() * 10);
-      const low = Math.max(214, Math.max(open, close) + 6 + random() * 10);
-      return {
-        x: 76 + index * 17.2,
-        open,
-        close,
-        high,
-        low,
-        up: close <= open,
-      };
+  // A bounded price series with twelve ticks per candle, including its live OHLC.
+  function jqueryCandle(index, progress = 1) {
+    const price = (step) => 142 + Math.sin(step * 0.71) * 32 + Math.sin(step * 0.19) * 22;
+    const open = price(index - 1);
+    const random = mulberry32(0x10a4e + index);
+    const ticks = Array.from({ length: 13 }, (_, tick) => {
+      const p = tick / 12;
+      return lerp(open, price(index), p) + Math.sin(p * Math.PI) * (random() - 0.5) * 16;
     });
-    const cycleWidth = candles.length * 17.2;
-    const scrollCandles = [
-      ...candles,
-      ...candles.map((candle, index) => ({ ...candle, x: candle.x + cycleWidth, key: index + candles.length })),
-    ];
-    const candleMarkup = scrollCandles
-      .map((candle, index) => {
-        const color = candle.up ? '#58E6A4' : '#FF6F8B';
-        const top = Math.min(candle.open, candle.close);
-        const height = Math.max(2.5, Math.abs(candle.close - candle.open));
-        return `
-          <g class="fig10-candle" data-candle="${index}">
-            <path d="M${candle.x.toFixed(1)} ${candle.high.toFixed(1)}V${candle.low.toFixed(1)}" stroke="${color}" stroke-opacity=".6" stroke-width="1"/>
-            <rect x="${(candle.x - 4).toFixed(1)}" y="${top.toFixed(1)}" width="8" height="${height.toFixed(1)}" rx="1.4" fill="${color}" fill-opacity=".82"/>
-          </g>`;
-      })
-      .join('');
-    const last = candles[candles.length - 1];
+    const position = clamp(progress, 0, 1) * 12;
+    const tick = Math.floor(position);
+    const close = lerp(ticks[tick], ticks[Math.min(12, tick + 1)], position - tick);
+    const history = [...ticks.slice(0, tick + 1), close];
+    return { open, close, high: Math.min(...history), low: Math.max(...history), up: close <= open };
+  }
+
+  function jqueryFigure() {
+    const candleMarkup = Array.from({ length: 19 }, (_, index) => {
+      const candle = jqueryCandle(index, index === 18 ? 0 : 1);
+      const x = 374 - (18 - index) * 17.2;
+      const color = candle.up ? '#58E6A4' : '#FF6F8B';
+      const top = Math.min(candle.open, candle.close);
+      const height = Math.max(2.5, Math.abs(candle.close - candle.open));
+      return `
+        <g class="fig10-candle" data-candle="${index}">
+          <path d="M${x.toFixed(1)} ${candle.high.toFixed(1)}V${candle.low.toFixed(1)}" stroke="${color}" stroke-opacity=".6" stroke-width="1"/>
+          <rect x="${(x - 4).toFixed(1)}" y="${top.toFixed(1)}" width="8" height="${height.toFixed(1)}" rx="1.4" fill="${color}" fill-opacity=".82"/>
+        </g>`;
+    }).join('');
+    const last = jqueryCandle(18, 0);
     return sceneSvg(
       '10',
       `
@@ -2166,9 +2238,11 @@ import '../../pencil-embed.js';
           <path d="M58 96h330M58 132h330M58 168h330M58 204h330"/>
           <path d="M100 60v162M158 60v162M216 60v162M274 60v162M332 60v162"/>
         </g>
-        <g id="fig10-candles" clip-path="url(#fig10-chart-clip)">${candleMarkup}</g>
+        <g clip-path="url(#fig10-chart-clip)">
+          <g id="fig10-candles">${candleMarkup}</g>
+          <circle id="fig10-price-dot" cx="374" cy="${last.close.toFixed(1)}" r="3.2" fill="#F7F5FF"/>
+        </g>
         <path d="M58 216h330" stroke="rgba(255,255,255,.1)"/>
-        <circle id="fig10-price-dot" cx="${last.x.toFixed(1)}" cy="${last.close.toFixed(1)}" r="3.2" fill="#F7F5FF"/>
         <g id="fig10-deal">
           <rect x="404" y="58" width="178" height="170" rx="12" fill="rgba(9,12,21,.8)" stroke="rgba(188,164,255,.18)"/>
           <text x="420" y="78" class="svg-label-dim">СДЕЛКА</text>
@@ -2550,7 +2624,7 @@ import '../../pencil-embed.js';
         <rect x="-62" y="-113" width="124" height="222" rx="18" fill="rgba(188,164,255,.045)" stroke="rgba(255,255,255,.08)"/>
         <path d="M-19 -122h38" stroke="rgba(255,255,255,.22)" stroke-width="3" stroke-linecap="round"/>
         <circle cx="0" cy="118" r="4" fill="rgba(255,255,255,.3)"/>
-        <text x="0" y="-48" text-anchor="middle" class="svg-label">T-MOBILE</text>
+        <image href="${tMobileLogo}" x="-52" y="-64" width="104" height="18" preserveAspectRatio="xMidYMid meet" filter="url(#fig17-logo-white)"/>
         <circle class="fig17-ring" cx="0" cy="36" r="42" fill="none" stroke="rgba(111,231,242,.24)" stroke-width="1"/>
         <circle class="fig17-ring" cx="0" cy="36" r="27" fill="none" stroke="rgba(111,231,242,.32)" stroke-width="1"/>
         <circle cx="0" cy="36" r="4" fill="#6FE7F2"/>
@@ -2575,7 +2649,8 @@ import '../../pencil-embed.js';
       </g>
       <path d="M386 -10v-14m-5 5 5-6 5 6M120 -28v-10m-4 4 4-5 4 5" stroke="rgba(111,231,242,.35)" stroke-width="1" fill="none"/>
       <text x="320" y="384" text-anchor="middle" class="svg-label-dim">ФРОНТЕНД · JAVASCRIPT</text>
-      `
+      `,
+      `<filter id="fig17-logo-white"><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/></filter>`
     );
   }
 
@@ -2929,7 +3004,7 @@ import '../../pencil-embed.js';
 
   function coreTeamsFigure() {
     return `
-      <div class="fig-dom current-figure">
+      <div class="fig-dom current-figure" role="img" aria-label="Солнечная система: ядро проекта — солнце, JavaScript, Flux, MobX и TypeScript — планеты на орбитах.">
         <canvas class="fig-canvas current-canvas" data-core-teams aria-hidden="true"></canvas>
       </div>`;
   }
@@ -6968,30 +7043,18 @@ import '../../pencil-embed.js';
       phase: random() * TAU,
     }));
 
-    const teams = [
-      { label: 'WALLET', accent: FIG_CYAN, phase: 2.3, speed: -0.24, rx: 1.06, ry: 0.6 },
-      { label: 'CHARTS', accent: FIG_MAGENTA, phase: 4.2, speed: 0.17, rx: 0.92, ry: 0.46 },
-    ];
-    const satellites = [
-      { label: 'STOCKS', accent: FIG_CYAN, phase: 0.6, speed: 0.13, rx: 1.22, ry: 0.82 },
-      { label: 'HELP CENTER', accent: FIG_LAV, phase: 2.4, speed: -0.11, rx: 1.3, ry: 0.92 },
-      { label: 'PROFILE', accent: FIG_MAGENTA, phase: 3.9, speed: 0.15, rx: 1.16, ry: 0.76 },
-      { label: 'TOURNAMENTS', accent: FIG_WHITE, phase: 5.3, speed: -0.09, rx: 1.34, ry: 0.88 },
+    const planets = [
+      { label: 'JavaScript', accent: '247, 211, 92', phase: 3.7, speed: 0.16, orbit: 0.38, size: 8 },
+      { label: 'Flux', accent: FIG_CYAN, phase: 5.5, speed: 0.12, orbit: 0.59, size: 10 },
+      { label: 'MobX', accent: '240, 154, 104', phase: 2.2, speed: 0.085, orbit: 0.8, size: 12 },
+      { label: 'TypeScript', accent: '105, 164, 255', phase: 0.4, speed: 0.06, orbit: 1, size: 14 },
     ];
 
-    function roundedRect(x, y, width, height, radius) {
-      const r = Math.min(radius, width * 0.5, height * 0.5);
-      ctx.beginPath();
-      ctx.moveTo(x + r, y);
-      ctx.lineTo(x + width - r, y);
-      ctx.quadraticCurveTo(x + width, y, x + width, y + r);
-      ctx.lineTo(x + width, y + height - r);
-      ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
-      ctx.lineTo(x + r, y + height);
-      ctx.quadraticCurveTo(x, y + height, x, y + height - r);
-      ctx.lineTo(x, y + r);
-      ctx.quadraticCurveTo(x, y, x + r, y);
-      ctx.closePath();
+    function overlap(a, b) {
+      return (
+        Math.max(0, Math.min(a.x + a.width, b.x + b.width) - Math.max(a.x, b.x)) *
+        Math.max(0, Math.min(a.y + a.height, b.y + b.height) - Math.max(a.y, b.y))
+      );
     }
 
     function draw(time) {
@@ -7002,140 +7065,145 @@ import '../../pencil-embed.js';
 
       const compact = width < 520;
       const cx = width * 0.5;
-      const cy = height * 0.42;
-      const radius = Math.min(width * 0.33, height * 0.33);
+      const cy = height * 0.5;
+      const rx = Math.min(width * 0.42, height * 0.47);
+      const ry = Math.min(height * 0.38, rx * (compact ? 1 : 0.76));
+      const scale = clamp(width / 650, 0.68, 1);
+      const sunRadius = clamp(Math.min(rx, ry) * 0.21, 22, 40);
       const pulse = 0.5 + 0.5 * Math.sin(time * 0.65);
 
+      ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
       ctx.clearRect(0, 0, width, height);
       ctx.globalCompositeOperation = 'lighter';
       drawStarfield(ctx, width, height, dust, time, Math.max(width, height) * 0.55);
+      ctx.globalCompositeOperation = 'source-over';
 
-      const ambient = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.1);
-      ambient.addColorStop(0, figRgba(FIG_LAV, 0.13 + pulse * 0.04));
-      ambient.addColorStop(0.55, figRgba(FIG_LAV, 0.03));
-      ambient.addColorStop(1, figRgba(FIG_LAV, 0));
-      ctx.fillStyle = ambient;
+      const glow = ctx.createRadialGradient(cx, cy, sunRadius * 0.7, cx, cy, sunRadius * 3);
+      glow.addColorStop(0, `rgba(255, 179, 74, ${0.3 + pulse * 0.06})`);
+      glow.addColorStop(0.4, 'rgba(255, 159, 61, 0.1)');
+      glow.addColorStop(1, 'rgba(255, 159, 61, 0)');
+      ctx.fillStyle = glow;
       ctx.beginPath();
-      ctx.arc(cx, cy, radius * 1.1, 0, TAU);
+      ctx.arc(cx, cy, sunRadius * 3, 0, TAU);
       ctx.fill();
 
-      ctx.strokeStyle = figRgba(FIG_LAV, 0.1);
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.ellipse(cx, cy, radius * 1.02, radius * 0.56, 0, 0, TAU);
-      ctx.stroke();
-      ctx.setLineDash([2, 8]);
-      ctx.strokeStyle = figRgba(FIG_CYAN, 0.1);
-      ctx.beginPath();
-      ctx.ellipse(cx, cy, radius * 0.92, radius * 0.46, 0, 0, TAU);
-      ctx.stroke();
-      ctx.setLineDash([]);
+      const bodies = planets.map((planet) => {
+        const angle = time * planet.speed + planet.phase;
+        ctx.strokeStyle = figRgba(planet.accent, 0.28);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, rx * planet.orbit, ry * planet.orbit, 0, 0, TAU);
+        ctx.stroke();
 
-      const pointAt = (team, angle) => ({
-        x: cx + Math.cos(angle) * radius * team.rx,
-        y: cy + Math.sin(angle) * radius * team.ry,
+        ctx.strokeStyle = figRgba(planet.accent, 0.65);
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, rx * planet.orbit, ry * planet.orbit, 0, angle - 0.22, angle);
+        ctx.stroke();
+
+        return {
+          ...planet,
+          x: cx + Math.cos(angle) * rx * planet.orbit,
+          y: cy + Math.sin(angle) * ry * planet.orbit,
+          radius: planet.size * scale,
+        };
       });
 
-      for (const team of teams) {
-        const angle = time * team.speed + team.phase;
-        const point = pointAt(team, angle);
-        ctx.strokeStyle = figRgba(team.accent, 0.16);
-        ctx.lineWidth = 1;
-        ctx.setLineDash([3, 5]);
+      ctx.strokeStyle = 'rgba(255, 192, 93, 0.35)';
+      ctx.lineWidth = 1.5;
+      for (let i = 0; i < 20; i += 1) {
+        const angle = i * TAU / 20 + time * 0.025;
+        const outer = sunRadius * (1.2 + 0.08 * Math.sin(time + i));
         ctx.beginPath();
-        ctx.moveTo(cx, cy);
-        ctx.lineTo(point.x, point.y);
+        ctx.moveTo(cx + Math.cos(angle) * sunRadius * 1.08, cy + Math.sin(angle) * sunRadius * 1.08);
+        ctx.lineTo(cx + Math.cos(angle) * outer, cy + Math.sin(angle) * outer);
         ctx.stroke();
-        ctx.setLineDash([]);
-
-        const travel = ((time * 0.3 + team.phase) % 1 + 1) % 1;
-        const head = { x: cx + (point.x - cx) * travel, y: cy + (point.y - cy) * travel };
-        ctx.fillStyle = figRgba(team.accent, 0.7);
-        ctx.beginPath();
-        ctx.arc(head.x, head.y, 1.6, 0, TAU);
-        ctx.fill();
-
-        ctx.save();
-        ctx.translate(point.x, point.y);
-        ctx.font = `${compact ? 6 : 8}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-        const labelWidth = ctx.measureText(team.label).width;
-        const pillWidth = Math.max(compact ? 46 : 64, labelWidth + (compact ? 14 : 20));
-        const pillHeight = compact ? 14 : 19;
-        ctx.fillStyle = 'rgba(12, 15, 26, 0.92)';
-        roundedRect(-pillWidth * 0.5, -pillHeight * 0.5, pillWidth, pillHeight, pillHeight * 0.5);
-        ctx.fill();
-        ctx.strokeStyle = figRgba(team.accent, 0.45);
-        ctx.stroke();
-        ctx.fillStyle = figRgba(team.accent, 0.9);
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(team.label, 0, 0);
-        ctx.restore();
       }
-
-      const coreGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 0.32);
-      coreGlow.addColorStop(0, figRgba(FIG_WHITE, 0.2 + pulse * 0.08));
-      coreGlow.addColorStop(0.4, figRgba(FIG_LAV, 0.18 + pulse * 0.06));
-      coreGlow.addColorStop(1, figRgba(FIG_LAV, 0));
-      ctx.fillStyle = coreGlow;
+      const sun = ctx.createRadialGradient(cx - sunRadius * 0.3, cy - sunRadius * 0.35, 0, cx, cy, sunRadius);
+      sun.addColorStop(0, '#fff1b5');
+      sun.addColorStop(0.55, '#ffd16b');
+      sun.addColorStop(1, '#ed883d');
+      ctx.fillStyle = sun;
       ctx.beginPath();
-      ctx.arc(cx, cy, radius * 0.32, 0, TAU);
+      ctx.arc(cx, cy, sunRadius, 0, TAU);
       ctx.fill();
 
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillStyle = figRgba(FIG_WHITE, 0.94);
-      ctx.font = `${compact ? 8 : 12}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-      ctx.fillText('AKMA', cx, cy - 5);
-      ctx.fillStyle = figRgba(FIG_LAV, 0.66);
-      ctx.font = `${compact ? 5.5 : 7}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-      ctx.fillText('PLATFORM', cx, cy + 9);
+      ctx.fillStyle = '#6b351c';
+      ctx.font = `700 ${compact ? 14 : 16}px "Hanken Grotesk", sans-serif`;
+      ctx.fillText('ЯДРО', cx, cy + 1);
 
-      ctx.globalCompositeOperation = 'source-over';
-      for (const satellite of satellites) {
-        const angle = time * satellite.speed + satellite.phase;
-        const depth = 0.5 + 0.5 * Math.sin(angle);
-        const x = clamp(cx + Math.cos(angle) * radius * satellite.rx, 52, width - 52);
-        const y = cy + Math.sin(angle) * radius * satellite.ry;
-        const dx = x - cx;
-        const dy = y - cy;
-        const length = Math.max(1, Math.hypot(dx, dy));
-        ctx.strokeStyle = figRgba(satellite.accent, 0.14);
+      for (const body of bodies) {
+        const { x, y, radius, accent } = body;
+        const surface = ctx.createRadialGradient(x - radius * 0.4, y - radius * 0.4, 0, x, y, radius);
+        surface.addColorStop(0, figRgba(FIG_WHITE, 1));
+        surface.addColorStop(0.35, figRgba(accent, 1));
+        surface.addColorStop(1, 'rgba(22, 32, 58, 1)');
+        ctx.fillStyle = surface;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, TAU);
+        ctx.fill();
+        ctx.strokeStyle = figRgba(accent, 0.6);
         ctx.lineWidth = 1;
-        ctx.setLineDash([3, 5]);
-        ctx.beginPath();
-        ctx.moveTo(cx + (dx / length) * radius * 0.3, cy + (dy / length) * radius * 0.3);
-        ctx.lineTo(x, y);
         ctx.stroke();
-        ctx.setLineDash([]);
+        if (body.label === 'TypeScript') {
+          ctx.strokeStyle = figRgba(accent, 0.65);
+          ctx.beginPath();
+          ctx.ellipse(x, y, radius * 1.8, radius * 0.5, -0.4, 0, TAU);
+          ctx.stroke();
+        }
+      }
 
-        const travel = ((time * 0.24 + satellite.phase * 0.11) % 1 + 1) % 1;
-        ctx.fillStyle = figRgba(satellite.accent, 0.72);
+      // Keep moving labels inside the canvas and clear of the sun, planets and one another.
+      const occupied = [
+        { x: cx - sunRadius - 6, y: cy - sunRadius - 6, width: (sunRadius + 6) * 2, height: (sunRadius + 6) * 2 },
+        ...bodies.map(({ x, y, radius }) => ({
+          x: x - radius - 4, y: y - radius - 4, width: (radius + 4) * 2, height: (radius + 4) * 2,
+        })),
+      ];
+      ctx.font = `500 ${compact ? 14 : 15}px "Hanken Grotesk", sans-serif`;
+      for (const body of bodies) {
+        const labelWidth = ctx.measureText(body.label).width + 16;
+        const labelHeight = 24;
+        const candidates = [8, 20, 32, 44, 56, 68, 80, 104, 128].flatMap((offset) => {
+          const gap = body.radius + offset;
+          return [
+            { x: body.x - labelWidth / 2, y: body.y + gap },
+            { x: body.x - labelWidth / 2, y: body.y - gap - labelHeight },
+            { x: body.x + gap, y: body.y - labelHeight / 2 },
+            { x: body.x - gap - labelWidth, y: body.y - labelHeight / 2 },
+            { x: body.x + gap, y: body.y + gap },
+            { x: body.x - gap - labelWidth, y: body.y + gap },
+            { x: body.x + gap, y: body.y - gap - labelHeight },
+            { x: body.x - gap - labelWidth, y: body.y - gap - labelHeight },
+          ];
+        }).map(({ x, y }) => ({
+          x: clamp(x, 8, width - labelWidth - 8),
+          y: clamp(y, 8, height - labelHeight - 8),
+          width: labelWidth,
+          height: labelHeight,
+        }));
+        const score = (box) => occupied.reduce((sum, other) => sum + overlap(box, other), 0);
+        const box = candidates.reduce((best, next) => score(next) < score(best) ? next : best);
+        occupied.push(box);
+        const dx = clamp(body.x, box.x, box.x + box.width) - body.x;
+        const dy = clamp(body.y, box.y, box.y + box.height) - body.y;
+        const distance = Math.hypot(dx, dy);
+        if (distance > body.radius + 16) {
+          ctx.strokeStyle = figRgba(body.accent, 0.35);
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(body.x + dx / distance * (body.radius + 3), body.y + dy / distance * (body.radius + 3));
+          ctx.lineTo(body.x + dx, body.y + dy);
+          ctx.stroke();
+        }
+        ctx.fillStyle = 'rgba(8, 12, 22, 0.82)';
         ctx.beginPath();
-        ctx.arc(cx + dx * travel, cy + dy * travel, 1.5, 0, TAU);
+        ctx.roundRect(box.x, box.y, box.width, box.height, 6);
         ctx.fill();
-
-        ctx.save();
-        ctx.translate(x, y);
-        ctx.font = `${compact ? 5.5 : 7.5}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-        const textWidth = ctx.measureText(satellite.label).width;
-        const pillWidth = textWidth + (compact ? 20 : 28);
-        const pillHeight = compact ? 14 : 18;
-        ctx.globalAlpha = 0.55 + depth * 0.45;
-        ctx.fillStyle = 'rgba(12, 15, 26, 0.9)';
-        roundedRect(-pillWidth * 0.5, -pillHeight * 0.5, pillWidth, pillHeight, pillHeight * 0.5);
-        ctx.fill();
-        ctx.strokeStyle = figRgba(satellite.accent, 0.32 + depth * 0.3);
-        ctx.stroke();
-        ctx.fillStyle = figRgba(satellite.accent, 0.9);
-        ctx.beginPath();
-        ctx.arc(-pillWidth * 0.5 + (compact ? 7 : 9), 0, compact ? 1.6 : 2, 0, TAU);
-        ctx.fill();
-        ctx.fillStyle = figRgba(FIG_WHITE, 0.76 + depth * 0.2);
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(satellite.label, compact ? 3 : 4, 0.5);
-        ctx.restore();
+        ctx.fillStyle = figRgba(body.accent, 1);
+        ctx.fillText(body.label, box.x + box.width / 2, box.y + box.height / 2);
       }
     }
 
@@ -7885,27 +7953,42 @@ import '../../pencil-embed.js';
     const downGlow = $('#fig10-down .fig10-btn-glow', host);
     const dot = $('#fig10-price-dot', host);
     const cursor = $('#fig10-cursor', host);
-    const candles = $$('.fig10-candle', host);
+    const candles = $$('.fig10-candle', host).map((group) => ({
+      group,
+      wick: $('path', group),
+      body: $('rect', group),
+    }));
     const candlesGroup = $('#fig10-candles', host);
-    const scrollCycle = 18 * 17.2;
+    let lastPeriod = -1;
 
     function draw(time) {
       const pulse = 0.5 + 0.5 * Math.sin(time * 2.6);
       if (upGlow) upGlow.setAttribute('opacity', (0.08 + pulse * 0.26).toFixed(3));
       if (downGlow) downGlow.setAttribute('opacity', (0.08 + (1 - pulse) * 0.26).toFixed(3));
-      if (candlesGroup) {
-        const offset = (time * 26) % scrollCycle;
-        candlesGroup.setAttribute('transform', `translate(${(-offset).toFixed(2)} 0)`);
-      }
+      const position = time / 2.4;
+      const period = Math.floor(position);
+      const progress = position - period;
+      // The clip stays fixed; only the candle history moves to make room for new bars.
+      if (candlesGroup) candlesGroup.setAttribute('transform', `translate(${(-progress * 17.2).toFixed(2)} 0)`);
+      candles.forEach(({ group, wick, body }, slot) => {
+        if (period === lastPeriod && slot < candles.length - 1) return;
+        const index = period + slot;
+        const candle = jqueryCandle(index, slot === candles.length - 1 ? progress : 1);
+        const x = 374 - (18 - slot) * 17.2;
+        const color = candle.up ? '#58E6A4' : '#FF6F8B';
+        group.dataset.candle = String(index);
+        wick.setAttribute('d', `M${x.toFixed(1)} ${candle.high.toFixed(2)}V${candle.low.toFixed(2)}`);
+        wick.setAttribute('stroke', color);
+        body.setAttribute('y', Math.min(candle.open, candle.close).toFixed(2));
+        body.setAttribute('height', Math.max(2.5, Math.abs(candle.close - candle.open)).toFixed(2));
+        body.setAttribute('fill', color);
+      });
+      lastPeriod = period;
       if (dot) {
-        const wobble = Math.sin(time * 1.6);
-        dot.setAttribute('cy', (168 + wobble * 18).toFixed(2));
-        dot.setAttribute('cx', (382 + Math.sin(time * 0.9) * 4).toFixed(2));
+        dot.setAttribute('cy', jqueryCandle(period + 18, progress).close.toFixed(2));
+        dot.setAttribute('cx', (374 - progress * 17.2).toFixed(2));
       }
       if (cursor) cursor.setAttribute('opacity', Math.sin(time * 5.6) > 0 ? '1' : '0.12');
-      candles.forEach((candle, index) => {
-        candle.setAttribute('opacity', (0.74 + 0.26 * Math.sin(time * 1.4 + index * 0.42)).toFixed(3));
-      });
     }
 
     registerAnimation('fig10', host, draw, { staticTime: 1.7 });
@@ -8674,12 +8757,16 @@ import '../../pencil-embed.js';
   }
 
   function renderScene(force = false) {
-    const t = clamp(window.scrollY / scene.U, 0, ROUTE_END);
+    let t = clamp(window.scrollY / scene.U, 0, ROUTE_END);
+    if (isStartGateLocked() && t > START_BRAKE_T) {
+      holdAtStartCover();
+      t = clamp(window.scrollY / scene.U, 0, ROUTE_END);
+    }
+    if (t < START_BRAKE_T - 0.05 && !scrollTween) resetStartGate();
     if (!force && Math.abs(t - scene.t) < 1e-7) return;
     const previousActive = scene.activeIndex;
     const previousEpisode = scene.activeEpisode;
     scene.t = t;
-    if (!startBrake.armed && t < START_BRAKE_T - 0.9) startBrake.armed = true;
     const row = rowAt(t);
     scene.row = row;
     const activeIndex = clamp(Math.round(row), 0, ENTRIES.length - 1);
@@ -8770,8 +8857,10 @@ import '../../pencil-embed.js';
      ------------------------------------------------------------------------ */
 
   let scrollTween = null;
+  let horizontalSnapTimer = 0;
 
   function cancelScrollAnimation() {
+    window.clearTimeout(horizontalSnapTimer);
     if (scrollTween) {
       scrollTween.kill();
       scrollTween = null;
@@ -8789,6 +8878,7 @@ import '../../pencil-embed.js';
     cancelScrollAnimation();
     suppressSkyTrail(380);
     const target = clamp(targetT, 0, ROUTE_END);
+    resetStartGate(target > START_BRAKE_T);
     window.scrollTo(0, target * scene.U);
     renderScene(true);
   }
@@ -8808,6 +8898,7 @@ import '../../pencil-embed.js';
     }
     const durationSec = clamp(duration, 300, 1800) / 1000;
     cancelScrollAnimation();
+    if (target > START_BRAKE_T || startY / scene.U > START_BRAKE_T) startGate.unlocked = true;
     sky.lastT = scene.t;
     const proxy = { y: startY };
     scrollTween = gsap.to(proxy, {
@@ -8820,10 +8911,28 @@ import '../../pencil-embed.js';
       },
       onComplete: () => {
         scrollTween = null;
+        if (target <= START_BRAKE_T) resetStartGate();
         renderScene(true);
       },
     });
   }
+
+  function scheduleHorizontalSnap() {
+    window.clearTimeout(horizontalSnapTimer);
+    if (scrollTween || modalOpen || touchState || document.hidden) return;
+    horizontalSnapTimer = window.setTimeout(() => {
+      if (scrollTween || modalOpen || touchState || document.hidden) return;
+      const t = window.scrollY / scene.U;
+      const entry = chapterEntries.find((chapter) => chapter.span > 0 && t >= chapter.center && t <= chapter.center + chapter.span);
+      if (!entry) return;
+      const episodeIndex = chapterEpisodeIndex(entry, t);
+      const target = round6(entry.center + episodeIndex * STEP_T);
+      if (Math.abs(target * scene.U - window.scrollY) < 1) return;
+      smoothToT(target, 300);
+    }, 180);
+  }
+
+  window.addEventListener('scroll', scheduleHorizontalSnap, { passive: true });
 
   function goNext() {
     const t = clamp(window.scrollY / scene.U, 0, ROUTE_END);
@@ -8947,9 +9056,14 @@ import '../../pencil-embed.js';
   });
 
   menuList.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-menu-year]');
+    const button = event.target.closest('[data-menu-year], [data-menu-hobbies]');
     if (!button) return;
-    selectChapter(button.dataset.menuYear);
+    if (hobbiesEntry && button.hasAttribute('data-menu-hobbies')) {
+      closeMenu();
+      jumpToT(hobbiesEntry.center);
+    } else {
+      selectChapter(button.dataset.menuYear);
+    }
   });
 
   document.addEventListener('keydown', (event) => {
@@ -9027,46 +9141,33 @@ import '../../pencil-embed.js';
     return value;
   }
 
-  /*
-   * Мягкий тормоз на слайде «Начать путешествие»: докрутившийся до него жест
-   * останавливает барабан ровно на слайде, а следующий жест снова свободно
-   * прокручивает маршрут.
-   */
+  /* Короткая остановка на слайде «Начать путешествие», затем свободная прокрутка. */
   const startCoverEntry = ENTRIES.find((entry) => entry.kind === 'cover' && entry.id === 'start');
   const START_BRAKE_T = startCoverEntry ? startCoverEntry.center : 0;
-  const startBrake = {
-    armed: true,
-    holdUntil: 0,
-    lastWheelAt: 0,
-  };
+  const START_PAUSE_MS = 700;
+  const startGate = { unlocked: false, resumeAt: 0 };
 
-  function onStartCover() {
-    return Math.abs(window.scrollY / scene.U - START_BRAKE_T) < 0.004;
+  function resetStartGate(unlocked = false) {
+    startGate.unlocked = unlocked;
+    startGate.resumeAt = 0;
   }
 
-  function brakeAtStartCover(targetT) {
-    if (!startBrake.armed) return false;
-    const currentT = window.scrollY / scene.U;
-    if (currentT >= START_BRAKE_T || targetT < START_BRAKE_T) return false;
+  function isStartGateLocked() {
+    if (startGate.resumeAt && performance.now() >= startGate.resumeAt) startGate.unlocked = true;
+    return !startGate.unlocked;
+  }
+
+  function holdAtStartCover() {
     cancelScrollAnimation();
+    if (!startGate.resumeAt) startGate.resumeAt = performance.now() + START_PAUSE_MS;
     window.scrollTo(0, START_BRAKE_T * scene.U);
-    renderScene(true);
-    startBrake.armed = false;
-    const now = performance.now();
-    startBrake.lastWheelAt = now;
-    startBrake.holdUntil = now + 220;
-    return true;
   }
 
-  function startBrakeBlocksWheel(dy) {
-    if (startBrake.armed || dy <= 0 || !onStartCover()) return false;
-    const now = performance.now();
-    if (now < startBrake.holdUntil || now - startBrake.lastWheelAt < 140) {
-      startBrake.lastWheelAt = now;
-      startBrake.holdUntil = Math.max(startBrake.holdUntil, now + 220);
-      return true;
-    }
-    return false;
+  function stopAtStartCover(delta) {
+    if (!isStartGateLocked() || delta <= 0 || (window.scrollY + delta) / scene.U < START_BRAKE_T) return false;
+    holdAtStartCover();
+    renderScene(true);
+    return true;
   }
 
   window.addEventListener(
@@ -9079,11 +9180,7 @@ import '../../pencil-embed.js';
       const horizontal = Math.abs(dx) > 1.15 * Math.abs(dy) && Math.abs(dx) >= 0.5;
 
       if (!horizontal) {
-        if (startBrakeBlocksWheel(dy)) {
-          event.preventDefault();
-          return;
-        }
-        if (dy > 0 && brakeAtStartCover((window.scrollY + dy) / scene.U)) {
+        if (stopAtStartCover(dy)) {
           event.preventDefault();
           return;
         }
@@ -9092,11 +9189,7 @@ import '../../pencil-embed.js';
       }
 
       const routeDelta = dx * ((1.05 * scene.U) / Math.max(1, scene.W));
-      if (startBrakeBlocksWheel(routeDelta)) {
-        event.preventDefault();
-        return;
-      }
-      if (routeDelta > 0 && brakeAtStartCover((window.scrollY + routeDelta) / scene.U)) {
+      if (stopAtStartCover(routeDelta)) {
         event.preventDefault();
         return;
       }
@@ -9130,7 +9223,7 @@ import '../../pencil-embed.js';
         lastX: touch.clientX,
         lastY: touch.clientY,
         recognized: false,
-        canceled: false,
+        braked: false,
       };
     },
     { passive: true }
@@ -9145,17 +9238,27 @@ import '../../pencil-embed.js';
       const dy = touch.clientY - touchState.startY;
       if (!touchState.recognized) {
         if (Math.abs(dy) > 12 && Math.abs(dy) > Math.abs(dx)) {
-          touchState.canceled = true;
-          touchState = null;
-          return;
+          touchState.recognized = 'vertical';
         }
-        if (Math.abs(dx) > 10 && Math.abs(dx) > 1.4 * Math.abs(dy)) {
-          touchState.recognized = true;
+        if (!touchState.recognized && Math.abs(dx) > 10 && Math.abs(dx) > 1.4 * Math.abs(dy)) {
+          touchState.recognized = 'horizontal';
         } else {
-          return;
+          if (!touchState.recognized) return;
         }
       }
-      if (touchState.canceled) return;
+      if (touchState.braked) {
+        event.preventDefault();
+        return;
+      }
+      if (touchState.recognized === 'vertical') {
+        const routeDelta = touchState.lastY - touch.clientY;
+        touchState.lastY = touch.clientY;
+        if (stopAtStartCover(routeDelta)) {
+          touchState.braked = true;
+          event.preventDefault();
+        }
+        return;
+      }
       event.preventDefault();
       const deltaX = touch.clientX - touchState.lastX;
       touchState.lastX = touch.clientX;
@@ -9163,12 +9266,8 @@ import '../../pencil-embed.js';
       if (deltaX) {
         const routeDelta = -deltaX * ((1.05 * scene.U) / Math.max(1, scene.W));
         if (routeDelta > 0) {
-          if (startBrakeBlocksWheel(routeDelta)) {
-            touchState.canceled = true;
-            return;
-          }
-          if (brakeAtStartCover((window.scrollY + routeDelta) / scene.U)) {
-            touchState.canceled = true;
+          if (stopAtStartCover(routeDelta)) {
+            touchState.braked = true;
             return;
           }
         }
@@ -9180,6 +9279,7 @@ import '../../pencil-embed.js';
 
   function endTouch() {
     touchState = null;
+    scheduleHorizontalSnap();
   }
 
   window.addEventListener('touchend', endTouch, { passive: true });

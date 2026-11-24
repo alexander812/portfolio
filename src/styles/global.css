@@ -302,6 +302,10 @@ ul {
   gap: 24px;
   padding: 18px clamp(18px, 3.4vw, 44px);
   padding-top: max(18px, env(safe-area-inset-top));
+  border-bottom: 1px solid var(--line-soft);
+  background: rgba(0, 3, 14, 0.72);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
   pointer-events: none;
 }
 
@@ -2136,6 +2140,15 @@ body::after {
   overflow: hidden;
 }
 
+.event-flight {
+  position: absolute;
+  top: 18%;
+  left: clamp(20px, 5vw, 90px);
+  width: clamp(170px, 24vw, 360px);
+  height: auto;
+  pointer-events: none;
+}
+
 .event-card::before {
   position: absolute;
   top: -46%;
@@ -2161,6 +2174,66 @@ body::after {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.event-backdrop--city-photo {
+  display: flex;
+}
+
+.event-city-repeat,
+.event-city-extension {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: auto 100%;
+  opacity: 0.38;
+}
+
+.event-city-sketch {
+  flex: none;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  opacity: 0.38;
+}
+
+.event-brand-sketch {
+  position: absolute;
+  right: 3%;
+  top: 9%;
+  width: 20%;
+  height: auto;
+  filter: grayscale(1) brightness(0) invert(0.85);
+  opacity: 0.2;
+}
+
+.event-brand-sketch--small {
+  width: 14%;
+}
+
+.event-tech-stack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  place-items: center;
+  gap: clamp(8px, 1.5vw, 20px);
+  padding: clamp(16px, 2vw, 24px);
+  color: #d5d6df;
+  opacity: 0.1;
+}
+
+.event-tech-stack svg {
+  width: min(100%, 128px);
+  height: 100%;
+  max-height: 100px;
+}
+
+.event-backdrop--crypto {
+  opacity: 0.3;
 }
 
 .event-year {
@@ -2557,7 +2630,7 @@ body::after {
 
 .menu-list {
   display: flex;
-  min-height: 0;
+  flex-shrink: 0;
   flex-direction: column;
   border-top: 1px solid var(--line-soft);
 }
@@ -3828,6 +3901,21 @@ html.reduce-motion .scroll-line::after {
 }
 
 .contact-submit:disabled { opacity: 0.65; cursor: wait; }
+
+.contact-alternative {
+  margin: 16px 0 0;
+  color: var(--text-soft);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.contact-alternative a {
+  color: var(--lav-bright);
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 @media (max-width: 600px) and (max-height: 700px) {
   .contact-dialog-inner { padding: 16px 20px; }

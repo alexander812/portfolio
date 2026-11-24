@@ -56,17 +56,17 @@ async function makePage(options = {}) {
   const expectedCenters = [
     0, 0.98, 1.96, 2.94, 7.07, 8.05, 9.03, 9.66, 10.64, 15.82, 16.8, 17.43, 18.06, 18.69, 19.67, 20.65,
     21.63, 24.71, 25.69, 26.67, 27.65, 29.68, 30.66, 31.64, 32.27, 32.9, 33.53, 34.51, 37.59, 38.57, 39.55,
-    42.63, 43.61, 44.59, 45.57, 46.55, 47.53, 51.66, 52.64, 53.62,
+    42.63, 43.61, 44.59, 45.57, 46.55, 47.53, 51.66, 52.64, 53.62, 54.6,
   ];
-  check(data.entries.length === 40, '40 позиций маршрута', String(data.entries.length));
-  check(data.stops.length === 46, '46 смысловых остановок', String(data.stops.length));
+  check(data.entries.length === 41, '41 позиция маршрута', String(data.entries.length));
+  check(data.stops.length === 47, '47 смысловых остановок', String(data.stops.length));
   check(data.entries.filter((entry) => entry.kind === 'cover').length === 3, '3 слайда обложки');
   check(data.entries.filter((entry) => entry.kind === 'chapter').length === 8, '8 глав');
   check(data.entries.filter((entry) => entry.kind === 'event').length === 17, '17 событий');
   check(data.entries.filter((entry) => entry.kind === 'year').length === 11, '11 промежуточных лет');
-  check(data.entries.find((entry) => entry.kind === 'finale').center === 53.62, 'финал в 53.62U');
+  check(data.entries.find((entry) => entry.kind === 'finale').center === 54.6, 'финал в 54.6U');
   const maxDelta = Math.max(...data.entries.map((entry, index) => Math.abs(entry.center - expectedCenters[index])));
-  check(maxDelta < 1e-6, 'все центры маршрута совпадают с таблицей 2.4', String(maxDelta));
+  check(maxDelta < 1e-6, 'все центры маршрута на ожидаемых позициях', String(maxDelta));
 
   check(data.localCounts.length === 25, '25 эпизодов');
   check(data.localCounts.filter((counter) => counter.endsWith('/ 04')).length === 8, '8 эпизодов в главах по четыре');
@@ -81,7 +81,7 @@ async function makePage(options = {}) {
   const uniqueFigures = [...new Set(data.figureNumbers)].sort();
   check(uniqueFigures.length === 1 && uniqueFigures[0] === '00', 'видимый номер рисунка только у обложки', data.figureNumbers.join(', '));
   check(data.state.U === 664, 'U = 664 при 1200×800', String(data.state.U));
-  check(data.state.maxScroll === 35604, 'максимальная прокрутка 35604', String(data.state.maxScroll));
+  check(data.state.maxScroll === 36255, 'максимальная прокрутка 36255', String(data.state.maxScroll));
 
   // Точная геометрия главы 2026.
   const geometry = await page.evaluate(async () => {
@@ -93,7 +93,7 @@ async function makePage(options = {}) {
       const rect = chapter.getBoundingClientRect();
       return { x: rect.x + rect.width / 2, y: rect.y + rect.height / 2, width: rect.width, height: rect.height };
     };
-    window.scrollTo(0, 2.94 * state.U);
+    window.__orbits.jumpToT(2.94);
     await wait();
     const center = centerOf();
     const opacity = getComputedStyle(chapter).opacity;
@@ -152,7 +152,8 @@ async function makePage(options = {}) {
   check(hudCover.prev === true && hudCover.next === false, 'на обложке стрелка назад недоступна');
 
   const hudFinale = await page.evaluate(() => {
-    window.scrollTo(0, 53.62 * window.__orbits.getState().U);
+    const finale = window.__orbits.getEntries().find((entry) => entry.kind === 'finale');
+    window.__orbits.jumpToT(finale.center);
     return new Promise((resolve) => requestAnimationFrame(() => resolve({
       status: Boolean(document.querySelector('.status-block')),
       year: document.querySelector('.year-btn[aria-current="true"]')?.dataset.year ?? null,
@@ -184,7 +185,7 @@ async function makePage(options = {}) {
       hidden: document.querySelector('#menuModal').hidden,
     };
   });
-  check(menu.items.length === 8 && menu.items[0].startsWith('2026') && menu.items[6].startsWith('2006') && menu.items[7].startsWith('2027'), 'меню: восемь глав, включая ожидания', menu.items.join(' | '));
+  check(menu.items.length === 9 && menu.items[0].startsWith('2026') && menu.items[6].startsWith('2006') && menu.items[7] === 'Как я отдыхаю от компьютера' && menu.items[8].startsWith('2027'), 'меню: раздел об отдыхе перед ожиданиями', menu.items.join(' | '));
   check(menu.active === 'menuClose' && menu.inert, 'меню: фокус в диалоге, фон inert');
   check(menu.before === menu.after, 'меню: прокрутка не сбивается', `${menu.before} / ${menu.after}`);
   check(menu.focusReturned === 'menuBtn' && menu.hidden, 'меню: фокус возвращён, диалог скрыт');
@@ -205,6 +206,20 @@ async function makePage(options = {}) {
   });
   check(near(selected.t, 27.65, 0.01) && selected.mode === 'horizontal' && selected.counter === '01 / 02', 'переход к 2015: первый эпизод и /02', JSON.stringify(selected));
   check(selected.activeYear === '2015' && selected.hidden && selected.firstEpisode === '0', 'переход к 2015 закрывает меню и отмечает год');
+
+  await page.locator('#menuBtn').click();
+  await page.locator('[data-menu-hobbies]').click();
+  const hobbies = await page.locator('#hobbies.is-active').evaluate(async (section) => {
+    const image = section.querySelector('img');
+    await image.decode();
+    return {
+      imageWidth: image.naturalWidth,
+      paragraphs: section.querySelectorAll('p').length,
+      nextLabel: document.querySelector('#nextBtn').getAttribute('aria-label'),
+    };
+  });
+  check(hobbies.imageWidth > 0 && hobbies.paragraphs === 4, 'раздел об отдыхе открывается из меню с текстом и иллюстрацией', JSON.stringify(hobbies));
+  check(hobbies.nextLabel.includes('Мои ожидания'), 'после раздела об отдыхе идут ожидания', hobbies.nextLabel);
 
   // Стрелки.
   await page.evaluate(() => window.scrollTo(0, 0));
@@ -229,6 +244,24 @@ async function makePage(options = {}) {
   const resized = await page.evaluate(() => window.__orbits.getState());
   check(near(resized.t, resizeState, 0.01), 'resize сохраняет t и фазу эпизода', `${resizeState} / ${resized.t}`);
   check(resized.U === Math.min(1000, Math.max(340, 0.83 * 844)), 'resize пересчитывает U', String(resized.U));
+
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.waitForFunction(() => window.__orbits.getState().H === 568);
+  await page.evaluate(() => {
+    const hobbies = window.__orbits.getEntries().find((entry) => entry.kind === 'hobbies');
+    window.__orbits.jumpToT(hobbies.center);
+  });
+  const mobileHobbies = await page.locator('#hobbies.is-active .hobbies-scroll').evaluate((scrollArea) => {
+    const image = scrollArea.querySelector('img');
+    const lastParagraph = scrollArea.querySelector('p:last-child');
+    scrollArea.scrollTop = scrollArea.scrollHeight;
+    return {
+      fitsWidth: scrollArea.scrollWidth <= scrollArea.clientWidth,
+      imageShown: image.clientHeight > 0,
+      endVisible: lastParagraph.getBoundingClientRect().bottom <= scrollArea.getBoundingClientRect().bottom + 1,
+    };
+  });
+  check(mobileHobbies.fitsWidth && mobileHobbies.imageShown && mobileHobbies.endVisible, 'на узком экране доступны иллюстрация и весь текст', JSON.stringify(mobileHobbies));
 
   check(errors.length === 0, 'нет ошибок консоли', errors.join(' | '));
   const remote = requests.filter((url) => {
@@ -344,6 +377,33 @@ async function makePage(options = {}) {
 }
 
 // --------------------------------------------------------------------------
+// Атлас запускается со старой разметкой страницы
+// --------------------------------------------------------------------------
+{
+  const context = await browser.newContext({ viewport: { width: 1200, height: 800 } });
+  const page = await context.newPage();
+  const errors = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.route(baseUrl, async (route) => {
+    const response = await route.fetch();
+    const markup = await response.text();
+    await route.fulfill({ response, body: markup.replace(/<section id="hobbies"[^>]*>[\s\S]*?<\/section>/, '') });
+  });
+  await page.goto(baseUrl);
+  const olderPage = await page.evaluate(() => ({
+    chapters: document.querySelectorAll('.stop-chapter').length,
+    years: document.querySelectorAll('.year-btn').length,
+    hasHobbies: Boolean(document.getElementById('hobbies')),
+    canScroll: document.documentElement.scrollHeight > window.innerHeight,
+  }));
+  check(!olderPage.hasHobbies && olderPage.chapters === 8 && olderPage.years === 8 && olderPage.canScroll, 'со старым HTML работают главы, годы и прокрутка', JSON.stringify(olderPage));
+  await page.locator('#menuBtn').click();
+  await page.locator('#menuModal').waitFor({ state: 'visible' });
+  check(await page.locator('#menuList button').count() === 8 && errors.length === 0, 'со старым HTML открывается меню без ошибок', errors.join(' | '));
+  await context.close();
+}
+
+// --------------------------------------------------------------------------
 // Без JavaScript
 // --------------------------------------------------------------------------
 {
@@ -362,6 +422,7 @@ async function makePage(options = {}) {
   check(fallback.text.includes('Для управления барабаном включите JavaScript.'), 'финальная фраза без JS');
   check(fallback.text.includes('Для кого этот сайт?'), 'без JS показан новый заголовок');
   check(fallback.text.includes('Чем я могу помочь'), 'без JS показан блок услуг');
+  check(fallback.text.includes('Как я отдыхаю от компьютера') && fallback.text.indexOf('Как я отдыхаю от компьютера') < fallback.text.indexOf('Мои ожидания'), 'без JS раздел об отдыхе показан перед ожиданиями');
   for (const name of ['Самостоятельная разработка', 'Криптобиржа', 'Akma', 'Интерселект', 'Страйдер', 'Маш Русланд', 'Старсофт Лабс · T-Mobile', 'Мои ожидания']) {
     check(fallback.text.includes(name), `без JS перечислена глава «${name}»`);
   }

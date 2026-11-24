@@ -65,7 +65,7 @@ const touch=await p.evaluate(async()=>{
 });
 check(touch.after>0,'горизонтальный touch-свайп продвигает маршрут',JSON.stringify(touch));
 // final home
-await p.evaluate(()=>window.__orbits.jumpToT(53.62)); await p.waitForTimeout(200);
+await p.evaluate(()=>window.__orbits.jumpToT(window.__orbits.getEntries().find((entry)=>entry.kind==='finale').center)); await p.waitForTimeout(200);
 await p.click('#finalHomeBtn'); await p.waitForTimeout(200);
 const homeT=await p.evaluate(()=>window.__orbits.getState().t);
 check(homeT===0,'«К началу атласа» возвращает на обложку',String(homeT));
