@@ -26,7 +26,17 @@
     "birthplaceLabel": "Place of birth",
     "birthplace": "Leningrad",
     "residenceLabel": "Place of residence",
-    "residence": "Saint Petersburg"
+    "residence": "Saint Petersburg",
+    "aiTools": [
+      {
+        "label": "AI development tools",
+        "names": ["Claude Code", "OpenAI Codex", "Google Antigravity", "DeepSeek Harness", "Cursor"]
+      },
+      {
+        "label": "AI platforms",
+        "names": ["ChatGPT", "Claude", "Google Gemini", "DeepSeek"]
+      }
+    ]
   },
   "navigation": {
     "chapters": "Chapters",
@@ -509,11 +519,11 @@
     },
     "expectations": {
       "title": "What I’m looking for",
-      "period": "What matters in my next role",
+      "period": "Roles, projects and working arrangements",
       "episodes": {
         "01": {
           "title": "What I’m looking for",
-          "text": "Here’s what I’d like in my next role.",
+          "text": "I’m looking for a senior frontend developer role. I take on one-off assignments and small projects, and work with startups. I’m open to part-time or full-time work.",
           "skills": [
             "Remote",
             "Flexible hours",

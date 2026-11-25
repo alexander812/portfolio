@@ -65,6 +65,12 @@ const { site, profile, navigation } = getMessages(locale);
           <dt>{profile.residenceLabel}</dt>
           <dd>{profile.residence}</dd>
         </div>
+        {profile.aiTools.map(({ label, names }) => (
+          <div>
+            <dt>{label}</dt>
+            <dd>{names.join(', ')}</dd>
+          </div>
+        ))}
       </dl>
     </figcaption>
   </figure>

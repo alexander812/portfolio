@@ -3733,6 +3733,42 @@ html.reduce-motion .scroll-line::after {
   }
 }
 
+@media (max-width: 430px) and (max-height: 640px), (max-height: 460px) {
+  .episode[data-figure="30"] .ep-figure {
+    display: none;
+  }
+}
+
+@media (max-height: 460px) {
+  .episode[data-figure="30"] .ep-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .episode[data-figure="30"] .ep-top {
+    margin-bottom: 8px;
+  }
+
+  .episode[data-figure="30"] .ep-copy h2 {
+    max-width: none;
+    margin-bottom: 8px;
+    font-size: clamp(22px, 4vw, 34px);
+  }
+
+  .episode[data-figure="30"] .ep-copy p,
+  .episode[data-figure="30"] .ep-list {
+    max-width: none;
+    margin-bottom: 8px;
+  }
+
+  .episode[data-figure="30"] .ep-list {
+    gap: 3px;
+  }
+
+  .episode[data-figure="30"] .skills {
+    display: none;
+  }
+}
+
 @media (max-width: 420px) {
   .secondary-note {
     display: none;

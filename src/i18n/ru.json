@@ -26,7 +26,17 @@
     "birthplaceLabel": "Место рождения",
     "birthplace": "г. Ленинград",
     "residenceLabel": "Место жительства",
-    "residence": "Санкт-Петербург"
+    "residence": "Санкт-Петербург",
+    "aiTools": [
+      {
+        "label": "ИИ для разработки",
+        "names": ["Claude Code", "OpenAI Codex", "Google Antigravity", "DeepSeek Harness", "Cursor"]
+      },
+      {
+        "label": "ИИ-платформы",
+        "names": ["ChatGPT", "Claude", "Google Gemini", "DeepSeek"]
+      }
+    ]
   },
   "navigation": {
     "chapters": "Главы",
@@ -509,11 +519,11 @@
     },
     "expectations": {
       "title": "Мои ожидания",
-      "period": "Пожелания к следующей роли",
+      "period": "Форматы и условия работы",
       "episodes": {
         "01": {
           "title": "Мои ожидания",
-          "text": "Каким я вижу следующее место работы.",
+          "text": "Ищу позицию старшего фронтенд-разработчика. Берусь за разовые заказы, подключаюсь к стартапам и небольшим проектам. Рассматриваю частичную или полную занятость.",
           "skills": [
             "Remote",
             "Гибкий график",

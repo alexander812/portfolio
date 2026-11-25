@@ -7,9 +7,10 @@ import ResumeDownload from './ResumeDownload.astro';
 type Props = LocaleProps;
 
 const { locale } = Astro.props;
-const { cover, site, chapters, chapterSummaries } = getMessages(locale);
+const { cover, site, profile, chapters, chapterSummaries } = getMessages(locale);
 const chapterYears = ['2026', '2023', '2017', '2015', '2010', '2009', '2006'] as const;
 const expectations = chapters.expectations;
+const workPreferences = expectations.episodes['01'];
 ---
 
 <div class="nojs-fallback" id="nojsFallback">
@@ -22,6 +23,14 @@ const expectations = chapters.expectations;
     <h1>{cover.introTitle.join(' ')}</h1>
     <p class="nojs-lead">{cover.introLead}</p>
     <p class="nojs-help">{cover.helpLabel}: {cover.helpLead}</p>
+    <dl class="nojs-ai-tools">
+      {profile.aiTools.map(({ label, names }) => (
+        <div>
+          <dt>{label}</dt>
+          <dd>{names.join(', ')}</dd>
+        </div>
+      ))}
+    </dl>
     <p class="nojs-meta">2006 — 2027 · {site.scope}</p>
     <div class="nojs-chapters">
       {chapterYears.map((year) => (
@@ -35,8 +44,9 @@ const expectations = chapters.expectations;
       <section>
         <h2>2027 · {expectations.title}</h2>
         <p class="nojs-period">{expectations.period}</p>
+        <p>{workPreferences.text}</p>
         <ul class="nojs-list">
-          {expectations.episodes['01'].bullets.map((bullet) => <li>{bullet}</li>)}
+          {workPreferences.bullets.map((bullet) => <li>{bullet}</li>)}
         </ul>
       </section>
     </div>
@@ -52,4 +62,15 @@ const expectations = chapters.expectations;
     gap: 8px;
     margin-bottom: 18px;
   }
+
+  .nojs-ai-tools {
+    display: grid;
+    gap: 8px;
+    margin: 16px 0 0;
+    color: var(--text-soft);
+    font-size: 14px;
+  }
+
+  .nojs-ai-tools dt { color: var(--lav-bright); }
+  .nojs-ai-tools dd { margin: 0; }
 </style>
