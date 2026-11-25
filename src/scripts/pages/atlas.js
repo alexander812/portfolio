@@ -1,6 +1,5 @@
-import { gsap } from '../globals';
+import { gsap } from 'gsap';
 import { basePath, formatMessage, getLocale, getMessages } from '../../i18n';
-import '../../pencil-embed.js';
 import dogeIcon from '../../assets/crypto/doge.svg?url';
 import shibIcon from '../../assets/crypto/shib.svg?url';
 import pepeIcon from '../../assets/crypto/pepe.svg?url';
@@ -980,7 +979,6 @@ const pinNoteScreenshot = `${basePath}/images/pin-note-demo.png`;
             </g>
           </svg>` : ''}
           <div class="event-card">
-            ${eventBackdrop(event.id)}
             <div class="event-year">${event.year}</div>
             <div class="event-body">
               <div class="event-kicker">${escapeHtml(event.month)} · ${escapeHtml(event.type)}</div>
@@ -999,7 +997,6 @@ const pinNoteScreenshot = `${basePath}/images/pin-note-demo.png`;
       <section class="stop stop-year" data-index="${entry.index}" aria-label="${escapeHtml(yearLabel)}">
         <div class="event-shell">
           <div class="event-card year-event-card">
-            ${entry.year === 2019 ? covidBackdrop() : yearBackdrop(entry.year)}
             <div class="event-year" aria-hidden="true">${entry.year}</div>
             <div class="event-body">
               <h2 class="sr-only">${escapeHtml(yearLabel)}</h2>
@@ -5285,19 +5282,33 @@ const pinNoteScreenshot = `${basePath}/images/pin-note-demo.png`;
     const host = $('[data-figure-body="25"]');
     if (!host) return;
     const canvas = $('[data-tournament]', host);
-    if (!canvas) return;
-    const pencil = window.__createPencilDrawing?.(canvas, {
-      color: 'rgba(247, 245, 255, 0.9)',
-      showPencil: true,
-      fitContainer: true,
-    });
-    if (!pencil) return;
+    const episode = host.closest('.episode');
+    if (!canvas || !episode) return;
 
-    pencil.pause();
-    const staticTime = pencil.drawingDuration + 0.15;
-    registerAnimation('fig25', host, (time) => {
-      pencil.seek(reduceMotion ? staticTime : Math.min(staticTime, time));
-    }, { staticTime, restartOnEnter: true });
+    let pencil;
+    let requested = false;
+    const anim = registerAnimation('fig25', host, (time) => {
+      if (pencil) {
+        pencil.seek(reduceMotion ? anim.staticTime : Math.min(anim.staticTime, time));
+        return;
+      }
+      if (requested || !episode.classList.contains('is-active')) return;
+
+      requested = true;
+      import('../../pencil-embed.js').then(() => {
+        pencil = window.__createPencilDrawing(canvas, {
+          color: 'rgba(247, 245, 255, 0.9)',
+          showPencil: true,
+          fitContainer: true,
+        });
+        pencil.pause();
+        anim.staticTime = pencil.drawingDuration + 0.15;
+        anim.time = reduceMotion ? anim.staticTime : 0;
+        anim.last = 0;
+        anim.lastDraw = 0;
+        anim.draw(anim.time);
+      }).catch((error) => console.error('Pencil drawing failed to load', error));
+    }, { restartOnEnter: true });
   }
 
   function initPlatformsAnimationLegacy() {
@@ -8291,6 +8302,12 @@ const pinNoteScreenshot = `${basePath}/images/pin-note-demo.png`;
     final: false,
   };
 
+  const moveSkyGlows = $$('.sky-glow').map((glow, index) => {
+    const distance = index === 0 ? 10 : -8;
+    const move = gsap.quickTo(glow, 'yPercent', { duration: 1.2, ease: 'expo.out' });
+    return (progress) => move(progress * distance);
+  });
+
   function computeU(height = window.innerHeight) {
     return clamp(0.83 * height, 340, 1000);
   }
@@ -8443,6 +8460,10 @@ const pinNoteScreenshot = `${basePath}/images/pin-note-demo.png`;
     if (!force && Math.abs(t - scene.t) < 1e-7) return;
     const previousActive = scene.activeIndex;
     const previousEpisode = scene.activeEpisode;
+    if (t !== scene.t) {
+      const progress = t / ROUTE_END;
+      for (const move of moveSkyGlows) move(progress);
+    }
     scene.t = t;
     const row = rowAt(t);
     scene.row = row;
@@ -8466,6 +8487,14 @@ const pinNoteScreenshot = `${basePath}/images/pin-note-demo.png`;
           });
         }
         continue;
+      }
+
+      if (!entry.backdropRendered && (entry.kind === 'event' || entry.kind === 'year')) {
+        const backdrop = entry.kind === 'event'
+          ? eventBackdrop(entry.event.id)
+          : entry.year === 2019 ? covidBackdrop() : yearBackdrop(entry.year);
+        if (backdrop) $('.event-card', entry.el).insertAdjacentHTML('afterbegin', backdrop);
+        entry.backdropRendered = true;
       }
 
       let centerY;

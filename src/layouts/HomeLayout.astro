@@ -1,9 +1,9 @@
 ---
-import '../styles/global.css';
 import hankenLatin from '../assets/fonts/hanken-latin.woff2?url';
 import onestCyrillic from '../assets/fonts/onest-cyrillic.woff2?url';
 import LocalePreference from '../components/LocalePreference.astro';
 import { basePath, defaultLocale, getMessages, localePath, locales, type LocaleProps } from '../i18n';
+import globalStyles from '../styles/global.css?url';
 
 type Props = LocaleProps;
 
@@ -28,6 +28,7 @@ const absoluteLocaleUrl = (option: Props['locale']) => new URL(localePath(option
     <link rel="icon" type="image/svg+xml" href={`${basePath}/favicon.svg`} />
     <link rel="preload" href={hankenLatin} as="font" type="font/woff2" crossorigin="anonymous" />
     {locale === 'ru' && <link rel="preload" href={onestCyrillic} as="font" type="font/woff2" crossorigin="anonymous" />}
+    <link rel="stylesheet" href={globalStyles} />
     <noscript>
       <style is:inline>
         #sky, #app, .hud-top, .hud-bottom, .progress-rail, .modal, .skip-link { display: none !important; }
