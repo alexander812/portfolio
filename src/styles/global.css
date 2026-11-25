@@ -2270,6 +2270,22 @@ body::after {
   min-width: 0;
 }
 
+.event-landmark {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: clamp(150px, 20vw, 290px);
+  justify-content: center;
+  color: var(--lav);
+}
+
+.event-landmark svg {
+  display: block;
+  width: auto;
+  height: clamp(160px, 32vh, 300px);
+  max-width: 100%;
+}
+
 .event-kicker {
   display: flex;
   align-items: center;
@@ -2321,16 +2337,11 @@ body::after {
 }
 
 .event-text {
-  max-width: 26ch;
   color: var(--text);
   font-size: clamp(18px, 1.75vw, 26px);
   font-weight: 450;
   letter-spacing: -0.025em;
   line-height: 1.28;
-}
-
-.year-event-card .year-note {
-  max-width: 38ch;
 }
 
 .year-shell {
@@ -3243,6 +3254,14 @@ body.is-paused .mode-orb {
 
   .event-year {
     font-size: clamp(62px, 17vw, 96px);
+  }
+
+  .event-landmark {
+    width: 100%;
+  }
+
+  .event-landmark svg {
+    height: clamp(100px, 22vh, 180px);
   }
 
   .event-text {

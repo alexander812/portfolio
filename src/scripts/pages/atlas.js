@@ -979,7 +979,13 @@ const pinNoteScreenshot = `${basePath}/images/pin-note-demo.png`;
             </g>
           </svg>` : ''}
           <div class="event-card">
-            <div class="event-year">${event.year}</div>
+            ${event.id === '2007-06'
+              ? `<div class="event-landmark" aria-hidden="true"><svg viewBox="390 30 78 430" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                  <path d="M402 444V183h54v261M397 183h64l-6-28h-52ZM406 155l7-31h33l7 31M415 124V96h28v28m-26-28 12-41 12 41m-12-41V40M398 250h62M402 269h54M402 410h54"/>
+                  <circle cx="429" cy="215" r="20"/><circle cx="429" cy="215" r="16" opacity=".65"/>
+                  <path d="M429 215v-12m0 12 9 5M410 281v112m10-112v112m18-112v112m10-112v112M421 108v10m8-10v10m8-10v10" opacity=".65" stroke-width="1"/>
+                </svg></div>`
+              : `<div class="event-year">${event.year}</div>`}
             <div class="event-body">
               <div class="event-kicker">${escapeHtml(event.month)} · ${escapeHtml(event.type)}</div>
               ${company}
@@ -6997,6 +7003,17 @@ const pinNoteScreenshot = `${basePath}/images/pin-note-demo.png`;
 
   function deckCardMarkup(word) {
     return `<svg class="deck-card-svg" viewBox="0 0 200 256" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="var(--lav)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <g class="deck-speaker" transform="translate(23 23)">
+          <circle r="13" stroke-opacity=".3"/>
+          <path d="M-7-3h3l5-4V7l-5-4h-3ZM4-3a5 5 0 0 1 0 6M7-6a9 9 0 0 1 0 12"/>
+        </g>
+        <g class="deck-microphone" transform="translate(177 23)">
+          <circle r="13" stroke-opacity=".3"/>
+          <rect x="-3" y="-8" width="6" height="11" rx="3"/>
+          <path d="M-6 0v1a6 6 0 0 0 12 0V0M0 7v3M-3 10h6"/>
+        </g>
+      </g>
       ${WORD_ICONS[word.icon] ? WORD_ICONS[word.icon]('a') : ''}
       <text x="100" y="192" text-anchor="middle" class="wd word-nl" lang="en">${escapeHtml(word.en)}</text>
       <text x="100" y="226" text-anchor="middle" class="wt word-ru" lang="ru">${escapeHtml(word.ru)}</text>
@@ -8606,9 +8623,10 @@ const pinNoteScreenshot = `${basePath}/images/pin-note-demo.png`;
     cancelScrollAnimation();
     if (target > START_BRAKE_T || startY / scene.U > START_BRAKE_T) startGate.unlocked = true;
     sky.lastT = scene.t;
-    const proxy = { y: startY };
+    // Animate route progress so a viewport change cannot leave an old pixel target.
+    const proxy = { t: startY / scene.U };
     scrollTween = gsap.to(proxy, {
-      y: targetY,
+      t: target,
       duration: durationSec,
       ease: 'power2.inOut',
       overwrite: true,
@@ -8617,7 +8635,7 @@ const pinNoteScreenshot = `${basePath}/images/pin-note-demo.png`;
           cancelScrollAnimation();
           return;
         }
-        window.scrollTo(0, proxy.y);
+        window.scrollTo(0, proxy.t * scene.U);
       },
       onComplete: () => {
         scrollTween = null;
@@ -9072,6 +9090,13 @@ const pinNoteScreenshot = `${basePath}/images/pin-note-demo.png`;
 
   window.addEventListener('resize', handleResize, { passive: true });
   window.addEventListener('orientationchange', handleResize, { passive: true });
+  // PinNote can resize the stage after the window resize event has already fired.
+  if (typeof ResizeObserver !== 'undefined') {
+    const stageResizeObserver = new ResizeObserver(() => {
+      if (stage.clientWidth !== scene.W || window.innerHeight !== scene.H) handleResize();
+    });
+    stageResizeObserver.observe(stage);
+  }
 
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {

@@ -66,8 +66,7 @@
       "can",
       "help."
     ],
-    "helpLead": "I build apps, sites, portals and content management systems for the web, Android, iOS and Telegram. I can help with frontend and backend development, design systems, brand guidelines, UI kits, social media content, LLM-powered chatbots, CRM, analytics, A/B testing and AI workflow automation.",
-    "helpNote": "Automate routine work so people have more time to create.",
+    "helpLead": "I can handle the full development cycle, from writing the specification to delivering a working product. This could be an app, a website, a service, an admin system, AI tool integrations, social media integrations, bots, analytics, A/B testing and much more. I can oversee the work of AI agents and ensure strong security and high performance.",
     "helpFigure": "A processor with an array of transistors",
     "startLabel": "Start of the journey",
     "startEyebrow": "From today to 20 years ago",
@@ -231,7 +230,7 @@
     "2026": "AI tools, maintenance for small projects, a media platform for a nonprofit, and a language-learning app. PinNote sends feedback on page elements to an AI coding agent.",
     "2023": "A strong team, AI-powered trading agents and signals, experiments with trading features, and hackathon-style tournaments.",
     "2017": "Akma was a trading platform for CFDs, stocks, forex and options. I worked on its core with a frontend team of around 20 developers, using MobX and TypeScript.",
-    "2015": "Fintech and binary options. We built a jQuery MVP in a week, grew the team and moved from Backbone to React.",
+    "2015": "Fintech and binary options. I built a jQuery MVP in a week, then we grew the team and moved from Backbone to React.",
     "2010": "Full-stack development on a video upload and playback service, a cloud file service, and a Backbone frontend.",
     "2009": "A PHP and Microsoft SQL Server CMS and plugins for German government agencies, a WYSIWYG editor, and tools to export Excel and Word documents to HTML.",
     "2006": "JavaScript and frontend development for T-Mobile, including an accessible, W3C-compliant component library with IE6 support, and a product catalog and CRM built with ExtJS."
@@ -259,7 +258,7 @@
         },
         "03": {
           "title": "Learning languages",
-          "text": "My latest project is a language-learning app with several ways to practice words and phrases. My son, who is learning English at school, inspired me to build it.",
+          "text": "One of my recent projects is a language-learning app with several ways to learn a range of popular languages. It started as a learning aid for my son, and I ended up getting hooked along with relatives and friends.",
           "skills": [
             "Personal project",
             "Language learning"
@@ -267,7 +266,7 @@
         },
         "04": {
           "title": "PinNote",
-          "text": "I built a local tool for reviewing websites. Leave a comment on any page element and PinNote sends it to an AI coding agent with the element’s DOM context. You can approve the fix in the same panel.",
+          "text": "I built a local tool for reviewing websites. Leave a comment on any page element and PinNote sends it to an AI coding agent with the element’s DOM context. You can approve the fix in the same panel. I built it after getting tired of constantly switching back to the agent while refining a project.",
           "skills": [
             "Node.js",
             "DOM",
@@ -324,7 +323,7 @@
         },
         "05": {
           "title": "Tournaments",
-          "text": "We held tournaments for users from time to time, usually building them in a hackathon format. We had to move quickly and think creatively. It was also the project where AI-assisted coding became part of everyday work.",
+          "text": "We held tournaments for users from time to time, usually building them in a hackathon format. We had to move quickly and think creatively. At the same time, AI became an essential tool for coding.",
           "skills": [
             "Tournaments",
             "Hackathons",
@@ -350,7 +349,7 @@
         },
         "02": {
           "title": "Team and processes",
-          "text": "I joined as a frontend team lead and senior developer. The team had around 20 developers. I made architecture decisions, hired developers and organized team syncs and offsites. The company held a hackathon every year, and I entered every time. The competition was fierce, and the prizes were worth it.",
+          "text": "I joined as a frontend team lead and senior developer. The frontend team had around 20 developers. I made architecture decisions, hired developers and organized team syncs and offsites. The company held a hackathon every year, and I entered every time. The competition was fierce, and the prizes were worth it.",
           "skills": [
             "Team Lead",
             "Senior",
@@ -378,7 +377,7 @@
       "episodes": {
         "01": {
           "title": "A jQuery MVP",
-          "text": "Interselect was a fintech platform for binary options, a popular product at the time. I joined when the team had about 10 people. We built the first version with jQuery in a week to test the idea.",
+          "text": "Interselect was a fintech platform for binary options, a popular product at the time. I joined when the team had about 10 people. I built the first version with jQuery in a week as an MVP to test the idea.",
           "skills": [
             "Fintech",
             "Binary options",
@@ -658,7 +657,7 @@
     "2020": "Finished moving the platform to MobX.",
     "2019": "When COVID hit, we all switched to remote work. We ran hundreds of A/B tests to test hypotheses and measure conversion funnels.",
     "2016": "Developed forex trading features.",
-    "2014": "Expanded the video platform and created an affiliate program.",
+    "2014": "Developed the video platform and built the interface for its affiliate program.",
     "2013": "Launched a video service with a single-page app and a custom video player with ad integrations.",
     "2012": "Integrated ads into pages, worked on analytics and built a system that automatically adjusted ad delivery based on sales.",
     "2011": "Rebuilt the file-sharing app as a single-page application and untangled the PHP code along the way."

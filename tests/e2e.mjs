@@ -247,6 +247,35 @@ async function makePage(options = {}) {
   check(near(resized.t, resizeState, 0.01), 'resize сохраняет t и фазу эпизода', `${resizeState} / ${resized.t}`);
   check(resized.U === Math.min(1000, Math.max(340, 0.83 * 844)), 'resize пересчитывает U', String(resized.U));
 
+  // Панель ревью меняет ширину сцены уже после события resize окна.
+  await page.setViewportSize({ width: 1200, height: 800 });
+  await page.waitForFunction(() => window.__orbits.getState().H === 800);
+  await page.evaluate(() => {
+    window.__orbits.jumpToT(5.04);
+    document.querySelector('#stage').style.right = '382px';
+  });
+  await page.waitForTimeout(250);
+  const dockedGeometry = await page.evaluate(() => {
+    const stage = document.querySelector('#stage').getBoundingClientRect();
+    const episode = document.querySelector('.stop-chapter.is-active .episode.is-active').getBoundingClientRect();
+    return { width: window.__orbits.getState().W, stageWidth: stage.width, offset: episode.left - stage.left };
+  });
+  check(dockedGeometry.width === dockedGeometry.stageWidth && near(dockedGeometry.offset, 0, 1), 'изменение ширины сцены без resize окна сохраняет выравнивание эпизода', JSON.stringify(dockedGeometry));
+  await page.evaluate(() => document.querySelector('#stage').style.removeProperty('right'));
+  await page.waitForTimeout(100);
+
+  // Изменение высоты во время плавного перехода не меняет его конечный слайд.
+  await page.evaluate(() => window.__orbits.smoothToT(6.09, 900));
+  await page.waitForTimeout(150);
+  await page.setViewportSize({ width: 1000, height: 962 });
+  await page.waitForTimeout(1100);
+  const navigationAfterResize = await page.evaluate(() => {
+    const stage = document.querySelector('#stage').getBoundingClientRect();
+    const episode = document.querySelector('.stop-chapter.is-active .episode.is-active').getBoundingClientRect();
+    return { t: window.__orbits.getState().t, offset: episode.left - stage.left };
+  });
+  check(near(navigationAfterResize.t, 6.09, 0.01) && near(navigationAfterResize.offset, 0, 1), 'плавный переход после resize доходит до выбранного слайда', JSON.stringify(navigationAfterResize));
+
   await page.setViewportSize({ width: 320, height: 568 });
   await page.waitForFunction(() => window.__orbits.getState().H === 568);
   await page.evaluate(() => {
