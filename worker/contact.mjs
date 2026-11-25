@@ -1,4 +1,5 @@
-const MAX_BODY_BYTES = 8_192;
+// A JSON escape can take six bytes per UTF-16 code unit in a valid submission.
+const MAX_BODY_BYTES = 32 * 1_024;
 
 function json(body, status, origin = '') {
   const headers = {

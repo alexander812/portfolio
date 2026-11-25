@@ -45,6 +45,17 @@ try {
   assert.equal(sent.link_preview_options.is_disabled, true);
 
   calls.length = 0;
+  const longMessage = '漢'.repeat(3_000);
+  response = await worker.fetch(makeRequest({
+    ...payload,
+    message: longMessage,
+    turnstileToken: 'x'.repeat(2_048),
+  }), env);
+  assert.equal(response.status, 200);
+  assert.equal(calls.length, 2);
+  assert.ok(JSON.parse(calls[1].options.body).text.endsWith(longMessage));
+
+  calls.length = 0;
   response = await worker.fetch(makeRequest(payload, 'https://other.example'), env);
   assert.equal(response.status, 403);
   assert.equal(calls.length, 0);
@@ -54,6 +65,10 @@ try {
   assert.equal(calls.length, 0);
 
   response = await worker.fetch(makeRequest({ ...payload, message: 'short' }), env);
+  assert.equal(response.status, 400);
+  assert.equal(calls.length, 0);
+
+  response = await worker.fetch(makeRequest({ ...payload, website: 'x'.repeat(33_000) }), env);
   assert.equal(response.status, 400);
   assert.equal(calls.length, 0);
 
@@ -81,7 +96,7 @@ try {
   response = await worker.fetch(makeRequest(), env);
   assert.equal(response.status, 502);
 
-  console.log('Contact Worker: 7 checks passed.');
+  console.log('Contact Worker: 9 checks passed.');
 } finally {
   globalThis.fetch = originalFetch;
 }

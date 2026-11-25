@@ -4,6 +4,7 @@
 /.review/comments.json
 /.review/
 .env
-.env.*.local
+.env.*
+!.env.example
 .dev.vars
 .dev.vars.*

@@ -21,7 +21,7 @@
 
    Для будущих обновлений кода можно использовать `npx wrangler login` и `npx wrangler deploy` из корня проекта. Привязка лимита уже отражена в `wrangler.toml`.
 
-5. Cloudflare Pages проект `portfolio-contact-relay` принимает запросы по адресу `https://portfolio-contact-relay-a8a.pages.dev/contact` и через привязку `CONTACT_SERVICE` передаёт их Worker `portfolio-contact`. Его код находится в `pages-gateway/_worker.js`. При обновлении шлюза загрузите содержимое `pages-gateway` в Pages и проверьте привязку в настройках проекта.
+5. Проект `portfolio-contact-relay` в Cloudflare Pages принимает запросы по адресу `https://portfolio-contact-relay-a8a.pages.dev/contact` и через привязку `CONTACT_SERVICE` передаёт их Worker `portfolio-contact`. Код шлюза находится в `pages-gateway/_worker.js`. При обновлении шлюза загрузите содержимое `pages-gateway` в Pages и проверьте привязку в настройках проекта.
 6. Скопируйте `.env.example` в `.env` и впишите публичный Turnstile sitekey. Если сайт собирается в CI, задайте переменные `PUBLIC_CONTACT_API_URL` и `PUBLIC_TURNSTILE_SITE_KEY` в окружении сборки. Затем выполните `npm run build` и опубликуйте `dist` на статическом хостинге.
 7. Проверьте отправку тестового сообщения на опубликованном сайте. Личное сообщение от бота должно прийти в Telegram. Если нет, проверьте, что вы нажали **Start**, указали верный числовой `TELEGRAM_CHAT_ID`, а `ALLOWED_ORIGIN` совпадает с адресом сайта.
 
@@ -37,7 +37,7 @@ Worker принимает запросы только с указанного or
    - `PUBLIC_TURNSTILE_SITE_KEY` — публичный sitekey виджета Turnstile.
 3. Запушьте изменения в `main` или запустите workflow вручную на вкладке **Actions**. После первого успешного деплоя форма заработает, если в Worker заданы секреты и `ALLOWED_ORIGIN=https://alexander812.github.io`.
 
-Сайт публикуется по подпути `/portfolio`, поэтому в `astro.config.mjs` заданы `site` и `base: '/portfolio'`. При переезде на отдельный домен или пользовательский сайт `alexander812.github.io` измените `base` на `'/'` и обновите `site`.
+Сайт публикуется по адресу с префиксом `/portfolio`, поэтому в `astro.config.mjs` заданы `site` и `base: '/portfolio'`. При переезде на отдельный домен или пользовательский сайт `alexander812.github.io` измените `base` на `'/'` и обновите `site`.
 
 ## Проверка локально
 
