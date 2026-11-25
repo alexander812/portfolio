@@ -10,6 +10,7 @@
     "scope": "Eight chapters · 26 episodes",
     "close": "Close",
     "contact": "Contact",
+    "downloadResume": "Download résumé",
     "backToStart": "Back to the start",
     "backToAtlasStart": "Back to the start of the atlas",
     "noJsHint": "Enable JavaScript to explore the interactive atlas."
@@ -23,7 +24,9 @@
     "birthDateLabel": "Date of birth",
     "birthDate": "October 1976",
     "birthplaceLabel": "Place of birth",
-    "birthplace": "Leningrad"
+    "birthplace": "Leningrad",
+    "residenceLabel": "Place of residence",
+    "residence": "Saint Petersburg"
   },
   "navigation": {
     "chapters": "Chapters",

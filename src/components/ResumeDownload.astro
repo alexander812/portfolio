@@ -1,0 +1,58 @@
+---
+import { basePath, getMessages, type LocaleProps } from '../i18n';
+
+type Props = LocaleProps;
+
+const { locale } = Astro.props;
+const { downloadResume } = getMessages(locale).site;
+---
+
+<a class="resume-download" href={`${basePath}/resume/aleksandr-smirnov-${locale}.pdf`} download aria-label={downloadResume}>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 3v12m-4-4 4 4 4-4M5 15v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4" />
+  </svg>
+  <span>{downloadResume}</span>
+</a>
+
+<style>
+  .resume-download {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 37px;
+    padding: 8px 13px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--text);
+    background: rgba(27, 30, 41, 0.65);
+    font-size: 10px;
+    font-weight: 650;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .resume-download:hover {
+    border-color: var(--line-lav);
+    background: rgba(188, 164, 255, 0.15);
+  }
+
+  .resume-download svg {
+    color: var(--lav-bright);
+  }
+
+  @media (max-width: 800px) {
+    .resume-download {
+      width: 37px;
+      padding: 0;
+    }
+
+    .resume-download span {
+      display: none;
+    }
+  }
+</style>

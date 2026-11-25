@@ -2,6 +2,7 @@
 import { getMessages, type LocaleProps } from '../i18n';
 import HomeHobbies from './HomeHobbies.astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
+import ResumeDownload from './ResumeDownload.astro';
 
 type Props = LocaleProps;
 
@@ -13,7 +14,10 @@ const expectations = chapters.expectations;
 
 <div class="nojs-fallback" id="nojsFallback">
   <main class="nojs-wrap">
-    <div class="nojs-language"><LanguageSwitcher locale={locale} /></div>
+    <div class="nojs-actions">
+      <LanguageSwitcher locale={locale} />
+      <ResumeDownload locale={locale} />
+    </div>
     <p class="nojs-kicker">{cover.introEyebrow}</p>
     <h1>{cover.introTitle.join(' ')}</h1>
     <p class="nojs-lead">{cover.introLead}</p>
@@ -41,9 +45,11 @@ const expectations = chapters.expectations;
 </div>
 
 <style>
-  .nojs-language {
+  .nojs-actions {
     display: flex;
+    align-items: center;
     justify-content: flex-end;
+    gap: 8px;
     margin-bottom: 18px;
   }
 </style>

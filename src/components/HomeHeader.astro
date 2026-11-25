@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import portrait from '../assets/aleksandr-smirnov.jpg';
 import { getMessages, type LocaleProps } from '../i18n';
 import LanguageSwitcher from './LanguageSwitcher.astro';
+import ResumeDownload from './ResumeDownload.astro';
 
 type Props = LocaleProps;
 
@@ -24,6 +25,7 @@ const { site, profile, navigation } = getMessages(locale);
   <div class="hud-top-right">
     <span class="atlas-caption">{site.atlasCaption}</span>
     <LanguageSwitcher locale={locale} />
+    <ResumeDownload locale={locale} />
     <button class="contact-trigger" type="button" data-open-contact aria-label={site.contact} aria-haspopup="dialog" aria-controls="contactDialog"><span class="contact-trigger-label">{site.contact}</span><span aria-hidden="true">↗</span></button>
     <button class="menu-trigger" id="menuBtn" type="button" aria-label={navigation.chapters} aria-haspopup="dialog" aria-expanded="false" aria-controls="menuModal">
       <span class="menu-glyph" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -58,6 +60,10 @@ const { site, profile, navigation } = getMessages(locale);
         <div>
           <dt>{profile.birthplaceLabel}</dt>
           <dd>{profile.birthplace}</dd>
+        </div>
+        <div>
+          <dt>{profile.residenceLabel}</dt>
+          <dd>{profile.residence}</dd>
         </div>
       </dl>
     </figcaption>

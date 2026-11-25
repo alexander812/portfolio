@@ -3972,7 +3972,7 @@ html.reduce-motion .scroll-line::after {
   .hud-top-right { gap: 8px; }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 560px) {
   .contact-trigger {
     width: 37px;
     padding: 8px;
@@ -3981,7 +3981,7 @@ html.reduce-motion .scroll-line::after {
   .contact-trigger-label { display: none; }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   .menu-trigger {
     justify-content: center;
     width: 37px;
@@ -3990,5 +3990,17 @@ html.reduce-motion .scroll-line::after {
   }
 
   .menu-trigger-label { display: none; }
+}
+
+@media (max-width: 440px) {
+  .brand-name { white-space: normal; }
+}
+
+@media (max-width: 360px) {
+  .hud-top { gap: 6px; padding-inline: 8px; }
+  .hud-top-right { gap: 6px; }
+  .brand { gap: 6px; padding-inline: 3px 2px; }
+  .brand-mark { width: 30px; height: 30px; }
+  .brand-name { font-size: 11px; }
 }
 
