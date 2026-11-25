@@ -6,7 +6,7 @@ export default {
           status: 503,
           headers: {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'https://alexander812.github.io',
+            'Access-Control-Allow-Origin': 'https://carpeflorem.dev',
             Vary: 'Origin',
           },
         });

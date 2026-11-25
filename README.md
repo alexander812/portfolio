@@ -12,7 +12,7 @@
    ```
 
 3. После публикации сайта создайте виджет [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/get-started/) для его домена. Сохраните публичный sitekey и секретный ключ.
-4. Worker уже развёрнут по адресу `https://portfolio-contact.a-s-smirnoff.workers.dev/contact`. В нём настроено ограничение частоты запросов. Откройте Cloudflare → Workers & Pages → `portfolio-contact` → Settings → Runtime variables and secrets. Добавьте три значения типа **Secret** и одно значение типа **Variable**. Для `ALLOWED_ORIGIN` укажите **только origin** опубликованного сайта: `https://alexander812.github.io` без `/portfolio` и завершающего `/`.
+4. Worker уже развёрнут по адресу `https://portfolio-contact.a-s-smirnoff.workers.dev/contact`. В нём настроено ограничение частоты запросов. Откройте Cloudflare → Workers & Pages → `portfolio-contact` → Settings → Runtime variables and secrets. Добавьте три значения типа **Secret** и одно значение типа **Variable**. Для `ALLOWED_ORIGIN` укажите `https://carpeflorem.dev` без завершающего `/`.
 
    - `TELEGRAM_BOT_TOKEN` — токен от BotFather;
    - `TELEGRAM_CHAT_ID` — числовой ID вашего личного чата;
@@ -29,13 +29,13 @@ Worker принимает запросы только с указанного or
 
 ## Публикация на GitHub Pages
 
-Сайт собирается и публикуется автоматически при пуше в `main` через workflow `.github/workflows/deploy.yml`. Адрес проекта: <https://alexander812.github.io/portfolio/>.
+Сайт собирается и публикуется автоматически при пуше в `main` через workflow `.github/workflows/deploy.yml`. Сайт доступен по адресу <https://carpeflorem.dev/>.
 
 1. Откройте **Settings → Pages → Build and deployment** и выберите источник **GitHub Actions** (не «Deploy from a branch»).
 2. В **Settings → Secrets and variables → Actions → Variables** добавьте переменные сборки:
    - `PUBLIC_CONTACT_API_URL` — `https://portfolio-contact-relay-a8a.pages.dev/contact`;
    - `PUBLIC_TURNSTILE_SITE_KEY` — публичный sitekey виджета Turnstile.
-3. Запушьте изменения в `main` или запустите workflow вручную на вкладке **Actions**. После первого успешного деплоя форма заработает, если в Worker заданы секреты и `ALLOWED_ORIGIN=https://alexander812.github.io`.
+3. Запушьте изменения в `main` или запустите workflow вручную на вкладке **Actions**. Форма работает, если в Worker заданы секреты и `ALLOWED_ORIGIN=https://carpeflorem.dev`, а `carpeflorem.dev` добавлен в список доменов виджета Turnstile.
 
 При публикации Astro получает адрес сайта и префикс путей из настроек GitHub Pages. Для локальной сборки адрес по умолчанию — `https://carpeflorem.dev` без префикса.
 

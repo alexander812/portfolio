@@ -3,7 +3,7 @@ main = "worker/contact.mjs"
 compatibility_date = "2026-11-20"
 
 [vars]
-ALLOWED_ORIGIN = "https://alexander812.github.io"
+ALLOWED_ORIGIN = "https://carpeflorem.dev"
 
 [[ratelimits]]
 name = "CONTACT_RATE_LIMIT"
