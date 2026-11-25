@@ -23,6 +23,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Configure Pages
+        id: pages
         uses: actions/configure-pages@v6
 
       - name: Setup Node
@@ -40,6 +41,8 @@ jobs:
       - name: Build
         run: npm run build
         env:
+          GITHUB_PAGES_ORIGIN: ${{ steps.pages.outputs.origin }}
+          GITHUB_PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
           PUBLIC_CONTACT_API_URL: ${{ vars.PUBLIC_CONTACT_API_URL }}
           PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.PUBLIC_TURNSTILE_SITE_KEY }}
 
